@@ -1,0 +1,44 @@
+[
+ {
+  "InstFile" : "C:/Gowin/Watchdog_UART/src/watchdog_top.v",
+  "InstLine" : 1,
+  "InstName" : "watchdog_top",
+  "ModuleFile" : "C:/Gowin/Watchdog_UART/src/watchdog_top.v",
+  "ModuleLine" : 1,
+  "ModuleName" : "watchdog_top",
+  "SubInsts" : [
+   {
+    "InstFile" : "C:/Gowin/Watchdog_UART/src/watchdog_top.v",
+    "InstLine" : 24,
+    "InstName" : "uart_rx_inst",
+    "ModuleFile" : "C:/Gowin/Watchdog_UART/src/uart_rx.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "uart_rx"
+   },
+   {
+    "InstFile" : "C:/Gowin/Watchdog_UART/src/watchdog_top.v",
+    "InstLine" : 33,
+    "InstName" : "config_reg_inst",
+    "ModuleFile" : "C:/Gowin/Watchdog_UART/src/config_reg.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "config_reg"
+   },
+   {
+    "InstFile" : "C:/Gowin/Watchdog_UART/src/watchdog_top.v",
+    "InstLine" : 45,
+    "InstName" : "watchdog_core_inst",
+    "ModuleFile" : "C:/Gowin/Watchdog_UART/src/watchdog_core.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "watchdog_core"
+   }
+  ]
+ },
+ {
+  "InstFile" : "C:/Gowin/Watchdog_UART/src/uart_tx.v",
+  "InstLine" : 1,
+  "InstName" : "uart_tx",
+  "ModuleFile" : "C:/Gowin/Watchdog_UART/src/uart_tx.v",
+  "ModuleLine" : 1,
+  "ModuleName" : "uart_tx"
+ }
+]

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module name="watchdog_top" T_Register="218(0)" T_Alu="93(0)" T_Lut="225(0)">
+ <SubModule name="uart_rx_inst" Register="49" Lut="116" T_Register="49(49)" T_Lut="116(116)"/>
+ <SubModule name="config_reg_inst" Register="132" Lut="37" T_Register="132(132)" T_Lut="37(37)"/>
+ <SubModule name="watchdog_core_inst" Register="37" Alu="93" Lut="72" T_Register="37(37)" T_Alu="93(93)" T_Lut="72(72)"/>
+</Module>

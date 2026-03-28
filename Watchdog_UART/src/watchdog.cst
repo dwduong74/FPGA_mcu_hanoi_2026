@@ -1,0 +1,23 @@
+// Physical Constraints file for KIWI 1P5 Board
+// Part Number: GW1N-UV1P5QN48XFC7/I6
+
+IO_LOC "clk" 4;
+IO_PORT "clk" PULL_MODE=UP BANK_VCCIO=1.8;
+
+IO_LOC "rst_n" 35;
+IO_PORT "rst_n" PULL_MODE=UP BANK_VCCIO=1.8;
+
+IO_LOC "wdi" 36;
+IO_PORT "wdi" PULL_MODE=UP BANK_VCCIO=1.8;
+
+IO_LOC "uart_rx_pin" 33;
+IO_PORT "uart_rx_pin" PULL_MODE=UP BANK_VCCIO=1.8;
+
+IO_LOC "wdo_led" 28;
+IO_PORT "wdo_led" PULL_MODE=NONE DRIVE=8 BANK_VCCIO=1.8;
+
+IO_LOC "enout_led" 27;
+IO_PORT "enout_led" PULL_MODE=NONE DRIVE=8 BANK_VCCIO=1.8;
+
+IO_LOC "wdo_pin" 29;
+IO_PORT "wdo_pin" PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;

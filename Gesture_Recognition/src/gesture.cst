@@ -1,0 +1,25 @@
+// Physical Constraints for Gesture Recognition Project
+// Kiwi 1P5 Board (GW1N-UV1P5)
+
+IO_LOC "clk" 4;
+IO_PORT "clk" PULL_MODE=UP;
+
+IO_LOC "rst_n" 35;
+IO_PORT "rst_n" PULL_MODE=UP;
+
+// SPI Pins on Header J1
+IO_LOC "spi_sclk" 7;
+IO_PORT "spi_sclk" PULL_MODE=DOWN;
+
+IO_LOC "spi_mosi" 8;
+IO_PORT "spi_mosi" PULL_MODE=DOWN;
+
+IO_LOC "spi_cs_n" 11;
+IO_PORT "spi_cs_n" PULL_MODE=UP;
+
+// LEDs
+IO_LOC "led[0]" 28;
+IO_PORT "led[0]" IO_TYPE=LVCMOS18 PULL_MODE=NONE DRIVE=8;
+
+IO_LOC "led[1]" 27;
+IO_PORT "led[1]" IO_TYPE=LVCMOS18 PULL_MODE=NONE DRIVE=8;

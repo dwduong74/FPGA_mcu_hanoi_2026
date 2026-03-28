@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module name="gesture_top" T_Register="1133(0)" T_Alu="33(0)" T_Lut="949(0)">
+ <SubModule name="spi_inst" Register="21" Lut="11" T_Register="21(21)" T_Lut="11(11)"/>
+ <SubModule name="buffer_inst" Register="498" Alu="6" Lut="7" T_Register="498(498)" T_Alu="6(6)" T_Lut="7(7)"/>
+ <SubModule name="ai_core" Register="614" Alu="27" Lut="931" T_Register="614(614)" T_Alu="27(27)" T_Lut="931(931)"/>
+</Module>
