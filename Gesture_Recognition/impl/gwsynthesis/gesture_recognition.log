@@ -1,0 +1,30 @@
+GowinSynthesis start
+Running parser ...
+Analyzing Verilog file 'C:\Gowin\Gesture_Recognition\src\gesture_top.v'
+Analyzing Verilog file 'C:\Gowin\Gesture_Recognition\src\spi_slave.v'
+Analyzing Verilog file 'C:\Gowin\Gesture_Recognition\src\imu_buffer.v'
+Analyzing Verilog file 'C:\Gowin\Gesture_Recognition\src\gesture_bcnn.v'
+Compiling module 'gesture_top'("C:\Gowin\Gesture_Recognition\src\gesture_top.v":1)
+Compiling module 'spi_slave'("C:\Gowin\Gesture_Recognition\src\spi_slave.v":1)
+Compiling module 'imu_buffer'("C:\Gowin\Gesture_Recognition\src\imu_buffer.v":1)
+Compiling module 'gesture_bcnn'("C:\Gowin\Gesture_Recognition\src\gesture_bcnn.v":1)
+NOTE  (EX0101) : Current top module is "gesture_top"
+[5%] Running netlist conversion ...
+Running device independent optimization ...
+[10%] Optimizing Phase 0 completed
+[15%] Optimizing Phase 1 completed
+[25%] Optimizing Phase 2 completed
+Running inference ...
+[30%] Inferring Phase 0 completed
+[40%] Inferring Phase 1 completed
+[50%] Inferring Phase 2 completed
+[55%] Inferring Phase 3 completed
+Running technical mapping ...
+[60%] Tech-Mapping Phase 0 completed
+[65%] Tech-Mapping Phase 1 completed
+[75%] Tech-Mapping Phase 2 completed
+[80%] Tech-Mapping Phase 3 completed
+[90%] Tech-Mapping Phase 4 completed
+[95%] Generate netlist file "C:\Gowin\Gesture_Recognition\impl\gwsynthesis\Gesture_Recognition.vg" completed
+[100%] Generate report file "C:\Gowin\Gesture_Recognition\impl\gwsynthesis\Gesture_Recognition_syn.rpt.html" completed
+GowinSynthesis finish

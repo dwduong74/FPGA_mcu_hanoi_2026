@@ -1,0 +1,103 @@
+# Gowin FPGA (GW1N-1P5C) - KIWI 1P5 Board Notes
+
+## Hardware Specification (KIWI 1P5)
+- **Main FPGA Chip:** GW1N-UV1P5 (GW1N-UV1P5QN48XFC7/I6)
+- **Logic Units:** 1584 LUTs
+- **Block SRAM:** 96K bits
+- **User Flash:** 256K bits
+- **System Clock:** 27 MHz (Pin 4)
+- **I/O Voltage:** All IOs are **3.3V** level
+- **Main Voltage:** 5V (via USB-C)
+- **Programmer:** Onboard Gowin U2X (USB-JTAG) and U2U (USB-UART)
+
+## Pin Assignments (QN48 Package / Header J1 & J2)
+- **Clock (clk):** 4
+- **Reset (rst_n):** 35 (Shared with S1 button)
+- **LEDs (Active High):**
+  - **D3 (LED1):** 27 (IOR17A)
+  - **D4 (LED0):** 28 (IOR15B)
+  - **D5:** Power LED
+- **Buttons (Active Low):**
+  - **S1 (Key 1):** 35 (IOR1B)
+  - **S2 (Key 0):** 36 (IOR1A)
+- **UART:**
+  - **TX:** 34 (IOR11A)
+  - **RX:** 33 (IOR11B)
+- **Special Pins:**
+  - **READY:** 38
+  - **DONE:** 37
+  - **I2C SCL:** 43
+  - **I2C SDA:** 42
+
+## UART Settings
+- **Default Baud Rate:** 9600 bps (at 27 MHz clock)
+- **Baud Rate Calculation (27MHz):**
+  - 9600: `div_cnt` limit = 2811
+  - 115200: `div_cnt` limit = 233
+
+## Key Modules & Logic
+- **Clock Frequency:** Logic is consistently designed for **27 MHz**.
+- **Button Debouncing:** `key_filter.v` uses `20'd999_999` cycles (~37 ms delay) to debounce the active-low signals from S1/S2.
+- **JTAG Switch (SW1):** 
+  - ON: USB JTAG connected to onboard FPGA.
+  - OFF: Disconnect for external FPGA programming.
+
+## Example Projects Review
+1. **LED_BLINK:** Toggles D3 (27) and D4 (28) every 1s.
+2. **PWM_LED:** 1 kHz PWM for LED brightness control.
+3. **UART Examples:** Provide basic 1-byte TX/RX on pins 34/33.
+
+## Competition: THIẾT KẾ MCU-FPGA HANOI 2026
+- **Organizer:** School of Electrical and Electronic Engineering (SEEE) - HUST.
+- **Partners:** Willas Electronic & Gowin Semiconductor.
+- **Timeline:** Jan 2026 - July 2026.
+- **Format:** 
+  - **Round 1 (Prelim):** Basic design on FPGA (Gowin) and MCU (Sonix). Focus on RTL, peripheral interfacing, and automation testing. Hardware: **Onekiwi 1P5**, Nano 4K.
+  - **Round 2 (Final):** Creative application projects (IoT, AI, Robot Control...). Hardware: Onekiwi 20K, Tang Mega 60K/138K.
+- **Supported Hardware (Sonix MCU):** EVK 5708, EVK 407.
+- **Key Scoring:** Technical architecture (25%), Innovation (20%), Functionality (20%), FPGA+MCU Integration (10%).
+
+## TinyML Project: Gesture Recognition (IMU-based)
+- **System Architecture:**
+  - MCU (Sonix): Master (Reads IMU via I2C, sends data to FPGA via SPI).
+  - FPGA (Kiwi 1P5): Slave (BNN Accelerator, performs 1-bit inference).
+- **Data Protocol (MCU to FPGA):**
+  - SPI Mode 0, 8-bit, MSB first.
+  - Sending sequence: Ax -> Ay -> Az -> Gx -> Gy -> Gz (6 bytes per sample).
+  - Target sampling rate: ~100 Hz (10ms interval).
+- **FPGA Logic (Optimized for 1.5K LUTs):**
+  - **Buffer:** Sliding window of 100 samples, storing only MSB (600 bits total).
+  - **Classifier:** Sequential BNN (Binary Neural Network) using XNOR-Popcount logic.
+- **MCU Logic (Pseudocode):**
+  ```c
+  void main() {
+      init_i2c(); init_spi_master();
+      while(1) {
+          byte data[6] = read_mpu6050_raw_8bit(); // Read 6 axes
+          spi_cs_low();
+          for(int i=0; i<6; i++) spi_transfer(data[i]);
+          spi_cs_high();
+          delay_ms(10); // 100Hz Sampling
+      }
+  }
+  ```
+- **FPGA Pinout for SPI:**
+  - SCLK: Pin 7
+  - MOSI: Pin 8
+  - CS_n: Pin 11
+
+## Advanced Hardware AI Architecture (1D-BCNN)
+### Data Flow Path
+1. **SPI Slave (Input):** Synchronizes and receives 8-bit raw IMU bytes from Sonix MCU.
+2. **Packet Assembler:** Groups 6 bytes into a single 6-axis IMU sample.
+3. **Optimized Buffer:** Stores a sliding window of **80 samples**. Only the **Sign Bit (MSB)** is stored to minimize Flip-Flop usage (Total: 480 bits).
+4. **1D-BCNN Core:** 
+   - **Feature Extraction:** Direct 1-bit input from the buffer.
+   - **Inference Engine:** Uses 3 Binary Filters (3x6 kernels).
+   - **Classification:** Dense layer outputs 4 gesture classes (Idle, Wave, Shake, Circle).
+
+### Key Optimization Techniques (For Competition Defense)
+- **Binary Neural Network (BNN):** Replaces power-hungry Multipliers with simple **XNOR gates** and **Popcount (Summation)**. Reduces resource footprint by ~10x.
+- **Sequential Processing (Time-Multiplexing):** Instead of processing all filters in one clock cycle, the FPGA processes them one-by-one using a Finite State Machine (FSM). This trade-off (speed for area) is essential for the 1.5K LUT limit.
+- **Shift-Register Dataflow:** Avoids massive Multiplexer (MUX) trees by shifting the entire data window through the computation core. This keeps logic usage extremely low and constant regardless of window depth.
+- **Resource Footprint:** Successfully fits within **1584 LUTs** by prioritizing sequential logic over parallel arrays.

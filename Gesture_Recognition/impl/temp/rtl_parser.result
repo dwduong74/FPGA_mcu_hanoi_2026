@@ -1,0 +1,36 @@
+[
+ {
+  "InstFile" : "C:/Gowin/Gesture_Recognition/src/gesture_top.v",
+  "InstLine" : 1,
+  "InstName" : "gesture_top",
+  "ModuleFile" : "C:/Gowin/Gesture_Recognition/src/gesture_top.v",
+  "ModuleLine" : 1,
+  "ModuleName" : "gesture_top",
+  "SubInsts" : [
+   {
+    "InstFile" : "C:/Gowin/Gesture_Recognition/src/gesture_top.v",
+    "InstLine" : 21,
+    "InstName" : "spi_inst",
+    "ModuleFile" : "C:/Gowin/Gesture_Recognition/src/spi_slave.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "spi_slave"
+   },
+   {
+    "InstFile" : "C:/Gowin/Gesture_Recognition/src/gesture_top.v",
+    "InstLine" : 33,
+    "InstName" : "buffer_inst",
+    "ModuleFile" : "C:/Gowin/Gesture_Recognition/src/imu_buffer.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "imu_buffer"
+   },
+   {
+    "InstFile" : "C:/Gowin/Gesture_Recognition/src/gesture_top.v",
+    "InstLine" : 43,
+    "InstName" : "ai_core",
+    "ModuleFile" : "C:/Gowin/Gesture_Recognition/src/gesture_bcnn.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "gesture_bcnn"
+   }
+  ]
+ }
+]
