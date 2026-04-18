@@ -1,4 +1,4 @@
--d C:\Gowin\Watchdog_UART\impl\gwsynthesis\watchdog_uart.vg
+-d C:\Gowin\Watchdog_UART\impl\gwsynthesis\Watchdog_UART.vg
 -p GW1N-1P5C-QFN48XF-7
 -pn GW1N-UV1P5QN48XFC7/I6
 -cst C:\Gowin\Watchdog_UART\src\watchdog.cst

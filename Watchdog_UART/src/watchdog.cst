@@ -1,23 +1,40 @@
-// Physical Constraints file for KIWI 1P5 Board
-// Part Number: GW1N-UV1P5QN48XFC7/I6
+// Physical Constraints — Kiwi 1P5 Board
+// Part: GW1N-UV1P5QN48XFC7/I6
+//
+// Pin mapping theo schematic trang 3:
+//   Pin 33 (IOR11B) = U2U_TXD  → FPGA nhận từ PC   = uart_rx_pin
+//   Pin 34 (IOR11A) = U2U_RXD  ← FPGA gửi về PC    = uart_tx_pin
+//   Pin 35 (IOR1B)  = Nút S1   (WDI kick)           = s1_wdi_n
+//   Pin 36 (IOR1A)  = Nút S2   (Enable)             = s2_en_n
+//   Pin 27 (IOR17A) = LED D3   (WDO)                = wdo_led
+//   Pin 28 (IOR15B) = LED D4   (ENOUT)              = enout_led
+//   Pin 4  (IOL6A)  = 27 MHz clock                  = clk
+//   rst_n: POR nội bộ (không có chân ngoài)
 
+// 27 MHz clock
 IO_LOC "clk" 4;
-IO_PORT "clk" PULL_MODE=UP BANK_VCCIO=1.8;
+IO_PORT "clk" PULL_MODE=NONE IO_TYPE=LVCMOS33 BANK_VCCIO=3.3;
 
-IO_LOC "rst_n" 35;
-IO_PORT "rst_n" PULL_MODE=UP BANK_VCCIO=1.8;
-
-IO_LOC "wdi" 36;
-IO_PORT "wdi" PULL_MODE=UP BANK_VCCIO=1.8;
-
+// UART RX — FPGA nhận từ USB-UART chip (U2U_TXD → Pin 33)
 IO_LOC "uart_rx_pin" 33;
-IO_PORT "uart_rx_pin" PULL_MODE=UP BANK_VCCIO=1.8;
+IO_PORT "uart_rx_pin" PULL_MODE=UP IO_TYPE=LVCMOS33 BANK_VCCIO=3.3;
 
-IO_LOC "wdo_led" 28;
-IO_PORT "wdo_led" PULL_MODE=NONE DRIVE=8 BANK_VCCIO=1.8;
+// UART TX — FPGA gửi tới USB-UART chip (U2U_RXD ← Pin 34)
+IO_LOC "uart_tx_pin" 34;
+IO_PORT "uart_tx_pin" PULL_MODE=NONE DRIVE=8 IO_TYPE=LVCMOS33 BANK_VCCIO=3.3;
 
-IO_LOC "enout_led" 27;
-IO_PORT "enout_led" PULL_MODE=NONE DRIVE=8 BANK_VCCIO=1.8;
+// Nút S1 — WDI kick (Pin 35)
+IO_LOC "s1_wdi_n" 35;
+IO_PORT "s1_wdi_n" PULL_MODE=UP IO_TYPE=LVCMOS33 BANK_VCCIO=3.3;
 
-IO_LOC "wdo_pin" 29;
-IO_PORT "wdo_pin" PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;
+// Nút S2 — Enable (Pin 36)
+IO_LOC "s2_en_n" 36;
+IO_PORT "s2_en_n" PULL_MODE=UP IO_TYPE=LVCMOS33 BANK_VCCIO=3.3;
+
+// LED D3 — WDO (Pin 27)
+IO_LOC "wdo_led" 27;
+IO_PORT "wdo_led" PULL_MODE=NONE DRIVE=8 IO_TYPE=LVCMOS33 BANK_VCCIO=3.3;
+
+// LED D4 — ENOUT (Pin 28)
+IO_LOC "enout_led" 28;
+IO_PORT "enout_led" PULL_MODE=NONE DRIVE=8 IO_TYPE=LVCMOS33 BANK_VCCIO=3.3;

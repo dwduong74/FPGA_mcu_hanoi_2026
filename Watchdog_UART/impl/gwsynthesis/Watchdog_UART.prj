@@ -6,18 +6,18 @@
     <FileList>
         <File path="C:\Gowin\Watchdog_UART\src\watchdog_top.v" type="verilog"/>
         <File path="C:\Gowin\Watchdog_UART\src\watchdog_core.v" type="verilog"/>
-        <File path="C:\Gowin\Watchdog_UART\src\config_reg.v" type="verilog"/>
         <File path="C:\Gowin\Watchdog_UART\src\uart_rx.v" type="verilog"/>
         <File path="C:\Gowin\Watchdog_UART\src\uart_tx.v" type="verilog"/>
+        <File path="C:\Gowin\Watchdog_UART\src\config_reg.v" type="verilog"/>
+        <File path="C:\Gowin\Watchdog_UART\src\sync_debounce.v" type="verilog"/>
     </FileList>
     <OptionList>
         <Option type="disable_insert_pad" value="0"/>
         <Option type="global_freq" value="50.000"/>
         <Option type="looplimit" value="2000"/>
-        <Option type="output_file" value="C:\Gowin\Watchdog_UART\impl\gwsynthesis\watchdog_uart.vg"/>
+        <Option type="output_file" value="C:\Gowin\Watchdog_UART\impl\gwsynthesis\Watchdog_UART.vg"/>
         <Option type="print_all_synthesis_warning" value="0"/>
         <Option type="ram_rw_check" value="0"/>
-        <Option type="top_module" value="watchdog_top"/>
         <Option type="vcc" value="3.3"/>
         <Option type="verilog_language" value="verilog-2001"/>
         <Option type="vhdl_language" value="vhdl-1993"/>

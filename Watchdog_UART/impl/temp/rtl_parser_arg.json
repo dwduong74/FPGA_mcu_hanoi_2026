@@ -20,6 +20,10 @@
   {
    "Path" : "C:/Gowin/Watchdog_UART/src/config_reg.v",
    "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Gowin/Watchdog_UART/src/sync_debounce.v",
+   "Type" : "verilog"
   }
  ],
  "IncludePath" : [

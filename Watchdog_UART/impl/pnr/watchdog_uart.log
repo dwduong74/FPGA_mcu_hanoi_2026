@@ -1,5 +1,5 @@
-Reading netlist file: "C:\Gowin\Watchdog_UART\impl\gwsynthesis\watchdog_uart.vg"
-Parsing netlist file "C:\Gowin\Watchdog_UART\impl\gwsynthesis\watchdog_uart.vg" completed
+Reading netlist file: "C:\Gowin\Watchdog_UART\impl\gwsynthesis\Watchdog_UART.vg"
+Parsing netlist file "C:\Gowin\Watchdog_UART\impl\gwsynthesis\Watchdog_UART.vg" completed
 Processing netlist completed
 Reading constraint file: "C:\Gowin\Watchdog_UART\src\watchdog.cst"
 Physical Constraint parsed completed
@@ -21,10 +21,10 @@ Bitstream generation in progress......
 Bitstream generation completed
 Running power analysis......
 [100%] Power analysis completed
-Generate file "C:\Gowin\Watchdog_UART\impl\pnr\watchdog_uart.power.html" completed
-Generate file "C:\Gowin\Watchdog_UART\impl\pnr\watchdog_uart.pin.html" completed
-Generate file "C:\Gowin\Watchdog_UART\impl\pnr\watchdog_uart.rpt.html" completed
-Generate file "C:\Gowin\Watchdog_UART\impl\pnr\watchdog_uart.rpt.txt" completed
-Generate file "C:\Gowin\Watchdog_UART\impl\pnr\watchdog_uart.tr.html" completed
-Thu Mar 26 22:20:05 2026
+Generate file "C:\Gowin\Watchdog_UART\impl\pnr\Watchdog_UART.power.html" completed
+Generate file "C:\Gowin\Watchdog_UART\impl\pnr\Watchdog_UART.pin.html" completed
+Generate file "C:\Gowin\Watchdog_UART\impl\pnr\Watchdog_UART.rpt.html" completed
+Generate file "C:\Gowin\Watchdog_UART\impl\pnr\Watchdog_UART.rpt.txt" completed
+Generate file "C:\Gowin\Watchdog_UART\impl\pnr\Watchdog_UART.tr.html" completed
+Sat Apr 18 09:43:48 2026
 
