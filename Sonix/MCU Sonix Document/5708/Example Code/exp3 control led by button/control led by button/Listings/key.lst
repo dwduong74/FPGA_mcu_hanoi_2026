@@ -1,0 +1,203 @@
+C51 COMPILER V9.56.0.0   KEY                                                               03/25/2024 19:57:37 PAGE 1   
+
+
+C51 COMPILER V9.56.0.0, COMPILATION OF MODULE KEY
+OBJECT MODULE PLACED IN .\Objects\key.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE Source\key.c OPTIMIZE(8,SPEED) BROWSE INCDIR(.\Source;.\Source;.\Source\
+                    -Buzzer;.\Source\CHRG;.\Source\KEY;.\Source\Timer;.\Source\IIC;.\Source\USER;.\Source\SYS;.\Source\UART;.\Source\LCD;.\So
+                    -urce\LED;.\Source\INC;.\Source\InfraRed;.\Source\ISP;.\Source\WS2811;.\Source\RF;.\Hardware\SN8F5702_Hardware\inc;.\Sour
+                    -ce\AHT10) DEBUG OBJECTEXTEND PRINT(.\Listings\key.lst) TABS(2) OBJECT(.\Objects\key.obj)
+
+line level    source
+
+   1          #include "key.h"
+   2          #include "led.h"
+   3          //    CONST
+   4          //========================================================================================================
+             -====
+   5          #define keyout0   P44                                           //°´¼ü½Ó¿ÚÒý½Å¶¨Òå
+   6          #define keyout1   P45
+   7          #define keyout2   P46
+   8          #define keyout3   P47
+   9          
+  10          #define keyin0    P24
+  11          #define keyin1    P25
+  12          #define keyin2    P26
+  13          #define keyin3    P27
+  14          
+  15          #define delaytime             10                                //Ïû¶¶Ê±¼ä10*10ms = 100ms
+  16          #define keyfifo_length        8                                 //FIFO³¤¶È
+  17          //========================================================================================================
+             -====
+  18          //    DATA
+  19          //========================================================================================================
+             -====
+  20          uint8_t keyinbuf1,keyinbuf2;                                    //°´¼üÉ¨Ãè±äÁ¿
+  21          uint8_t keychkbuf1,keychkbuf2;                                  //È¥¶¶Ê±µÄÖÐ¼ä±äÁ¿
+  22          uint8_t keycvtbuf1,keycvtbuf2;                                  //¼üÅÌµÄ²Ù×÷ÐÅÏ¢
+  23          uint8_t keyoldbuf1,keyoldbuf2;                                  //¾É¼üÖµ´æ´¢
+  24          uint8_t skeychat;                                               //°´¼üÈ¥¶¶¼ÆÊ±Æ÷
+  25          uint8_t rkeyval;                                                //ÕÒ³ö°´¼üÖµÖÐ¼ä±äÁ¿
+  26          uint8_t keyfifo[keyfifo_length];                                //´æ´¢°´¼üÐÅÏ¢
+  27          uint8_t keyfifo_pointer;                                        //keyfifoÐ´Ö¸Õë
+  28          bit     fkeyin;                                                 //¼üÖµ·¢Éú±ä»¯±êÖ¾
+  29          //========================================================================================================
+             -====
+  30          //    Function
+  31          //========================================================================================================
+             -====
+  32          /*********************************************************************************************************
+             -*****
+  33          * Name    : Mnkey
+  34          * Function: ¼ì²â°´¼ü×´Ì¬
+  35          **********************************************************************************************************
+             -****/
+  36          
+  37          void  Mnkey()
+  38          {
+  39   1      //========================================================================================================
+             -=====
+  40   1      //  keyin
+  41   1      //========================================================================================================
+             -=====
+  42   1      //row1
+  43   1        uint8_t i ;
+C51 COMPILER V9.56.0.0   KEY                                                               03/25/2024 19:57:37 PAGE 2   
+
+  44   1        
+  45   1        P2UR |= 0XF0;
+  46   1        P2M  &= 0X0F;
+  47   1        P4M  &= ~0xF0;  
+  48   1        
+  49   1        P4M |= 0x10;                                                    //½«µÚÒ»ÐÐÉèÎªÊä³öÄ£Ê½
+  50   1        keyout0 = 0;                                                  //µÚÒ»ÐÐÊä³öµÍµçÆ½
+  51   1        for(i = 0;i< 8;i++);                                          //When switching the status, you need to w
+             -ait for a while, otherwise the status will be incorrectly read
+  52   1        keyinbuf1 = keyin3*8 | keyin2*4 | keyin1*2 | keyin0;          //¶ÁÈ¡¼üÖµ£¬±£´æÔÚkeyingbuf1µÄµÍËÄÎ»
+  53   1        keyout0 = 1;                                                  //ÏÈÀ­¸ß
+  54   1        P4M &= ~0x10; 
+  55   1        P4M |= 0x20;                                                    //ÔÙ½«µÚÒ»ÐÐÉèÎªÊäÈë£¬µÚ¶þÐÐÉèÎªÊä³öÄ£Ê½
+  56   1        
+  57   1      //row2
+  58   1        keyout1 = 0;              
+  59   1        for(i = 0;i< 8;i++);  
+  60   1        keyinbuf1 |= keyin3*128 | keyin2*64 | keyin1*32 | keyin0*16;  //¶ÁÈ¡¼üÖµ£¬²¢±£´æÔÚkeyinbuf1µÄ¸ßËÄÎ»£¬ÒÔ´Ë·
+             -½Ê½ÖðÁÐÉ¨Ãè
+  61   1        keyout1 = 1;
+  62   1        P4M &= ~0x20; 
+  63   1        P4M = 0x40;
+  64   1        
+  65   1      //row3  
+  66   1        keyout2 = 0;
+  67   1        for(i = 0;i< 8;i++);
+  68   1        keyinbuf2 = keyin3*8 | keyin2*4 | keyin1*2 | keyin0;
+  69   1        keyout2 = 1;
+  70   1        P4M &= ~0x40;
+  71   1        P4M |= 0x80;
+  72   1        
+  73   1      //row4  
+  74   1      
+  75   1        keyout3 = 0;
+  76   1        for(i = 0;i< 8;i++);
+  77   1        keyinbuf2 |= keyin3*128 | keyin2*64 | keyin1*32 | keyin0*16;
+  78   1        keyout3 = 1;
+  79   1        
+  80   1        P4M &= ~0x80;
+  81   1        
+  82   1        keyinbuf1 = ~ keyinbuf1;                                      //È¡·´£¬È¡ÕýÂß¼­
+  83   1        keyinbuf2 = ~ keyinbuf2;
+  84   1        
+  85   1      //========================================================================================================
+             -=====
+  86   1      //  keychk
+  87   1      //========================================================================================================
+             -=====
+  88   1        if ((keyinbuf1 == keychkbuf1) && (keyinbuf2 == keychkbuf2))   //ÅÐ¶ÏÉ¨ÃèÖµÊÇ·ñ²»±ä£¿
+  89   1        { 
+  90   2          if ((1 == fkeyin) && (0 == skeychat))                       //fkeyin Îª1±íÊ¾ÓÐ°´¼ü²Ù×÷          
+  91   2          {                                                           //skeychat Îª0±íÊ¾°´¼üÈ¥¶¶¼ÆÊ±Íê±Ï
+  92   3              keycvtbuf1 = keychkbuf1;                        
+  93   3              keycvtbuf2 = keychkbuf2;
+  94   3              fkeyin = 0;
+  95   3          }
+  96   2        }
+  97   1        else
+  98   1        {
+  99   2          keychkbuf1 = keyinbuf1;                                     //ÈôÁ½´Î°´¼üÖµ²»Í¬£¬Ôò½«ÉÏ´Î¼üÖµ¸üÐÂ
+ 100   2          keychkbuf2 = keyinbuf2;
+ 101   2          fkeyin = 1;
+C51 COMPILER V9.56.0.0   KEY                                                               03/25/2024 19:57:37 PAGE 3   
+
+ 102   2          skeychat = delaytime;                                       //ÖØ¸³Ïû¶¶Ê±¼ä
+ 103   2        } 
+ 104   1        
+ 105   1        if(skeychat != 0)
+ 106   1          skeychat -- ;
+ 107   1      //========================================================================================================
+             -=====
+ 108   1      //  keycvt
+ 109   1      //========================================================================================================
+             -=====
+ 110   1        if ((keycvtbuf1 != keyoldbuf1) | (keycvtbuf2 != keyoldbuf2))  //fkeycvtok Îª1ÓÐ°´¼üÐÅÏ¢Òª´¦Àí
+ 111   1        {
+ 112   2          uint8_t i,j;
+ 113   2          if ((0 == keyoldbuf1) && (0 == keyoldbuf2))                 //µ¥¼ü°´ÏÂ
+ 114   2          {
+ 115   3            if (keycvtbuf1)
+ 116   3            {
+ 117   4              keychkbuf1=keycvtbuf1;
+ 118   4            }     
+ 119   3            else
+ 120   3            {
+ 121   4              keychkbuf1=keycvtbuf2;      
+ 122   4            } 
+ 123   3            
+ 124   3            i = 9;
+ 125   3            j = 0x80;                               
+ 126   3            while(-- i)                                               //×î¶àÑ­»·8´Î
+ 127   3            {
+ 128   4              if (j & keychkbuf1)                                     //ÕÒ³ö¾ßÌåÐÂ¼ü°´ÏÂÎ»ÖÃ
+ 129   4              {       
+ 130   5                led_ctr(LED0,!LED0_PIN);
+ 131   5                i = 1;                                                //ÕÒ³ö¼üÖµ¾ÍÍË³öÑ­»·                    
+ 132   5              }
+ 133   4              j >>= 1;                                                //Í¨¹ýÒÆÎ»ÕÒ³ö¾ßÌå¼üÖµ
+ 134   4            }   
+ 135   3          }
+ 136   2          keyoldbuf1 = keycvtbuf1;                                    //½«¾É¼üÖµ¸üÐÂ
+ 137   2          keyoldbuf2 = keycvtbuf2;
+ 138   2        }
+ 139   1      }
+ 140          
+ 141          
+ 142          /*********************************************************************************************************
+             -*****
+ 143          * Name    : Wr_FIFO 
+ 144          * Function: ¼üÖµÐ´ÈëFIFOÖÐ
+ 145          **********************************************************************************************************
+             -****/
+ 146          void  Wr_FIFO()
+ 147          {
+ 148   1        keyfifo[keyfifo_pointer] = rkeyval;                         //Ð´ÈëFIFO
+ 149   1        if (++ keyfifo_pointer >= keyfifo_length)                   //Ð´Ö¸Õë´óÓÚµÈÓÚFIFO³¤¶ÈÔò¶ÔÆäÇåÁã
+ 150   1        {
+ 151   2          keyfifo_pointer = 0;
+ 152   2        }
+ 153   1        
+ 154   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    386    ----
+   CONSTANT SIZE    =   ----    ----
+C51 COMPILER V9.56.0.0   KEY                                                               03/25/2024 19:57:37 PAGE 4   
+
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     19       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      1    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

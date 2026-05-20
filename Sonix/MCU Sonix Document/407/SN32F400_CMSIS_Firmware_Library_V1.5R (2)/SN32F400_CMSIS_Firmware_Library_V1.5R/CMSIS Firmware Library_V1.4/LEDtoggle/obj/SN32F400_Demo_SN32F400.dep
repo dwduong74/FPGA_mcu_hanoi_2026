@@ -1,0 +1,39 @@
+Dependencies for Project 'SN32F400_Demo', Target 'SN32F400': (DO NOT MODIFY !)
+CompilerVersion: 6240000::V6.24::ARMCLANG
+F (.\main.c)(0x67E933FA)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/_SN32F400-IC:/Keil_v5/ARM/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/Packs/SONiX/SN32F4_DFP/1.1.1_bak_0/Device/Include-D__UVISION_VERSION="543" -DSN32F400 -D_RTE_-o ./obj/main.o -MMD)
+I (C:\Keil_v5\ARM\Packs\SONiX\SN32F4_DFP\1.1.1_bak_0\Device\Include\SN32F400.h)(0x69EDA8C0)
+I (C:\Keil_v5\ARM\Packs\ARM\CMSIS\6.3.0\CMSIS\Core\Include\core_cm0.h)(0x69EDA328)
+I (C:\Keil_v5\ARM\Packs\SONiX\SN32F4_DFP\1.1.1_bak_0\Device\Include\system_SN32F400.h)(0x69EDA8C0)
+I (C:\Keil_v5\ARM\Packs\SONiX\SN32F4_DFP\1.1.1_bak_0\Device\Include\SN32F400_Def.h)(0x69EDA8C0)
+I (Interface\SysTick\SysTick.h)(0x67E933FA)
+I (Interface\WDT\WDT.h)(0x67E933FA)
+I (Interface\CT\CT16.h)(0x67E933FA)
+I (Interface\CT\CT16B0.h)(0x67E933FA)
+F (.\PFPA.c)(0x6849A792)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/_SN32F400-IC:/Keil_v5/ARM/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/Packs/SONiX/SN32F4_DFP/1.1.1_bak_0/Device/Include-D__UVISION_VERSION="543" -DSN32F400 -D_RTE_-o ./obj/pfpa.o -MMD)
+I (C:\Keil_v5\ARM\Packs\SONiX\SN32F4_DFP\1.1.1_bak_0\Device\Include\SN32F400.h)(0x69EDA8C0)
+I (C:\Keil_v5\ARM\Packs\ARM\CMSIS\6.3.0\CMSIS\Core\Include\core_cm0.h)(0x69EDA328)
+I (C:\Keil_v5\ARM\Packs\SONiX\SN32F4_DFP\1.1.1_bak_0\Device\Include\system_SN32F400.h)(0x69EDA8C0)
+F (.\Interface\SysTick\SysTick.c)(0x67E933FA)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/_SN32F400-IC:/Keil_v5/ARM/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/Packs/SONiX/SN32F4_DFP/1.1.1_bak_0/Device/Include-D__UVISION_VERSION="543" -DSN32F400 -D_RTE_-o ./obj/systick.o -MMD)
+I (Interface\SysTick\SysTick.h)(0x67E933FA)
+I (C:\Keil_v5\ARM\Packs\SONiX\SN32F4_DFP\1.1.1_bak_0\Device\Include\SN32F400.h)(0x69EDA8C0)
+I (C:\Keil_v5\ARM\Packs\ARM\CMSIS\6.3.0\CMSIS\Core\Include\core_cm0.h)(0x69EDA328)
+I (C:\Keil_v5\ARM\Packs\SONiX\SN32F4_DFP\1.1.1_bak_0\Device\Include\system_SN32F400.h)(0x69EDA8C0)
+I (C:\Keil_v5\ARM\Packs\SONiX\SN32F4_DFP\1.1.1_bak_0\Device\Include\SN32F400_Def.h)(0x69EDA8C0)
+F (.\Interface\CT\CT16B0.c)(0x67E933FA)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/_SN32F400-IC:/Keil_v5/ARM/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/Packs/SONiX/SN32F4_DFP/1.1.1_bak_0/Device/Include-D__UVISION_VERSION="543" -DSN32F400 -D_RTE_-o ./obj/ct16b0.o -MMD)
+I (C:\Keil_v5\ARM\Packs\SONiX\SN32F4_DFP\1.1.1_bak_0\Device\Include\SN32F400.h)(0x69EDA8C0)
+I (C:\Keil_v5\ARM\Packs\ARM\CMSIS\6.3.0\CMSIS\Core\Include\core_cm0.h)(0x69EDA328)
+I (C:\Keil_v5\ARM\Packs\SONiX\SN32F4_DFP\1.1.1_bak_0\Device\Include\system_SN32F400.h)(0x69EDA8C0)
+I (Interface\CT\CT16.h)(0x67E933FA)
+I (Interface\CT\CT16B0.h)(0x67E933FA)
+I (C:\Keil_v5\ARM\Packs\SONiX\SN32F4_DFP\1.1.1_bak_0\Device\Include\SN32F400_Def.h)(0x69EDA8C0)
+F (.\Interface\WDT\WDT.c)(0x67E933FA)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/_SN32F400-IC:/Keil_v5/ARM/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/Packs/SONiX/SN32F4_DFP/1.1.1_bak_0/Device/Include-D__UVISION_VERSION="543" -DSN32F400 -D_RTE_-o ./obj/wdt.o -MMD)
+I (C:\Keil_v5\ARM\Packs\SONiX\SN32F4_DFP\1.1.1_bak_0\Device\Include\SN32F400_Def.h)(0x69EDA8C0)
+I (Interface\WDT\WDT.h)(0x67E933FA)
+I (C:\Keil_v5\ARM\Packs\SONiX\SN32F4_DFP\1.1.1_bak_0\Device\Include\SN32F400.h)(0x69EDA8C0)
+I (C:\Keil_v5\ARM\Packs\ARM\CMSIS\6.3.0\CMSIS\Core\Include\core_cm0.h)(0x69EDA328)
+I (C:\Keil_v5\ARM\Packs\SONiX\SN32F4_DFP\1.1.1_bak_0\Device\Include\system_SN32F400.h)(0x69EDA8C0)
+F (RTE/Device/SN32F407F/startup_SN32F400.s)(0x67E933FA)(--cpu Cortex-M0 --pd "__EVAL SETA 1" -g --pd "__MICROLIB SETA 1" --diag_suppress=A1950W-I.\RTE\_SN32F400-IC:\Keil_v5\ARM\Packs\ARM\CMSIS\6.3.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\Packs\SONiX\SN32F4_DFP\1.1.1_bak_0\Device\Include--pd "__UVISION_VERSION SETA 543"--pd "SN32F400 SETA 1"--pd "_RTE_ SETA 1"--list .\startup_sn32f400.lst--xref -o .\obj\startup_sn32f400.o--depend .\obj\startup_sn32f400.d)
+F (RTE/Device/SN32F407F/system_SN32F400.c)(0x67E933FA)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/_SN32F400-IC:/Keil_v5/ARM/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/Packs/SONiX/SN32F4_DFP/1.1.1_bak_0/Device/Include-D__UVISION_VERSION="543" -DSN32F400 -D_RTE_-o ./obj/system_sn32f400.o -MMD)
+I (C:\Keil_v5\ARM\Packs\SONiX\SN32F4_DFP\1.1.1_bak_0\Device\Include\SN32F400.h)(0x69EDA8C0)
+I (C:\Keil_v5\ARM\Packs\ARM\CMSIS\6.3.0\CMSIS\Core\Include\core_cm0.h)(0x69EDA328)
+I (C:\Keil_v5\ARM\Packs\SONiX\SN32F4_DFP\1.1.1_bak_0\Device\Include\system_SN32F400.h)(0x69EDA8C0)

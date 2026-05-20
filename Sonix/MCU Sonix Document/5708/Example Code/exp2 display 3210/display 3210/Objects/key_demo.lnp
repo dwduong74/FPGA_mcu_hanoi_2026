@@ -1,0 +1,6 @@
+".\Objects\STARTUP.obj",
+".\Objects\OPTIONS_SN8F5708.obj",
+".\Objects\7segment_led.obj",
+".\Objects\main.obj" 
+TO ".\Objects\key_demo" 
+PRINT(".\Listings\key_demo.m51") RAMSIZE(256) 

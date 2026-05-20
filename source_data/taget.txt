@@ -1,0 +1,6 @@
+PRELIMINARY ROUND RTL DESIGN TEST - FPGA EXTENDED CONTEST 2026
+Watchdog Monitor (TPS3431-like) + UART Configuration
+Platform: Kiwi 1P5 Board (Gowin GW1N-UV1P5)
+Note: This assignment requires emulating the watchdog principle of the TPS3431 IC, while allowing runtime configuration of operating parameters via UART on the Kiwi 1P5 board.
+1. Objective
+Design an RTL block (Verilog/SystemVerilog) that implements a watchdog supervisor function similar to TPS3431:- Monitor the kick signal (WDI) and detect timeouts.- Output a fault/reset signal (WDO) as active-low (open-drain emulation).- Support watchdog Enable/Disable and the ENOUT signal.- Allow runtime configuration of parameters (tWD, tRST, arm_delay...) via UART

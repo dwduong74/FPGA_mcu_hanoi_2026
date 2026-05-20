@@ -1,0 +1,88 @@
+C51 COMPILER V9.56.0.0   APP                                                               12/13/2023 09:33:04 PAGE 1   
+
+
+C51 COMPILER V9.56.0.0, COMPILATION OF MODULE APP
+OBJECT MODULE PLACED IN .\Objects\app.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE Source\app.c OPTIMIZE(8,SPEED) BROWSE INCDIR(.\Source;.\Source;.\Source\
+                    -Buzzer;.\Source\CHRG;.\Source\KEY;.\Source\Timer;.\Source\IIC;.\Source\USER;.\Source\SYS;.\Source\UART;.\Source\LCD;.\So
+                    -urce\LED;.\Source\INC;.\Source\InfraRed;.\Source\ISP;.\Source\WS2811;.\Source\RF;.\Hardware\SN8F5702_Hardware\inc;.\Sour
+                    -ce\AHT10) DEBUG OBJECTEXTEND PRINT(.\Listings\app.lst) TABS(2) OBJECT(.\Objects\app.obj)
+
+line level    source
+
+   1          #include "app.h"
+   2          #include "string.h"
+   3          #include "uart_debug.h"
+   4          
+   5          #define   FIFO_LENGTH   10 
+   6          uint8_t fifo[FIFO_LENGTH] = {0};
+   7          /***********************************************************
+   8          **函数名     :
+   9          **功能描述   :
+  10          **
+  11          **输入参数   :
+  12          **
+  13          **返回参数   :
+  14          **
+  15          **使用说明   :写fifo  当fifo满了之后，会丢弃第一个event
+  16          ***********************************************************/
+  17          void write_fifo(uint8_t evnt)
+  18          {
+  19   1        uint8_t i;
+  20   1        for(i = 0;i < FIFO_LENGTH;i++)
+  21   1        {
+  22   2          if(fifo[i] == 0){
+  23   3            fifo[i] = evnt;
+  24   3            break;
+  25   3          }
+  26   2        }
+  27   1        if(i == FIFO_LENGTH){
+  28   2          for(i = 1;i < FIFO_LENGTH;i++)    
+  29   2          {
+  30   3            fifo[i-1] =  fifo[i];
+  31   3          }
+  32   2          fifo[FIFO_LENGTH -1 ] = evnt;
+  33   2        }
+  34   1      }
+  35          /***********************************************************
+  36          **函数名     :
+  37          **功能描述   :
+  38          **
+  39          **输入参数   :
+  40          **
+  41          **返回参数   :
+  42          **
+  43          **使用说明   :读fifo 
+  44          ***********************************************************/
+  45          uint8_t read_fifo()
+  46          {
+  47   1        uint8_t i;
+  48   1        uint8_t event = fifo[0];
+  49   1        fifo[0] = 0;
+  50   1        for(i = 1; i< FIFO_LENGTH;i++)
+  51   1        {
+  52   2          if(fifo[i] != 0){
+C51 COMPILER V9.56.0.0   APP                                                               12/13/2023 09:33:04 PAGE 2   
+
+  53   3            fifo[i-1] = fifo[i];
+  54   3            fifo[i] = 0;
+  55   3          }
+  56   2          else
+  57   2            break;
+  58   2        }   
+  59   1        return event;
+  60   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     73    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     10    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

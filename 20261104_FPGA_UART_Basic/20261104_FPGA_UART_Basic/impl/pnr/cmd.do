@@ -1,0 +1,17 @@
+-d D:\PTIT\HocKy2_Nam2025\NCKHSV-FPGA\KiWi-1P5\20261104_FPGA_UART_Basic\impl\gwsynthesis\20261104_FPGA_UART_Basic.vg
+-p GW1N-1P5C-QFN48XF-7
+-pn GW1N-UV1P5QN48XFC7/I6
+-cst D:\PTIT\HocKy2_Nam2025\NCKHSV-FPGA\KiWi-1P5\20261104_FPGA_UART_Basic\src\20261104_FPGA_UART_Basic.cst
+-cfg D:\PTIT\HocKy2_Nam2025\NCKHSV-FPGA\KiWi-1P5\20261104_FPGA_UART_Basic\impl\pnr\device.cfg
+-sdc D:\PTIT\HocKy2_Nam2025\NCKHSV-FPGA\KiWi-1P5\20261104_FPGA_UART_Basic\src\20261104_FPGA_UART_Basic.sdc
+-bit
+-tr
+-ph
+-timing
+-cst_error
+-place_option 0
+-route_option 0
+-clock_route_order 0
+-correct_hold 1
+-route_maxfan 10
+-global_freq 50.000

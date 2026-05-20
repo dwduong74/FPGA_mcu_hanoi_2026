@@ -1,0 +1,16 @@
+
+".\objects\main.o"
+".\objects\pfpa.o"
+".\objects\gpio.o"
+".\objects\wdt.o"
+".\objects\utility.o"
+".\objects\ct16b1.o"
+".\objects\i2c0.o"
+".\objects\keyscan.o"
+".\objects\eeprom.o"
+".\objects\segment.o"
+".\objects\startup_sn32f400.o"
+".\objects\system_sn32f400.o"
+--ro-base 0x00000000 --entry 0x00000000 --rw-base 0x20000000 --strict --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\exp1_LED_blink.map" -o .\Objects\exp1_LED_blink.axf

@@ -1,0 +1,47 @@
+--------------------------------------------------------------------------------------------
+Gowin_EMPU(GW1NS-4C) SDK Release Note File
+--------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------
+Release Note
+  * Download from https://www.gowinsemi.com/en/
+      - Gowin_EMPU(GW1NS-4C) Software and Hardware Reference Design Release Note.pdf
+  * Download from http://www.gowinsemi.com.cn/
+      - Gowin_EMPU(GW1NS-4C)软件和硬件参考设计发布说明.pdf
+--------------------------------------------------------------------------------------------
+Version 1.0
+  (1) Initial version.
+--------------------------------------------------------------------------------------------
+Version 1.1
+  (1) Support AHB PSRAM Memory Interface;
+  (2) Support AHB HyperRAM Memory Interface;
+  (3) Support APB SPI_Nor_Flash;
+  (4) GPIO supports multi-type ports;
+  (5) I2C supports multi-type ports;
+  (6) Upgrade software version and software development kit.
+--------------------------------------------------------------------------------------------
+Version 1.1.1
+  (1) Support MCU continuation address read.
+--------------------------------------------------------------------------------------------
+Version 1.1.2
+  (1) Fixed known SPI issues;
+  (2) Remove synthesis tool "SynplifyPro";
+  (3) Update the encryption algorithm to 2.0.
+--------------------------------------------------------------------------------------------
+Version 1.1.3
+  (1) Fixed known issues of BlockRam WRE;
+  (2) Support RTOS RT-Thread (Nano);
+  (3) Add some solutions.
+--------------------------------------------------------------------------------------------
+Version 1.2
+  (1) Fixed known issues of ports name;
+  (2) Fixed known issues of SPI clock divider;
+  (3) Support RT-Thread Nano;
+  (4) Update MCU IP, optimize logic resources;
+  (5) Update software development kit.
+--------------------------------------------------------------------------------------------
+Version 2.0
+  (1) Improve system frequency and performance;
+  (2) Update software programming library and reference design;
+  (3) Update hardware reference design.
+--------------------------------------------------------------------------------------------

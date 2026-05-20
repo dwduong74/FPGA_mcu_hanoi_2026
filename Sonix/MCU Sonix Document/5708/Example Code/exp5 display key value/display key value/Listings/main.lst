@@ -1,0 +1,79 @@
+C51 COMPILER V9.56.0.0   MAIN                                                              03/27/2024 16:57:14 PAGE 1   
+
+
+C51 COMPILER V9.56.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE Source\main.c OPTIMIZE(8,SPEED) BROWSE INCDIR(.\Source;.\Source;.\Source
+                    -\Buzzer;.\Source\CHRG;.\Source\KEY;.\Source\Timer;.\Source\IIC;.\Source\USER;.\Source\SYS;.\Source\UART;.\Source\LCD;.\S
+                    -ource\LED;.\Source\INC;.\Source\InfraRed;.\Source\ISP;.\Source\WS2811;.\Source\RF;.\Hardware\SN8F5702_Hardware\inc;.\Sou
+                    -rce\AHT10) DEBUG OBJECTEXTEND PRINT(.\Listings\main.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #define __XRAM_SFR_H__
+   2          #include "mcu.h"
+   3          #include "exint.h"
+   4          #include "7segment_led.h"
+   5          void delay_ms(uint16_t ms);
+   6          
+   7          uint16_t sys_count = 0;
+   8          /***********************************************************
+   9          **Function name   :
+  10          **
+  11          **Input parameter : 
+  12          **
+  13          **Input parameter :
+  14          **
+  15          **Description     :
+  16          ***********************************************************/
+  17          int main(void)
+  18          { 
+  19   1        CKCON   = 0X70;
+  20   1        CLKSEL  = 0X05;               //Fcpu = 32M/4
+  21   1        CLKCMD  = 0X69;               
+  22   1        CKCON   = 0X00;   
+  23   1        int0_config();
+  24   1        segment_led_config();
+  25   1        while(1)
+  26   1        {
+  27   2          WDTR = 0x5A;                //CLR WDTR
+  28   2          delay_ms(1);
+  29   2          segment_led_scan();
+  30   2      
+  31   2        }
+  32   1      }
+  33          /***********************************************************
+  34          **Function name   :delay_ms
+  35          **
+  36          **Input parameter : uint16_t ms
+  37          **
+  38          **Input parameter :
+  39          **
+  40          **Description     : Software delay ms
+  41          ***********************************************************/
+  42          void delay_ms(uint16_t ms)
+  43          {
+  44   1        uint16_t i,j;
+  45   1        for(i = 0; i < 100;i++)
+  46   1        {
+  47   2          WDTR = 0x5A;
+  48   2          for(j=0;j<ms;j++);
+  49   2        }
+  50   1      }
+  51            
+
+C51 COMPILER V9.56.0.0   MAIN                                                              03/27/2024 16:57:14 PAGE 2   
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     68    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

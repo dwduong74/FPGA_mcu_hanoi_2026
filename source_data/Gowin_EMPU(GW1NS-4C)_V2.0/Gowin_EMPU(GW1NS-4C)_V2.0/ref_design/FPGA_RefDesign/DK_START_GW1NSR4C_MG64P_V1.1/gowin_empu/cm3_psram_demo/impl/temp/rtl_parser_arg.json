@@ -1,0 +1,33 @@
+{
+ "Device" : "GW1NSR-4C",
+ "Files" : [
+  {
+   "Path" : "F:/EMB_pub/embedded/cortex_m3 (GW1NS-4C)/ref_design/2.0/FPGA_RefDesign/DK_START_GW1NSR4C_MG64P_V1.1/gowin_empu/cm3_psram_demo/src/cm3_psram_demo.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "F:/EMB_pub/embedded/cortex_m3 (GW1NS-4C)/ref_design/2.0/FPGA_RefDesign/DK_START_GW1NSR4C_MG64P_V1.1/gowin_empu/cm3_psram_demo/src/gowin_empu/gowin_empu.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "F:/EMB_pub/embedded/cortex_m3 (GW1NS-4C)/ref_design/2.0/FPGA_RefDesign/DK_START_GW1NSR4C_MG64P_V1.1/gowin_empu/cm3_psram_demo/src/gowin_pllvr/gowin_pllvr.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "F:/EMB_pub/embedded/cortex_m3 (GW1NS-4C)/ref_design/2.0/FPGA_RefDesign/DK_START_GW1NSR4C_MG64P_V1.1/gowin_empu/cm3_psram_demo/src/gw_ahb_psram.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "F:/EMB_pub/embedded/cortex_m3 (GW1NS-4C)/ref_design/2.0/FPGA_RefDesign/DK_START_GW1NSR4C_MG64P_V1.1/gowin_empu/cm3_psram_demo/src/psram_memory_interface/psram_memory_interface.v",
+   "Type" : "verilog"
+  }
+ ],
+ "IncludePath" : [
+
+ ],
+ "LoopLimit" : 2000,
+ "ResultFile" : "F:/EMB_pub/embedded/cortex_m3 (GW1NS-4C)/ref_design/2.0/FPGA_RefDesign/DK_START_GW1NSR4C_MG64P_V1.1/gowin_empu/cm3_psram_demo/impl/temp/rtl_parser.result",
+ "Top" : "cm3_psram_demo",
+ "VerilogStd" : "sysv",
+ "VhdlStd" : "vhdl_93"
+}

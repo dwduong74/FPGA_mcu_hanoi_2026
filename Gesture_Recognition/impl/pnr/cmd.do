@@ -1,4 +1,4 @@
--d C:\Gowin\Gesture_Recognition\impl\gwsynthesis\gesture_recognition.vg
+-d C:\Gowin\Gesture_Recognition\impl\gwsynthesis\Gesture_Recognition.vg
 -p GW1N-1P5C-QFN48XF-7
 -pn GW1N-UV1P5QN48XFC7/I6
 -cst C:\Gowin\Gesture_Recognition\src\gesture.cst

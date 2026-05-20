@@ -1,0 +1,48 @@
+[
+ {
+  "InstFile" : "F:/EMB_pub/embedded/cortex_m3 (GW1NS-4C)/ref_design/2.0/FPGA_RefDesign/DK_START_GW1NSR4C_QN48G_V1.1/gowin_empu/cm3_spiflash_demo/src/cm3_spiflash_demo.v",
+  "InstLine" : 3,
+  "InstName" : "cm3_spiflash_demo",
+  "ModuleFile" : "F:/EMB_pub/embedded/cortex_m3 (GW1NS-4C)/ref_design/2.0/FPGA_RefDesign/DK_START_GW1NSR4C_QN48G_V1.1/gowin_empu/cm3_spiflash_demo/src/cm3_spiflash_demo.v",
+  "ModuleLine" : 3,
+  "ModuleName" : "cm3_spiflash_demo",
+  "SubInsts" : [
+   {
+    "InstFile" : "F:/EMB_pub/embedded/cortex_m3 (GW1NS-4C)/ref_design/2.0/FPGA_RefDesign/DK_START_GW1NSR4C_QN48G_V1.1/gowin_empu/cm3_spiflash_demo/src/cm3_spiflash_demo.v",
+    "InstLine" : 45,
+    "InstName" : "u_Gowin_EMPU_Top",
+    "ModuleFile" : "F:/EMB_pub/embedded/cortex_m3 (GW1NS-4C)/ref_design/2.0/FPGA_RefDesign/DK_START_GW1NSR4C_QN48G_V1.1/gowin_empu/cm3_spiflash_demo/src/gowin_empu/gowin_empu.v",
+    "ModuleLine" : 559,
+    "ModuleName" : "Gowin_EMPU_Top",
+    "SubInsts" : [
+     {
+      "InstFile" : "F:/EMB_pub/embedded/cortex_m3 (GW1NS-4C)/ref_design/2.0/FPGA_RefDesign/DK_START_GW1NSR4C_QN48G_V1.1/gowin_empu/cm3_spiflash_demo/src/gowin_empu/gowin_empu.v",
+      "InstLine" : 596,
+      "InstName" : "Gowin_EMPU_inst",
+      "ModuleFile" : "F:/EMB_pub/embedded/cortex_m3 (GW1NS-4C)/ref_design/2.0/FPGA_RefDesign/DK_START_GW1NSR4C_QN48G_V1.1/gowin_empu/cm3_spiflash_demo/src/gowin_empu/gowin_empu.v",
+      "ModuleLine" : 10,
+      "ModuleName" : "~Gowin_EMPU.Gowin_EMPU_Top"
+     }
+    ]
+   },
+   {
+    "InstFile" : "F:/EMB_pub/embedded/cortex_m3 (GW1NS-4C)/ref_design/2.0/FPGA_RefDesign/DK_START_GW1NSR4C_QN48G_V1.1/gowin_empu/cm3_spiflash_demo/src/cm3_spiflash_demo.v",
+    "InstLine" : 67,
+    "InstName" : "u_Gowin_APB_SPI_Nor_Flash_gowin_top",
+    "ModuleFile" : "F:/EMB_pub/embedded/cortex_m3 (GW1NS-4C)/ref_design/2.0/FPGA_RefDesign/DK_START_GW1NSR4C_QN48G_V1.1/gowin_empu/cm3_spiflash_demo/src/gw_spiflash.v",
+    "ModuleLine" : 3,
+    "ModuleName" : "Gowin_APB_SPI_Nor_Flash_gowin_top",
+    "SubInsts" : [
+     {
+      "InstFile" : "F:/EMB_pub/embedded/cortex_m3 (GW1NS-4C)/ref_design/2.0/FPGA_RefDesign/DK_START_GW1NSR4C_QN48G_V1.1/gowin_empu/cm3_spiflash_demo/src/gw_spiflash.v",
+      "InstLine" : 31,
+      "InstName" : "Gowin_APB_SPI_Nor_Flash_ins",
+      "ModuleFile" : "F:/EMB_pub/embedded/cortex_m3 (GW1NS-4C)/ref_design/2.0/FPGA_RefDesign/DK_START_GW1NSR4C_QN48G_V1.1/gowin_empu/cm3_spiflash_demo/src/gw_spiflash.v",
+      "ModuleLine" : 49,
+      "ModuleName" : "Gowin_APB_SPI_Nor_Flash"
+     }
+    ]
+   }
+  ]
+ }
+]

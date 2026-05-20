@@ -1,0 +1,137 @@
+C51 COMPILER V9.56.0.0   UART_DEBUG                                                        03/14/2024 15:27:54 PAGE 1   
+
+
+C51 COMPILER V9.56.0.0, COMPILATION OF MODULE UART_DEBUG
+NO OBJECT MODULE REQUESTED
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE Source\uart_debug.c OPTIMIZE(8,SPEED) BROWSE INCDIR(.\Source;.\Source;.\
+                    -Source\Buzzer;.\Source\CHRG;.\Source\KEY;.\Source\Timer;.\Source\IIC;.\Source\USER;.\Source\SYS;.\Source\UART;.\Source\L
+                    -CD;.\Source\LED;.\Source\INC;.\Source\InfraRed;.\Source\ISP;.\Source\WS2811;.\Source\RF;.\Hardware\SN8F5702_Hardware\inc
+                    -;.\Source\AHT10) DEBUG OBJECTEXTEND PRINT(.\Listings\uart_debug.lst) TABS(2) SRC(.\Objects\uart_debug.SRC)
+
+line level    source
+
+   1          /***********************************************************
+   2          **函数名     :uart_debug.c
+   3          **功能描述   :
+   4          **
+   5          **输入参数   : 
+   6          **
+   7          **返回参数   :
+   8          **
+   9          **使用说明   :使用mcu一个io口,模拟uart 。波特率115200 使用C51标准printf函数打印调试信息,占用rom空间1kb
+  10            char a = 1;
+  11            int b  = 12365;
+  12            long c = 0x7FFFFFFF;
+  13          
+  14            unsigned char x = 'A';
+  15            unsigned int y  = 54321;
+  16            unsigned long z = 0x4A6F6E00;
+  17          
+  18            float f = 10.0;
+  19            float g = 22.95;
+  20          
+  21            char buf [] = "Test String";
+  22            char *p = buf;
+  23          
+  24            printf ("char %bd int %d long %ld\n",a,b,c);
+  25            printf ("Uchar %bu Uint %u Ulong %lu\n",x,y,z);
+  26            printf ("xchar %bx xint %x xlong %lx\n",x,y,z);
+  27            printf ("String %s is at address %p\n",buf,p);
+  28            printf ("%f != %g\n", f, g);
+  29            printf ("%*f != %*g\n", (int)8, f, (int)8, g);
+  30          ***********************************************************/
+  31          
+  32          #include "uart_debug.h"
+  33          #include "mcu.h"
+  34          #define   DEBUG_TX             P01
+  35          #define   DEBUG_TX_CONFIG      { DEBUG_TX = 1; P0M |= 0X02;}
+  36          //#define   DELAYCNT             0  //1000000
+  37          //#define   DELAYCNT             5  //256000
+  38          #define   DELAYCNT             15 //115200
+  39          
+  40          #define     BARD_RATE           115200
+  41          
+  42          #define   i2c_delay()          {for(delay_cnt = DELAYCNT ; delay_cnt > 0; delay_cnt--);}
+  43          volatile  bit               EAL_BIT;
+  44          volatile  unsigned char     delay_cnt;
+  45          /***********************************************************
+  46          **函数名     :debug_config()
+  47          **功能描述   :
+  48          **
+  49          **输入参数   : 
+  50          **
+  51          **返回参数   :
+  52          **
+C51 COMPILER V9.56.0.0   UART_DEBUG                                                        03/14/2024 15:27:54 PAGE 2   
+
+  53          **使用说明   :配置调试uart 
+  54          ***********************************************************/
+  55          void debug_config()
+  56          {
+  57   1        DEBUG_TX_CONFIG
+  58   1      }
+  59          /***********************************************************
+  60          **函数名     :char putchar(char ch)
+  61          **功能描述   :软件实现UART TX功能  FCPU = 8M  FROM = 8M 波特率 115200   TX = DEBUG_TX    #define  DEBUG_TX
+             -  定义
+  62          **
+  63          **输入参数   : 汇编实现 适用于不同编译器  FCPU = 8M  FROM = 8M 其他参数需要重新设置延时时间DELAYCNT
+  64          **
+  65          **返回参数   :printf 输出重定向到uart  DEBUG时可用printf
+  66          **
+  67          **使用说明   :
+  68          ***********************************************************/
+  69          
+  70          char putchar(char ch)
+  71          { 
+  72   1        #pragma asm
+  73   1        MOV   C,EAL
+  74   1        MOV   EAL_BIT,C
+  75   1        CLR   EAL
+  76   1      start:
+  77   1        CLR   DEBUG_TX
+  78   1        NOP
+  79   1        #if DELAYCNT
+  80   1        MOV   delay_cnt,#(DELAYCNT)
+  81   1        DJNZ  delay_cnt,$
+  82   1        #endif
+  83   1        MOV   A,#8
+  84   1        MOV   R4,A
+  85   1      send_byte:
+  86   1        MOV   A,R7
+  87   1        RRC   A
+  88   1        MOV   DEBUG_TX,C
+  89   1        MOV   R7,A
+  90   1        #if DELAYCNT
+  91   1        MOV   delay_cnt,#(DELAYCNT)
+  92   1        DJNZ  delay_cnt,$
+  93   1        #endif
+  94   1        DJNZ  R4,send_byte
+  95   1      stop:  
+  96   1        NOP
+  97   1        NOP
+  98   1        SETB  DEBUG_TX
+  99   1        MOV   delay_cnt,#(DELAYCNT)
+ 100   1        DJNZ  delay_cnt,$  
+ 101   1        MOV   C,EAL_BIT
+ 102   1        MOV   EAL,C
+ 103   1        #pragma endasm 
+ 104   1        
+ 105   1        return ch;    
+ 106   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    101    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+C51 COMPILER V9.56.0.0   UART_DEBUG                                                        03/14/2024 15:27:54 PAGE 3   
+
+   DATA SIZE        =      1       1
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      1    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

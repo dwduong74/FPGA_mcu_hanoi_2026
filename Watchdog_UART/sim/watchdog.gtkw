@@ -1,0 +1,58 @@
+[*]
+[*] GTKWave Save File — Watchdog UART Simulation
+[*] Đội Sunflower — FPGA Extended Contest 2026
+[*]
+[dumpfile] "watchdog_tb.vcd"
+[savefile] "watchdog.gtkw"
+[timestart] 0
+[size] 1400 800
+[pos] 0 0
+*-24.000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] watchdog_tb.
+[sst_width] 260
+[signals_width] 260
+[sst_expanded] 1
+[sst_vpaned_height] 200
+@28
+[color] 7
+watchdog_tb.clk
+@28
+[color] 3
+watchdog_tb.s2_en_n
+watchdog_tb.s1_wdi_n
+@28
+[color] 5
+watchdog_tb.uart_rx_pin
+watchdog_tb.uart_tx_pin
+@28
+-
+@28
+[color] 2
+watchdog_tb.dut.rst_n
+@28
+[color] 6
+watchdog_tb.enout_led
+watchdog_tb.wdo_led
+@28
+-
+@28
+[color] 1
+watchdog_tb.wdo_int
+watchdog_tb.enout_int
+watchdog_tb.fault_int
+@28
+-
+@28
+[color] 4
+watchdog_tb.dut.u_core.state[1:0]
+@28
+watchdog_tb.dut.u_core.counter[31:0]
+@28
+-
+@28
+[color] 5
+watchdog_tb.dut.u_cfg.en_sw
+watchdog_tb.dut.u_kick.u_wdi
+[*]
+[pattern_trace] 1
+[pattern_trace] 0

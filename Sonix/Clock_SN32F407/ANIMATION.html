@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>SN32F407 Digital Clock – Program Flow Animation</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0d1117; color: #e6edf3; font-family: 'Segoe UI', sans-serif; overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: #161b22; border-bottom: 1px solid #30363d;
+    display: flex; align-items: center; gap: 6px; padding: 10px 20px; flex-wrap: wrap;
+  }
+  nav h1 { color: #f0883e; font-size: 14px; margin-right: 12px; white-space: nowrap; }
+  .tab {
+    padding: 6px 14px; border-radius: 6px; cursor: pointer; font-size: 12px;
+    border: 1px solid #30363d; background: #21262d; color: #8b949e; transition: all .2s;
+  }
+  .tab:hover { background: #30363d; color: #e6edf3; }
+  .tab.active { background: #f0883e; color: #000; border-color: #f0883e; font-weight: 600; }
+
+  /* SECTIONS */
+  section { display: none; padding: 80px 30px 40px; min-height: 100vh; }
+  section.active { display: block; }
+
+  h2 { font-size: 22px; color: #f0883e; margin-bottom: 24px; text-align: center; }
+  h3 { font-size: 14px; color: #8b949e; font-weight: normal; text-align: center; margin-bottom: 30px; margin-top: -16px; }
+
+  /* BOXES */
+  .box {
+    border-radius: 10px; padding: 12px 18px; font-size: 13px; font-weight: 600;
+    text-align: center; position: relative; cursor: default; transition: transform .15s;
+  }
+  .box:hover { transform: scale(1.04); }
+  .box-blue   { background: #1f6feb33; border: 1.5px solid #1f6feb; color: #79c0ff; }
+  .box-green  { background: #23863633; border: 1.5px solid #2ea043; color: #56d364; }
+  .box-orange { background: #f0883e33; border: 1.5px solid #f0883e; color: #ffa657; }
+  .box-red    { background: #da363633; border: 1.5px solid #da3633; color: #ff7b72; }
+  .box-purple { background: #6e40c933; border: 1.5px solid #6e40c9; color: #d2a8ff; }
+  .box-teal   { background: #09825533; border: 1.5px solid #009473; color: #3fb950; }
+  .box-gray   { background: #21262d;   border: 1.5px solid #30363d; color: #8b949e; }
+
+  /* ARROWS */
+  .arr { display: flex; flex-direction: column; align-items: center; margin: 2px 0; }
+  .arr-line { width: 2px; height: 22px; background: #30363d; }
+  .arr-head { width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 8px solid #30363d; }
+  .arr-label { font-size: 10px; color: #8b949e; margin-bottom: 2px; }
+
+  .arr-h { display: flex; align-items: center; }
+  .arr-h-line { height: 2px; background: #30363d; }
+  .arr-h-head { width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 8px solid #30363d; }
+
+  /* ANIMATE pulse */
+  @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:.4;} }
+  @keyframes flow { 0%{stroke-dashoffset:100} 100%{stroke-dashoffset:0} }
+  @keyframes glow { 0%,100%{box-shadow:0 0 0 0 transparent} 50%{box-shadow:0 0 12px 4px #f0883e88} }
+  @keyframes slideIn { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes spin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+  @keyframes blink { 0%,49%{opacity:1} 50%,100%{opacity:0} }
+
+  .active-glow { animation: glow 1.5s ease-in-out infinite; }
+  .pulse { animation: pulse 2s ease-in-out infinite; }
+
+  /* FLOW CHART STYLES */
+  .flow-col { display: flex; flex-direction: column; align-items: center; gap: 0; }
+  .flow-row { display: flex; align-items: flex-start; justify-content: center; gap: 40px; flex-wrap: wrap; }
+
+  /* TASK WHEEL */
+  .task-ring {
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; gap: 8px; max-width: 900px; margin: 0 auto;
+  }
+  .task-center {
+    width: 120px; height: 120px; border-radius: 50%;
+    border: 3px solid #f0883e; background: #f0883e22;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700; color: #f0883e; text-align: center;
+    animation: spin 8s linear infinite;
+    position: relative;
+  }
+  .task-items { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; margin-top: 20px; }
+  .task-card {
+    width: 160px; border-radius: 10px; padding: 14px; text-align: center;
+    font-size: 12px; transition: all .3s; cursor: pointer;
+  }
+  .task-card.running { animation: glow 1s ease-in-out infinite; transform: scale(1.08); }
+  .task-card .t-num { font-size: 22px; font-weight: 800; margin-bottom: 6px; }
+  .task-card .t-name { font-weight: 700; margin-bottom: 6px; font-size: 13px; }
+  .task-card .t-desc { font-size: 11px; opacity: .8; line-height: 1.4; }
+
+  /* STATE MACHINE */
+  .sm-wrap { position: relative; width: 700px; height: 480px; margin: 0 auto; }
+  .sm-state {
+    position: absolute; width: 150px; border-radius: 50%; height: 150px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; font-size: 12px; font-weight: 700; cursor: pointer;
+    transition: all .3s; border: 2.5px solid;
+  }
+  .sm-state:hover { transform: scale(1.08); }
+  .sm-state.active-state { animation: glow 1.2s ease-in-out infinite; transform: scale(1.1); }
+  .sm-normal  { top:165px; left:275px; background:#f0883e22; border-color:#f0883e; color:#ffa657; }
+  .sm-sethour { top:30px;  left:50px;  background:#1f6feb22; border-color:#1f6feb; color:#79c0ff; }
+  .sm-setalarm{ top:30px;  left:500px; background:#6e40c922; border-color:#6e40c9; color:#d2a8ff; }
+  .sm-dispoff { top:300px; left:275px; background:#21262d;   border-color:#30363d; color:#8b949e; }
+  .sm-name { font-size: 11px; margin-top: 4px; opacity:.8; }
+  .sm-num { font-size: 20px; font-weight: 900; }
+
+  .sm-arrow {
+    position: absolute; pointer-events: none;
+  }
+  .sm-label {
+    position: absolute; font-size: 10px; color: #8b949e; background: #0d1117;
+    padding: 2px 6px; border-radius: 4px; white-space: nowrap; border: 1px solid #30363d;
+  }
+
+  /* BUZZER MACHINE */
+  .bz-row { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; justify-content: center; }
+  .bz-box {
+    width: 160px; border-radius: 12px; padding: 16px; text-align: center;
+    font-size: 12px; transition: all .3s; cursor: pointer;
+  }
+  .bz-box.active-state { animation: glow 1s ease-in-out infinite; transform: scale(1.1); }
+  .bz-icon { font-size: 28px; margin-bottom: 8px; }
+  .bz-name { font-weight: 700; font-size: 13px; margin-bottom: 6px; }
+  .bz-desc { font-size: 11px; opacity: .8; line-height: 1.4; }
+
+  /* EEPROM */
+  .ee-table { width: 100%; max-width: 600px; margin: 0 auto; border-collapse: collapse; }
+  .ee-table th, .ee-table td { padding: 10px 16px; border: 1px solid #30363d; font-size: 13px; }
+  .ee-table th { background: #21262d; color: #f0883e; text-align: center; }
+  .ee-table td { text-align: center; }
+  .ee-write { background: #23863622; }
+  .ee-read  { background: #1f6feb22; }
+
+  /* TIMELINE */
+  .tl-wrap { max-width: 800px; margin: 0 auto; }
+  .tl-item {
+    display: flex; gap: 20px; margin-bottom: 16px;
+    animation: slideIn .5s ease both;
+  }
+  .tl-dot {
+    width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0;
+    margin-top: 4px; border: 2px solid;
+  }
+  .tl-line-wrap { display: flex; flex-direction: column; align-items: center; }
+  .tl-connector { width: 2px; flex: 1; background: #30363d; margin: 2px 0; min-height: 20px; }
+  .tl-content { flex: 1; padding-bottom: 16px; }
+  .tl-title { font-weight: 700; font-size: 14px; margin-bottom: 4px; }
+  .tl-body { font-size: 12px; color: #8b949e; line-height: 1.6; }
+  .tl-code { font-family: monospace; background: #21262d; padding: 8px 12px; border-radius: 6px; margin-top: 8px; font-size: 11px; color: #79c0ff; }
+
+  /* CONTROLS */
+  .ctrl { display: flex; gap: 12px; justify-content: center; margin-bottom: 28px; flex-wrap: wrap; }
+  .btn {
+    padding: 8px 20px; border-radius: 8px; border: none; cursor: pointer;
+    font-size: 13px; font-weight: 600; transition: all .2s;
+    background: #21262d; color: #e6edf3; border: 1px solid #30363d;
+  }
+  .btn:hover { background: #30363d; }
+  .btn.primary { background: #f0883e; color: #000; border-color: #f0883e; }
+  .btn.primary:hover { background: #d97531; }
+
+  /* STATUS BAR */
+  .status-bar {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    background: #161b22; border-top: 1px solid #30363d;
+    padding: 8px 20px; font-size: 12px; color: #8b949e;
+    display: flex; gap: 20px; align-items: center;
+  }
+  .status-dot { width: 8px; height: 8px; border-radius: 50%; background: #2ea043; animation: pulse 1s infinite; display: inline-block; margin-right: 6px; }
+
+  /* LEGEND */
+  .legend { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; margin-bottom: 24px; }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #8b949e; }
+  .legend-dot { width: 12px; height: 12px; border-radius: 3px; }
+
+  /* 7SEG display */
+  .seg-display {
+    background: #0a0a0a; border-radius: 10px; padding: 16px 24px;
+    display: inline-flex; gap: 8px; align-items: center;
+    border: 2px solid #222; margin: 0 auto;
+  }
+  .digit { position: relative; width: 40px; height: 60px; }
+  .seg { position: absolute; background: #1a1a1a; transition: background .3s; }
+  .seg.on { background: #f0883e; box-shadow: 0 0 8px #f0883e88; }
+  .seg-a { top:0;    left:4px;  width:32px; height:5px; border-radius: 3px; }
+  .seg-b { top:4px;  right:0;   width:5px;  height:24px;border-radius: 3px; }
+  .seg-c { bottom:4px;right:0;  width:5px;  height:24px;border-radius: 3px; }
+  .seg-d { bottom:0; left:4px;  width:32px; height:5px; border-radius: 3px; }
+  .seg-e { bottom:4px;left:0;   width:5px;  height:24px;border-radius: 3px; }
+  .seg-f { top:4px;  left:0;    width:5px;  height:24px;border-radius: 3px; }
+  .seg-g { top:27px; left:4px;  width:32px; height:5px; border-radius: 3px; }
+  .seg-dp { bottom:2px; right:-8px; width:6px; height:6px; border-radius:50%; background:#1a1a1a; transition: background .3s;}
+  .seg-dp.on { background: #f0883e; box-shadow: 0 0 8px #f0883e88; }
+
+  /* INFO TOOLTIP */
+  .tooltip {
+    position: fixed; background: #161b22; border: 1px solid #30363d;
+    border-radius: 8px; padding: 12px 16px; font-size: 12px; max-width: 280px;
+    pointer-events: none; opacity: 0; transition: opacity .2s; z-index: 200;
+    line-height: 1.6; color: #e6edf3;
+  }
+  .tooltip.show { opacity: 1; }
+  .tooltip-title { font-weight: 700; color: #f0883e; margin-bottom: 6px; }
+
+  /* CALL STACK */
+  .stack-wrap { max-width: 500px; margin: 0 auto; }
+  .stack-frame {
+    background: #21262d; border: 1px solid #30363d; border-radius: 8px;
+    padding: 10px 16px; margin-bottom: 6px; font-size: 12px;
+    display: flex; justify-content: space-between; align-items: center;
+    transition: all .3s;
+  }
+  .stack-frame.highlight { background: #f0883e22; border-color: #f0883e; }
+  .stack-fn { font-family: monospace; color: #79c0ff; }
+  .stack-file { color: #8b949e; font-size: 11px; }
+
+  @media(max-width:600px) {
+    .sm-wrap { width: 100%; height: auto; position: relative; }
+    .sm-state { position: relative !important; top:auto !important; left:auto !important; margin:10px; }
+    .sm-arrow { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <h1>🕐 SN32F407 Clock</h1>
+  <div class="tab active" onclick="showTab('startup')">1. Khởi động</div>
+  <div class="tab" onclick="showTab('mainloop')">2. Vòng lặp chính</div>
+  <div class="tab" onclick="showTab('statemachine')">3. State Machine</div>
+  <div class="tab" onclick="showTab('cursor')">4. Cursor Mode</div>
+  <div class="tab" onclick="showTab('buzzer')">5. Buzzer FSM</div>
+  <div class="tab" onclick="showTab('eeprom')">6. EEPROM</div>
+  <div class="tab" onclick="showTab('display')">7. Hiển thị LED</div>
+</nav>
+
+<!-- TOOLTIP -->
+<div class="tooltip" id="tooltip">
+  <div class="tooltip-title" id="tt-title"></div>
+  <div id="tt-body"></div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 1: STARTUP -->
+<!-- ============================================================ -->
+<section id="sec-startup" class="active">
+  <h2>🚀 Trình tự khởi động (main)</h2>
+  <h3>Từ cắm nguồn đến vòng lặp chính</h3>
+
+  <div class="ctrl">
+    <button class="btn primary" onclick="animateStartup()">▶ Chạy animation</button>
+    <button class="btn" onclick="resetStartup()">↺ Reset</button>
+  </div>
+
+  <div class="flow-col" id="startup-flow">
+    <div class="box box-gray" id="s0" style="width:260px">⚡ Cắm nguồn</div>
+    <div class="arr"><div class="arr-line"></div><div class="arr-head"></div></div>
+    <div class="box box-blue" id="s1" style="width:260px" data-tip="SystemInit" data-body="Khởi tạo xung nhịp hệ thống HCLK = 12 MHz từ bộ dao động nội IHRC. Không cần thạch anh ngoài.">SystemInit() + SystemCoreClockUpdate()</div>
+    <div class="arr"><div class="arr-line"></div><div class="arr-head"></div></div>
+    <div class="box box-blue" id="s2" style="width:260px" data-tip="PFPA_Init" data-body="Pin Function Pin Assignment: gán I2C0 → P0.10 (SCL) / P0.11 (SDA), CT16B0 PWM0 → P3.0 (buzzer).">PFPA_Init() + GPIO_Init()</div>
+    <div class="arr"><div class="arr-line"></div><div class="arr-head"></div></div>
+    <div class="box box-orange" id="s3" style="width:260px" data-tip="CT16B0_Init" data-body="Cấu hình PWM buzzer 600 Hz: MR9=19999 (chu kỳ), MR0=9999 (duty 50%). Chưa phát âm.">CT16B0_Init() — PWM Buzzer 600 Hz</div>
+    <div class="arr"><div class="arr-line"></div><div class="arr-head"></div></div>
+    <div class="box box-orange" id="s4" style="width:260px" data-tip="CT16B1_Init" data-body="Timer 1 ms: MR9 = 11999 tại HCLK 12 MHz → ngắt mỗi 1 ms chính xác. ISR chỉ đặt cờ timer_1ms_flag = 1.">CT16B1_Init() — Timer ngắt 1 ms</div>
+    <div class="arr"><div class="arr-line"></div><div class="arr-head"></div></div>
+    <div class="box box-teal" id="s5" style="width:260px" data-tip="I2C0_Init" data-body="Khởi tạo I2C master, 100 kHz Standard mode. Giao tiếp với EEPROM AT24C02 địa chỉ 0xA0.">I2C0_Init()</div>
+    <div class="arr"><div class="arr-line"></div><div class="arr-head"></div></div>
+    <div class="box box-teal" id="s6" style="width:260px" data-tip="load_settings" data-body="Đọc 3 byte từ EEPROM: 0x00=alarm_hour, 0x01=alarm_min, 0x02=enabled. Nếu 0xFF (EEPROM trắng) → dùng default an toàn.">load_settings_from_eeprom()</div>
+    <div class="arr"><div class="arr-line"></div><div class="arr-head"></div></div>
+    <div class="box box-purple" id="s7" style="width:260px" data-tip="WDT_Init" data-body="WDT khởi tạo SAU tất cả I2C ops để tránh timeout trong quá trình đọc EEPROM. Timeout ~250 ms.">WDT_Init() — timeout ~250 ms</div>
+    <div class="arr"><div class="arr-line"></div><div class="arr-head"></div></div>
+    <div class="box box-green" id="s8" style="width:260px" data-tip="Startup Animation" data-body="Nhấp nháy giờ báo thức ON 400 ms / OFF 400 ms × 2 lần. Trong vòng này vẫn quét LED và feed WDT.">✨ Startup Animation — nhấp nháy giờ báo thức 2 lần</div>
+    <div class="arr"><div class="arr-line"></div><div class="arr-head"></div></div>
+    <div class="box box-green" id="s9" style="width:260px" style="animation: glow 1.5s infinite;">▶ while(1) — Vòng lặp chính</div>
+  </div>
+
+  <!-- 7-SEG demo -->
+  <div style="text-align:center; margin-top:30px;">
+    <div style="font-size:12px; color:#8b949e; margin-bottom:12px;">Demo startup animation — giờ báo thức nhấp nháy</div>
+    <div class="seg-display">
+      <div class="digit" id="d0"></div>
+      <div class="digit" id="d1"><div class="seg-dp" id="dp"></div></div>
+      <div class="digit" id="d2"></div>
+      <div class="digit" id="d3"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 2: MAIN LOOP -->
+<!-- ============================================================ -->
+<section id="sec-mainloop">
+  <h2>🔄 Vòng lặp chính while(1)</h2>
+  <h3>5 tác vụ thực hiện mỗi 1 ms — không dùng delay()</h3>
+
+  <div class="ctrl">
+    <button class="btn primary" id="loop-btn" onclick="toggleLoop()">▶ Bắt đầu mô phỏng</button>
+    <div style="font-size:12px; color:#8b949e; display:flex; align-items:center; gap:8px;">
+      <span class="status-dot" id="loop-dot" style="animation:none; background:#30363d;"></span>
+      <span id="loop-status">Đang dừng</span>
+    </div>
+  </div>
+
+  <div style="text-align:center; margin-bottom:20px;">
+    <div style="font-size:11px; color:#8b949e; margin-bottom:8px;">Thời gian hệ thống</div>
+    <div style="font-family:monospace; font-size:24px; color:#f0883e;" id="sim-time">00:00:00</div>
+    <div style="font-size:11px; color:#8b949e; margin-top:4px;">g_ms_cnt = <span id="ms-cnt" style="color:#79c0ff">0</span> ms</div>
+  </div>
+
+  <div class="task-items">
+    <div class="task-card box-blue" id="task0" onclick="showTaskInfo(0)">
+      <div class="t-num">⚡</div>
+      <div class="t-name">Feed WDT</div>
+      <div class="t-desc">__WDT_FEED_VALUE<br>Đầu tiên, mỗi vòng lặp</div>
+    </div>
+    <div class="task-card box-orange" id="task1" onclick="showTaskInfo(1)">
+      <div class="t-num">1</div>
+      <div class="t-name">Digital_Scan()</div>
+      <div class="t-desc">Quét 1 COM<br>COM0→1→2→3→0<br>250 Hz refresh</div>
+    </div>
+    <div class="task-card box-teal" id="task2" onclick="showTaskInfo(2)">
+      <div class="t-num">2</div>
+      <div class="t-name">KeyScan()</div>
+      <div class="t-desc">Đọc ma trận phím<br>Debounce 50 ms<br>→ process_key()</div>
+    </div>
+    <div class="task-card box-green" id="task3" onclick="showTaskInfo(3)">
+      <div class="t-num">3</div>
+      <div class="t-name">Đếm giây</div>
+      <div class="t-desc">g_ms_cnt++<br>1000 ms → tick_second()<br>g_hour, g_min, g_sec</div>
+    </div>
+    <div class="task-card box-purple" id="task4" onclick="showTaskInfo(4)">
+      <div class="t-num">3b</div>
+      <div class="t-name">LED D1</div>
+      <div class="t-desc">ON khi ms_cnt &lt; 500<br>OFF khi ms_cnt ≥ 500<br>→ 1 Hz blink</div>
+    </div>
+    <div class="task-card box-blue" id="task5" onclick="showTaskInfo(5)">
+      <div class="t-num">4</div>
+      <div class="t-name">Blink + Timeout</div>
+      <div class="t-desc">Cursor nhấp nháy 500 ms<br>Timeout 30 s → NORMAL<br>(chỉ khi SET mode)</div>
+    </div>
+    <div class="task-card box-red" id="task6" onclick="showTaskInfo(6)">
+      <div class="t-num">5</div>
+      <div class="t-name">update_buzzer()</div>
+      <div class="t-desc">Pip sequence<br>Alarm ON/OFF 500 ms<br>60 s timeout</div>
+    </div>
+  </div>
+
+  <div style="max-width:700px; margin:30px auto 0; background:#161b22; border-radius:10px; padding:16px; border:1px solid #30363d;">
+    <div style="font-size:12px; color:#8b949e; margin-bottom:10px; font-weight:600;">📋 Log hoạt động</div>
+    <div id="log-box" style="font-family:monospace; font-size:11px; color:#56d364; height:120px; overflow-y:auto; line-height:1.8;"></div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 3: STATE MACHINE -->
+<!-- ============================================================ -->
+<section id="sec-statemachine">
+  <h2>🔀 State Machine 4 trạng thái</h2>
+  <h3>Nhấn vào từng trạng thái để xem chi tiết và mô phỏng chuyển trạng thái</h3>
+
+  <div class="ctrl">
+    <button class="btn" onclick="setSMState(0)">NORMAL</button>
+    <button class="btn" onclick="setSMState(1)">SET_HOUR</button>
+    <button class="btn" onclick="setSMState(2)">SET_ALARM</button>
+    <button class="btn" onclick="setSMState(3)">DISPLAY_OFF</button>
+  </div>
+
+  <div style="text-align:center; margin-bottom:16px;">
+    <div style="font-size:12px; color:#8b949e;">Trạng thái hiện tại:</div>
+    <div style="font-size:20px; font-weight:800; color:#f0883e; margin-top:4px;" id="sm-current-label">NORMAL</div>
+  </div>
+
+  <div style="overflow-x:auto;">
+  <div class="sm-wrap">
+    <!-- States -->
+    <div class="sm-state sm-sethour" id="sm-1" onclick="setSMState(1)" data-tip="STATE_SET_HOUR" data-body="Chỉnh giờ hiện tại theo Cursor Mode. g_cursor di chuyển qua 4 chữ số. LED D0 tắt. Nhấn SW4 lần 4 → về NORMAL, g_sec=0.">
+      <div class="sm-num">1</div>
+      <div style="font-size:12px; font-weight:800;">SET_HOUR</div>
+      <div class="sm-name">Cài giờ</div>
+    </div>
+    <div class="sm-state sm-normal active-state" id="sm-0" onclick="setSMState(0)" data-tip="STATE_NORMAL" data-body="Đồng hồ chạy bình thường. LED D1 nhấp nháy 1 Hz. tick_second() đếm giây. Kiểm tra báo thức mỗi khi phút thay đổi.">
+      <div class="sm-num">0</div>
+      <div style="font-size:13px; font-weight:800;">NORMAL</div>
+      <div class="sm-name">Đồng hồ chạy</div>
+    </div>
+    <div class="sm-state sm-setalarm" id="sm-2" onclick="setSMState(2)" data-tip="STATE_SET_ALARM" data-body="Cài báo thức theo Cursor Mode. LED D0 nhấp nháy cùng cursor. Nhấn SW8 lần 4 → lưu EEPROM + về NORMAL.">
+      <div class="sm-num">2</div>
+      <div style="font-size:12px; font-weight:800;">SET_ALARM</div>
+      <div class="sm-name">Cài báo thức</div>
+    </div>
+    <div class="sm-state sm-dispoff" id="sm-3" onclick="setSMState(3)" data-tip="STATE_DISPLAY_OFF" data-body="Toàn bộ LED 7-SEG, D0, D1 đều tắt. MCU vẫn chạy, đếm giờ bên trong. Bất kỳ phím → về NORMAL.">
+      <div class="sm-num">3</div>
+      <div style="font-size:12px; font-weight:800;">DISPLAY_OFF</div>
+      <div class="sm-name">Tiết kiệm điện</div>
+    </div>
+
+    <!-- SVG arrows -->
+    <svg style="position:absolute;top:0;left:0;width:700px;height:480px;pointer-events:none;" viewBox="0 0 700 480">
+      <defs>
+        <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L8,3 z" fill="#30363d"/>
+        </marker>
+        <marker id="arr-blue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L8,3 z" fill="#1f6feb"/>
+        </marker>
+        <marker id="arr-purple" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L8,3 z" fill="#6e40c9"/>
+        </marker>
+        <marker id="arr-gray" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L8,3 z" fill="#30363d"/>
+        </marker>
+      </defs>
+      <!-- NORMAL → SET_HOUR -->
+      <path d="M 330 195 Q 230 130 200 155" stroke="#1f6feb" stroke-width="2" fill="none" marker-end="url(#arr-blue)" stroke-dasharray="6,3"/>
+      <text x="230" y="148" font-size="10" fill="#79c0ff" text-anchor="middle">SW4</text>
+      <!-- SET_HOUR → NORMAL -->
+      <path d="M 195 210 Q 250 280 310 240" stroke="#1f6feb" stroke-width="2" fill="none" marker-end="url(#arr-blue)"/>
+      <text x="220" y="278" font-size="10" fill="#79c0ff" text-anchor="middle">SW4×4 / 30s</text>
+      <!-- NORMAL → SET_ALARM -->
+      <path d="M 425 195 Q 490 130 505 155" stroke="#6e40c9" stroke-width="2" fill="none" marker-end="url(#arr-purple)" stroke-dasharray="6,3"/>
+      <text x="487" y="148" font-size="10" fill="#d2a8ff" text-anchor="middle">SW8</text>
+      <!-- SET_ALARM → NORMAL -->
+      <path d="M 508 210 Q 460 270 425 240" stroke="#6e40c9" stroke-width="2" fill="none" marker-end="url(#arr-purple)"/>
+      <text x="497" y="278" font-size="10" fill="#d2a8ff" text-anchor="middle">SW8×4 / 30s</text>
+      <!-- NORMAL → DISPLAY_OFF -->
+      <path d="M 350 320 L 350 368" stroke="#30363d" stroke-width="2" fill="none" marker-end="url(#arr-gray)" stroke-dasharray="6,3"/>
+      <text x="380" y="354" font-size="10" fill="#8b949e">SW16</text>
+      <!-- DISPLAY_OFF → NORMAL -->
+      <path d="M 320 368 L 320 320" stroke="#30363d" stroke-width="2" fill="none" marker-end="url(#arr-gray)"/>
+      <text x="265" y="354" font-size="10" fill="#8b949e">AnyKey</text>
+      <!-- SW12 self-loop on NORMAL -->
+      <path d="M 385 240 Q 460 310 400 270" stroke="#2ea043" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+      <text x="450" y="310" font-size="10" fill="#56d364" text-anchor="middle">SW12</text>
+      <text x="450" y="322" font-size="9" fill="#56d364" text-anchor="middle">toggle alarm</text>
+    </svg>
+  </div>
+  </div>
+
+  <!-- Info box -->
+  <div style="max-width:600px; margin:20px auto 0; background:#161b22; border-radius:10px; padding:16px; border:1px solid #30363d;" id="sm-info-box">
+    <div style="font-size:13px; font-weight:700; color:#f0883e; margin-bottom:8px;" id="sm-info-title">STATE_NORMAL</div>
+    <div style="font-size:12px; color:#8b949e; line-height:1.7;" id="sm-info-body">
+      Đồng hồ chạy bình thường. LED D1 nhấp nháy 1 Hz. tick_second() đếm giây từ 0→59→0, cập nhật phút và giờ. Kiểm tra điều kiện báo thức mỗi khi phút tăng.
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 4: CURSOR MODE -->
+<!-- ============================================================ -->
+<section id="sec-cursor">
+  <h2>🖱️ Cursor Mode – Nhập số trực tiếp</h2>
+  <h3>Nhấp vào từng chữ số để di chuyển con trỏ. Dùng nút số để nhập giá trị.</h3>
+
+  <div style="text-align:center; margin-bottom:24px;">
+    <div class="seg-display" id="cursor-display">
+      <div class="digit" id="cd0" onclick="setCursor(0)" style="cursor:pointer"></div>
+      <div class="digit" id="cd1" onclick="setCursor(1)" style="cursor:pointer"><div class="seg-dp on"></div></div>
+      <div class="digit" id="cd2" onclick="setCursor(2)" style="cursor:pointer"></div>
+      <div class="digit" id="cd3" onclick="setCursor(3)" style="cursor:pointer"></div>
+    </div>
+    <div style="margin-top:12px; font-size:12px; color:#8b949e;">
+      Con trỏ tại: <span style="color:#f0883e; font-weight:700;" id="cursor-pos-label">H_tens (chục giờ)</span>
+      &nbsp;|&nbsp; Giá trị: <span style="color:#79c0ff; font-family:monospace;" id="cursor-val-label">00:00</span>
+    </div>
+  </div>
+
+  <!-- Cursor position diagram -->
+  <div style="max-width:500px; margin:0 auto 24px; display:flex; gap:8px; align-items:center; justify-content:center;">
+    <div class="box box-orange" style="width:80px; cursor:pointer;" id="cp0" onclick="setCursor(0)">cursor 0<br><small>H_tens</small></div>
+    <div style="font-size:20px; color:#30363d;">→</div>
+    <div class="box box-blue" style="width:80px; cursor:pointer;" id="cp1" onclick="setCursor(1)">cursor 1<br><small>H_units</small></div>
+    <div style="font-size:20px; color:#30363d;">→</div>
+    <div class="box box-green" style="width:80px; cursor:pointer;" id="cp2" onclick="setCursor(2)">cursor 2<br><small>M_tens</small></div>
+    <div style="font-size:20px; color:#30363d;">→</div>
+    <div class="box box-purple" style="width:80px; cursor:pointer;" id="cp3" onclick="setCursor(3)">cursor 3<br><small>M_units</small></div>
+  </div>
+
+  <!-- Numpad -->
+  <div style="max-width:360px; margin:0 auto;">
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-bottom:12px;">
+      <button class="btn" onclick="pressNum(7)">7</button>
+      <button class="btn" onclick="pressNum(8)">8</button>
+      <button class="btn" onclick="pressNum(9)">9</button>
+      <button class="btn primary" onclick="moveCursor(1)">SW4 →</button>
+      <button class="btn" onclick="pressNum(4)">4</button>
+      <button class="btn" onclick="pressNum(5)">5</button>
+      <button class="btn" onclick="pressNum(6)">6</button>
+      <button class="btn primary" onclick="moveCursor(1)" style="background:#6e40c9;border-color:#6e40c9;">SW8 →</button>
+      <button class="btn" onclick="pressNum(1)">1</button>
+      <button class="btn" onclick="pressNum(2)">2</button>
+      <button class="btn" onclick="pressNum(3)">3</button>
+      <button class="btn" style="background:#2ea04322;border-color:#2ea043;color:#56d364;" onclick="resetCursor()">Reset</button>
+      <button class="btn" onclick="pressInc(-1)">−</button>
+      <button class="btn" onclick="pressNum(0)">0</button>
+      <button class="btn" onclick="pressInc(1)">+</button>
+      <button class="btn" onclick="moveCursor(-1)">← Lùi</button>
+    </div>
+  </div>
+
+  <div style="max-width:560px; margin:16px auto; background:#161b22; border-radius:10px; padding:14px 16px; border:1px solid #30363d;">
+    <div style="font-size:12px; font-weight:700; color:#f0883e; margin-bottom:8px;">📌 Logic xử lý</div>
+    <div style="font-family:monospace; font-size:11px; color:#79c0ff; line-height:1.9;" id="cursor-logic">
+      // Cursor mode logic will appear here
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 5: BUZZER FSM -->
+<!-- ============================================================ -->
+<section id="sec-buzzer">
+  <h2>🔔 Buzzer State Machine</h2>
+  <h3>update_buzzer() chạy mỗi 1 ms — quản lý pip phản hồi và báo thức</h3>
+
+  <div class="ctrl">
+    <button class="btn primary" onclick="triggerPip(1)">Phát 1 bíp (SW tắt)</button>
+    <button class="btn primary" onclick="triggerPip(2)">Phát 2 bíp (SW bật)</button>
+    <button class="btn" style="background:#da363622;border-color:#da3633;color:#ff7b72;" onclick="triggerAlarm()">🚨 Kích hoạt báo thức</button>
+    <button class="btn" onclick="stopBuzzer()">⏹ Dừng</button>
+  </div>
+
+  <div class="bz-row" style="margin-bottom:28px;">
+    <div class="bz-box box-gray" id="bz-idle">
+      <div class="bz-icon">💤</div>
+      <div class="bz-name">IDLE</div>
+      <div class="bz-desc">g_pip_ms = 0<br>g_alarm_active = 0<br>Buzzer tắt</div>
+    </div>
+    <div style="font-size:28px; color:#30363d;">→</div>
+    <div class="bz-box box-orange" id="bz-pip">
+      <div class="bz-icon">📢</div>
+      <div class="bz-name">PIP</div>
+      <div class="bz-desc">g_pip_ms đếm ngược<br>200 ms mỗi bíp<br>Buzzer ON</div>
+    </div>
+    <div style="font-size:28px; color:#30363d;">→</div>
+    <div class="bz-box box-blue" id="bz-gap">
+      <div class="bz-icon">⏸</div>
+      <div class="bz-name">GAP</div>
+      <div class="bz-desc">g_pip_gap_cnt đếm<br>200 ms im lặng<br>Buzzer OFF</div>
+    </div>
+    <div style="font-size:28px; color:#30363d;">↗</div>
+    <div class="bz-box box-red" id="bz-alarm">
+      <div class="bz-icon">🚨</div>
+      <div class="bz-name">ALARM</div>
+      <div class="bz-desc">ON/OFF 500 ms<br>Tối đa 60 000 ms<br>AnyKey → dừng</div>
+    </div>
+  </div>
+
+  <!-- Waveform visualizer -->
+  <div style="max-width:700px; margin:0 auto; background:#0a0a0a; border-radius:10px; padding:16px; border:1px solid #222;">
+    <div style="font-size:12px; color:#8b949e; margin-bottom:10px;">📊 Dạng sóng buzzer (thời gian thực)</div>
+    <canvas id="bz-canvas" width="670" height="80" style="width:100%;"></canvas>
+    <div style="display:flex; justify-content:space-between; margin-top:6px;">
+      <span style="font-size:10px; color:#8b949e;">ON</span>
+      <span style="font-size:10px; color:#8b949e;" id="bz-timer">0 ms</span>
+      <span style="font-size:10px; color:#8b949e;">OFF</span>
+    </div>
+  </div>
+
+  <div style="max-width:600px; margin:20px auto; background:#161b22; border-radius:10px; padding:14px 16px; border:1px solid #30363d;">
+    <div style="font-size:12px; font-weight:700; color:#f0883e; margin-bottom:8px;">⚙️ Trạng thái biến</div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; font-family:monospace; font-size:12px;">
+      <div>g_alarm_active = <span style="color:#79c0ff;" id="bv-alarm">0</span></div>
+      <div>g_alarm_remain_ms = <span style="color:#79c0ff;" id="bv-remain">0</span></div>
+      <div>g_pip_ms = <span style="color:#79c0ff;" id="bv-pip">0</span></div>
+      <div>g_pip_remain = <span style="color:#79c0ff;" id="bv-piprem">0</span></div>
+      <div>g_pip_gap_cnt = <span style="color:#79c0ff;" id="bv-gap">0</span></div>
+      <div>Buzzer = <span style="color:#79c0ff;" id="bv-state">OFF</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 6: EEPROM -->
+<!-- ============================================================ -->
+<section id="sec-eeprom">
+  <h2>💾 EEPROM AT24C02 – Smart Write Strategy</h2>
+  <h3>Chỉ ghi khi người dùng xác nhận — tránh wear 1 000 000 chu kỳ</h3>
+
+  <div class="flow-row" style="margin-bottom:30px;">
+    <div class="flow-col" style="gap:0;">
+      <div class="box box-teal" style="width:220px; margin-bottom:0;">🖥️ MCU SN32F407</div>
+      <div class="arr"><div class="arr-line" style="height:40px;"></div><div class="arr-head"></div></div>
+      <div style="display:flex; gap:8px;">
+        <div style="text-align:center;">
+          <div style="font-size:10px; color:#56d364; margin-bottom:4px;">WRITE 0xA0</div>
+          <div class="box box-green" style="width:100px; font-size:11px;">SCL P0.10<br>SDA P0.11</div>
+        </div>
+        <div style="text-align:center; padding-top:20px;">
+          <div style="font-size:11px; color:#8b949e;">I2C</div>
+          <div style="font-size:11px; color:#8b949e;">100 kHz</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-size:10px; color:#79c0ff; margin-bottom:4px;">READ  0xA1</div>
+          <div class="box box-blue" style="width:100px; font-size:11px;">EEPROM<br>AT24C02</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="max-width:300px;">
+      <table class="ee-table">
+        <thead><tr><th>Địa chỉ</th><th>Dữ liệu</th><th>Ghi khi</th></tr></thead>
+        <tbody>
+          <tr class="ee-write"><td>0x00</td><td>alarm_hour</td><td>SW8 xác nhận</td></tr>
+          <tr class="ee-write"><td>0x01</td><td>alarm_min</td><td>SW8 xác nhận</td></tr>
+          <tr class="ee-read" ><td>0x02</td><td>enabled (0x01/0x00)</td><td>SW12 toggle</td></tr>
+        </tbody>
+      </table>
+      <div style="font-size:11px; color:#8b949e; margin-top:10px; text-align:center;">
+        ❌ Giờ hiện tại KHÔNG lưu — tránh wear
+      </div>
+    </div>
+  </div>
+
+  <div class="ctrl">
+    <button class="btn primary" onclick="animEEPROMWrite()">▶ Mô phỏng ghi EEPROM</button>
+    <button class="btn primary" style="background:#1f6feb;border-color:#1f6feb;" onclick="animEEPROMRead()">▶ Mô phỏng đọc EEPROM</button>
+    <button class="btn" onclick="resetEE()">↺ Reset</button>
+  </div>
+
+  <!-- I2C waveform -->
+  <div style="max-width:700px; margin:0 auto 20px; background:#0a0a0a; border-radius:10px; padding:16px; border:1px solid #222;">
+    <div style="font-size:12px; color:#8b949e; margin-bottom:10px;">📊 I2C Protocol</div>
+    <canvas id="i2c-canvas" width="670" height="100" style="width:100%;"></canvas>
+    <div id="i2c-label" style="font-size:11px; color:#8b949e; margin-top:8px; text-align:center; font-family:monospace;">Chờ...</div>
+  </div>
+
+  <div class="tl-wrap">
+    <div style="font-size:13px; font-weight:700; color:#8b949e; margin-bottom:16px;">📋 Chuỗi I2C ghi byte:</div>
+    <div id="ee-steps"></div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 7: DISPLAY -->
+<!-- ============================================================ -->
+<section id="sec-display">
+  <h2>📺 LED 7 đoạn – Multiplexing 250 Hz</h2>
+  <h3>4 COM quét tuần tự mỗi 1 ms — mắt người thấy đồng thời</h3>
+
+  <div class="ctrl">
+    <button class="btn primary" id="mux-btn" onclick="toggleMux()">▶ Bắt đầu multiplexing</button>
+    <div style="font-size:12px; color:#8b949e;">COM đang active: <span id="com-active" style="color:#f0883e; font-weight:700;">—</span></div>
+  </div>
+
+  <!-- 4 separate digits showing one at a time -->
+  <div style="display:flex; gap:20px; justify-content:center; flex-wrap:wrap; margin-bottom:24px;">
+    <div style="text-align:center;">
+      <div style="font-size:11px; color:#8b949e; margin-bottom:8px;">COM0 — P1.9<br><small>(Chục giờ)</small></div>
+      <div class="seg-display" style="padding:8px;"><div class="digit" id="mx0"></div></div>
+      <div style="width:12px; height:12px; border-radius:50%; margin:8px auto 0; background:#30363d;" id="com-led0"></div>
+    </div>
+    <div style="text-align:center;">
+      <div style="font-size:11px; color:#8b949e; margin-bottom:8px;">COM1 — P1.10<br><small>(Đơn vị giờ + DP)</small></div>
+      <div class="seg-display" style="padding:8px;"><div class="digit" id="mx1"><div class="seg-dp" id="mx1dp"></div></div></div>
+      <div style="width:12px; height:12px; border-radius:50%; margin:8px auto 0; background:#30363d;" id="com-led1"></div>
+    </div>
+    <div style="text-align:center;">
+      <div style="font-size:11px; color:#8b949e; margin-bottom:8px;">COM2 — P1.11<br><small>(Chục phút)</small></div>
+      <div class="seg-display" style="padding:8px;"><div class="digit" id="mx2"></div></div>
+      <div style="width:12px; height:12px; border-radius:50%; margin:8px auto 0; background:#30363d;" id="com-led2"></div>
+    </div>
+    <div style="text-align:center;">
+      <div style="font-size:11px; color:#8b949e; margin-bottom:8px;">COM3 — P1.12<br><small>(Đơn vị phút)</small></div>
+      <div class="seg-display" style="padding:8px;"><div class="digit" id="mx3"></div></div>
+      <div style="width:12px; height:12px; border-radius:50%; margin:8px auto 0; background:#30363d;" id="com-led3"></div>
+    </div>
+  </div>
+
+  <!-- Combined display -->
+  <div style="text-align:center; margin-bottom:20px;">
+    <div style="font-size:12px; color:#8b949e; margin-bottom:10px;">← Kết quả mắt người thấy (persistence of vision)</div>
+    <div class="seg-display" id="full-display">
+      <div class="digit" id="fd0"></div>
+      <div class="digit" id="fd1"><div class="seg-dp on"></div></div>
+      <div class="digit" id="fd2"></div>
+      <div class="digit" id="fd3"></div>
+    </div>
+  </div>
+
+  <!-- Step by step -->
+  <div style="max-width:600px; margin:0 auto; background:#161b22; border-radius:10px; padding:16px; border:1px solid #30363d;">
+    <div style="font-size:12px; font-weight:700; color:#f0883e; margin-bottom:12px;">⚙️ Digital_Scan() — 4 bước mỗi 1 ms</div>
+    <div style="display:flex; flex-direction:column; gap:8px;">
+      <div class="box box-gray" id="scan-step0" style="font-size:12px;">Bước 1: Tắt tất cả SEG (P0 = 0x00) → chống ghosting</div>
+      <div class="box box-gray" id="scan-step1" style="font-size:12px;">Bước 2: Tắt COM cũ (P1.9–P1.12 LOW)</div>
+      <div class="box box-gray" id="scan-step2" style="font-size:12px;">Bước 3: Tăng com_scan: 0→1→2→3→0</div>
+      <div class="box box-gray" id="scan-step3" style="font-size:12px;">Bước 4: Bật COM mới HIGH + xuất segment_buff[com_scan] ra P0</div>
+    </div>
+  </div>
+</section>
+
+<!-- STATUS BAR -->
+<div class="status-bar">
+  <div><span class="status-dot"></span>SN32F407 Clock Simulator</div>
+  <div>HCLK: 12 MHz | Timer: 1 ms | Buzzer: 600 Hz | EEPROM: I2C 100 kHz</div>
+  <div style="margin-left:auto; color:#30363d; font-size:11px;">Hover lên các box để xem chi tiết</div>
+</div>
+
+<script>
+// ============================================================
+// UTILS: 7-SEG rendering
+// ============================================================
+const SEG = {
+  0:['a','b','c','d','e','f'],
+  1:['b','c'],
+  2:['a','b','d','e','g'],
+  3:['a','b','c','d','g'],
+  4:['b','c','f','g'],
+  5:['a','c','d','f','g'],
+  6:['a','c','d','e','f','g'],
+  7:['a','b','c'],
+  8:['a','b','c','d','e','f','g'],
+  9:['a','b','c','d','f','g']
+};
+
+function renderDigit(el, num, showDP) {
+  el.innerHTML = '';
+  ['a','b','c','d','e','f','g'].forEach(s=>{
+    const d = document.createElement('div');
+    d.className = 'seg seg-'+s + (SEG[num]&&SEG[num].includes(s)?' on':'');
+    el.appendChild(d);
+  });
+  const dp = document.createElement('div');
+  dp.className = 'seg-dp' + (showDP?' on':'');
+  el.appendChild(dp);
+}
+
+function renderTime(h, m, prefix) {
+  renderDigit(document.getElementById(prefix+'0'), Math.floor(h/10));
+  renderDigit(document.getElementById(prefix+'1'), h%10, true);
+  renderDigit(document.getElementById(prefix+'2'), Math.floor(m/10));
+  renderDigit(document.getElementById(prefix+'3'), m%10);
+}
+
+// ============================================================
+// TAB switching
+// ============================================================
+function showTab(id) {
+  document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('sec-'+id).classList.add('active');
+  event.target.classList.add('active');
+}
+
+// ============================================================
+// TOOLTIP
+// ============================================================
+document.querySelectorAll('[data-tip]').forEach(el=>{
+  el.addEventListener('mouseenter', e=>{
+    const tt = document.getElementById('tooltip');
+    document.getElementById('tt-title').textContent = el.dataset.tip;
+    document.getElementById('tt-body').textContent = el.dataset.body||'';
+    tt.classList.add('show');
+  });
+  el.addEventListener('mousemove', e=>{
+    const tt = document.getElementById('tooltip');
+    tt.style.left = (e.clientX+16)+'px';
+    tt.style.top  = (e.clientY+8)+'px';
+  });
+  el.addEventListener('mouseleave', ()=>{
+    document.getElementById('tooltip').classList.remove('show');
+  });
+});
+
+// ============================================================
+// SECTION 1: STARTUP
+// ============================================================
+const startupBoxes = ['s0','s1','s2','s3','s4','s5','s6','s7','s8','s9'];
+let startupTimer = null;
+
+function resetStartup() {
+  clearTimeout(startupTimer);
+  startupBoxes.forEach(id=>{
+    const el = document.getElementById(id);
+    el.classList.remove('active-glow');
+    el.style.opacity = '0.3';
+  });
+  document.getElementById('s0').style.opacity='1';
+  stopStartupAnim();
+}
+
+function animateStartup() {
+  resetStartup();
+  let i = 0;
+  function next() {
+    if(i>0) document.getElementById(startupBoxes[i-1]).classList.remove('active-glow');
+    if(i < startupBoxes.length) {
+      const el = document.getElementById(startupBoxes[i]);
+      el.style.opacity = '1';
+      el.classList.add('active-glow');
+      if(i === 8) startStartupAnim();
+      startupTimer = setTimeout(()=>{ i++; next(); }, i===8?2000:600);
+    } else {
+      startStartupAnim();
+    }
+  }
+  next();
+}
+
+// 7-seg startup animation
+let startAnimInterval = null;
+let animPhase = 0;
+function startStartupAnim() {
+  renderTime(7,30,'d');
+  clearInterval(startAnimInterval);
+  let phase = 0;
+  startAnimInterval = setInterval(()=>{
+    phase = !phase;
+    if(phase) {
+      renderTime(7,30,'d');
+    } else {
+      ['d0','d1','d2','d3'].forEach(id=>document.getElementById(id).innerHTML='');
+    }
+  }, 400);
+  setTimeout(()=>{ clearInterval(startAnimInterval); renderTime(0,0,'d'); }, 1800);
+}
+function stopStartupAnim() {
+  clearInterval(startAnimInterval);
+  ['d0','d1','d2','d3'].forEach(id=>document.getElementById(id).innerHTML='');
+}
+
+// Init startup section
+resetStartup();
+renderTime(7,30,'d');
+
+// ============================================================
+// SECTION 2: MAIN LOOP
+// ============================================================
+let loopRunning = false;
+let loopInterval = null;
+let simH=0, simM=0, simS=0, simMs=0;
+let currentTask = 0;
+const taskColors = ['box-blue','box-orange','box-teal','box-green','box-purple','box-blue','box-red'];
+const taskNames  = ['Feed WDT','Digital_Scan()','KeyScan()','tick_second()','LED D1','Blink+Timeout','update_buzzer()'];
+
+function toggleLoop() {
+  if(loopRunning) {
+    loopRunning = false;
+    clearInterval(loopInterval);
+    document.getElementById('loop-btn').textContent = '▶ Bắt đầu mô phỏng';
+    document.getElementById('loop-dot').style.background = '#30363d';
+    document.getElementById('loop-dot').style.animation = 'none';
+    document.getElementById('loop-status').textContent = 'Đang dừng';
+    for(let i=0;i<7;i++) document.getElementById('task'+i).classList.remove('running');
+  } else {
+    loopRunning = true;
+    document.getElementById('loop-btn').textContent = '⏸ Dừng';
+    document.getElementById('loop-dot').style.background = '#2ea043';
+    document.getElementById('loop-dot').style.animation = 'pulse 1s infinite';
+    document.getElementById('loop-status').textContent = 'Đang chạy...';
+    loopInterval = setInterval(()=>{
+      // Advance ms
+      simMs += 1;
+      if(simMs >= 1000) { simMs=0; simS++; if(simS>=60){simS=0;simM++;if(simM>=60){simM=0;simH++;if(simH>=24)simH=0;}}}
+      document.getElementById('sim-time').textContent =
+        String(simH).padStart(2,'0')+':'+String(simM).padStart(2,'0')+':'+String(simS).padStart(2,'0');
+      document.getElementById('ms-cnt').textContent = simMs;
+      // Highlight tasks
+      for(let i=0;i<7;i++) document.getElementById('task'+i).classList.remove('running');
+      const t = Math.floor(simMs/143) % 7;
+      document.getElementById('task'+t).classList.add('running');
+      // Log
+      if(simMs % 100 === 0) {
+        const lb = document.getElementById('log-box');
+        lb.innerHTML += `[${String(simH).padStart(2,'0')}:${String(simM).padStart(2,'0')}:${String(simS).padStart(2,'0')}.${String(simMs).padStart(3,'0')}] ${taskNames[t]} ✓\n`;
+        lb.scrollTop = lb.scrollHeight;
+      }
+    }, 1);
+  }
+}
+
+function showTaskInfo(i) {
+  const info = [
+    'Feed WDT: __WDT_FEED_VALUE — nạp lại Watchdog. Nếu không feed trong 250 ms → MCU reset.',
+    'Digital_Scan(): quét 1 COM mỗi 1 ms. Tắt SEG → tắt COM cũ → tăng com_scan → bật COM + SEG mới. 4 COM × 1 ms = 250 Hz.',
+    'KeyScan(): quét ma trận phím 2 chiều. Debounce 50 ms. Nếu phím hợp lệ → gọi process_key().',
+    'tick_second(): chỉ chạy khi g_state == NORMAL. g_sec++ → 60→ g_min++ → 60 → g_hour++ → 24→0. Kiểm tra alarm.',
+    'LED D1: ON khi g_ms_cnt < 500, OFF khi ≥ 500. Tắt hoàn toàn khi DISPLAY_OFF. Tạo nhấp nháy 1 Hz.',
+    'Blink + Timeout: toggle g_blink_on mỗi 500 ms → gọi update_display(). Đếm timeout 30 000 ms → về NORMAL.',
+    'update_buzzer(): alarm ON/OFF 500 ms × 60 s tối đa. Pip sequence: pip 200 ms → gap 200 ms → pip tiếp theo.',
+  ];
+  alert(taskNames[i] + '\n\n' + info[i]);
+}
+
+// ============================================================
+// SECTION 3: STATE MACHINE
+// ============================================================
+let currentSM = 0;
+const smStates = [
+  {id:'sm-0', label:'STATE_NORMAL', body:'Đồng hồ chạy bình thường. LED D1 nhấp nháy 1 Hz. tick_second() đếm giây. Kiểm tra điều kiện báo thức mỗi khi phút tăng.'},
+  {id:'sm-1', label:'STATE_SET_HOUR', body:'Chỉnh giờ hiện tại. g_cursor di chuyển qua 4 chữ số (0=H_tens, 1=H_units, 2=M_tens, 3=M_units). LED D0 tắt. Nhấn SW4 lần 4 → về NORMAL, g_sec=0.'},
+  {id:'sm-2', label:'STATE_SET_ALARM', body:'Chỉnh báo thức. Tương tự SET_HOUR nhưng chỉnh g_alarm_hour và g_alarm_min. LED D0 nhấp nháy theo cursor. Nhấn SW8 lần 4 → lưu EEPROM + về NORMAL.'},
+  {id:'sm-3', label:'STATE_DISPLAY_OFF', body:'Toàn bộ LED 7-SEG, D0, D1 đều tắt. MCU vẫn chạy, WDT vẫn feed. Bất kỳ phím nào → về NORMAL.'},
+];
+
+function setSMState(n) {
+  smStates.forEach((s,i)=>{
+    const el = document.getElementById(s.id);
+    el.classList.toggle('active-state', i===n);
+  });
+  currentSM = n;
+  document.getElementById('sm-current-label').textContent = smStates[n].label;
+  document.getElementById('sm-info-title').textContent = smStates[n].label;
+  document.getElementById('sm-info-body').textContent = smStates[n].body;
+}
+
+// ============================================================
+// SECTION 4: CURSOR MODE
+// ============================================================
+let curH=0, curM=0, curPos=0, blinkOn=true, blinkTimer=null;
+const cursorColors = ['box-orange','box-blue','box-green','box-purple'];
+const cursorLabels = ['H_tens (chục giờ)','H_units (đơn vị giờ)','M_tens (chục phút)','M_units (đơn vị phút)'];
+
+function renderCursor() {
+  ['cd0','cd1','cd2','cd3'].forEach((id,i)=>{
+    const show = !(i===curPos && !blinkOn);
+    renderDigit(document.getElementById(id), i<2? [Math.floor(curH/10),curH%10][i] : [Math.floor(curM/10),curM%10][i-2], i===1);
+    if(!show) document.getElementById(id).innerHTML='';
+  });
+  document.getElementById('cursor-pos-label').textContent = cursorLabels[curPos];
+  document.getElementById('cursor-val-label').textContent =
+    String(curH).padStart(2,'0')+':'+String(curM).padStart(2,'0');
+  ['cp0','cp1','cp2','cp3'].forEach((id,i)=>{
+    const el = document.getElementById(id);
+    el.className = 'box '+cursorColors[i] + (i===curPos?' active-glow':'');
+  });
+}
+
+function setCursor(pos) { curPos=pos; renderCursor(); updateCursorLogic('cursor set to '+cursorLabels[pos]); }
+function moveCursor(d) {
+  curPos = Math.max(0, Math.min(3, curPos+d));
+  if(curPos>3) curPos=0;
+  renderCursor();
+}
+function resetCursor() { curH=0; curM=0; curPos=0; renderCursor(); }
+
+function pressNum(n) {
+  let logic='';
+  if(curPos===0){ curH=n*10+(curH%10); if(curH>23)curH=23; logic=`H_tens: h = ${n}×10 + ${curH%10} = ${n*10+(curH%10>9?9:curH%10)} → clamp→ ${curH}`; }
+  else if(curPos===1){ curH=Math.floor(curH/10)*10+n; if(curH>23)curH=23; logic=`H_units: h = ${Math.floor(curH/10)}×10 + ${n} → clamp→ ${curH}`; }
+  else if(curPos===2){ curM=n*10+(curM%10); if(curM>59)curM=59; logic=`M_tens: m = ${n}×10 + ${curM%10} = ${n*10+(curM%10>9?9:curM%10)} → clamp→ ${curM}`; }
+  else if(curPos===3){ curM=Math.floor(curM/10)*10+n; if(curM>59)curM=59; logic=`M_units: m = ${Math.floor(curM/10)}×10 + ${n} → clamp→ ${curM}`; }
+  renderCursor();
+  updateCursorLogic(`set_cursor_digit(cursor=${curPos}, digit=${n}) → ${logic}`);
+}
+
+function pressInc(d) {
+  let logic='';
+  const step = [10,1,10,1][curPos];
+  const max  = curPos<2?24:60;
+  if(curPos===0||curPos===1){ curH=(curH+max+d*step)%max; logic=`inc_cursor: hour = (${curH}+${d<0?max:0}+${d*step}) % ${max} = ${curH}`; }
+  else { curM=(curM+max+d*step)%max; logic=`inc_cursor: min = (${curM}+${d<0?max:0}+${d*step}) % ${max} = ${curM}`; }
+  renderCursor();
+  updateCursorLogic(logic);
+}
+
+function updateCursorLogic(msg) {
+  document.getElementById('cursor-logic').innerHTML =
+    `// ${msg}\n// Giờ: ${String(curH).padStart(2,'0')}, Phút: ${String(curM).padStart(2,'0')}\n// Cursor tại vị trí: ${curPos} (${cursorLabels[curPos]})`;
+}
+
+// Blink cursor
+blinkTimer = setInterval(()=>{ blinkOn=!blinkOn; renderCursor(); }, 500);
+renderCursor();
+
+// ============================================================
+// SECTION 5: BUZZER FSM
+// ============================================================
+let bzState='idle', bzPipMs=0, bzPipRem=0, bzGapCnt=0, bzAlarmMs=0, bzPhaseMs=0, bzOn=false;
+let bzInterval=null;
+const bzCanvas = document.getElementById('bz-canvas');
+const bzCtx = bzCanvas.getContext('2d');
+let bzWave = [];
+
+function updateBzVars() {
+  document.getElementById('bv-alarm').textContent = bzState==='alarm'?1:0;
+  document.getElementById('bv-remain').textContent = bzAlarmMs;
+  document.getElementById('bv-pip').textContent = bzPipMs;
+  document.getElementById('bv-piprem').textContent = bzPipRem;
+  document.getElementById('bv-gap').textContent = bzGapCnt;
+  document.getElementById('bv-state').textContent = bzOn?'ON 🔔':'OFF';
+  document.getElementById('bz-timer').textContent = bzState==='alarm'?`Còn ${bzAlarmMs} ms`:`pip_ms=${bzPipMs}`;
+  ['bz-idle','bz-pip','bz-gap','bz-alarm'].forEach(id=>document.getElementById(id).classList.remove('active-state'));
+  if(bzState==='alarm') document.getElementById('bz-alarm').classList.add('active-state');
+  else if(bzPipMs>0)    document.getElementById('bz-pip').classList.add('active-state');
+  else if(bzGapCnt>0)   document.getElementById('bz-gap').classList.add('active-state');
+  else                  document.getElementById('bz-idle').classList.add('active-state');
+}
+
+function drawBzWave() {
+  bzCtx.clearRect(0,0,670,80);
+  bzCtx.fillStyle='#111'; bzCtx.fillRect(0,0,670,80);
+  bzCtx.strokeStyle='#f0883e'; bzCtx.lineWidth=2;
+  bzCtx.beginPath();
+  const pts = bzWave.slice(-335);
+  pts.forEach((v,i)=>{
+    const x=(i/pts.length)*670, y=v?15:65;
+    if(i===0) bzCtx.moveTo(x,y); else { bzCtx.lineTo(x,y); bzCtx.lineTo(x,y); }
+  });
+  bzCtx.stroke();
+  // Grid lines
+  bzCtx.strokeStyle='#1a1a1a'; bzCtx.lineWidth=1;
+  [40].forEach(y=>{ bzCtx.beginPath(); bzCtx.moveTo(0,y); bzCtx.lineTo(670,y); bzCtx.stroke(); });
+}
+
+function triggerPip(n) {
+  if(bzState==='alarm') return;
+  bzState='pip'; bzPipMs=200; bzPipRem=n-1; bzGapCnt=0; bzOn=true;
+  startBzInterval();
+}
+function triggerAlarm() {
+  bzState='alarm'; bzAlarmMs=3000; bzPhaseMs=500; bzPipMs=0; bzGapCnt=0; bzOn=true;
+  startBzInterval();
+}
+function stopBuzzer() {
+  bzState='idle'; bzPipMs=0; bzPipRem=0; bzGapCnt=0; bzAlarmMs=0; bzOn=false;
+  clearInterval(bzInterval); bzInterval=null; updateBzVars(); drawBzWave();
+}
+function startBzInterval() {
+  clearInterval(bzInterval);
+  bzInterval = setInterval(()=>{
+    // Simulate update_buzzer() each ms
+    if(bzState==='alarm') {
+      if(bzAlarmMs>0) {
+        bzAlarmMs--; bzPhaseMs--;
+        if(bzPhaseMs===0){ bzPhaseMs=500; bzOn=!bzOn; }
+      } else { bzState='idle'; bzOn=false; clearInterval(bzInterval); }
+    } else {
+      if(bzPipMs>0) {
+        bzPipMs--;
+        if(bzPipMs===0){ bzOn=false; if(bzPipRem>0) bzGapCnt=200; else bzState='idle'; }
+      } else if(bzGapCnt>0) {
+        bzGapCnt--;
+        if(bzGapCnt===0&&bzPipRem>0){ bzPipRem--; bzPipMs=200; bzOn=true; }
+        else if(bzGapCnt===0) bzState='idle';
+      }
+    }
+    bzWave.push(bzOn?1:0); if(bzWave.length>1000) bzWave.shift();
+    updateBzVars(); drawBzWave();
+  }, 2);
+}
+drawBzWave();
+
+// ============================================================
+// SECTION 6: EEPROM
+// ============================================================
+const i2cCanvas = document.getElementById('i2c-canvas');
+const i2cCtx = i2cCanvas.getContext('2d');
+
+function drawI2CIdle() {
+  i2cCtx.clearRect(0,0,670,100);
+  i2cCtx.fillStyle='#0a0a0a'; i2cCtx.fillRect(0,0,670,100);
+  i2cCtx.strokeStyle='#56d364'; i2cCtx.lineWidth=2;
+  i2cCtx.beginPath(); i2cCtx.moveTo(0,25); i2cCtx.lineTo(670,25); i2cCtx.stroke(); // SCL
+  i2cCtx.strokeStyle='#79c0ff';
+  i2cCtx.beginPath(); i2cCtx.moveTo(0,70); i2cCtx.lineTo(670,70); i2cCtx.stroke(); // SDA
+  i2cCtx.fillStyle='#8b949e'; i2cCtx.font='11px monospace';
+  i2cCtx.fillText('SCL',5,20); i2cCtx.fillText('SDA',5,65);
+}
+
+function animEEPROMWrite() {
+  const steps = [
+    {label:'START', scl:1, sda:0},
+    {label:'ADDR W (0xA0)', scl:1, sda:1},
+    {label:'ACK', scl:0, sda:0},
+    {label:'REG 0x00', scl:1, sda:1},
+    {label:'ACK', scl:0, sda:0},
+    {label:'DATA alarm_hour', scl:1, sda:1},
+    {label:'ACK', scl:0, sda:0},
+    {label:'STOP', scl:1, sda:1},
+  ];
+  drawI2CSequence(steps, 'GHI EEPROM: alarm_hour vào địa chỉ 0x00');
+  const stepsEl = document.getElementById('ee-steps');
+  stepsEl.innerHTML = '';
+  const items = [
+    ['START','Kéo SDA xuống LOW trong khi SCL HIGH → báo hiệu bắt đầu giao tiếp','box-orange'],
+    ['ADDR 0xA0','7-bit address (1010000) + W bit (0) → chọn EEPROM AT24C02','box-blue'],
+    ['ACK','EEPROM kéo SDA xuống LOW để xác nhận','box-green'],
+    ['REG 0x00','Địa chỉ ô nhớ cần ghi (alarm_hour)','box-blue'],
+    ['ACK','EEPROM xác nhận nhận địa chỉ','box-green'],
+    ['DATA','Giá trị alarm_hour (VD: 0x07 = 7 giờ)','box-teal'],
+    ['ACK','EEPROM xác nhận và bắt đầu ghi vào Flash nội','box-green'],
+    ['STOP','Kéo SDA lên HIGH trong khi SCL HIGH → kết thúc','box-orange'],
+  ];
+  items.forEach(([t,b,cls],i)=>{
+    const div = document.createElement('div');
+    div.className='tl-item'; div.style.animationDelay=i*0.1+'s';
+    div.innerHTML=`<div class="tl-line-wrap"><div class="tl-dot" style="background:#f0883e;border-color:#f0883e;"></div>${i<items.length-1?'<div class="tl-connector"></div>':''}</div><div class="tl-content"><div class="tl-title"><span class="box ${cls}" style="display:inline;padding:2px 8px;font-size:11px;">${t}</span></div><div class="tl-body">${b}</div></div>`;
+    stepsEl.appendChild(div);
+  });
+}
+
+function animEEPROMRead() {
+  const steps = [
+    {label:'START', scl:1, sda:0},
+    {label:'ADDR W (0xA0)', scl:1, sda:1},
+    {label:'ACK', scl:0, sda:0},
+    {label:'REG 0x00', scl:1, sda:1},
+    {label:'RESTART', scl:1, sda:0},
+    {label:'ADDR R (0xA1)', scl:1, sda:1},
+    {label:'ACK', scl:0, sda:0},
+    {label:'DATA', scl:1, sda:1},
+    {label:'NACK+STOP', scl:1, sda:1},
+  ];
+  drawI2CSequence(steps, 'ĐỌC EEPROM: alarm_hour từ địa chỉ 0x00');
+}
+
+function drawI2CSequence(steps, label) {
+  i2cCtx.clearRect(0,0,670,100);
+  i2cCtx.fillStyle='#0a0a0a'; i2cCtx.fillRect(0,0,670,100);
+  const w = 670/steps.length;
+  steps.forEach((s,i)=>{
+    const x = i*w;
+    const col = s.label.includes('ACK')?'#56d364':s.label.includes('START')||s.label.includes('STOP')?'#f0883e':s.label.includes('DATA')||s.label.includes('ADDR')?'#79c0ff':'#d2a8ff';
+    i2cCtx.fillStyle=col+'33'; i2cCtx.fillRect(x+2,5,w-4,90);
+    i2cCtx.fillStyle=col; i2cCtx.font='9px monospace'; i2cCtx.textAlign='center';
+    i2cCtx.fillText(s.label, x+w/2, 98);
+    i2cCtx.strokeStyle=col; i2cCtx.lineWidth=2;
+    i2cCtx.beginPath(); i2cCtx.moveTo(x+2,20); i2cCtx.lineTo(x+w-2,20); i2cCtx.stroke();
+    i2cCtx.strokeStyle=col+'88';
+    i2cCtx.beginPath(); i2cCtx.moveTo(x+2,65); i2cCtx.lineTo(x+w-2,65); i2cCtx.stroke();
+  });
+  i2cCtx.fillStyle='#8b949e'; i2cCtx.font='10px monospace'; i2cCtx.textAlign='left';
+  i2cCtx.fillText('SCL',3,16); i2cCtx.fillText('SDA',3,61);
+  document.getElementById('i2c-label').textContent = label;
+}
+
+function resetEE() { drawI2CIdle(); document.getElementById('ee-steps').innerHTML=''; document.getElementById('i2c-label').textContent='Chờ...'; }
+drawI2CIdle();
+
+// ============================================================
+// SECTION 7: DISPLAY (Multiplexing)
+// ============================================================
+let muxRunning=false, muxTimer=null, muxCom=0;
+const muxData=[1,4,3,0]; // 14:30
+
+// Render initial full display
+['fd0','fd1','fd2','fd3'].forEach((id,i)=>renderDigit(document.getElementById(id),muxData[i],i===1));
+['mx0','mx1','mx2','mx3'].forEach((id,i)=>renderDigit(document.getElementById(id),muxData[i],false));
+
+function toggleMux() {
+  if(muxRunning) {
+    muxRunning=false; clearInterval(muxTimer);
+    document.getElementById('mux-btn').textContent='▶ Bắt đầu multiplexing';
+    document.getElementById('com-active').textContent='—';
+    ['com-led0','com-led1','com-led2','com-led3'].forEach(id=>{ document.getElementById(id).style.background='#30363d'; });
+    // Show all full
+    ['fd0','fd1','fd2','fd3'].forEach((id,i)=>renderDigit(document.getElementById(id),muxData[i],i===1));
+  } else {
+    muxRunning=true;
+    document.getElementById('mux-btn').textContent='⏸ Dừng';
+    const steps=['scan-step0','scan-step1','scan-step2','scan-step3'];
+    let subStep=0;
+    muxTimer = setInterval(()=>{
+      // 4-step scan per 1ms
+      steps.forEach(s=>document.getElementById(s).className='box box-gray');
+      document.getElementById(steps[subStep]).className='box box-green active-glow';
+      subStep=(subStep+1)%4;
+      if(subStep===0) {
+        // Advance COM
+        ['com-led0','com-led1','com-led2','com-led3'].forEach(id=>{ document.getElementById(id).style.background='#30363d'; });
+        muxCom=(muxCom+1)%4;
+        document.getElementById('com-led'+muxCom).style.background='#f0883e';
+        document.getElementById('com-active').textContent='COM'+muxCom+' (P1.'+(9+muxCom)+')';
+        // Show only active COM on small digits
+        ['mx0','mx1','mx2','mx3'].forEach((id,i)=>{
+          if(i===muxCom) renderDigit(document.getElementById(id),muxData[i],i===1);
+          else document.getElementById(id).innerHTML='';
+        });
+      }
+    }, 80);
+  }
+}
+
+// Init all rendering
+renderTime(0,0,'d');
+</script>
+</body>
+</html>

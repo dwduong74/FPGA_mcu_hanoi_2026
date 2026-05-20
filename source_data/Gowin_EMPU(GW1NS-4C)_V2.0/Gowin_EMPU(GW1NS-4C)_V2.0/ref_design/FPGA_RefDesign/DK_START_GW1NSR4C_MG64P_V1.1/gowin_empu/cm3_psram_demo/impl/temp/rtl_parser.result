@@ -1,0 +1,66 @@
+[
+ {
+  "InstFile" : "F:/EMB_pub/embedded/cortex_m3 (GW1NS-4C)/ref_design/2.0/FPGA_RefDesign/DK_START_GW1NSR4C_MG64P_V1.1/gowin_empu/cm3_psram_demo/src/cm3_psram_demo.v",
+  "InstLine" : 3,
+  "InstName" : "cm3_psram_demo",
+  "ModuleFile" : "F:/EMB_pub/embedded/cortex_m3 (GW1NS-4C)/ref_design/2.0/FPGA_RefDesign/DK_START_GW1NSR4C_MG64P_V1.1/gowin_empu/cm3_psram_demo/src/cm3_psram_demo.v",
+  "ModuleLine" : 3,
+  "ModuleName" : "cm3_psram_demo",
+  "SubInsts" : [
+   {
+    "InstFile" : "F:/EMB_pub/embedded/cortex_m3 (GW1NS-4C)/ref_design/2.0/FPGA_RefDesign/DK_START_GW1NSR4C_MG64P_V1.1/gowin_empu/cm3_psram_demo/src/cm3_psram_demo.v",
+    "InstLine" : 63,
+    "InstName" : "u_Gowin_PLLVR",
+    "ModuleFile" : "F:/EMB_pub/embedded/cortex_m3 (GW1NS-4C)/ref_design/2.0/FPGA_RefDesign/DK_START_GW1NSR4C_MG64P_V1.1/gowin_empu/cm3_psram_demo/src/gowin_pllvr/gowin_pllvr.v",
+    "ModuleLine" : 9,
+    "ModuleName" : "Gowin_PLLVR"
+   },
+   {
+    "InstFile" : "F:/EMB_pub/embedded/cortex_m3 (GW1NS-4C)/ref_design/2.0/FPGA_RefDesign/DK_START_GW1NSR4C_MG64P_V1.1/gowin_empu/cm3_psram_demo/src/cm3_psram_demo.v",
+    "InstLine" : 75,
+    "InstName" : "u_Gowin_AHB_PSRAM_Top",
+    "ModuleFile" : "F:/EMB_pub/embedded/cortex_m3 (GW1NS-4C)/ref_design/2.0/FPGA_RefDesign/DK_START_GW1NSR4C_MG64P_V1.1/gowin_empu/cm3_psram_demo/src/gw_ahb_psram.v",
+    "ModuleLine" : 5,
+    "ModuleName" : "Gowin_AHB_PSRAM_Top",
+    "SubInsts" : [
+     {
+      "InstFile" : "F:/EMB_pub/embedded/cortex_m3 (GW1NS-4C)/ref_design/2.0/FPGA_RefDesign/DK_START_GW1NSR4C_MG64P_V1.1/gowin_empu/cm3_psram_demo/src/gw_ahb_psram.v",
+      "InstLine" : 369,
+      "InstName" : "u_PSRAM_Memory_Interface_Top",
+      "ModuleFile" : "F:/EMB_pub/embedded/cortex_m3 (GW1NS-4C)/ref_design/2.0/FPGA_RefDesign/DK_START_GW1NSR4C_MG64P_V1.1/gowin_empu/cm3_psram_demo/src/psram_memory_interface/psram_memory_interface.v",
+      "ModuleLine" : 10252,
+      "ModuleName" : "PSRAM_Memory_Interface_Top",
+      "SubInsts" : [
+       {
+        "InstFile" : "F:/EMB_pub/embedded/cortex_m3 (GW1NS-4C)/ref_design/2.0/FPGA_RefDesign/DK_START_GW1NSR4C_MG64P_V1.1/gowin_empu/cm3_psram_demo/src/psram_memory_interface/psram_memory_interface.v",
+        "InstLine" : 10295,
+        "InstName" : "u_psram_top",
+        "ModuleFile" : "F:/EMB_pub/embedded/cortex_m3 (GW1NS-4C)/ref_design/2.0/FPGA_RefDesign/DK_START_GW1NSR4C_MG64P_V1.1/gowin_empu/cm3_psram_demo/src/psram_memory_interface/psram_memory_interface.v",
+        "ModuleLine" : 10,
+        "ModuleName" : "~psram_top.PSRAM_Memory_Interface_Top"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "InstFile" : "F:/EMB_pub/embedded/cortex_m3 (GW1NS-4C)/ref_design/2.0/FPGA_RefDesign/DK_START_GW1NSR4C_MG64P_V1.1/gowin_empu/cm3_psram_demo/src/cm3_psram_demo.v",
+    "InstLine" : 105,
+    "InstName" : "u_Gowin_EMPU_Top",
+    "ModuleFile" : "F:/EMB_pub/embedded/cortex_m3 (GW1NS-4C)/ref_design/2.0/FPGA_RefDesign/DK_START_GW1NSR4C_MG64P_V1.1/gowin_empu/cm3_psram_demo/src/gowin_empu/gowin_empu.v",
+    "ModuleLine" : 421,
+    "ModuleName" : "Gowin_EMPU_Top",
+    "SubInsts" : [
+     {
+      "InstFile" : "F:/EMB_pub/embedded/cortex_m3 (GW1NS-4C)/ref_design/2.0/FPGA_RefDesign/DK_START_GW1NSR4C_MG64P_V1.1/gowin_empu/cm3_psram_demo/src/gowin_empu/gowin_empu.v",
+      "InstLine" : 478,
+      "InstName" : "Gowin_EMPU_inst",
+      "ModuleFile" : "F:/EMB_pub/embedded/cortex_m3 (GW1NS-4C)/ref_design/2.0/FPGA_RefDesign/DK_START_GW1NSR4C_MG64P_V1.1/gowin_empu/cm3_psram_demo/src/gowin_empu/gowin_empu.v",
+      "ModuleLine" : 10,
+      "ModuleName" : "~Gowin_EMPU.Gowin_EMPU_Top"
+     }
+    ]
+   }
+  ]
+ }
+]

@@ -1,5 +1,5 @@
-Reading netlist file: "C:\Gowin\Gesture_Recognition\impl\gwsynthesis\gesture_recognition.vg"
-Parsing netlist file "C:\Gowin\Gesture_Recognition\impl\gwsynthesis\gesture_recognition.vg" completed
+Reading netlist file: "C:\Gowin\Gesture_Recognition\impl\gwsynthesis\Gesture_Recognition.vg"
+Parsing netlist file "C:\Gowin\Gesture_Recognition\impl\gwsynthesis\Gesture_Recognition.vg" completed
 Processing netlist completed
 Reading constraint file: "C:\Gowin\Gesture_Recognition\src\gesture.cst"
 Physical Constraint parsed completed
@@ -21,10 +21,10 @@ Bitstream generation in progress......
 Bitstream generation completed
 Running power analysis......
 [100%] Power analysis completed
-Generate file "C:\Gowin\Gesture_Recognition\impl\pnr\gesture_recognition.power.html" completed
-Generate file "C:\Gowin\Gesture_Recognition\impl\pnr\gesture_recognition.pin.html" completed
-Generate file "C:\Gowin\Gesture_Recognition\impl\pnr\gesture_recognition.rpt.html" completed
-Generate file "C:\Gowin\Gesture_Recognition\impl\pnr\gesture_recognition.rpt.txt" completed
-Generate file "C:\Gowin\Gesture_Recognition\impl\pnr\gesture_recognition.tr.html" completed
-Sat Mar 28 19:58:52 2026
+Generate file "C:\Gowin\Gesture_Recognition\impl\pnr\Gesture_Recognition.power.html" completed
+Generate file "C:\Gowin\Gesture_Recognition\impl\pnr\Gesture_Recognition.pin.html" completed
+Generate file "C:\Gowin\Gesture_Recognition\impl\pnr\Gesture_Recognition.rpt.html" completed
+Generate file "C:\Gowin\Gesture_Recognition\impl\pnr\Gesture_Recognition.rpt.txt" completed
+Generate file "C:\Gowin\Gesture_Recognition\impl\pnr\Gesture_Recognition.tr.html" completed
+Sat Mar 28 21:51:28 2026
 

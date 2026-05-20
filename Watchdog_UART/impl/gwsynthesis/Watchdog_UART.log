@@ -7,11 +7,11 @@ Analyzing Verilog file 'C:\Gowin\Watchdog_UART\src\uart_tx.v'
 Analyzing Verilog file 'C:\Gowin\Watchdog_UART\src\config_reg.v'
 Analyzing Verilog file 'C:\Gowin\Watchdog_UART\src\sync_debounce.v'
 Compiling module 'watchdog_top'("C:\Gowin\Watchdog_UART\src\watchdog_top.v":29)
-Compiling module 'sync_debounce'("C:\Gowin\Watchdog_UART\src\sync_debounce.v":21)
-Compiling module 'uart_rx'("C:\Gowin\Watchdog_UART\src\uart_rx.v":16)
-Compiling module 'uart_tx'("C:\Gowin\Watchdog_UART\src\uart_tx.v":16)
-Compiling module 'config_reg'("C:\Gowin\Watchdog_UART\src\config_reg.v":1)
-Compiling module 'watchdog_core'("C:\Gowin\Watchdog_UART\src\watchdog_core.v":22)
+Compiling module 'sync_debounce'("C:\Gowin\Watchdog_UART\src\sync_debounce.v":24)
+Compiling module 'uart_rx'("C:\Gowin\Watchdog_UART\src\uart_rx.v":24)
+Compiling module 'uart_tx'("C:\Gowin\Watchdog_UART\src\uart_tx.v":26)
+Compiling module 'config_reg'("C:\Gowin\Watchdog_UART\src\config_reg.v":38)
+Compiling module 'watchdog_core'("C:\Gowin\Watchdog_UART\src\watchdog_core.v":28)
 NOTE  (EX0101) : Current top module is "watchdog_top"
 [5%] Running netlist conversion ...
 Running device independent optimization ...

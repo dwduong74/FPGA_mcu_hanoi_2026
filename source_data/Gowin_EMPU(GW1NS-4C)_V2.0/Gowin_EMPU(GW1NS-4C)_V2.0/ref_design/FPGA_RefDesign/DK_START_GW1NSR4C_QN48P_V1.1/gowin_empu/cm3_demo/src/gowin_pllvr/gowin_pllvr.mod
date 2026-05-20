@@ -1,0 +1,36 @@
+-series GW1NSR
+-device GW1NSR-4C
+-device_version 
+-package QFN48P
+-part_number GW1NSR-LV4CQN48PC7/I6
+
+
+-mod_name Gowin_PLLVR
+-file_name gowin_pllvr
+-path F:/EMB_pub/embedded/cortex_m3 (GW1NS-4C)/ref_design/2.0/FPGA_RefDesign/DK_START_GW1NSR4C_QN48P_V1.1/gowin_empu/cm3_demo/src/gowin_pllvr/
+-type PLL
+-pllvr true
+-file_type vlg
+-dev_type GW1NSR-4C
+-dyn_idiv_sel false
+-idiv_sel 1
+-dyn_fbdiv_sel false
+-fbdiv_sel 3
+-dyn_odiv_sel false
+-odiv_sel 4
+-dyn_sdiv_sel 48
+-dyn_da_en true
+-rst_sig false
+-rst_sig_p false
+-pll_reg false
+-fclkin 50
+-clkfb_sel 0
+-en_lock false
+-clkout_bypass false
+-clkout_ft_dir 1
+-en_clkoutp false
+-clkoutp_bypass false
+-en_clkoutd true
+-clkoutd_bypass false
+-clkoutd_src CLKOUT
+-en_clkoutd3 false

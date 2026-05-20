@@ -1,0 +1,128 @@
+C51 COMPILER V9.56.0.0   7SEGMENT_LED                                                      03/26/2024 09:21:48 PAGE 1   
+
+
+C51 COMPILER V9.56.0.0, COMPILATION OF MODULE 7SEGMENT_LED
+OBJECT MODULE PLACED IN .\Objects\7segment_led.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE Source\7segment_led.c OPTIMIZE(8,SPEED) BROWSE INCDIR(.\Source;.\Source;
+                    -.\Source\Buzzer;.\Source\CHRG;.\Source\KEY;.\Source\Timer;.\Source\IIC;.\Source\USER;.\Source\SYS;.\Source\UART;.\Source
+                    -\LCD;.\Source\LED;.\Source\INC;.\Source\InfraRed;.\Source\ISP;.\Source\WS2811;.\Source\RF;.\Hardware\SN8F5702_Hardware\i
+                    -nc;.\Source\AHT10) DEBUG OBJECTEXTEND PRINT(.\Listings\7segment_led.lst) TABS(2) OBJECT(.\Objects\7segment_led.obj)
+
+line level    source
+
+   1          #include "mcu.h"
+   2          #include "7segment_led.h"
+   3          
+   4          uint8_t led_buff[4];  //Display cache register
+   5          
+   6          code  uint8_t numble_tab[16]= {0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f,0x77,0x7c,0x39,0x5e,0x79,
+             -0x71};  //0~F
+   7          
+   8          
+   9          /***********************************************************
+  10          **Function name   :segment_led_config()
+  11          **
+  12          **Input parameter : 
+  13          **
+  14          **Input parameter :
+  15          **
+  16          **Description     :Configure io for display nixie tube
+  17          ***********************************************************/
+  18          void segment_led_config()
+  19          {
+  20   1        P3 = 0X00;
+  21   1        P3M |= 0XFF;
+  22   1        P5M &= 0XF0;
+  23   1        P5M |= 0X0F;
+  24   1      }
+  25          /***********************************************************
+  26          **Function name   :segment_led_scan()
+  27          **
+  28          **Input parameter : 
+  29          **
+  30          **Input parameter :
+  31          **
+  32          **Description     :Dynamic scanning display nixie tube
+  33          ***********************************************************/
+  34          void segment_led_scan()
+  35          {
+  36   1        static uint8_t cnt = 0;
+  37   1        SEG_COM0 = 0;
+  38   1        SEG_COM1 = 0;
+  39   1        SEG_COM2 = 0;
+  40   1        SEG_COM3 = 0;  
+  41   1        switch(cnt)
+  42   1        {
+  43   2          case 0:SEG_COM0 = 1; break;
+  44   2          case 1:SEG_COM1 = 1; break;
+  45   2          case 2:SEG_COM2 = 1; break;
+  46   2          case 3:SEG_COM3 = 1; break;    
+  47   2        }
+  48   1        P3  = led_buff[cnt];
+  49   1      
+  50   1        
+  51   1        if(++cnt > 3 )
+C51 COMPILER V9.56.0.0   7SEGMENT_LED                                                      03/26/2024 09:21:48 PAGE 2   
+
+  52   1          cnt = 0;
+  53   1      }
+  54          
+  55          /***********************************************************
+  56          **Function name   :segment_display(uint16_t tempdata)
+  57          **
+  58          **Input parameter : uint16_t tempdata
+  59          **
+  60          **Input parameter : null
+  61          **
+  62          **Description     :Displays a number less than 9999 on the nixie tube
+  63          ***********************************************************/
+  64          void segment_display(uint16_t tempdata)
+  65          {
+  66   1        if(tempdata > 9999){
+  67   2          led_buff[0] = 0x40;
+  68   2          led_buff[1] = 0x40;
+  69   2          led_buff[2] = 0x40;
+  70   2          led_buff[3] = 0x40;   //数据太大 显示 "----"
+  71   2        }else{
+  72   2          led_buff[3] = numble_tab[tempdata%10];
+  73   2          tempdata /= 10;
+  74   2          led_buff[2] = numble_tab[tempdata%10];
+  75   2          tempdata /= 10;
+  76   2          led_buff[1] = numble_tab[tempdata%10];
+  77   2          tempdata /= 10;    
+  78   2          led_buff[0] = numble_tab[tempdata];
+  79   2        } 
+  80   1      }
+  81          /***********************************************************
+  82          **Function name   :segment_displayhex(uint16_t tempdata)
+  83          **
+  84          **Input parameter : uint16_t tempdata
+  85          **
+  86          **Input parameter : null
+  87          **
+  88          **Description     :Displays a HEX
+  89          ***********************************************************/
+  90          void segment_displayhex(uint16_t tempdata)
+  91          {
+  92   1          led_buff[3] = numble_tab[tempdata&0x000F];
+  93   1          tempdata = tempdata>>4;
+  94   1          led_buff[2] = numble_tab[tempdata&0x000F];
+  95   1          tempdata = tempdata>>4;
+  96   1          led_buff[1] = numble_tab[tempdata&0x000F];
+  97   1          tempdata = tempdata>>4;   
+  98   1          led_buff[0] = numble_tab[tempdata&0x000F];
+  99   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    325    ----
+   CONSTANT SIZE    =     16    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      5    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,6 +1,6 @@
 // =============================================================================
 // Đội thi    : Sunflower - PTIT
-// Cuộc thi   : FPGA Extended Contest 2026 — Vòng sơ loại RTL Design
+// Cuộc thi   : FPGA Extended Contest 2026 — Vòng sơ loại
 // Nền tảng   : Kiwi 1P5 (Gowin GW1N-UV1P5QN48XFC7/I6)
 // Tệp        : uart_tx.v
 // Module     : uart_tx

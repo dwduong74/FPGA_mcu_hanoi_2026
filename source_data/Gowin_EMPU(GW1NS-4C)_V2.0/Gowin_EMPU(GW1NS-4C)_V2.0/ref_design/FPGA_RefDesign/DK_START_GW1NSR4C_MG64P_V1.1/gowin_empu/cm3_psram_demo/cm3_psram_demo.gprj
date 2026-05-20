@@ -1,0 +1,16 @@
+<?xml version="1" encoding="UTF-8"?>
+<!DOCTYPE gowin-fpga-project>
+<Project>
+    <Template>FPGA</Template>
+    <Version>5</Version>
+    <Device name="GW1NSR-4C" pn="GW1NSR-LV4CMG64PC7/I6">gw1nsr4c-011</Device>
+    <FileList>
+        <File path="src/cm3_psram_demo.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_empu/gowin_empu.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_pllvr/gowin_pllvr.v" type="file.verilog" enable="1"/>
+        <File path="src/gw_ahb_psram.v" type="file.verilog" enable="1"/>
+        <File path="src/psram_memory_interface/psram_memory_interface.v" type="file.verilog" enable="1"/>
+        <File path="src/cm3_psram_demo.cst" type="file.cst" enable="1"/>
+        <File path="src/cm3_psram_demo.sdc" type="file.sdc" enable="1"/>
+    </FileList>
+</Project>

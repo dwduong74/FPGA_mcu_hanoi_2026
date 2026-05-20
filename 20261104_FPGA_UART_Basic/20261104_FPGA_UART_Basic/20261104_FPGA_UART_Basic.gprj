@@ -1,0 +1,16 @@
+<?xml version="1" encoding="UTF-8"?>
+<!DOCTYPE gowin-fpga-project>
+<Project>
+    <Template>FPGA</Template>
+    <Version>5</Version>
+    <Device name="GW1N-1P5C" pn="GW1N-UV1P5QN48XFC7/I6">gw1n1p5c-020</Device>
+    <FileList>
+        <File path="src/bram_bank_simple.v" type="file.verilog" enable="1"/>
+        <File path="src/top_phase1.v" type="file.verilog" enable="1"/>
+        <File path="src/traffic_emul_2m.v" type="file.verilog" enable="1"/>
+        <File path="src/uart_reporter.v" type="file.verilog" enable="1"/>
+        <File path="src/uart_tx.v" type="file.verilog" enable="1"/>
+        <File path="src/20261104_FPGA_UART_Basic.cst" type="file.cst" enable="1"/>
+        <File path="src/20261104_FPGA_UART_Basic.sdc" type="file.sdc" enable="1"/>
+    </FileList>
+</Project>

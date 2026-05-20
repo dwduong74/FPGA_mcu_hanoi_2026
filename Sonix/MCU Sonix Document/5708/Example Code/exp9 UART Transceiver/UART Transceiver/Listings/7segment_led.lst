@@ -1,0 +1,119 @@
+C51 COMPILER V9.56.0.0   7SEGMENT_LED                                                      03/15/2024 15:08:43 PAGE 1   
+
+
+C51 COMPILER V9.56.0.0, COMPILATION OF MODULE 7SEGMENT_LED
+OBJECT MODULE PLACED IN .\Objects\7segment_led.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE Source\7segment_led.c OPTIMIZE(8,SPEED) BROWSE INCDIR(.\Source;.\Source;
+                    -.\Source\Buzzer;.\Source\CHRG;.\Source\KEY;.\Source\Timer;.\Source\IIC;.\Source\USER;.\Source\SYS;.\Source\UART;.\Source
+                    -\LCD;.\Source\LED;.\Source\INC;.\Source\InfraRed;.\Source\ISP;.\Source\WS2811;.\Source\RF;.\Hardware\SN8F5702_Hardware\i
+                    -nc;.\Source\AHT10) DEBUG OBJECTEXTEND PRINT(.\Listings\7segment_led.lst) TABS(2) OBJECT(.\Objects\7segment_led.obj)
+
+line level    source
+
+   1          #include "mcu.h"
+   2          #include "7segment_led.h"
+   3          
+   4          uint8_t led_buff[4];  //显示缓存寄存器
+   5          
+   6          code  uint8_t numble_tab[10]= {0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f};  //0~9真值表
+   7          
+   8          
+   9          /***********************************************************
+  10          **函数名     :segment_led_config()
+  11          **功能描述   :
+  12          **
+  13          **输入参数   : 
+  14          **
+  15          **返回参数   :
+  16          **
+  17          **使用说明   :配置数码管的IO口
+  18          ***********************************************************/
+  19          void segment_led_config()
+  20          {
+  21   1        P3 = 0X00;
+  22   1        P3M |= 0XFF;
+  23   1        P5M &= 0XF0;
+  24   1        P5M |= 0X0F;
+  25   1      }
+  26          /***********************************************************
+  27          **函数名     :segment_led_scan()
+  28          **功能描述   :
+  29          **
+  30          **输入参数   : 
+  31          **
+  32          **返回参数   :
+  33          **
+  34          **使用说明   :采用定时器动态扫描的方式驱动数码管
+  35                        可直接放在Timer 0中断服务函数运行，1ms扫描一次
+  36                        也可重新设置一个定时器,用于数码管扫描
+  37          ***********************************************************/
+  38          void segment_led_scan()
+  39          {
+  40   1        static uint8_t cnt = 0;
+  41   1        SEG_COM0 = 0;
+  42   1        SEG_COM1 = 0;
+  43   1        SEG_COM2 = 0;
+  44   1        SEG_COM3 = 0;  
+  45   1        switch(cnt)
+  46   1        {
+  47   2          case 0:SEG_COM0 = 1; break;
+  48   2          case 1:SEG_COM1 = 1; break;
+  49   2          case 2:SEG_COM2 = 1; break;
+  50   2          case 3:SEG_COM3 = 1; break;    
+  51   2        }
+  52   1        SEG_A = led_buff[cnt] & 0X01;
+C51 COMPILER V9.56.0.0   7SEGMENT_LED                                                      03/15/2024 15:08:43 PAGE 2   
+
+  53   1        SEG_B = led_buff[cnt] & 0X02;
+  54   1        SEG_C = led_buff[cnt] & 0X04;
+  55   1        SEG_D = led_buff[cnt] & 0X08;
+  56   1        SEG_E = led_buff[cnt] & 0X10;
+  57   1        SEG_F = led_buff[cnt] & 0X20;
+  58   1        SEG_G = led_buff[cnt] & 0X40;
+  59   1        SEG_P = led_buff[cnt] & 0X80;
+  60   1        
+  61   1        if(++cnt > 3 )
+  62   1          cnt = 0;
+  63   1      }
+  64          
+  65          /***********************************************************
+  66          **函数名     :segment_led_scan()
+  67          **功能描述   :
+  68          **
+  69          **输入参数   : 
+  70          **
+  71          **返回参数   :
+  72          **
+  73          **使用说明   :把一个小于9999的数，填入显示缓存寄存器，通过数码管显示出来
+  74          ***********************************************************/
+  75          void segment_display(uint16_t tempdata)
+  76          {
+  77   1        if(tempdata > 9999){
+  78   2          led_buff[0] = 0x40;
+  79   2          led_buff[1] = 0x40;
+  80   2          led_buff[2] = 0x40;
+  81   2          led_buff[3] = 0x40;   //数据太大 显示 "----"
+  82   2        }else{
+  83   2          led_buff[3] = numble_tab[tempdata%10];
+  84   2          tempdata /= 10;
+  85   2          led_buff[2] = numble_tab[tempdata%10];
+  86   2          tempdata /= 10;
+  87   2          led_buff[1] = numble_tab[tempdata%10];
+  88   2          tempdata /= 10;    
+  89   2          led_buff[0] = numble_tab[tempdata];
+  90   2        } 
+  91   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    250    ----
+   CONSTANT SIZE    =     10    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      5    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

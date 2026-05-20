@@ -1,0 +1,90 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="watchdog_diagram" name="Watchdog Block Diagram">
+    <mxGraphModel dx="822" dy="443" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="btn_s1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Button S1&lt;br&gt;(WDI Kick)" vertex="1">
+          <mxGeometry height="50" width="100" x="40" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="btn_s2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Button S2&lt;br&gt;(EN/Kill Switch)" vertex="1">
+          <mxGeometry height="50" width="100" x="40" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="pc_uart" parent="1" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" value="PC Terminal&lt;br&gt;(GUI Python)" vertex="1">
+          <mxGeometry height="80" width="120" x="370" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="debounce" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="&lt;b&gt;Sync &amp; Debounce&lt;/b&gt;&lt;br&gt;(2-FF + 20ms Filter)" vertex="1">
+          <mxGeometry height="120" width="120" x="180" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="uart_rx" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;b&gt;UART RX&lt;/b&gt;&lt;br&gt;(9600 8N1)" vertex="1">
+          <mxGeometry height="50" width="100" x="210" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="config_reg" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="&lt;b&gt;Config &amp; Register File&lt;/b&gt;&lt;br&gt;(RegMap: 0x00 - 0x10)&lt;br&gt;UART Frame Parser" vertex="1">
+          <mxGeometry height="120" width="160" x="390" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="wd_core" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="&lt;b&gt;Watchdog Core&lt;/b&gt;&lt;br&gt;(FSM: Idle/Arm/Mon/Fault)&lt;br&gt;32-bit Timers" vertex="1">
+          <mxGeometry height="120" width="160" x="390" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="uart_tx" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;b&gt;UART TX&lt;/b&gt;&lt;br&gt;(9600 8N1)" vertex="1">
+          <mxGeometry height="50" width="100" x="600" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="led_d3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="LED D3&lt;br&gt;(WDO Error)" vertex="1">
+          <mxGeometry height="50" width="100" x="680" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="led_d4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="LED D4&lt;br&gt;(ENOUT Armed)" vertex="1">
+          <mxGeometry height="50" width="100" x="680" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="edge1" edge="1" parent="1" source="btn_s1" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" target="debounce" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry" />
+        </mxCell>
+        <mxCell id="edge2" edge="1" parent="1" source="btn_s2" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" target="debounce" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="170" y="295" />
+              <mxPoint x="170" y="250" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge3" edge="1" parent="1" source="debounce" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" target="wd_core" value="wdi_level&lt;br&gt;en_btn">
+          <mxGeometry height="50" relative="1" width="50" as="geometry" />
+        </mxCell>
+        <mxCell id="edge4" edge="1" parent="1" source="uart_rx" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" target="config_reg" value="RX Data">
+          <mxGeometry height="50" relative="1" width="50" as="geometry" />
+        </mxCell>
+        <mxCell id="edge5" edge="1" parent="1" source="pc_uart" style="endArrow=classic;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;exitX=0.167;exitY=0.25;exitDx=0;exitDy=0;exitPerimeter=0;" target="uart_rx" value="UART RX Pin">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="390" y="530" />
+              <mxPoint x="170" y="530" />
+              <mxPoint x="170" y="455" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge6" edge="1" parent="1" source="config_reg" style="endArrow=classic;startArrow=classic;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="wd_core" value="tWD, tRST&lt;br&gt;arm_delay&lt;br&gt;en_sw">
+          <mxGeometry height="50" relative="1" width="50" as="geometry" />
+        </mxCell>
+        <mxCell id="edge7" edge="1" parent="1" source="config_reg" style="endArrow=classic;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" target="uart_tx" value="TX Data">
+          <mxGeometry height="50" relative="1" width="50" as="geometry" />
+        </mxCell>
+        <mxCell id="edge8" edge="1" parent="1" source="uart_tx" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.88;entryY=0.293;entryDx=0;entryDy=0;entryPerimeter=0;edgeStyle=orthogonalEdgeStyle;" target="pc_uart" value="UART TX Pin">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="710" y="455" />
+              <mxPoint x="710" y="530" />
+              <mxPoint x="481" y="530" />
+              <mxPoint x="481" y="543" />
+            </Array>
+            <mxPoint x="650" y="450" as="sourcePoint" />
+            <mxPoint x="750" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge9" edge="1" parent="1" source="wd_core" style="endArrow=classic;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" target="led_d3" value="wdo_i">
+          <mxGeometry height="50" relative="1" width="50" as="geometry" />
+        </mxCell>
+        <mxCell id="edge10" edge="1" parent="1" source="wd_core" style="endArrow=classic;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" target="led_d4" value="enout_i">
+          <mxGeometry height="50" relative="1" width="50" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

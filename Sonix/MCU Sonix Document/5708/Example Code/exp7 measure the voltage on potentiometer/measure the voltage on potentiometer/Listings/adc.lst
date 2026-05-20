@@ -1,0 +1,90 @@
+C51 COMPILER V9.56.0.0   ADC                                                               03/27/2024 10:53:06 PAGE 1   
+
+
+C51 COMPILER V9.56.0.0, COMPILATION OF MODULE ADC
+OBJECT MODULE PLACED IN .\Objects\adc.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE Source\adc.c OPTIMIZE(8,SPEED) BROWSE INCDIR(.\Source;.\Source;.\Source\
+                    -Buzzer;.\Source\CHRG;.\Source\KEY;.\Source\Timer;.\Source\IIC;.\Source\USER;.\Source\SYS;.\Source\UART;.\Source\LCD;.\So
+                    -urce\LED;.\Source\INC;.\Source\InfraRed;.\Source\ISP;.\Source\WS2811;.\Source\RF;.\Hardware\SN8F5702_Hardware\inc;.\Sour
+                    -ce\AHT10) DEBUG OBJECTEXTEND PRINT(.\Listings\adc.lst) TABS(2) OBJECT(.\Objects\adc.obj)
+
+line level    source
+
+   1          #include "adc.h"
+   2          /***********************************************************
+   3          **Function name   :adc_config
+   4          **
+   5          **Input parameter :NULL
+   6          **
+   7          **Input parameter : NULL
+   8          **
+   9          **Description     : Configure the ADC and corresponding I/O ports
+  10          ***********************************************************/
+  11          void adc_config()
+  12          {
+  13   1      
+  14   1        ADM = 0x80|L_AD_CHANNEL1;                         //ADC Enable
+  15   1        ADR = 0x40;                                       //AIN channel Enable
+  16   1        VREFH = L_VREF_INT;             
+  17   1        VREFH |= L_VERFH_3V;                            
+  18   1        P4CON |= 0x02;                                    //P41 is configured as an analog port
+  19   1      }
+  20          /***********************************************************
+  21          **Function name   :uint16_t GetAD(uint8_t ad_channel)
+  22          **
+  23          **Input parameter :adc channel   
+  24          **
+  25          **Input parameter : ADC value
+  26          **
+  27          **Description     : Collects the value of an adc channel
+  28          ***********************************************************/
+  29          uint16_t GetAD(uint8_t  ad_channel)
+  30          {   
+  31   1        uint8_t i = 0;
+  32   1        uint16_t j = 0;
+  33   1        uint16_t temp_ad_max = 0;
+  34   1        uint16_t temp_ad_min = 0xffff;
+  35   1        uint16_t temp_ad_buf = 0;
+  36   1        uint16_t temp_ad_data = 0;
+  37   1        
+  38   1        ADM = (ADM&0XE0)|ad_channel;
+  39   1        
+  40   1        for(i = 0; i < L_AD_SAMPLE_MAX + 2; i++)        
+  41   1        {
+  42   2          ADM |= 0x40;                          //Start ADC
+  43   2          while((ADM & 0x20) != 0X20);          //EOC           
+  44   2          ADM &= 0xdf;
+  45   2          
+  46   2          temp_ad_buf = ADB;
+  47   2          temp_ad_buf = (temp_ad_buf << 4) + (ADR & 0X0F);
+  48   2          temp_ad_data += temp_ad_buf; 
+  49   2          
+  50   2          if(temp_ad_buf < temp_ad_min)
+  51   2          {
+  52   3            temp_ad_min = temp_ad_buf;
+C51 COMPILER V9.56.0.0   ADC                                                               03/27/2024 10:53:06 PAGE 2   
+
+  53   3          }
+  54   2          if(temp_ad_buf > temp_ad_max)
+  55   2          {
+  56   3            temp_ad_max = temp_ad_buf;
+  57   3          } 
+  58   2        }
+  59   1        
+  60   1        temp_ad_data = (temp_ad_data - temp_ad_min - temp_ad_max) >> L_AD_SHIFT;          
+  61   1        return  temp_ad_data;
+  62   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    162    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       8
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

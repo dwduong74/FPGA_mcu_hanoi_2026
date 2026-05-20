@@ -1,0 +1,2380 @@
+Archive member included to satisfy reference by file (symbol)
+
+d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp\libgcc.a(_aeabi_uldivmod.o)
+                              ./src/library/middlewares/3rd_party/ucos_iii/BSP/bsp.o (__aeabi_uldivmod)
+d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp\libgcc.a(_udivmoddi4.o)
+                              d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp\libgcc.a(_aeabi_uldivmod.o) (__udivmoddi4)
+d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp\libgcc.a(_dvmd_tls.o)
+                              d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp\libgcc.a(_aeabi_uldivmod.o) (__aeabi_ldiv0)
+d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-exit.o)
+                              d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/crt0.o (exit)
+d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-impure.o)
+                              d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-exit.o) (_global_impure_ptr)
+d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-init.o)
+                              d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/crt0.o (__libc_init_array)
+d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-memset.o)
+                              d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/crt0.o (memset)
+d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-__call_atexit.o)
+                              d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-exit.o) (__call_exitprocs)
+d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-atexit.o)
+                              d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-__call_atexit.o) (atexit)
+d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-fini.o)
+                              d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-__call_atexit.o) (__libc_fini_array)
+d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-lock.o)
+                              d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-__call_atexit.o) (__retarget_lock_acquire_recursive)
+d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-__atexit.o)
+                              d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-atexit.o) (__register_exitproc)
+d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libnosys.a(_exit.o)
+                              d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-exit.o) (_exit)
+
+Allocating common symbols
+Common symbol       size              file
+
+__lock___atexit_recursive_mutex
+                    0x1               d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-lock.o)
+OSSchedLockNestingCtr
+                    0x1               ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_var.o
+OSRunning           0x1               ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_var.o
+__lock___arc4random_mutex
+                    0x1               d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-lock.o)
+OSRdyList           0x60              ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_var.o
+OSPrioHighRdy       0x1               ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_var.o
+OSCfg_TickWheel     0x88              ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+OSPrioCur           0x1               ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_var.o
+OSTickTaskTCB       0x5c              ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_var.o
+Math_RandSeedCur    0x4               ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_math.o
+APP_TASK_STK        0x180             ./src/project/ucos_iii/src/task_app.o
+OSTCBCurPtr         0x4               ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_var.o
+__lock___env_recursive_mutex
+                    0x1               d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-lock.o)
+__lock___sinit_recursive_mutex
+                    0x1               d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-lock.o)
+OSPrioSaved         0x1               ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_var.o
+OSTCBHighRdyPtr     0x4               ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_var.o
+CPU_TS_TmrFreq_Hz   0x4               ./src/library/middlewares/3rd_party/ucos_iii/CPU/cpu_core.o
+Mem_PoolHeap        0x48              ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_mem.o
+__lock___malloc_recursive_mutex
+                    0x1               d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-lock.o)
+OSTaskCtxSwCtr      0x4               ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_var.o
+OSIntNestingCtr     0x1               ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_var.o
+OSTaskQty           0x2               ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_var.o
+OS_CPU_ExceptStkBase
+                    0x4               ./src/library/middlewares/3rd_party/ucos_iii/OS/Ports/cm3/Generic/GMD/os_cpu_c.o
+OSIdleTaskTCB       0x5c              ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_var.o
+membase             0xce0             ./src/library/middlewares/dmm/malloc.o
+memmapbase          0x19c             ./src/library/middlewares/dmm/malloc.o
+Mem_Heap            0x400             ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_mem.o
+OSTickCtr           0x4               ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_var.o
+OSCfg_ISRStk        0x100             ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+OSIdleTaskCtr       0x4               ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_var.o
+STARTUP_TASK_STK    0x180             ./src/project/ucos_iii/src/task_app.o
+OSCfg_TickTaskStk   0x80              ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+Mem_PoolTbl         0x4               ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_mem.o
+startup_task_tcb    0x5c              ./src/project/ucos_iii/src/task_app.o
+OSPrioTbl           0x4               ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_prio.o
+OSTickTaskTimeMax   0x4               ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_var.o
+__lock___at_quick_exit_mutex
+                    0x1               d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-lock.o)
+app_task_tcb        0x5c              ./src/project/ucos_iii/src/task_app.o
+__lock___dd_hash_mutex
+                    0x1               d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-lock.o)
+__lock___tz_mutex   0x1               d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-lock.o)
+OSCfg_IdleTaskStk   0x80              ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+CPU_Name            0x10              ./src/library/middlewares/3rd_party/ucos_iii/CPU/cpu_core.o
+__lock___sfp_recursive_mutex
+                    0x1               d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-lock.o)
+
+Discarded input sections
+
+ .text          0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp/crti.o
+ .data          0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp/crti.o
+ .bss           0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp/crti.o
+ .text          0x00000000       0x40 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp/crtbegin.o
+ .data          0x00000000        0x4 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp/crtbegin.o
+ .bss           0x00000000       0x1c d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp/crtbegin.o
+ .init_array    0x00000000        0x4 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp/crtbegin.o
+ .fini_array    0x00000000        0x4 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp/crtbegin.o
+ .eh_frame      0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp/crtbegin.o
+ .ARM.attributes
+                0x00000000       0x2d d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp/crtbegin.o
+ .text          0x00000000       0x74 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/crt0.o
+ .data          0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/crt0.o
+ .bss           0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/crt0.o
+ .ARM.extab     0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/crt0.o
+ .ARM.exidx     0x00000000        0x8 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/crt0.o
+ .ARM.attributes
+                0x00000000       0x1b d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/crt0.o
+ .text          0x00000000        0x0 ./src/project/ucos_iii/src/gw1ns4c_it.o
+ .data          0x00000000        0x0 ./src/project/ucos_iii/src/gw1ns4c_it.o
+ .bss           0x00000000        0x0 ./src/project/ucos_iii/src/gw1ns4c_it.o
+ .text          0x00000000        0x0 ./src/project/ucos_iii/src/led.o
+ .data          0x00000000        0x0 ./src/project/ucos_iii/src/led.o
+ .bss           0x00000000        0x0 ./src/project/ucos_iii/src/led.o
+ .text.led_on   0x00000000       0x60 ./src/project/ucos_iii/src/led.o
+ .text.led_off  0x00000000       0x60 ./src/project/ucos_iii/src/led.o
+ .text          0x00000000        0x0 ./src/project/ucos_iii/src/main.o
+ .data          0x00000000        0x0 ./src/project/ucos_iii/src/main.o
+ .bss           0x00000000        0x0 ./src/project/ucos_iii/src/main.o
+ .text          0x00000000        0x0 ./src/project/ucos_iii/src/printf.o
+ .data          0x00000000        0x0 ./src/project/ucos_iii/src/printf.o
+ .bss           0x00000000        0x0 ./src/project/ucos_iii/src/printf.o
+ .text._out_buffer
+                0x00000000       0x2c ./src/project/ucos_iii/src/printf.o
+ .text._out_fct
+                0x00000000       0x30 ./src/project/ucos_iii/src/printf.o
+ .text.sprintf_
+                0x00000000       0x38 ./src/project/ucos_iii/src/printf.o
+ .text.snprintf_
+                0x00000000       0x38 ./src/project/ucos_iii/src/printf.o
+ .text.vprintf_
+                0x00000000       0x2c ./src/project/ucos_iii/src/printf.o
+ .text.vsnprintf_
+                0x00000000       0x2c ./src/project/ucos_iii/src/printf.o
+ .text.fctprintf
+                0x00000000       0x44 ./src/project/ucos_iii/src/printf.o
+ .text          0x00000000        0x0 ./src/project/ucos_iii/src/task_app.o
+ .data          0x00000000        0x0 ./src/project/ucos_iii/src/task_app.o
+ .bss           0x00000000        0x0 ./src/project/ucos_iii/src/task_app.o
+ .text          0x00000000        0x0 ./src/library/middlewares/uart/uart.o
+ .data          0x00000000        0x0 ./src/library/middlewares/uart/uart.o
+ .bss           0x00000000        0x0 ./src/library/middlewares/uart/uart.o
+ .text          0x00000000        0x0 ./src/library/middlewares/spi_flash/spi_flash.o
+ .data          0x00000000        0x0 ./src/library/middlewares/spi_flash/spi_flash.o
+ .bss           0x00000000        0x0 ./src/library/middlewares/spi_flash/spi_flash.o
+ .text.spi_flash_init
+                0x00000000       0xf8 ./src/library/middlewares/spi_flash/spi_flash.o
+ .text.spi_flash_read
+                0x00000000       0x80 ./src/library/middlewares/spi_flash/spi_flash.o
+ .text.spi_flash_write
+                0x00000000       0x90 ./src/library/middlewares/spi_flash/spi_flash.o
+ .text.spi_flash_page_program
+                0x00000000       0x90 ./src/library/middlewares/spi_flash/spi_flash.o
+ .text.spi_flash_4ksector_erase
+                0x00000000       0x8c ./src/library/middlewares/spi_flash/spi_flash.o
+ .text.spi_flash_64ksector_erase
+                0x00000000       0x8c ./src/library/middlewares/spi_flash/spi_flash.o
+ .text.spi_flash_get_fifo_depth
+                0x00000000       0x34 ./src/library/middlewares/spi_flash/spi_flash.o
+ .text.spi_flash_write_cmd
+                0x00000000       0x54 ./src/library/middlewares/spi_flash/spi_flash.o
+ .text.spi_flash_read_status
+                0x00000000       0x40 ./src/library/middlewares/spi_flash/spi_flash.o
+ .debug_info    0x00000000      0xddb ./src/library/middlewares/spi_flash/spi_flash.o
+ .debug_abbrev  0x00000000      0x2bc ./src/library/middlewares/spi_flash/spi_flash.o
+ .debug_aranges
+                0x00000000       0x60 ./src/library/middlewares/spi_flash/spi_flash.o
+ .debug_ranges  0x00000000       0x50 ./src/library/middlewares/spi_flash/spi_flash.o
+ .debug_line    0x00000000      0x6ed ./src/library/middlewares/spi_flash/spi_flash.o
+ .debug_str     0x00000000      0x82d ./src/library/middlewares/spi_flash/spi_flash.o
+ .comment       0x00000000       0x77 ./src/library/middlewares/spi_flash/spi_flash.o
+ .debug_frame   0x00000000      0x160 ./src/library/middlewares/spi_flash/spi_flash.o
+ .ARM.attributes
+                0x00000000       0x2d ./src/library/middlewares/spi_flash/spi_flash.o
+ .text          0x00000000        0x0 ./src/library/middlewares/psram/psram.o
+ .data          0x00000000        0x0 ./src/library/middlewares/psram/psram.o
+ .bss           0x00000000        0x0 ./src/library/middlewares/psram/psram.o
+ .text.PSRAM_Check_Init_Status
+                0x00000000       0x12 ./src/library/middlewares/psram/psram.o
+ .text.PSRAM_Mode_Set
+                0x00000000       0x2c ./src/library/middlewares/psram/psram.o
+ .text.PSRAM_Address_Set
+                0x00000000       0x28 ./src/library/middlewares/psram/psram.o
+ .text.PSRAM_Write_Data_Buff
+                0x00000000       0x56 ./src/library/middlewares/psram/psram.o
+ .text.PSRAM_Read_Data_Buff
+                0x00000000       0x6a ./src/library/middlewares/psram/psram.o
+ .text.PSRAM_Cmd_Enable
+                0x00000000       0x14 ./src/library/middlewares/psram/psram.o
+ .text.PSRAM_Cmd_Unable
+                0x00000000       0x14 ./src/library/middlewares/psram/psram.o
+ .text.PSRAM_Read_Done_Flag
+                0x00000000       0x12 ./src/library/middlewares/psram/psram.o
+ .text.PSRAM_Clear_Read_Done_Flag
+                0x00000000       0x14 ./src/library/middlewares/psram/psram.o
+ .text.PSRAM_Write_Data_Package
+                0x00000000       0xb0 ./src/library/middlewares/psram/psram.o
+ .text.PSRAM_Read_Data_Package
+                0x00000000       0xb0 ./src/library/middlewares/psram/psram.o
+ .debug_info    0x00000000      0x3e1 ./src/library/middlewares/psram/psram.o
+ .debug_abbrev  0x00000000      0x178 ./src/library/middlewares/psram/psram.o
+ .debug_aranges
+                0x00000000       0x70 ./src/library/middlewares/psram/psram.o
+ .debug_ranges  0x00000000       0x60 ./src/library/middlewares/psram/psram.o
+ .debug_line    0x00000000      0x44f ./src/library/middlewares/psram/psram.o
+ .debug_str     0x00000000      0x37b ./src/library/middlewares/psram/psram.o
+ .comment       0x00000000       0x77 ./src/library/middlewares/psram/psram.o
+ .debug_frame   0x00000000      0x190 ./src/library/middlewares/psram/psram.o
+ .ARM.attributes
+                0x00000000       0x2d ./src/library/middlewares/psram/psram.o
+ .text          0x00000000        0x0 ./src/library/middlewares/hyper_ram/hyper_ram.o
+ .data          0x00000000        0x0 ./src/library/middlewares/hyper_ram/hyper_ram.o
+ .bss           0x00000000        0x0 ./src/library/middlewares/hyper_ram/hyper_ram.o
+ .text.HPRAM_Check_Init_Status
+                0x00000000       0x12 ./src/library/middlewares/hyper_ram/hyper_ram.o
+ .text.HPRAM_Mode_Set
+                0x00000000       0x2c ./src/library/middlewares/hyper_ram/hyper_ram.o
+ .text.HPRAM_Address_Set
+                0x00000000       0x28 ./src/library/middlewares/hyper_ram/hyper_ram.o
+ .text.HPRAM_Write_Data_Buff
+                0x00000000       0x56 ./src/library/middlewares/hyper_ram/hyper_ram.o
+ .text.HPRAM_Read_Data_Buff
+                0x00000000       0x6a ./src/library/middlewares/hyper_ram/hyper_ram.o
+ .text.HPRAM_Cmd_Enable
+                0x00000000       0x14 ./src/library/middlewares/hyper_ram/hyper_ram.o
+ .text.HPRAM_Cmd_Unable
+                0x00000000       0x14 ./src/library/middlewares/hyper_ram/hyper_ram.o
+ .text.HPRAM_Read_Done_Flag
+                0x00000000       0x12 ./src/library/middlewares/hyper_ram/hyper_ram.o
+ .text.HPRAM_Clear_Read_Done_Flag
+                0x00000000       0x14 ./src/library/middlewares/hyper_ram/hyper_ram.o
+ .text.HPRAM_Write_Data_Package
+                0x00000000       0xb0 ./src/library/middlewares/hyper_ram/hyper_ram.o
+ .text.HPRAM_Read_Data_Package
+                0x00000000       0xb0 ./src/library/middlewares/hyper_ram/hyper_ram.o
+ .debug_info    0x00000000      0x3e1 ./src/library/middlewares/hyper_ram/hyper_ram.o
+ .debug_abbrev  0x00000000      0x178 ./src/library/middlewares/hyper_ram/hyper_ram.o
+ .debug_aranges
+                0x00000000       0x70 ./src/library/middlewares/hyper_ram/hyper_ram.o
+ .debug_ranges  0x00000000       0x60 ./src/library/middlewares/hyper_ram/hyper_ram.o
+ .debug_line    0x00000000      0x45b ./src/library/middlewares/hyper_ram/hyper_ram.o
+ .debug_str     0x00000000      0x383 ./src/library/middlewares/hyper_ram/hyper_ram.o
+ .comment       0x00000000       0x77 ./src/library/middlewares/hyper_ram/hyper_ram.o
+ .debug_frame   0x00000000      0x190 ./src/library/middlewares/hyper_ram/hyper_ram.o
+ .ARM.attributes
+                0x00000000       0x2d ./src/library/middlewares/hyper_ram/hyper_ram.o
+ .text          0x00000000        0x0 ./src/library/middlewares/gpio/gpio.o
+ .data          0x00000000        0x0 ./src/library/middlewares/gpio/gpio.o
+ .bss           0x00000000        0x0 ./src/library/middlewares/gpio/gpio.o
+ .text          0x00000000        0x0 ./src/library/middlewares/dmm/malloc.o
+ .data          0x00000000        0x0 ./src/library/middlewares/dmm/malloc.o
+ .bss           0x00000000        0x0 ./src/library/middlewares/dmm/malloc.o
+ .rodata.memtblsize
+                0x00000000        0x4 ./src/library/middlewares/dmm/malloc.o
+ .rodata.memblksize
+                0x00000000        0x4 ./src/library/middlewares/dmm/malloc.o
+ .rodata.memsize
+                0x00000000        0x4 ./src/library/middlewares/dmm/malloc.o
+ .data.mallco_dev
+                0x00000000       0x14 ./src/library/middlewares/dmm/malloc.o
+ .text.mymemcmp
+                0x00000000       0x4e ./src/library/middlewares/dmm/malloc.o
+ .text.mymemcpy
+                0x00000000       0x3a ./src/library/middlewares/dmm/malloc.o
+ .text.mymemset
+                0x00000000       0x32 ./src/library/middlewares/dmm/malloc.o
+ .text.mem_init
+                0x00000000       0x34 ./src/library/middlewares/dmm/malloc.o
+ .text.mem_perused
+                0x00000000       0x54 ./src/library/middlewares/dmm/malloc.o
+ .text.mem_malloc
+                0x00000000       0xc4 ./src/library/middlewares/dmm/malloc.o
+ .text.mem_free
+                0x00000000       0x70 ./src/library/middlewares/dmm/malloc.o
+ .text.myfree   0x00000000       0x2c ./src/library/middlewares/dmm/malloc.o
+ .text.mymalloc
+                0x00000000       0x34 ./src/library/middlewares/dmm/malloc.o
+ .debug_info    0x00000000      0x491 ./src/library/middlewares/dmm/malloc.o
+ .debug_abbrev  0x00000000      0x1da ./src/library/middlewares/dmm/malloc.o
+ .debug_aranges
+                0x00000000       0x60 ./src/library/middlewares/dmm/malloc.o
+ .debug_ranges  0x00000000       0x50 ./src/library/middlewares/dmm/malloc.o
+ .debug_line    0x00000000      0x425 ./src/library/middlewares/dmm/malloc.o
+ .debug_str     0x00000000      0x30b ./src/library/middlewares/dmm/malloc.o
+ .comment       0x00000000       0x77 ./src/library/middlewares/dmm/malloc.o
+ .debug_frame   0x00000000      0x15c ./src/library/middlewares/dmm/malloc.o
+ .ARM.attributes
+                0x00000000       0x2d ./src/library/middlewares/dmm/malloc.o
+ COMMON         0x00000000      0xe7c ./src/library/middlewares/dmm/malloc.o
+ .text          0x00000000        0x0 ./src/library/middlewares/delay/delay.o
+ .data          0x00000000        0x0 ./src/library/middlewares/delay/delay.o
+ .bss           0x00000000        0x0 ./src/library/middlewares/delay/delay.o
+ .bss.fac_us    0x00000000        0x4 ./src/library/middlewares/delay/delay.o
+ .text.delay_init
+                0x00000000       0x2c ./src/library/middlewares/delay/delay.o
+ .text.delay_us
+                0x00000000       0x6c ./src/library/middlewares/delay/delay.o
+ .text.delay_ms
+                0x00000000       0x22 ./src/library/middlewares/delay/delay.o
+ .text.delay_sec
+                0x00000000       0x28 ./src/library/middlewares/delay/delay.o
+ .debug_info    0x00000000      0x1dd ./src/library/middlewares/delay/delay.o
+ .debug_abbrev  0x00000000      0x121 ./src/library/middlewares/delay/delay.o
+ .debug_aranges
+                0x00000000       0x38 ./src/library/middlewares/delay/delay.o
+ .debug_ranges  0x00000000       0x28 ./src/library/middlewares/delay/delay.o
+ .debug_line    0x00000000      0x275 ./src/library/middlewares/delay/delay.o
+ .debug_str     0x00000000      0x259 ./src/library/middlewares/delay/delay.o
+ .comment       0x00000000       0x77 ./src/library/middlewares/delay/delay.o
+ .debug_frame   0x00000000       0x9c ./src/library/middlewares/delay/delay.o
+ .ARM.attributes
+                0x00000000       0x2d ./src/library/middlewares/delay/delay.o
+ .text          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+ .data          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+ .bss           0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+ .rodata.OSCfg_IntQBasePtr
+                0x00000000        0x4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+ .rodata.OSCfg_IntQSize
+                0x00000000        0x2 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+ .rodata.OSCfg_IntQSizeRAM
+                0x00000000        0x4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+ .rodata.OSCfg_IntQTaskStkBasePtr
+                0x00000000        0x4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+ .rodata.OSCfg_IntQTaskStkLimit
+                0x00000000        0x4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+ .rodata.OSCfg_IntQTaskStkSize
+                0x00000000        0x4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+ .rodata.OSCfg_IntQTaskStkSizeRAM
+                0x00000000        0x4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+ .rodata.OSCfg_MsgPoolSize
+                0x00000000        0x2 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+ .rodata.OSCfg_MsgPoolSizeRAM
+                0x00000000        0x4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+ .rodata.OSCfg_MsgPoolBasePtr
+                0x00000000        0x4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+ .rodata.OSCfg_StatTaskPrio
+                0x00000000        0x1 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+ .rodata.OSCfg_StatTaskRate_Hz
+                0x00000000        0x4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+ .rodata.OSCfg_StatTaskStkBasePtr
+                0x00000000        0x4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+ .rodata.OSCfg_StatTaskStkLimit
+                0x00000000        0x4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+ .rodata.OSCfg_StatTaskStkSize
+                0x00000000        0x4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+ .rodata.OSCfg_StatTaskStkSizeRAM
+                0x00000000        0x4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+ .rodata.OSCfg_TmrTaskPrio
+                0x00000000        0x1 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+ .rodata.OSCfg_TmrTaskRate_Hz
+                0x00000000        0x4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+ .rodata.OSCfg_TmrTaskStkBasePtr
+                0x00000000        0x4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+ .rodata.OSCfg_TmrTaskStkLimit
+                0x00000000        0x4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+ .rodata.OSCfg_TmrTaskStkSize
+                0x00000000        0x4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+ .rodata.OSCfg_TmrTaskStkSizeRAM
+                0x00000000        0x4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+ .rodata.OSCfg_TmrWheelSize
+                0x00000000        0x2 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+ .rodata.OSCfg_TmrWheelSizeRAM
+                0x00000000        0x4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+ .text          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_core.o
+ .data          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_core.o
+ .bss           0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_core.o
+ .text.OSIntEnter
+                0x00000000       0x38 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_core.o
+ .text.OSSchedLock
+                0x00000000       0x5c ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_core.o
+ .text.OSSchedUnlock
+                0x00000000       0x78 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_core.o
+ .text.OSVersion
+                0x00000000       0x1c ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_core.o
+ .text.OS_PendAbort
+                0x00000000       0xd4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_core.o
+ .text.OS_PendAbort1
+                0x00000000       0x4e ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_core.o
+ .text.OS_PendListChangePrio
+                0x00000000       0x60 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_core.o
+ .text.OS_PendListInit
+                0x00000000       0x24 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_core.o
+ .text.OS_PendListInsertHead
+                0x00000000       0x54 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_core.o
+ .text.OS_PendObjDel
+                0x00000000       0xc8 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_core.o
+ .text.OS_PendObjDel1
+                0x00000000       0x4e ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_core.o
+ .text.OS_RdyListMoveHeadToTail
+                0x00000000       0x8e ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_core.o
+ .text          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_dbg.o
+ .data          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_dbg.o
+ .bss           0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_dbg.o
+ .rodata.OSDbg_DbgEn
+                0x00000000        0x2 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_dbg.o
+ .debug_info    0x00000000      0x941 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_dbg.o
+ .debug_abbrev  0x00000000       0xf7 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_dbg.o
+ .debug_aranges
+                0x00000000       0x18 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_dbg.o
+ .debug_line    0x00000000      0x23c ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_dbg.o
+ .debug_str     0x00000000      0x9c5 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_dbg.o
+ .comment       0x00000000       0x77 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_dbg.o
+ .ARM.attributes
+                0x00000000       0x33 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_dbg.o
+ .text          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_flag.o
+ .data          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_flag.o
+ .bss           0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_flag.o
+ .debug_info    0x00000000      0x92a ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_flag.o
+ .debug_abbrev  0x00000000       0xe4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_flag.o
+ .debug_aranges
+                0x00000000       0x18 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_flag.o
+ .debug_line    0x00000000      0x1f8 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_flag.o
+ .debug_str     0x00000000      0x9ba ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_flag.o
+ .comment       0x00000000       0x77 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_flag.o
+ .ARM.attributes
+                0x00000000       0x33 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_flag.o
+ .text          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_int.o
+ .data          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_int.o
+ .bss           0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_int.o
+ .debug_info    0x00000000      0x92a ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_int.o
+ .debug_abbrev  0x00000000       0xe4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_int.o
+ .debug_aranges
+                0x00000000       0x18 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_int.o
+ .debug_line    0x00000000      0x1f8 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_int.o
+ .debug_str     0x00000000      0x9b9 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_int.o
+ .comment       0x00000000       0x77 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_int.o
+ .ARM.attributes
+                0x00000000       0x33 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_int.o
+ .text          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_mem.o
+ .data          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_mem.o
+ .bss           0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_mem.o
+ .debug_info    0x00000000      0x92a ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_mem.o
+ .debug_abbrev  0x00000000       0xe4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_mem.o
+ .debug_aranges
+                0x00000000       0x18 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_mem.o
+ .debug_line    0x00000000      0x1f8 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_mem.o
+ .debug_str     0x00000000      0x9b9 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_mem.o
+ .comment       0x00000000       0x77 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_mem.o
+ .ARM.attributes
+                0x00000000       0x33 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_mem.o
+ .text          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_msg.o
+ .data          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_msg.o
+ .bss           0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_msg.o
+ .debug_info    0x00000000      0x92a ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_msg.o
+ .debug_abbrev  0x00000000       0xe4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_msg.o
+ .debug_aranges
+                0x00000000       0x18 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_msg.o
+ .debug_line    0x00000000      0x1f8 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_msg.o
+ .debug_str     0x00000000      0x9b9 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_msg.o
+ .comment       0x00000000       0x77 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_msg.o
+ .ARM.attributes
+                0x00000000       0x33 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_msg.o
+ .text          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_mutex.o
+ .data          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_mutex.o
+ .bss           0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_mutex.o
+ .debug_info    0x00000000      0x92a ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_mutex.o
+ .debug_abbrev  0x00000000       0xe4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_mutex.o
+ .debug_aranges
+                0x00000000       0x18 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_mutex.o
+ .debug_line    0x00000000      0x1f8 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_mutex.o
+ .debug_str     0x00000000      0x9bb ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_mutex.o
+ .comment       0x00000000       0x77 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_mutex.o
+ .ARM.attributes
+                0x00000000       0x33 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_mutex.o
+ .text          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_pend_multi.o
+ .data          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_pend_multi.o
+ .bss           0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_pend_multi.o
+ .debug_info    0x00000000      0x92a ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_pend_multi.o
+ .debug_abbrev  0x00000000       0xe4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_pend_multi.o
+ .debug_aranges
+                0x00000000       0x18 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_pend_multi.o
+ .debug_line    0x00000000      0x1f8 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_pend_multi.o
+ .debug_str     0x00000000      0x9c0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_pend_multi.o
+ .comment       0x00000000       0x77 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_pend_multi.o
+ .ARM.attributes
+                0x00000000       0x33 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_pend_multi.o
+ .text          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_prio.o
+ .data          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_prio.o
+ .bss           0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_prio.o
+ .text          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_q.o
+ .data          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_q.o
+ .bss           0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_q.o
+ .debug_info    0x00000000      0x92a ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_q.o
+ .debug_abbrev  0x00000000       0xe4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_q.o
+ .debug_aranges
+                0x00000000       0x18 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_q.o
+ .debug_line    0x00000000      0x1f8 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_q.o
+ .debug_str     0x00000000      0x9b7 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_q.o
+ .comment       0x00000000       0x77 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_q.o
+ .ARM.attributes
+                0x00000000       0x33 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_q.o
+ .text          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_sem.o
+ .data          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_sem.o
+ .bss           0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_sem.o
+ .debug_info    0x00000000      0x92a ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_sem.o
+ .debug_abbrev  0x00000000       0xe4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_sem.o
+ .debug_aranges
+                0x00000000       0x18 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_sem.o
+ .debug_line    0x00000000      0x1f8 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_sem.o
+ .debug_str     0x00000000      0x9b9 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_sem.o
+ .comment       0x00000000       0x77 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_sem.o
+ .ARM.attributes
+                0x00000000       0x33 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_sem.o
+ .text          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_stat.o
+ .data          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_stat.o
+ .bss           0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_stat.o
+ .debug_info    0x00000000      0x92a ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_stat.o
+ .debug_abbrev  0x00000000       0xe4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_stat.o
+ .debug_aranges
+                0x00000000       0x18 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_stat.o
+ .debug_line    0x00000000      0x1f8 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_stat.o
+ .debug_str     0x00000000      0x9ba ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_stat.o
+ .comment       0x00000000       0x77 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_stat.o
+ .ARM.attributes
+                0x00000000       0x33 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_stat.o
+ .text          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_task.o
+ .data          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_task.o
+ .bss           0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_task.o
+ .text.OSTaskSemSet
+                0x00000000       0x48 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_task.o
+ .text          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_tick.o
+ .data          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_tick.o
+ .bss           0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_tick.o
+ .text.OS_TickListResetPeak
+                0x00000000       0x40 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_tick.o
+ .text          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_time.o
+ .data          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_time.o
+ .bss           0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_time.o
+ .text.OSTimeGet
+                0x00000000       0x34 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_time.o
+ .text.OSTimeSet
+                0x00000000       0x34 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_time.o
+ .text          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_tmr.o
+ .data          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_tmr.o
+ .bss           0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_tmr.o
+ .debug_info    0x00000000      0x92a ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_tmr.o
+ .debug_abbrev  0x00000000       0xe4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_tmr.o
+ .debug_aranges
+                0x00000000       0x18 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_tmr.o
+ .debug_line    0x00000000      0x1f8 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_tmr.o
+ .debug_str     0x00000000      0x9b9 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_tmr.o
+ .comment       0x00000000       0x77 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_tmr.o
+ .ARM.attributes
+                0x00000000       0x33 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_tmr.o
+ .text          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_var.o
+ .data          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_var.o
+ .bss           0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_var.o
+ .data          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Ports/cm3/Generic/GMD/os_cpu_a.o
+ .bss           0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Ports/cm3/Generic/GMD/os_cpu_a.o
+ .text          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Ports/cm3/Generic/GMD/os_cpu_c.o
+ .data          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Ports/cm3/Generic/GMD/os_cpu_c.o
+ .bss           0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Ports/cm3/Generic/GMD/os_cpu_c.o
+ .text.OSStatTaskHook
+                0x00000000        0xc ./src/library/middlewares/3rd_party/ucos_iii/OS/Ports/cm3/Generic/GMD/os_cpu_c.o
+ .text.OSTaskDelHook
+                0x00000000       0x12 ./src/library/middlewares/3rd_party/ucos_iii/OS/Ports/cm3/Generic/GMD/os_cpu_c.o
+ .text          0x00000000      0x220 ./src/library/middlewares/3rd_party/ucos_iii/LIB/Ports/cm3/GMD/lib_mem_a.o
+ .data          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/LIB/Ports/cm3/GMD/lib_mem_a.o
+ .bss           0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/LIB/Ports/cm3/GMD/lib_mem_a.o
+ .debug_line    0x00000000      0x119 ./src/library/middlewares/3rd_party/ucos_iii/LIB/Ports/cm3/GMD/lib_mem_a.o
+ .debug_info    0x00000000       0x26 ./src/library/middlewares/3rd_party/ucos_iii/LIB/Ports/cm3/GMD/lib_mem_a.o
+ .debug_abbrev  0x00000000       0x14 ./src/library/middlewares/3rd_party/ucos_iii/LIB/Ports/cm3/GMD/lib_mem_a.o
+ .debug_aranges
+                0x00000000       0x20 ./src/library/middlewares/3rd_party/ucos_iii/LIB/Ports/cm3/GMD/lib_mem_a.o
+ .debug_str     0x00000000       0x91 ./src/library/middlewares/3rd_party/ucos_iii/LIB/Ports/cm3/GMD/lib_mem_a.o
+ .ARM.attributes
+                0x00000000       0x1b ./src/library/middlewares/3rd_party/ucos_iii/LIB/Ports/cm3/GMD/lib_mem_a.o
+ .text          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_ascii.o
+ .data          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_ascii.o
+ .bss           0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_ascii.o
+ .text.ASCII_IsAlpha
+                0x00000000       0x3e ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_ascii.o
+ .text.ASCII_IsAlphaNum
+                0x00000000       0x4e ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_ascii.o
+ .text.ASCII_IsLower
+                0x00000000       0x2e ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_ascii.o
+ .text.ASCII_IsUpper
+                0x00000000       0x2e ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_ascii.o
+ .text.ASCII_IsDig
+                0x00000000       0x2e ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_ascii.o
+ .text.ASCII_IsDigOct
+                0x00000000       0x2e ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_ascii.o
+ .text.ASCII_IsDigHex
+                0x00000000       0x4e ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_ascii.o
+ .text.ASCII_IsBlank
+                0x00000000       0x2e ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_ascii.o
+ .text.ASCII_IsSpace
+                0x00000000       0x4e ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_ascii.o
+ .text.ASCII_IsPrint
+                0x00000000       0x2e ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_ascii.o
+ .text.ASCII_IsGraph
+                0x00000000       0x2e ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_ascii.o
+ .text.ASCII_IsPunct
+                0x00000000       0x8e ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_ascii.o
+ .text.ASCII_IsCtrl
+                0x00000000       0x36 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_ascii.o
+ .text.ASCII_ToLower
+                0x00000000       0x38 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_ascii.o
+ .text.ASCII_ToUpper
+                0x00000000       0x38 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_ascii.o
+ .text.ASCII_Cmp
+                0x00000000       0x4a ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_ascii.o
+ .debug_info    0x00000000      0x457 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_ascii.o
+ .debug_abbrev  0x00000000      0x104 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_ascii.o
+ .debug_aranges
+                0x00000000       0x98 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_ascii.o
+ .debug_ranges  0x00000000       0x88 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_ascii.o
+ .debug_line    0x00000000      0x53b ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_ascii.o
+ .debug_str     0x00000000      0x31e ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_ascii.o
+ .comment       0x00000000       0x77 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_ascii.o
+ .debug_frame   0x00000000      0x28c ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_ascii.o
+ .ARM.attributes
+                0x00000000       0x2d ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_ascii.o
+ .text          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_math.o
+ .data          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_math.o
+ .bss           0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_math.o
+ .text.Math_Init
+                0x00000000        0xe ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_math.o
+ .text.Math_RandSetSeed
+                0x00000000       0x2c ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_math.o
+ .text.Math_Rand
+                0x00000000       0x38 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_math.o
+ .text.Math_RandSeed
+                0x00000000       0x2c ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_math.o
+ .debug_info    0x00000000      0x1b5 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_math.o
+ .debug_abbrev  0x00000000      0x136 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_math.o
+ .debug_aranges
+                0x00000000       0x38 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_math.o
+ .debug_ranges  0x00000000       0x28 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_math.o
+ .debug_line    0x00000000      0x22a ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_math.o
+ .debug_str     0x00000000      0x266 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_math.o
+ .comment       0x00000000       0x77 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_math.o
+ .debug_frame   0x00000000       0x9c ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_math.o
+ .ARM.attributes
+                0x00000000       0x2d ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_math.o
+ COMMON         0x00000000        0x4 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_math.o
+ .text          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_mem.o
+ .data          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_mem.o
+ .bss           0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_mem.o
+ .text.Mem_Init
+                0x00000000       0x90 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_mem.o
+ .text.Mem_Move
+                0x00000000      0x112 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_mem.o
+ .text.Mem_Cmp  0x00000000      0x134 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_mem.o
+ .text.Mem_HeapAlloc
+                0x00000000       0xb4 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_mem.o
+ .text.Mem_HeapGetSizeRem
+                0x00000000       0x24 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_mem.o
+ .text.Mem_SegGetSizeRem
+                0x00000000       0x88 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_mem.o
+ .text.Mem_PoolClr
+                0x00000000       0x9c ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_mem.o
+ .text.Mem_PoolCreate
+                0x00000000      0x3b8 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_mem.o
+ .text.Mem_PoolBlkGetNbrAvail
+                0x00000000       0x32 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_mem.o
+ .text.Mem_PoolBlkGet
+                0x00000000       0x80 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_mem.o
+ .text.Mem_PoolBlkGetUsedAtIx
+                0x00000000       0x80 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_mem.o
+ .text.Mem_PoolBlkFree
+                0x00000000       0xb8 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_mem.o
+ .text.Mem_PoolBlkIxGet
+                0x00000000       0xb4 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_mem.o
+ .text.Mem_SegCalcTotSize
+                0x00000000       0x7e ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_mem.o
+ .text.Mem_SegAlloc
+                0x00000000       0x7c ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_mem.o
+ COMMON         0x00000000      0x44c ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_mem.o
+ .text          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_str.o
+ .data          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_str.o
+ .bss           0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_str.o
+ .rodata.Str_MultOvfThTbl_Int32U
+                0x00000000       0x94 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_str.o
+ .text.Str_Len  0x00000000       0x1e ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_str.o
+ .text.Str_Len_N
+                0x00000000       0x44 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_str.o
+ .text.Str_Copy
+                0x00000000       0x22 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_str.o
+ .text.Str_Copy_N
+                0x00000000       0x92 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_str.o
+ .text.Str_Cat  0x00000000       0x22 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_str.o
+ .text.Str_Cat_N
+                0x00000000       0xb6 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_str.o
+ .text.Str_Cmp  0x00000000       0x26 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_str.o
+ .text.Str_Cmp_N
+                0x00000000      0x136 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_str.o
+ .text.Str_CmpIgnoreCase
+                0x00000000       0x26 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_str.o
+ .text.Str_CmpIgnoreCase_N
+                0x00000000      0x19e ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_str.o
+ .text.Str_Char
+                0x00000000       0x28 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_str.o
+ .text.Str_Char_N
+                0x00000000       0x92 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_str.o
+ .text.Str_Char_Last
+                0x00000000       0x28 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_str.o
+ .text.Str_Char_Last_N
+                0x00000000       0x80 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_str.o
+ .text.Str_Char_Replace
+                0x00000000       0x2e ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_str.o
+ .text.Str_Char_Replace_N
+                0x00000000       0x72 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_str.o
+ .text.Str_Str  0x00000000       0x22 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_str.o
+ .text.Str_Str_N
+                0x00000000       0xec ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_str.o
+ .text.Str_FmtNbr_Int32U
+                0x00000000       0x44 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_str.o
+ .text.Str_FmtNbr_Int32S
+                0x00000000       0x64 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_str.o
+ .text.Str_ParseNbr_Int32U
+                0x00000000       0x2a ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_str.o
+ .text.Str_ParseNbr_Int32S
+                0x00000000       0x56 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_str.o
+ .text.Str_FmtNbr_Int32
+                0x00000000      0x27c ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_str.o
+ .text.Str_ParseNbr_Int32
+                0x00000000      0x2c8 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_str.o
+ .debug_info    0x00000000      0xe0f ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_str.o
+ .debug_abbrev  0x00000000      0x146 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_str.o
+ .debug_aranges
+                0x00000000       0xd8 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_str.o
+ .debug_ranges  0x00000000       0xc8 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_str.o
+ .debug_line    0x00000000      0x97b ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_str.o
+ .debug_str     0x00000000      0x69e ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_str.o
+ .comment       0x00000000       0x77 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_str.o
+ .debug_frame   0x00000000      0x394 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_str.o
+ .ARM.attributes
+                0x00000000       0x2d ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_str.o
+ .data          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cm3/GMD/cpu_a.o
+ .bss           0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cm3/GMD/cpu_a.o
+ .text          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cm3/GMD/cpu_c.o
+ .data          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cm3/GMD/cpu_c.o
+ .bss           0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cm3/GMD/cpu_c.o
+ .text.CPU_BitBandClr
+                0x00000000       0x74 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cm3/GMD/cpu_c.o
+ .text.CPU_BitBandSet
+                0x00000000       0x74 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cm3/GMD/cpu_c.o
+ .text.CPU_IntSrcDis
+                0x00000000      0x140 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cm3/GMD/cpu_c.o
+ .text.CPU_IntSrcEn
+                0x00000000      0x140 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cm3/GMD/cpu_c.o
+ .text.CPU_IntSrcPendClr
+                0x00000000       0xd0 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cm3/GMD/cpu_c.o
+ .text.CPU_IntSrcPrioSet
+                0x00000000      0x260 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cm3/GMD/cpu_c.o
+ .text.CPU_IntSrcPrioGet
+                0x00000000      0x1e8 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cm3/GMD/cpu_c.o
+ .debug_info    0x00000000      0x409 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cm3/GMD/cpu_c.o
+ .debug_abbrev  0x00000000      0x188 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cm3/GMD/cpu_c.o
+ .debug_aranges
+                0x00000000       0x50 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cm3/GMD/cpu_c.o
+ .debug_ranges  0x00000000       0x40 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cm3/GMD/cpu_c.o
+ .debug_line    0x00000000      0x549 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cm3/GMD/cpu_c.o
+ .debug_str     0x00000000      0x2f0 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cm3/GMD/cpu_c.o
+ .comment       0x00000000       0x77 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cm3/GMD/cpu_c.o
+ .debug_frame   0x00000000      0x118 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cm3/GMD/cpu_c.o
+ .ARM.attributes
+                0x00000000       0x2d ./src/library/middlewares/3rd_party/ucos_iii/CPU/cm3/GMD/cpu_c.o
+ .text          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cpu_core.o
+ .data          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cpu_core.o
+ .bss           0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cpu_core.o
+ .rodata.CPU_CntLeadZerosTbl
+                0x00000000      0x100 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cpu_core.o
+ .rodata.CPU_EndiannessTest
+                0x00000000        0x4 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cpu_core.o
+ .text.CPU_SW_Exception
+                0x00000000        0x6 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cpu_core.o
+ .text.CPU_NameGet
+                0x00000000       0x4c ./src/library/middlewares/3rd_party/ucos_iii/CPU/cpu_core.o
+ .text.CPU_NameSet
+                0x00000000       0x68 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cpu_core.o
+ .text.CPU_TS_Get32
+                0x00000000       0x16 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cpu_core.o
+ .text.CPU_TS_Update
+                0x00000000        0xc ./src/library/middlewares/3rd_party/ucos_iii/CPU/cpu_core.o
+ .text.CPU_TS_TmrFreqGet
+                0x00000000       0x38 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cpu_core.o
+ .text.CPU_CntLeadZeros08
+                0x00000000       0x24 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cpu_core.o
+ .text.CPU_CntLeadZeros16
+                0x00000000       0x24 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cpu_core.o
+ .text.CPU_CntLeadZeros32
+                0x00000000       0x1a ./src/library/middlewares/3rd_party/ucos_iii/CPU/cpu_core.o
+ .text.CPU_CntLeadZeros64
+                0x00000000      0x18c ./src/library/middlewares/3rd_party/ucos_iii/CPU/cpu_core.o
+ .text.CPU_CntTrailZeros08
+                0x00000000       0x28 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cpu_core.o
+ .text.CPU_CntTrailZeros16
+                0x00000000       0x28 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cpu_core.o
+ .text.CPU_CntTrailZeros32
+                0x00000000       0x24 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cpu_core.o
+ .text.CPU_CntTrailZeros64
+                0x00000000       0x4c ./src/library/middlewares/3rd_party/ucos_iii/CPU/cpu_core.o
+ .text          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/CONFIG/os_app_hooks.o
+ .data          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/CONFIG/os_app_hooks.o
+ .bss           0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/CONFIG/os_app_hooks.o
+ .text.App_OS_SetAllHooks
+                0x00000000        0xc ./src/library/middlewares/3rd_party/ucos_iii/CONFIG/os_app_hooks.o
+ .text.App_OS_ClrAllHooks
+                0x00000000        0xc ./src/library/middlewares/3rd_party/ucos_iii/CONFIG/os_app_hooks.o
+ .text.App_OS_TaskCreateHook
+                0x00000000       0x12 ./src/library/middlewares/3rd_party/ucos_iii/CONFIG/os_app_hooks.o
+ .text.App_OS_TaskDelHook
+                0x00000000       0x12 ./src/library/middlewares/3rd_party/ucos_iii/CONFIG/os_app_hooks.o
+ .text.App_OS_TaskReturnHook
+                0x00000000       0x12 ./src/library/middlewares/3rd_party/ucos_iii/CONFIG/os_app_hooks.o
+ .text.App_OS_IdleTaskHook
+                0x00000000        0xc ./src/library/middlewares/3rd_party/ucos_iii/CONFIG/os_app_hooks.o
+ .text.App_OS_InitHook
+                0x00000000        0xc ./src/library/middlewares/3rd_party/ucos_iii/CONFIG/os_app_hooks.o
+ .text.App_OS_StatTaskHook
+                0x00000000        0xc ./src/library/middlewares/3rd_party/ucos_iii/CONFIG/os_app_hooks.o
+ .text.App_OS_TaskSwHook
+                0x00000000        0xc ./src/library/middlewares/3rd_party/ucos_iii/CONFIG/os_app_hooks.o
+ .text.App_OS_TimeTickHook
+                0x00000000        0xc ./src/library/middlewares/3rd_party/ucos_iii/CONFIG/os_app_hooks.o
+ .debug_info    0x00000000      0xa22 ./src/library/middlewares/3rd_party/ucos_iii/CONFIG/os_app_hooks.o
+ .debug_abbrev  0x00000000      0x12f ./src/library/middlewares/3rd_party/ucos_iii/CONFIG/os_app_hooks.o
+ .debug_aranges
+                0x00000000       0x68 ./src/library/middlewares/3rd_party/ucos_iii/CONFIG/os_app_hooks.o
+ .debug_ranges  0x00000000       0x58 ./src/library/middlewares/3rd_party/ucos_iii/CONFIG/os_app_hooks.o
+ .debug_line    0x00000000      0x300 ./src/library/middlewares/3rd_party/ucos_iii/CONFIG/os_app_hooks.o
+ .debug_str     0x00000000      0xa85 ./src/library/middlewares/3rd_party/ucos_iii/CONFIG/os_app_hooks.o
+ .comment       0x00000000       0x77 ./src/library/middlewares/3rd_party/ucos_iii/CONFIG/os_app_hooks.o
+ .debug_frame   0x00000000      0x168 ./src/library/middlewares/3rd_party/ucos_iii/CONFIG/os_app_hooks.o
+ .ARM.attributes
+                0x00000000       0x2d ./src/library/middlewares/3rd_party/ucos_iii/CONFIG/os_app_hooks.o
+ .text          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/BSP/bsp.o
+ .data          0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/BSP/bsp.o
+ .bss           0x00000000        0x0 ./src/library/middlewares/3rd_party/ucos_iii/BSP/bsp.o
+ .text.CPU_TS_TmrRd
+                0x00000000       0x1c ./src/library/middlewares/3rd_party/ucos_iii/BSP/bsp.o
+ .text.CPU_TS32_to_uSec
+                0x00000000       0x54 ./src/library/middlewares/3rd_party/ucos_iii/BSP/bsp.o
+ .text          0x00000000        0x0 ./src/library/libraries/drivers/src/gw1ns4c_gpio.o
+ .data          0x00000000        0x0 ./src/library/libraries/drivers/src/gw1ns4c_gpio.o
+ .bss           0x00000000        0x0 ./src/library/libraries/drivers/src/gw1ns4c_gpio.o
+ .text.GPIO_SetOutEnable
+                0x00000000       0x20 ./src/library/libraries/drivers/src/gw1ns4c_gpio.o
+ .text.GPIO_ClrOutEnable
+                0x00000000       0x1a ./src/library/libraries/drivers/src/gw1ns4c_gpio.o
+ .text.GPIO_WriteBits
+                0x00000000       0x1a ./src/library/libraries/drivers/src/gw1ns4c_gpio.o
+ .text.GPIO_ReadBits
+                0x00000000       0x16 ./src/library/libraries/drivers/src/gw1ns4c_gpio.o
+ .text.GPIO_GetOutEnable
+                0x00000000       0x16 ./src/library/libraries/drivers/src/gw1ns4c_gpio.o
+ .text.GPIO_SetAltFunc
+                0x00000000       0x20 ./src/library/libraries/drivers/src/gw1ns4c_gpio.o
+ .text.GPIO_ClrAltFunc
+                0x00000000       0x1a ./src/library/libraries/drivers/src/gw1ns4c_gpio.o
+ .text.GPIO_GetAltFunc
+                0x00000000       0x16 ./src/library/libraries/drivers/src/gw1ns4c_gpio.o
+ .text.GPIO_IntClear
+                0x00000000       0x20 ./src/library/libraries/drivers/src/gw1ns4c_gpio.o
+ .text.GPIO_GetIntStatus
+                0x00000000       0x16 ./src/library/libraries/drivers/src/gw1ns4c_gpio.o
+ .text.GPIO_SetIntEnable
+                0x00000000       0x24 ./src/library/libraries/drivers/src/gw1ns4c_gpio.o
+ .text.GPIO_ClrIntEnable
+                0x00000000       0x24 ./src/library/libraries/drivers/src/gw1ns4c_gpio.o
+ .text.GPIO_SetIntHighLevel
+                0x00000000       0x38 ./src/library/libraries/drivers/src/gw1ns4c_gpio.o
+ .text.GPIO_SetIntRisingEdge
+                0x00000000       0x38 ./src/library/libraries/drivers/src/gw1ns4c_gpio.o
+ .text.GPIO_SetIntLowLevel
+                0x00000000       0x38 ./src/library/libraries/drivers/src/gw1ns4c_gpio.o
+ .text.GPIO_SetIntFallingEdge
+                0x00000000       0x38 ./src/library/libraries/drivers/src/gw1ns4c_gpio.o
+ .text.GPIO_MaskedWrite
+                0x00000000       0x38 ./src/library/libraries/drivers/src/gw1ns4c_gpio.o
+ .text          0x00000000        0x0 ./src/library/libraries/drivers/src/gw1ns4c_i2c.o
+ .data          0x00000000        0x0 ./src/library/libraries/drivers/src/gw1ns4c_i2c.o
+ .bss           0x00000000        0x0 ./src/library/libraries/drivers/src/gw1ns4c_i2c.o
+ .text.I2C_UnEnable
+                0x00000000       0x1a ./src/library/libraries/drivers/src/gw1ns4c_i2c.o
+ .text.I2C_Enable
+                0x00000000       0x1e ./src/library/libraries/drivers/src/gw1ns4c_i2c.o
+ .text.I2C_Rate_Set
+                0x00000000       0x40 ./src/library/libraries/drivers/src/gw1ns4c_i2c.o
+ .text.Delay_ms_i2c
+                0x00000000       0x34 ./src/library/libraries/drivers/src/gw1ns4c_i2c.o
+ .text.I2C_Init
+                0x00000000       0x44 ./src/library/libraries/drivers/src/gw1ns4c_i2c.o
+ .text.I2C_SendByte
+                0x00000000       0xb2 ./src/library/libraries/drivers/src/gw1ns4c_i2c.o
+ .text.I2C_SendData
+                0x00000000       0xd8 ./src/library/libraries/drivers/src/gw1ns4c_i2c.o
+ .text.I2C_ReceiveByte
+                0x00000000       0xc2 ./src/library/libraries/drivers/src/gw1ns4c_i2c.o
+ .text.I2C_ReceiveData
+                0x00000000       0xf6 ./src/library/libraries/drivers/src/gw1ns4c_i2c.o
+ .text.I2C_SendBytes
+                0x00000000       0x4a ./src/library/libraries/drivers/src/gw1ns4c_i2c.o
+ .text.I2C_ReadBytes
+                0x00000000       0x4e ./src/library/libraries/drivers/src/gw1ns4c_i2c.o
+ .text.I2C_InterruptOpen
+                0x00000000       0x1e ./src/library/libraries/drivers/src/gw1ns4c_i2c.o
+ .text.I2C_InterruptClose
+                0x00000000       0x1e ./src/library/libraries/drivers/src/gw1ns4c_i2c.o
+ .debug_info    0x00000000      0x584 ./src/library/libraries/drivers/src/gw1ns4c_i2c.o
+ .debug_abbrev  0x00000000      0x227 ./src/library/libraries/drivers/src/gw1ns4c_i2c.o
+ .debug_aranges
+                0x00000000       0x80 ./src/library/libraries/drivers/src/gw1ns4c_i2c.o
+ .debug_ranges  0x00000000       0x70 ./src/library/libraries/drivers/src/gw1ns4c_i2c.o
+ .debug_line    0x00000000      0x722 ./src/library/libraries/drivers/src/gw1ns4c_i2c.o
+ .debug_str     0x00000000      0x38f ./src/library/libraries/drivers/src/gw1ns4c_i2c.o
+ .comment       0x00000000       0x77 ./src/library/libraries/drivers/src/gw1ns4c_i2c.o
+ .debug_frame   0x00000000      0x204 ./src/library/libraries/drivers/src/gw1ns4c_i2c.o
+ .ARM.attributes
+                0x00000000       0x2d ./src/library/libraries/drivers/src/gw1ns4c_i2c.o
+ .text          0x00000000        0x0 ./src/library/libraries/drivers/src/gw1ns4c_misc.o
+ .data          0x00000000        0x0 ./src/library/libraries/drivers/src/gw1ns4c_misc.o
+ .bss           0x00000000        0x0 ./src/library/libraries/drivers/src/gw1ns4c_misc.o
+ .text.NVIC_GetPriorityGrouping
+                0x00000000       0x1c ./src/library/libraries/drivers/src/gw1ns4c_misc.o
+ .text.NVIC_EnableIRQ
+                0x00000000       0x30 ./src/library/libraries/drivers/src/gw1ns4c_misc.o
+ .text.NVIC_DisableIRQ
+                0x00000000       0x34 ./src/library/libraries/drivers/src/gw1ns4c_misc.o
+ .text.NVIC_SetPriority
+                0x00000000       0x54 ./src/library/libraries/drivers/src/gw1ns4c_misc.o
+ .text.NVIC_EncodePriority
+                0x00000000       0x64 ./src/library/libraries/drivers/src/gw1ns4c_misc.o
+ .text.nvic_irq_enable
+                0x00000000       0x42 ./src/library/libraries/drivers/src/gw1ns4c_misc.o
+ .text.nvic_irq_disable
+                0x00000000       0x1c ./src/library/libraries/drivers/src/gw1ns4c_misc.o
+ .text.NVIC_Init
+                0x00000000       0xc4 ./src/library/libraries/drivers/src/gw1ns4c_misc.o
+ .text.NVIC_SetVectorTable
+                0x00000000       0x2c ./src/library/libraries/drivers/src/gw1ns4c_misc.o
+ .text.SysTick_CLKSourceConfig
+                0x00000000       0x38 ./src/library/libraries/drivers/src/gw1ns4c_misc.o
+ .text          0x00000000        0x0 ./src/library/libraries/drivers/src/gw1ns4c_rtc.o
+ .data          0x00000000        0x0 ./src/library/libraries/drivers/src/gw1ns4c_rtc.o
+ .bss           0x00000000        0x0 ./src/library/libraries/drivers/src/gw1ns4c_rtc.o
+ .text.Get_Current_Value
+                0x00000000       0x14 ./src/library/libraries/drivers/src/gw1ns4c_rtc.o
+ .text.Set_Match_Value
+                0x00000000       0x1c ./src/library/libraries/drivers/src/gw1ns4c_rtc.o
+ .text.Get_Match_Value
+                0x00000000       0x14 ./src/library/libraries/drivers/src/gw1ns4c_rtc.o
+ .text.Set_Load_Value
+                0x00000000       0x1c ./src/library/libraries/drivers/src/gw1ns4c_rtc.o
+ .text.Get_Load_Value
+                0x00000000       0x14 ./src/library/libraries/drivers/src/gw1ns4c_rtc.o
+ .text.Start_RTC
+                0x00000000       0x18 ./src/library/libraries/drivers/src/gw1ns4c_rtc.o
+ .text.Close_RTC
+                0x00000000       0x18 ./src/library/libraries/drivers/src/gw1ns4c_rtc.o
+ .text.Get_RTC_Control_value
+                0x00000000       0x18 ./src/library/libraries/drivers/src/gw1ns4c_rtc.o
+ .text.RTC_Inter_Mask_Set
+                0x00000000       0x18 ./src/library/libraries/drivers/src/gw1ns4c_rtc.o
+ .text.RTC_Inter_Mask_Clr
+                0x00000000       0x18 ./src/library/libraries/drivers/src/gw1ns4c_rtc.o
+ .text.Get_RTC_Inter_Mask_value
+                0x00000000       0x18 ./src/library/libraries/drivers/src/gw1ns4c_rtc.o
+ .text.Clear_RTC_interrupt
+                0x00000000       0x18 ./src/library/libraries/drivers/src/gw1ns4c_rtc.o
+ .text.RTC_init
+                0x00000000       0x1c ./src/library/libraries/drivers/src/gw1ns4c_rtc.o
+ .debug_info    0x00000000      0x296 ./src/library/libraries/drivers/src/gw1ns4c_rtc.o
+ .debug_abbrev  0x00000000      0x119 ./src/library/libraries/drivers/src/gw1ns4c_rtc.o
+ .debug_aranges
+                0x00000000       0x80 ./src/library/libraries/drivers/src/gw1ns4c_rtc.o
+ .debug_ranges  0x00000000       0x70 ./src/library/libraries/drivers/src/gw1ns4c_rtc.o
+ .debug_line    0x00000000      0x321 ./src/library/libraries/drivers/src/gw1ns4c_rtc.o
+ .debug_str     0x00000000      0x373 ./src/library/libraries/drivers/src/gw1ns4c_rtc.o
+ .comment       0x00000000       0x77 ./src/library/libraries/drivers/src/gw1ns4c_rtc.o
+ .debug_frame   0x00000000      0x1bc ./src/library/libraries/drivers/src/gw1ns4c_rtc.o
+ .ARM.attributes
+                0x00000000       0x2d ./src/library/libraries/drivers/src/gw1ns4c_rtc.o
+ .text          0x00000000        0x0 ./src/library/libraries/drivers/src/gw1ns4c_spi.o
+ .data          0x00000000        0x0 ./src/library/libraries/drivers/src/gw1ns4c_spi.o
+ .bss           0x00000000        0x0 ./src/library/libraries/drivers/src/gw1ns4c_spi.o
+ .text.SPI_Init
+                0x00000000       0x6c ./src/library/libraries/drivers/src/gw1ns4c_spi.o
+ .text.SPI_SetDirection
+                0x00000000       0x1c ./src/library/libraries/drivers/src/gw1ns4c_spi.o
+ .text.SPI_ClrDirection
+                0x00000000       0x1c ./src/library/libraries/drivers/src/gw1ns4c_spi.o
+ .text.SPI_GetDirection
+                0x00000000       0x24 ./src/library/libraries/drivers/src/gw1ns4c_spi.o
+ .text.SPI_SetPhase
+                0x00000000       0x1c ./src/library/libraries/drivers/src/gw1ns4c_spi.o
+ .text.SPI_ClrPhase
+                0x00000000       0x1c ./src/library/libraries/drivers/src/gw1ns4c_spi.o
+ .text.SPI_GetPhase
+                0x00000000       0x24 ./src/library/libraries/drivers/src/gw1ns4c_spi.o
+ .text.SPI_SetPolarity
+                0x00000000       0x1c ./src/library/libraries/drivers/src/gw1ns4c_spi.o
+ .text.SPI_ClrPolarity
+                0x00000000       0x1c ./src/library/libraries/drivers/src/gw1ns4c_spi.o
+ .text.SPI_GetPolarity
+                0x00000000       0x24 ./src/library/libraries/drivers/src/gw1ns4c_spi.o
+ .text.SPI_SetClkSel
+                0x00000000       0x34 ./src/library/libraries/drivers/src/gw1ns4c_spi.o
+ .text.SPI_GetClkSel
+                0x00000000       0x1c ./src/library/libraries/drivers/src/gw1ns4c_spi.o
+ .text.SPI_GetToeStatus
+                0x00000000       0x24 ./src/library/libraries/drivers/src/gw1ns4c_spi.o
+ .text.SPI_GetRoeStatus
+                0x00000000       0x24 ./src/library/libraries/drivers/src/gw1ns4c_spi.o
+ .text.SPI_GetTmtStatus
+                0x00000000       0x24 ./src/library/libraries/drivers/src/gw1ns4c_spi.o
+ .text.SPI_GetTrdyStatus
+                0x00000000       0x24 ./src/library/libraries/drivers/src/gw1ns4c_spi.o
+ .text.SPI_GetRrdyStatus
+                0x00000000       0x24 ./src/library/libraries/drivers/src/gw1ns4c_spi.o
+ .text.SPI_GetErrStatus
+                0x00000000       0x24 ./src/library/libraries/drivers/src/gw1ns4c_spi.o
+ .text.SPI_ClrToeStatus
+                0x00000000       0x1c ./src/library/libraries/drivers/src/gw1ns4c_spi.o
+ .text.SPI_ClrRoeStatus
+                0x00000000       0x1c ./src/library/libraries/drivers/src/gw1ns4c_spi.o
+ .text.SPI_ClrErrStatus
+                0x00000000       0x1c ./src/library/libraries/drivers/src/gw1ns4c_spi.o
+ .text.SPI_ReadWriteByte
+                0x00000000       0x44 ./src/library/libraries/drivers/src/gw1ns4c_spi.o
+ .text.SPI_WriteData
+                0x00000000       0x1a ./src/library/libraries/drivers/src/gw1ns4c_spi.o
+ .text.SPI_ReadData
+                0x00000000       0x10 ./src/library/libraries/drivers/src/gw1ns4c_spi.o
+ .text.SPI_Select_Slave
+                0x00000000       0x1c ./src/library/libraries/drivers/src/gw1ns4c_spi.o
+ .debug_info    0x00000000      0x43d ./src/library/libraries/drivers/src/gw1ns4c_spi.o
+ .debug_abbrev  0x00000000      0x239 ./src/library/libraries/drivers/src/gw1ns4c_spi.o
+ .debug_aranges
+                0x00000000       0xe0 ./src/library/libraries/drivers/src/gw1ns4c_spi.o
+ .debug_ranges  0x00000000       0xd0 ./src/library/libraries/drivers/src/gw1ns4c_spi.o
+ .debug_line    0x00000000      0x54e ./src/library/libraries/drivers/src/gw1ns4c_spi.o
+ .debug_str     0x00000000      0x446 ./src/library/libraries/drivers/src/gw1ns4c_spi.o
+ .comment       0x00000000       0x77 ./src/library/libraries/drivers/src/gw1ns4c_spi.o
+ .debug_frame   0x00000000      0x350 ./src/library/libraries/drivers/src/gw1ns4c_spi.o
+ .ARM.attributes
+                0x00000000       0x2d ./src/library/libraries/drivers/src/gw1ns4c_spi.o
+ .text          0x00000000        0x0 ./src/library/libraries/drivers/src/gw1ns4c_syscon.o
+ .data          0x00000000        0x0 ./src/library/libraries/drivers/src/gw1ns4c_syscon.o
+ .bss           0x00000000        0x0 ./src/library/libraries/drivers/src/gw1ns4c_syscon.o
+ .text.SYSCON_Init
+                0x00000000       0x28 ./src/library/libraries/drivers/src/gw1ns4c_syscon.o
+ .text.SYSCON_GetRemap
+                0x00000000       0x14 ./src/library/libraries/drivers/src/gw1ns4c_syscon.o
+ .text.SYSCON_GetPmuctrlEnable
+                0x00000000       0x14 ./src/library/libraries/drivers/src/gw1ns4c_syscon.o
+ .text.SYSCON_GetResetopLockuprst
+                0x00000000       0x14 ./src/library/libraries/drivers/src/gw1ns4c_syscon.o
+ .text.SYSCON_GetRstinfoSysresetreq
+                0x00000000       0x1c ./src/library/libraries/drivers/src/gw1ns4c_syscon.o
+ .text.SYSCON_GetRstinfoWdogresetreq
+                0x00000000       0x1c ./src/library/libraries/drivers/src/gw1ns4c_syscon.o
+ .text.SYSCON_GetRstinfoLockreset
+                0x00000000       0x1c ./src/library/libraries/drivers/src/gw1ns4c_syscon.o
+ .debug_info    0x00000000      0x1e6 ./src/library/libraries/drivers/src/gw1ns4c_syscon.o
+ .debug_abbrev  0x00000000       0xf0 ./src/library/libraries/drivers/src/gw1ns4c_syscon.o
+ .debug_aranges
+                0x00000000       0x50 ./src/library/libraries/drivers/src/gw1ns4c_syscon.o
+ .debug_ranges  0x00000000       0x40 ./src/library/libraries/drivers/src/gw1ns4c_syscon.o
+ .debug_line    0x00000000      0x2a9 ./src/library/libraries/drivers/src/gw1ns4c_syscon.o
+ .debug_str     0x00000000      0x2ef ./src/library/libraries/drivers/src/gw1ns4c_syscon.o
+ .comment       0x00000000       0x77 ./src/library/libraries/drivers/src/gw1ns4c_syscon.o
+ .debug_frame   0x00000000       0xf0 ./src/library/libraries/drivers/src/gw1ns4c_syscon.o
+ .ARM.attributes
+                0x00000000       0x2d ./src/library/libraries/drivers/src/gw1ns4c_syscon.o
+ .text          0x00000000        0x0 ./src/library/libraries/drivers/src/gw1ns4c_timer.o
+ .data          0x00000000        0x0 ./src/library/libraries/drivers/src/gw1ns4c_timer.o
+ .bss           0x00000000        0x0 ./src/library/libraries/drivers/src/gw1ns4c_timer.o
+ .text.TIMER_Init
+                0x00000000       0x9a ./src/library/libraries/drivers/src/gw1ns4c_timer.o
+ .text.TIMER_StartTimer
+                0x00000000       0x1e ./src/library/libraries/drivers/src/gw1ns4c_timer.o
+ .text.TIMER_StopTimer
+                0x00000000       0x1e ./src/library/libraries/drivers/src/gw1ns4c_timer.o
+ .text.TIMER_GetIRQStatus
+                0x00000000       0x18 ./src/library/libraries/drivers/src/gw1ns4c_timer.o
+ .text.TIMER_ClearIRQ
+                0x00000000       0x18 ./src/library/libraries/drivers/src/gw1ns4c_timer.o
+ .text.TIMER_GetReload
+                0x00000000       0x16 ./src/library/libraries/drivers/src/gw1ns4c_timer.o
+ .text.TIMER_SetReload
+                0x00000000       0x1a ./src/library/libraries/drivers/src/gw1ns4c_timer.o
+ .text.TIMER_GetValue
+                0x00000000       0x16 ./src/library/libraries/drivers/src/gw1ns4c_timer.o
+ .text.TIMER_SetValue
+                0x00000000       0x1a ./src/library/libraries/drivers/src/gw1ns4c_timer.o
+ .text.TIMER_EnableIRQ
+                0x00000000       0x1e ./src/library/libraries/drivers/src/gw1ns4c_timer.o
+ .text.TIMER_DisableIRQ
+                0x00000000       0x1e ./src/library/libraries/drivers/src/gw1ns4c_timer.o
+ .text.TIMER_SelExtEnable
+                0x00000000       0x26 ./src/library/libraries/drivers/src/gw1ns4c_timer.o
+ .text.TIMER_SelExtClock
+                0x00000000       0x26 ./src/library/libraries/drivers/src/gw1ns4c_timer.o
+ .debug_info    0x00000000      0x42c ./src/library/libraries/drivers/src/gw1ns4c_timer.o
+ .debug_abbrev  0x00000000      0x12d ./src/library/libraries/drivers/src/gw1ns4c_timer.o
+ .debug_aranges
+                0x00000000       0x80 ./src/library/libraries/drivers/src/gw1ns4c_timer.o
+ .debug_ranges  0x00000000       0x70 ./src/library/libraries/drivers/src/gw1ns4c_timer.o
+ .debug_line    0x00000000      0x3bf ./src/library/libraries/drivers/src/gw1ns4c_timer.o
+ .debug_str     0x00000000      0x3d4 ./src/library/libraries/drivers/src/gw1ns4c_timer.o
+ .comment       0x00000000       0x77 ./src/library/libraries/drivers/src/gw1ns4c_timer.o
+ .debug_frame   0x00000000      0x218 ./src/library/libraries/drivers/src/gw1ns4c_timer.o
+ .ARM.attributes
+                0x00000000       0x2d ./src/library/libraries/drivers/src/gw1ns4c_timer.o
+ .text          0x00000000        0x0 ./src/library/libraries/drivers/src/gw1ns4c_uart.o
+ .data          0x00000000        0x0 ./src/library/libraries/drivers/src/gw1ns4c_uart.o
+ .bss           0x00000000        0x0 ./src/library/libraries/drivers/src/gw1ns4c_uart.o
+ .text.UART_GetRxBufferFull
+                0x00000000       0x1e ./src/library/libraries/drivers/src/gw1ns4c_uart.o
+ .text.UART_GetTxBufferFull
+                0x00000000       0x1e ./src/library/libraries/drivers/src/gw1ns4c_uart.o
+ .text.UART_GetRxBufferOverrunStatus
+                0x00000000       0x1e ./src/library/libraries/drivers/src/gw1ns4c_uart.o
+ .text.UART_GetTxBufferOverrunStatus
+                0x00000000       0x1e ./src/library/libraries/drivers/src/gw1ns4c_uart.o
+ .text.UART_ClearRxBufferOverrunStatus
+                0x00000000       0x18 ./src/library/libraries/drivers/src/gw1ns4c_uart.o
+ .text.UART_ClearTxBufferOverrunStatus
+                0x00000000       0x18 ./src/library/libraries/drivers/src/gw1ns4c_uart.o
+ .text.UART_SendString
+                0x00000000       0x3c ./src/library/libraries/drivers/src/gw1ns4c_uart.o
+ .text.UART_ReceiveChar
+                0x00000000       0x26 ./src/library/libraries/drivers/src/gw1ns4c_uart.o
+ .text.UART_GetBaudDivider
+                0x00000000       0x16 ./src/library/libraries/drivers/src/gw1ns4c_uart.o
+ .text.UART_GetTxIRQStatus
+                0x00000000       0x1e ./src/library/libraries/drivers/src/gw1ns4c_uart.o
+ .text.UART_GetRxIRQStatus
+                0x00000000       0x1e ./src/library/libraries/drivers/src/gw1ns4c_uart.o
+ .text.UART_ClearTxIRQ
+                0x00000000       0x18 ./src/library/libraries/drivers/src/gw1ns4c_uart.o
+ .text.UART_ClearRxIRQ
+                0x00000000       0x18 ./src/library/libraries/drivers/src/gw1ns4c_uart.o
+ .text.UART_GetTxOverrunIRQStatus
+                0x00000000       0x1e ./src/library/libraries/drivers/src/gw1ns4c_uart.o
+ .text.UART_GetRxOverrunIRQStatus
+                0x00000000       0x1e ./src/library/libraries/drivers/src/gw1ns4c_uart.o
+ .text.UART_ClearTxOverrunIRQ
+                0x00000000       0x18 ./src/library/libraries/drivers/src/gw1ns4c_uart.o
+ .text.UART_ClearRxOverrunIRQ
+                0x00000000       0x18 ./src/library/libraries/drivers/src/gw1ns4c_uart.o
+ .text.UART_SetHSTM
+                0x00000000       0x1e ./src/library/libraries/drivers/src/gw1ns4c_uart.o
+ .text.UART_ClrHSTM
+                0x00000000       0x1e ./src/library/libraries/drivers/src/gw1ns4c_uart.o
+ .text          0x00000000        0x0 ./src/library/libraries/drivers/src/gw1ns4c_wdog.o
+ .data          0x00000000        0x0 ./src/library/libraries/drivers/src/gw1ns4c_wdog.o
+ .bss           0x00000000        0x0 ./src/library/libraries/drivers/src/gw1ns4c_wdog.o
+ .text.WDOG_Init
+                0x00000000       0xdc ./src/library/libraries/drivers/src/gw1ns4c_wdog.o
+ .text.WDOG_RestartCounter
+                0x00000000       0x1c ./src/library/libraries/drivers/src/gw1ns4c_wdog.o
+ .text.WDOG_GetCounterValue
+                0x00000000       0x14 ./src/library/libraries/drivers/src/gw1ns4c_wdog.o
+ .text.WDOG_SetResetEnable
+                0x00000000       0x1c ./src/library/libraries/drivers/src/gw1ns4c_wdog.o
+ .text.WDOG_GetResStatus
+                0x00000000       0x20 ./src/library/libraries/drivers/src/gw1ns4c_wdog.o
+ .text.WDOG_SetIntEnable
+                0x00000000       0x1c ./src/library/libraries/drivers/src/gw1ns4c_wdog.o
+ .text.WDOG_GetIntStatus
+                0x00000000       0x20 ./src/library/libraries/drivers/src/gw1ns4c_wdog.o
+ .text.WDOG_ClrIntEnable
+                0x00000000       0x18 ./src/library/libraries/drivers/src/gw1ns4c_wdog.o
+ .text.WDOG_GetRawIntStatus
+                0x00000000       0x20 ./src/library/libraries/drivers/src/gw1ns4c_wdog.o
+ .text.WDOG_GetMaskIntStatus
+                0x00000000       0x20 ./src/library/libraries/drivers/src/gw1ns4c_wdog.o
+ .text.WDOG_LockWriteAccess
+                0x00000000       0x18 ./src/library/libraries/drivers/src/gw1ns4c_wdog.o
+ .text.WDOG_UnlockWriteAccess
+                0x00000000       0x1c ./src/library/libraries/drivers/src/gw1ns4c_wdog.o
+ .text.WDOG_SetITModeEnable
+                0x00000000       0x20 ./src/library/libraries/drivers/src/gw1ns4c_wdog.o
+ .text.WDOG_ClrITModeEnable
+                0x00000000       0x20 ./src/library/libraries/drivers/src/gw1ns4c_wdog.o
+ .text.WDOG_GetITModeStatus
+                0x00000000       0x20 ./src/library/libraries/drivers/src/gw1ns4c_wdog.o
+ .text.WDOG_SetITOP
+                0x00000000       0x20 ./src/library/libraries/drivers/src/gw1ns4c_wdog.o
+ .text.WDOG_ClrITOP
+                0x00000000       0x28 ./src/library/libraries/drivers/src/gw1ns4c_wdog.o
+ .text.WDOG_GetITOPResStatus
+                0x00000000       0x20 ./src/library/libraries/drivers/src/gw1ns4c_wdog.o
+ .text.WDOG_GetITOPIntStatus
+                0x00000000       0x20 ./src/library/libraries/drivers/src/gw1ns4c_wdog.o
+ .debug_info    0x00000000      0x46f ./src/library/libraries/drivers/src/gw1ns4c_wdog.o
+ .debug_abbrev  0x00000000      0x1eb ./src/library/libraries/drivers/src/gw1ns4c_wdog.o
+ .debug_aranges
+                0x00000000       0xb0 ./src/library/libraries/drivers/src/gw1ns4c_wdog.o
+ .debug_ranges  0x00000000       0xa0 ./src/library/libraries/drivers/src/gw1ns4c_wdog.o
+ .debug_line    0x00000000      0x497 ./src/library/libraries/drivers/src/gw1ns4c_wdog.o
+ .debug_str     0x00000000      0x49f ./src/library/libraries/drivers/src/gw1ns4c_wdog.o
+ .comment       0x00000000       0x77 ./src/library/libraries/drivers/src/gw1ns4c_wdog.o
+ .debug_frame   0x00000000      0x290 ./src/library/libraries/drivers/src/gw1ns4c_wdog.o
+ .ARM.attributes
+                0x00000000       0x2d ./src/library/libraries/drivers/src/gw1ns4c_wdog.o
+ .data          0x00000000        0x0 ./src/library/libraries/cmsis/cm3/device_support/startup/gmd/startup_gw1ns4c.o
+ .bss           0x00000000        0x0 ./src/library/libraries/cmsis/cm3/device_support/startup/gmd/startup_gw1ns4c.o
+ .text          0x00000000        0x0 ./src/library/libraries/cmsis/cm3/device_support/system_gw1ns4c.o
+ .data          0x00000000        0x0 ./src/library/libraries/cmsis/cm3/device_support/system_gw1ns4c.o
+ .bss           0x00000000        0x0 ./src/library/libraries/cmsis/cm3/device_support/system_gw1ns4c.o
+ .text.SystemCoreClockUpdate
+                0x00000000       0x40 ./src/library/libraries/cmsis/cm3/device_support/system_gw1ns4c.o
+ .text          0x00000000        0x0 ./src/library/libraries/cmsis/cm3/core_support/gmd/core_cm3.o
+ .data          0x00000000        0x0 ./src/library/libraries/cmsis/cm3/core_support/gmd/core_cm3.o
+ .bss           0x00000000        0x0 ./src/library/libraries/cmsis/cm3/core_support/gmd/core_cm3.o
+ .text.__get_PSP
+                0x00000000       0x10 ./src/library/libraries/cmsis/cm3/core_support/gmd/core_cm3.o
+ .text.__set_PSP
+                0x00000000        0xa ./src/library/libraries/cmsis/cm3/core_support/gmd/core_cm3.o
+ .text.__get_MSP
+                0x00000000       0x10 ./src/library/libraries/cmsis/cm3/core_support/gmd/core_cm3.o
+ .text.__set_MSP
+                0x00000000        0xa ./src/library/libraries/cmsis/cm3/core_support/gmd/core_cm3.o
+ .text.__get_BASEPRI
+                0x00000000       0x1c ./src/library/libraries/cmsis/cm3/core_support/gmd/core_cm3.o
+ .text.__set_BASEPRI
+                0x00000000       0x18 ./src/library/libraries/cmsis/cm3/core_support/gmd/core_cm3.o
+ .text.__get_PRIMASK
+                0x00000000       0x1c ./src/library/libraries/cmsis/cm3/core_support/gmd/core_cm3.o
+ .text.__set_PRIMASK
+                0x00000000       0x18 ./src/library/libraries/cmsis/cm3/core_support/gmd/core_cm3.o
+ .text.__get_FAULTMASK
+                0x00000000       0x1c ./src/library/libraries/cmsis/cm3/core_support/gmd/core_cm3.o
+ .text.__set_FAULTMASK
+                0x00000000       0x18 ./src/library/libraries/cmsis/cm3/core_support/gmd/core_cm3.o
+ .text.__get_CONTROL
+                0x00000000       0x1c ./src/library/libraries/cmsis/cm3/core_support/gmd/core_cm3.o
+ .text.__set_CONTROL
+                0x00000000       0x18 ./src/library/libraries/cmsis/cm3/core_support/gmd/core_cm3.o
+ .text.__REV    0x00000000       0x1e ./src/library/libraries/cmsis/cm3/core_support/gmd/core_cm3.o
+ .text.__REV16  0x00000000       0x20 ./src/library/libraries/cmsis/cm3/core_support/gmd/core_cm3.o
+ .text.__REVSH  0x00000000       0x20 ./src/library/libraries/cmsis/cm3/core_support/gmd/core_cm3.o
+ .text.__RBIT   0x00000000       0x20 ./src/library/libraries/cmsis/cm3/core_support/gmd/core_cm3.o
+ .text.__LDREXB
+                0x00000000       0x20 ./src/library/libraries/cmsis/cm3/core_support/gmd/core_cm3.o
+ .text.__LDREXH
+                0x00000000       0x20 ./src/library/libraries/cmsis/cm3/core_support/gmd/core_cm3.o
+ .text.__LDREXW
+                0x00000000       0x20 ./src/library/libraries/cmsis/cm3/core_support/gmd/core_cm3.o
+ .text.__STREXB
+                0x00000000       0x26 ./src/library/libraries/cmsis/cm3/core_support/gmd/core_cm3.o
+ .text.__STREXH
+                0x00000000       0x26 ./src/library/libraries/cmsis/cm3/core_support/gmd/core_cm3.o
+ .text.__STREXW
+                0x00000000       0x24 ./src/library/libraries/cmsis/cm3/core_support/gmd/core_cm3.o
+ .debug_info    0x00000000      0x56e ./src/library/libraries/cmsis/cm3/core_support/gmd/core_cm3.o
+ .debug_abbrev  0x00000000       0xba ./src/library/libraries/cmsis/cm3/core_support/gmd/core_cm3.o
+ .debug_aranges
+                0x00000000       0xc8 ./src/library/libraries/cmsis/cm3/core_support/gmd/core_cm3.o
+ .debug_ranges  0x00000000       0xb8 ./src/library/libraries/cmsis/cm3/core_support/gmd/core_cm3.o
+ .debug_line    0x00000000      0x366 ./src/library/libraries/cmsis/cm3/core_support/gmd/core_cm3.o
+ .debug_str     0x00000000      0x360 ./src/library/libraries/cmsis/cm3/core_support/gmd/core_cm3.o
+ .comment       0x00000000       0x77 ./src/library/libraries/cmsis/cm3/core_support/gmd/core_cm3.o
+ .debug_frame   0x00000000      0x320 ./src/library/libraries/cmsis/cm3/core_support/gmd/core_cm3.o
+ .ARM.attributes
+                0x00000000       0x2d ./src/library/libraries/cmsis/cm3/core_support/gmd/core_cm3.o
+ .text          0x00000000       0x30 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp\libgcc.a(_aeabi_uldivmod.o)
+ .data          0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp\libgcc.a(_aeabi_uldivmod.o)
+ .bss           0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp\libgcc.a(_aeabi_uldivmod.o)
+ .debug_frame   0x00000000       0x2c d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp\libgcc.a(_aeabi_uldivmod.o)
+ .ARM.attributes
+                0x00000000       0x1d d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp\libgcc.a(_aeabi_uldivmod.o)
+ .text          0x00000000      0x2d0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp\libgcc.a(_udivmoddi4.o)
+ .data          0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp\libgcc.a(_udivmoddi4.o)
+ .bss           0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp\libgcc.a(_udivmoddi4.o)
+ .ARM.extab     0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp\libgcc.a(_udivmoddi4.o)
+ .ARM.exidx     0x00000000        0x8 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp\libgcc.a(_udivmoddi4.o)
+ .debug_frame   0x00000000       0x34 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp\libgcc.a(_udivmoddi4.o)
+ .ARM.attributes
+                0x00000000       0x2d d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp\libgcc.a(_udivmoddi4.o)
+ .text          0x00000000        0x4 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp\libgcc.a(_dvmd_tls.o)
+ .data          0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp\libgcc.a(_dvmd_tls.o)
+ .bss           0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp\libgcc.a(_dvmd_tls.o)
+ .ARM.attributes
+                0x00000000       0x1d d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp\libgcc.a(_dvmd_tls.o)
+ .text          0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-exit.o)
+ .data          0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-exit.o)
+ .bss           0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-exit.o)
+ .text          0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-impure.o)
+ .data          0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-impure.o)
+ .bss           0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-impure.o)
+ .data._impure_ptr
+                0x00000000        0x4 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-impure.o)
+ .text          0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-init.o)
+ .data          0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-init.o)
+ .bss           0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-init.o)
+ .text.__libc_init_array
+                0x00000000       0x48 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-init.o)
+ .debug_frame   0x00000000       0x2c d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-init.o)
+ .ARM.attributes
+                0x00000000       0x2d d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-init.o)
+ .text          0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-memset.o)
+ .data          0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-memset.o)
+ .bss           0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-memset.o)
+ .text.memset   0x00000000       0xa0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-memset.o)
+ .debug_frame   0x00000000       0x38 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-memset.o)
+ .ARM.attributes
+                0x00000000       0x2d d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-memset.o)
+ .text          0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-__call_atexit.o)
+ .data          0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-__call_atexit.o)
+ .bss           0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-__call_atexit.o)
+ .text.startup.register_fini
+                0x00000000       0x14 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-__call_atexit.o)
+ .init_array.00000
+                0x00000000        0x4 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-__call_atexit.o)
+ .text          0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-atexit.o)
+ .data          0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-atexit.o)
+ .bss           0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-atexit.o)
+ .text.atexit   0x00000000        0xc d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-atexit.o)
+ .debug_frame   0x00000000       0x20 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-atexit.o)
+ .ARM.attributes
+                0x00000000       0x2d d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-atexit.o)
+ .text          0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-fini.o)
+ .data          0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-fini.o)
+ .bss           0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-fini.o)
+ .text.__libc_fini_array
+                0x00000000       0x34 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-fini.o)
+ .debug_frame   0x00000000       0x34 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-fini.o)
+ .ARM.attributes
+                0x00000000       0x2d d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-fini.o)
+ .text          0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-lock.o)
+ .data          0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-lock.o)
+ .bss           0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-lock.o)
+ .text.__retarget_lock_init
+                0x00000000        0x4 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-lock.o)
+ .text.__retarget_lock_init_recursive
+                0x00000000        0x4 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-lock.o)
+ .text.__retarget_lock_close
+                0x00000000        0x4 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-lock.o)
+ .text.__retarget_lock_close_recursive
+                0x00000000        0x4 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-lock.o)
+ .text.__retarget_lock_acquire
+                0x00000000        0x4 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-lock.o)
+ .text.__retarget_lock_try_acquire
+                0x00000000        0x4 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-lock.o)
+ .text.__retarget_lock_try_acquire_recursive
+                0x00000000        0x4 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-lock.o)
+ .text.__retarget_lock_release
+                0x00000000        0x4 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-lock.o)
+ .text          0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-__atexit.o)
+ .data          0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-__atexit.o)
+ .bss           0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-__atexit.o)
+ .text.__register_exitproc
+                0x00000000       0x84 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-__atexit.o)
+ .debug_frame   0x00000000       0x30 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-__atexit.o)
+ .ARM.attributes
+                0x00000000       0x2d d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-__atexit.o)
+ .text          0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp/crtend.o
+ .data          0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp/crtend.o
+ .bss           0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp/crtend.o
+ .eh_frame      0x00000000        0x4 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp/crtend.o
+ .ARM.attributes
+                0x00000000       0x2d d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp/crtend.o
+ .text          0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp/crtn.o
+ .data          0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp/crtn.o
+ .bss           0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp/crtn.o
+ .init          0x00000000        0x8 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp/crtn.o
+ .fini          0x00000000        0x8 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp/crtn.o
+ .ARM.attributes
+                0x00000000       0x1d d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp/crtn.o
+ .text          0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libnosys.a(_exit.o)
+ .data          0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libnosys.a(_exit.o)
+ .bss           0x00000000        0x0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libnosys.a(_exit.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+FLASH            0x00000000         0x00008000         xr
+RAM              0x20000000         0x00004000         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp/crti.o
+LOAD d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp/crtbegin.o
+LOAD d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/crt0.o
+LOAD ./src/project/ucos_iii/src/gw1ns4c_it.o
+LOAD ./src/project/ucos_iii/src/led.o
+LOAD ./src/project/ucos_iii/src/main.o
+LOAD ./src/project/ucos_iii/src/printf.o
+LOAD ./src/project/ucos_iii/src/task_app.o
+LOAD ./src/library/middlewares/uart/uart.o
+LOAD ./src/library/middlewares/spi_flash/spi_flash.o
+LOAD ./src/library/middlewares/psram/psram.o
+LOAD ./src/library/middlewares/hyper_ram/hyper_ram.o
+LOAD ./src/library/middlewares/gpio/gpio.o
+LOAD ./src/library/middlewares/dmm/malloc.o
+LOAD ./src/library/middlewares/delay/delay.o
+LOAD ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+LOAD ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_core.o
+LOAD ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_dbg.o
+LOAD ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_flag.o
+LOAD ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_int.o
+LOAD ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_mem.o
+LOAD ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_msg.o
+LOAD ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_mutex.o
+LOAD ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_pend_multi.o
+LOAD ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_prio.o
+LOAD ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_q.o
+LOAD ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_sem.o
+LOAD ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_stat.o
+LOAD ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_task.o
+LOAD ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_tick.o
+LOAD ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_time.o
+LOAD ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_tmr.o
+LOAD ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_var.o
+LOAD ./src/library/middlewares/3rd_party/ucos_iii/OS/Ports/cm3/Generic/GMD/os_cpu_a.o
+LOAD ./src/library/middlewares/3rd_party/ucos_iii/OS/Ports/cm3/Generic/GMD/os_cpu_c.o
+LOAD ./src/library/middlewares/3rd_party/ucos_iii/LIB/Ports/cm3/GMD/lib_mem_a.o
+LOAD ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_ascii.o
+LOAD ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_math.o
+LOAD ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_mem.o
+LOAD ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_str.o
+LOAD ./src/library/middlewares/3rd_party/ucos_iii/CPU/cm3/GMD/cpu_a.o
+LOAD ./src/library/middlewares/3rd_party/ucos_iii/CPU/cm3/GMD/cpu_c.o
+LOAD ./src/library/middlewares/3rd_party/ucos_iii/CPU/cpu_core.o
+LOAD ./src/library/middlewares/3rd_party/ucos_iii/CONFIG/os_app_hooks.o
+LOAD ./src/library/middlewares/3rd_party/ucos_iii/BSP/bsp.o
+LOAD ./src/library/libraries/drivers/src/gw1ns4c_gpio.o
+LOAD ./src/library/libraries/drivers/src/gw1ns4c_i2c.o
+LOAD ./src/library/libraries/drivers/src/gw1ns4c_misc.o
+LOAD ./src/library/libraries/drivers/src/gw1ns4c_rtc.o
+LOAD ./src/library/libraries/drivers/src/gw1ns4c_spi.o
+LOAD ./src/library/libraries/drivers/src/gw1ns4c_syscon.o
+LOAD ./src/library/libraries/drivers/src/gw1ns4c_timer.o
+LOAD ./src/library/libraries/drivers/src/gw1ns4c_uart.o
+LOAD ./src/library/libraries/drivers/src/gw1ns4c_wdog.o
+LOAD ./src/library/libraries/cmsis/cm3/device_support/startup/gmd/startup_gw1ns4c.o
+LOAD ./src/library/libraries/cmsis/cm3/device_support/system_gw1ns4c.o
+LOAD ./src/library/libraries/cmsis/cm3/core_support/gmd/core_cm3.o
+START GROUP
+LOAD d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp\libgcc.a
+LOAD d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a
+LOAD d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc.a
+END GROUP
+LOAD d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp/crtend.o
+LOAD d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp/crtn.o
+START GROUP
+LOAD d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp\libgcc.a
+LOAD d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc.a
+LOAD d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libm.a
+LOAD d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libnosys.a
+END GROUP
+
+.text           0x00000000     0x3748
+ *(.isr_vector)
+ .isr_vector    0x00000000       0xc0 ./src/library/libraries/cmsis/cm3/device_support/startup/gmd/startup_gw1ns4c.o
+                0x00000000                __isr_vector
+ *(.text*)
+ .text.NMI_Handler
+                0x000000c0        0xc ./src/project/ucos_iii/src/gw1ns4c_it.o
+                0x000000c0                NMI_Handler
+ .text.HardFault_Handler
+                0x000000cc        0x6 ./src/project/ucos_iii/src/gw1ns4c_it.o
+                0x000000cc                HardFault_Handler
+ .text.MemManage_Handler
+                0x000000d2        0x6 ./src/project/ucos_iii/src/gw1ns4c_it.o
+                0x000000d2                MemManage_Handler
+ .text.BusFault_Handler
+                0x000000d8        0x6 ./src/project/ucos_iii/src/gw1ns4c_it.o
+                0x000000d8                BusFault_Handler
+ .text.UsageFault_Handler
+                0x000000de        0x6 ./src/project/ucos_iii/src/gw1ns4c_it.o
+                0x000000de                UsageFault_Handler
+ .text.SVC_Handler
+                0x000000e4        0xc ./src/project/ucos_iii/src/gw1ns4c_it.o
+                0x000000e4                SVC_Handler
+ .text.DebugMon_Handler
+                0x000000f0        0xc ./src/project/ucos_iii/src/gw1ns4c_it.o
+                0x000000f0                DebugMon_Handler
+ .text.USER_INT0_Handler
+                0x000000fc        0xc ./src/project/ucos_iii/src/gw1ns4c_it.o
+                0x000000fc                USER_INT0_Handler
+ .text.USER_INT1_Handler
+                0x00000108        0xc ./src/project/ucos_iii/src/gw1ns4c_it.o
+                0x00000108                USER_INT1_Handler
+ .text.USER_INT2_Handler
+                0x00000114        0xc ./src/project/ucos_iii/src/gw1ns4c_it.o
+                0x00000114                USER_INT2_Handler
+ .text.USER_INT3_Handler
+                0x00000120        0xc ./src/project/ucos_iii/src/gw1ns4c_it.o
+                0x00000120                USER_INT3_Handler
+ .text.USER_INT4_Handler
+                0x0000012c        0xc ./src/project/ucos_iii/src/gw1ns4c_it.o
+                0x0000012c                USER_INT4_Handler
+ .text.USER_INT5_Handler
+                0x00000138        0xc ./src/project/ucos_iii/src/gw1ns4c_it.o
+                0x00000138                USER_INT5_Handler
+ .text.UART0_Handler
+                0x00000144        0xc ./src/project/ucos_iii/src/gw1ns4c_it.o
+                0x00000144                UART0_Handler
+ .text.UART1_Handler
+                0x00000150        0xc ./src/project/ucos_iii/src/gw1ns4c_it.o
+                0x00000150                UART1_Handler
+ .text.TIMER0_Handler
+                0x0000015c        0xc ./src/project/ucos_iii/src/gw1ns4c_it.o
+                0x0000015c                TIMER0_Handler
+ .text.TIMER1_Handler
+                0x00000168        0xc ./src/project/ucos_iii/src/gw1ns4c_it.o
+                0x00000168                TIMER1_Handler
+ .text.I2C_Handler
+                0x00000174        0xc ./src/project/ucos_iii/src/gw1ns4c_it.o
+                0x00000174                I2C_Handler
+ .text.RTC_Handler
+                0x00000180        0xc ./src/project/ucos_iii/src/gw1ns4c_it.o
+                0x00000180                RTC_Handler
+ .text.PORT0_0_Handler
+                0x0000018c        0xc ./src/project/ucos_iii/src/gw1ns4c_it.o
+                0x0000018c                PORT0_0_Handler
+ .text.PORT0_1_Handler
+                0x00000198        0xc ./src/project/ucos_iii/src/gw1ns4c_it.o
+                0x00000198                PORT0_1_Handler
+ .text.PORT0_2_Handler
+                0x000001a4        0xc ./src/project/ucos_iii/src/gw1ns4c_it.o
+                0x000001a4                PORT0_2_Handler
+ .text.PORT0_3_Handler
+                0x000001b0        0xc ./src/project/ucos_iii/src/gw1ns4c_it.o
+                0x000001b0                PORT0_3_Handler
+ .text.PORT0_4_Handler
+                0x000001bc        0xc ./src/project/ucos_iii/src/gw1ns4c_it.o
+                0x000001bc                PORT0_4_Handler
+ .text.PORT0_5_Handler
+                0x000001c8        0xc ./src/project/ucos_iii/src/gw1ns4c_it.o
+                0x000001c8                PORT0_5_Handler
+ .text.PORT0_6_Handler
+                0x000001d4        0xc ./src/project/ucos_iii/src/gw1ns4c_it.o
+                0x000001d4                PORT0_6_Handler
+ .text.PORT0_7_Handler
+                0x000001e0        0xc ./src/project/ucos_iii/src/gw1ns4c_it.o
+                0x000001e0                PORT0_7_Handler
+ .text.PORT0_8_Handler
+                0x000001ec        0xc ./src/project/ucos_iii/src/gw1ns4c_it.o
+                0x000001ec                PORT0_8_Handler
+ .text.PORT0_9_Handler
+                0x000001f8        0xc ./src/project/ucos_iii/src/gw1ns4c_it.o
+                0x000001f8                PORT0_9_Handler
+ .text.PORT0_10_Handler
+                0x00000204        0xc ./src/project/ucos_iii/src/gw1ns4c_it.o
+                0x00000204                PORT0_10_Handler
+ .text.PORT0_11_Handler
+                0x00000210        0xc ./src/project/ucos_iii/src/gw1ns4c_it.o
+                0x00000210                PORT0_11_Handler
+ .text.PORT0_12_Handler
+                0x0000021c        0xc ./src/project/ucos_iii/src/gw1ns4c_it.o
+                0x0000021c                PORT0_12_Handler
+ .text.PORT0_13_Handler
+                0x00000228        0xc ./src/project/ucos_iii/src/gw1ns4c_it.o
+                0x00000228                PORT0_13_Handler
+ .text.PORT0_14_Handler
+                0x00000234        0xc ./src/project/ucos_iii/src/gw1ns4c_it.o
+                0x00000234                PORT0_14_Handler
+ .text.PORT0_15_Handler
+                0x00000240        0xc ./src/project/ucos_iii/src/gw1ns4c_it.o
+                0x00000240                PORT0_15_Handler
+ .text.led_init
+                0x0000024c        0xc ./src/project/ucos_iii/src/led.o
+                0x0000024c                led_init
+ .text.led_toggle
+                0x00000258       0xb4 ./src/project/ucos_iii/src/led.o
+                0x00000258                led_toggle
+ .text.main     0x0000030c        0xa ./src/project/ucos_iii/src/main.o
+                0x0000030c                main
+ .text._out_null
+                0x00000316       0x1a ./src/project/ucos_iii/src/printf.o
+ .text._out_char
+                0x00000330       0x2a ./src/project/ucos_iii/src/printf.o
+ .text._strnlen_s
+                0x0000035a       0x3a ./src/project/ucos_iii/src/printf.o
+ .text._is_digit
+                0x00000394       0x30 ./src/project/ucos_iii/src/printf.o
+ .text._atoi    0x000003c4       0x4c ./src/project/ucos_iii/src/printf.o
+ .text._out_rev
+                0x00000410       0xa2 ./src/project/ucos_iii/src/printf.o
+ .text._ntoa_format
+                0x000004b2      0x1b8 ./src/project/ucos_iii/src/printf.o
+ .text._ntoa_long
+                0x0000066a       0xd2 ./src/project/ucos_iii/src/printf.o
+ .text._vsnprintf
+                0x0000073c      0x7fc ./src/project/ucos_iii/src/printf.o
+ .text.printf_  0x00000f38       0x38 ./src/project/ucos_iii/src/printf.o
+                0x00000f38                printf_
+ .text.printf_str
+                0x00000f70       0x16 ./src/project/ucos_iii/src/task_app.o
+ *fill*         0x00000f86        0x2 
+ .text.sw_edition_print
+                0x00000f88       0x34 ./src/project/ucos_iii/src/task_app.o
+ .text.start_info_print
+                0x00000fbc       0x38 ./src/project/ucos_iii/src/task_app.o
+ .text.init_misc
+                0x00000ff4       0x3c ./src/project/ucos_iii/src/task_app.o
+ .text.app_task
+                0x00001030       0x34 ./src/project/ucos_iii/src/task_app.o
+ .text.startup_task
+                0x00001064       0xa4 ./src/project/ucos_iii/src/task_app.o
+ .text.task_app
+                0x00001108       0x80 ./src/project/ucos_iii/src/task_app.o
+                0x00001108                task_app
+ .text.uart_init
+                0x00001188       0x4e ./src/library/middlewares/uart/uart.o
+                0x00001188                uart_init
+ .text._putchar
+                0x000011d6       0x20 ./src/library/middlewares/uart/uart.o
+                0x000011d6                _putchar
+ *fill*         0x000011f6        0x2 
+ .text.gpio_init
+                0x000011f8       0x40 ./src/library/middlewares/gpio/gpio.o
+                0x000011f8                gpio_init
+ .text.OSCfg_Init
+                0x00001238       0x98 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+                0x00001238                OSCfg_Init
+ .text.OSInit   0x000012d0       0xe0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_core.o
+                0x000012d0                OSInit
+ .text.OSIntExit
+                0x000013b0       0xd4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_core.o
+                0x000013b0                OSIntExit
+ .text.OSSched  0x00001484       0xa0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_core.o
+                0x00001484                OSSched
+ .text.OSStart  0x00001524       0x80 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_core.o
+                0x00001524                OSStart
+ .text.OS_IdleTask
+                0x000015a4       0x2c ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_core.o
+                0x000015a4                OS_IdleTask
+ .text.OS_IdleTaskInit
+                0x000015d0       0x68 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_core.o
+                0x000015d0                OS_IdleTaskInit
+ .text.OS_Pend  0x00001638       0x78 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_core.o
+                0x00001638                OS_Pend
+ .text.OS_PendDataInit
+                0x000016b0       0x68 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_core.o
+                0x000016b0                OS_PendDataInit
+ .text.OS_PendListInsertPrio
+                0x00001718       0xe6 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_core.o
+                0x00001718                OS_PendListInsertPrio
+ .text.OS_PendListRemove
+                0x000017fe       0x50 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_core.o
+                0x000017fe                OS_PendListRemove
+ .text.OS_PendListRemove1
+                0x0000184e       0x92 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_core.o
+                0x0000184e                OS_PendListRemove1
+ .text.OS_Post  0x000018e0       0xec ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_core.o
+                0x000018e0                OS_Post
+ .text.OS_Post1
+                0x000019cc       0x5c ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_core.o
+                0x000019cc                OS_Post1
+ .text.OS_RdyListInit
+                0x00001a28       0x48 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_core.o
+                0x00001a28                OS_RdyListInit
+ .text.OS_RdyListInsert
+                0x00001a70       0x3c ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_core.o
+                0x00001a70                OS_RdyListInsert
+ .text.OS_RdyListInsertHead
+                0x00001aac       0x80 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_core.o
+                0x00001aac                OS_RdyListInsertHead
+ .text.OS_RdyListInsertTail
+                0x00001b2c       0x80 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_core.o
+                0x00001b2c                OS_RdyListInsertTail
+ .text.OS_RdyListRemove
+                0x00001bac       0xb0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_core.o
+                0x00001bac                OS_RdyListRemove
+ .text.OS_TaskBlock
+                0x00001c5c       0x4e ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_core.o
+                0x00001c5c                OS_TaskBlock
+ .text.OS_TaskRdy
+                0x00001caa       0x2a ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_core.o
+                0x00001caa                OS_TaskRdy
+ .text.OS_PrioInit
+                0x00001cd4       0x30 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_prio.o
+                0x00001cd4                OS_PrioInit
+ .text.OS_PrioGetHighest
+                0x00001d04       0x48 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_prio.o
+                0x00001d04                OS_PrioGetHighest
+ .text.OS_PrioInsert
+                0x00001d4c       0x4c ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_prio.o
+                0x00001d4c                OS_PrioInsert
+ .text.OS_PrioRemove
+                0x00001d98       0x50 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_prio.o
+                0x00001d98                OS_PrioRemove
+ .text.OSTaskCreate
+                0x00001de8      0x134 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_task.o
+                0x00001de8                OSTaskCreate
+ .text.OSTaskSemPend
+                0x00001f1c      0x138 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_task.o
+                0x00001f1c                OSTaskSemPend
+ .text.OSTaskSemPost
+                0x00002054       0x2a ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_task.o
+                0x00002054                OSTaskSemPost
+ *fill*         0x0000207e        0x2 
+ .text.OS_TaskInit
+                0x00002080       0x2c ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_task.o
+                0x00002080                OS_TaskInit
+ .text.OS_TaskInitTCB
+                0x000020ac       0xb8 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_task.o
+                0x000020ac                OS_TaskInitTCB
+ .text.OS_TaskReturn
+                0x00002164       0x28 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_task.o
+                0x00002164                OS_TaskReturn
+ .text.OS_TaskSemPost
+                0x0000218c      0x128 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_task.o
+                0x0000218c                OS_TaskSemPost
+ .text.OS_TickTask
+                0x000022b4       0x30 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_tick.o
+                0x000022b4                OS_TickTask
+ .text.OS_TickTaskInit
+                0x000022e4       0xb8 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_tick.o
+                0x000022e4                OS_TickTaskInit
+ .text.OS_TickListInit
+                0x0000239c       0x4c ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_tick.o
+                0x0000239c                OS_TickListInit
+ .text.OS_TickListInsert
+                0x000023e8      0x1f0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_tick.o
+                0x000023e8                OS_TickListInsert
+ .text.OS_TickListRemove
+                0x000025d8       0x8a ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_tick.o
+                0x000025d8                OS_TickListRemove
+ *fill*         0x00002662        0x2 
+ .text.OS_TickListUpdate
+                0x00002664      0x1c8 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_tick.o
+                0x00002664                OS_TickListUpdate
+ .text.OSTimeDly
+                0x0000282c       0xcc ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_time.o
+                0x0000282c                OSTimeDly
+ .text.OSTimeDlyHMSM
+                0x000028f8      0x14c ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_time.o
+                0x000028f8                OSTimeDlyHMSM
+ .text.OSTimeTick
+                0x00002a44       0x24 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_time.o
+                0x00002a44                OSTimeTick
+ .text          0x00002a68       0x84 ./src/library/middlewares/3rd_party/ucos_iii/OS/Ports/cm3/Generic/GMD/os_cpu_a.o
+                0x00002a68                OSStartHighRdy
+                0x00002a8a                PendSV_Handler
+ .text.OSIdleTaskHook
+                0x00002aec        0xc ./src/library/middlewares/3rd_party/ucos_iii/OS/Ports/cm3/Generic/GMD/os_cpu_c.o
+                0x00002aec                OSIdleTaskHook
+ .text.OSInitHook
+                0x00002af8       0x58 ./src/library/middlewares/3rd_party/ucos_iii/OS/Ports/cm3/Generic/GMD/os_cpu_c.o
+                0x00002af8                OSInitHook
+ .text.OSTaskCreateHook
+                0x00002b50       0x12 ./src/library/middlewares/3rd_party/ucos_iii/OS/Ports/cm3/Generic/GMD/os_cpu_c.o
+                0x00002b50                OSTaskCreateHook
+ .text.OSTaskReturnHook
+                0x00002b62       0x12 ./src/library/middlewares/3rd_party/ucos_iii/OS/Ports/cm3/Generic/GMD/os_cpu_c.o
+                0x00002b62                OSTaskReturnHook
+ .text.OSTaskStkInit
+                0x00002b74      0x100 ./src/library/middlewares/3rd_party/ucos_iii/OS/Ports/cm3/Generic/GMD/os_cpu_c.o
+                0x00002b74                OSTaskStkInit
+ .text.OSTaskSwHook
+                0x00002c74        0xc ./src/library/middlewares/3rd_party/ucos_iii/OS/Ports/cm3/Generic/GMD/os_cpu_c.o
+                0x00002c74                OSTaskSwHook
+ .text.OSTimeTickHook
+                0x00002c80        0xc ./src/library/middlewares/3rd_party/ucos_iii/OS/Ports/cm3/Generic/GMD/os_cpu_c.o
+                0x00002c80                OSTimeTickHook
+ .text.SysTick_Handler
+                0x00002c8c       0x38 ./src/library/middlewares/3rd_party/ucos_iii/OS/Ports/cm3/Generic/GMD/os_cpu_c.o
+                0x00002c8c                SysTick_Handler
+ .text.OS_CPU_SysTickInit
+                0x00002cc4       0x54 ./src/library/middlewares/3rd_party/ucos_iii/OS/Ports/cm3/Generic/GMD/os_cpu_c.o
+                0x00002cc4                OS_CPU_SysTickInit
+ .text.Mem_Clr  0x00002d18       0x1c ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_mem.o
+                0x00002d18                Mem_Clr
+ .text.Mem_Set  0x00002d34       0xb4 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_mem.o
+                0x00002d34                Mem_Set
+ .text          0x00002de8       0x34 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cm3/GMD/cpu_a.o
+                0x00002de8                CPU_IntDis
+                0x00002dec                CPU_IntEn
+                0x00002df0                CPU_SR_Save
+                0x00002df8                CPU_SR_Restore
+                0x00002dfe                CPU_WaitForInt
+                0x00002e02                CPU_WaitForExcept
+                0x00002e06                CPU_CntLeadZeros
+                0x00002e0c                CPU_CntTrailZeros
+                0x00002e16                CPU_RevBits
+ .text.CPU_Init
+                0x00002e1c       0x10 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cpu_core.o
+                0x00002e1c                CPU_Init
+ .text.CPU_NameClr
+                0x00002e2c       0x2c ./src/library/middlewares/3rd_party/ucos_iii/CPU/cpu_core.o
+                0x00002e2c                CPU_NameClr
+ .text.CPU_TS_TmrFreqSet
+                0x00002e58       0x1c ./src/library/middlewares/3rd_party/ucos_iii/CPU/cpu_core.o
+                0x00002e58                CPU_TS_TmrFreqSet
+ .text.CPU_NameInit
+                0x00002e74        0xc ./src/library/middlewares/3rd_party/ucos_iii/CPU/cpu_core.o
+ .text.CPU_TS_Init
+                0x00002e80       0x18 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cpu_core.o
+ .text.BSP_CPU_ClkFreq
+                0x00002e98       0x14 ./src/library/middlewares/3rd_party/ucos_iii/BSP/bsp.o
+                0x00002e98                BSP_CPU_ClkFreq
+ .text.CPU_TS_TmrInit
+                0x00002eac       0x44 ./src/library/middlewares/3rd_party/ucos_iii/BSP/bsp.o
+                0x00002eac                CPU_TS_TmrInit
+ .text.GPIO_Init
+                0x00002ef0      0x190 ./src/library/libraries/drivers/src/gw1ns4c_gpio.o
+                0x00002ef0                GPIO_Init
+ .text.GPIO_SetBit
+                0x00003080       0x20 ./src/library/libraries/drivers/src/gw1ns4c_gpio.o
+                0x00003080                GPIO_SetBit
+ .text.GPIO_ResetBit
+                0x000030a0       0x22 ./src/library/libraries/drivers/src/gw1ns4c_gpio.o
+                0x000030a0                GPIO_ResetBit
+ *fill*         0x000030c2        0x2 
+ .text.NVIC_PriorityGroupConfig
+                0x000030c4       0x24 ./src/library/libraries/drivers/src/gw1ns4c_misc.o
+                0x000030c4                NVIC_PriorityGroupConfig
+ .text.UART_Init
+                0x000030e8       0xd8 ./src/library/libraries/drivers/src/gw1ns4c_uart.o
+                0x000030e8                UART_Init
+ .text.UART_SendChar
+                0x000031c0       0x2c ./src/library/libraries/drivers/src/gw1ns4c_uart.o
+                0x000031c0                UART_SendChar
+ .text          0x000031ec       0x98 ./src/library/libraries/cmsis/cm3/device_support/startup/gmd/startup_gw1ns4c.o
+                0x000031ec                Reset_Handler
+                0x00003252                PORT0_COMB_Handler
+                0x0000325c                UARTOVF_Handler
+                0x00003262                Spare15_Handler
+ .text.SystemInit
+                0x00003284       0x40 ./src/library/libraries/cmsis/cm3/device_support/system_gw1ns4c.o
+                0x00003284                SystemInit
+ .text.exit     0x000032c4       0x20 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-exit.o)
+                0x000032c4                exit
+ .text.__call_exitprocs
+                0x000032e4       0xb0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-__call_atexit.o)
+                0x000032e4                __call_exitprocs
+ .text.__retarget_lock_acquire_recursive
+                0x00003394        0x4 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-lock.o)
+                0x00003394                __retarget_lock_acquire_recursive
+ .text.__retarget_lock_release_recursive
+                0x00003398        0x4 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-lock.o)
+                0x00003398                __retarget_lock_release_recursive
+ .text._exit    0x0000339c        0x4 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libnosys.a(_exit.o)
+                0x0000339c                _exit
+ *(.init)
+ .init          0x000033a0        0x4 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp/crti.o
+                0x000033a0                _init
+ *(.fini)
+ .fini          0x000033a4        0x4 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp/crti.o
+                0x000033a4                _fini
+ *crtbegin.o(.ctors)
+ *crtbegin?.o(.ctors)
+ *(EXCLUDE_FILE(*crtend.o *crtend?.o) .ctors)
+ *(SORT_BY_NAME(.ctors.*))
+ *(.ctors)
+ *crtbegin.o(.dtors)
+ *crtbegin?.o(.dtors)
+ *(EXCLUDE_FILE(*crtend.o *crtend?.o) .dtors)
+ *(SORT_BY_NAME(.dtors.*))
+ *(.dtors)
+ *(.rodata*)
+ .rodata.starts_str
+                0x000033a8       0x4f ./src/project/ucos_iii/src/task_app.o
+                0x000033a8                starts_str
+ *fill*         0x000033f7        0x1 
+ .rodata.logo_str
+                0x000033f8      0x23c ./src/project/ucos_iii/src/task_app.o
+                0x000033f8                logo_str
+ .rodata        0x00003634       0x99 ./src/project/ucos_iii/src/task_app.o
+ *fill*         0x000036cd        0x3 
+ .rodata.OSCfg_IdleTaskStkBasePtr
+                0x000036d0        0x4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+                0x000036d0                OSCfg_IdleTaskStkBasePtr
+ .rodata.OSCfg_IdleTaskStkLimit
+                0x000036d4        0x4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+                0x000036d4                OSCfg_IdleTaskStkLimit
+ .rodata.OSCfg_IdleTaskStkSize
+                0x000036d8        0x4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+                0x000036d8                OSCfg_IdleTaskStkSize
+ .rodata.OSCfg_IdleTaskStkSizeRAM
+                0x000036dc        0x4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+                0x000036dc                OSCfg_IdleTaskStkSizeRAM
+ .rodata.OSCfg_ISRStkBasePtr
+                0x000036e0        0x4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+                0x000036e0                OSCfg_ISRStkBasePtr
+ .rodata.OSCfg_ISRStkSize
+                0x000036e4        0x4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+                0x000036e4                OSCfg_ISRStkSize
+ .rodata.OSCfg_ISRStkSizeRAM
+                0x000036e8        0x4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+                0x000036e8                OSCfg_ISRStkSizeRAM
+ .rodata.OSCfg_StkSizeMin
+                0x000036ec        0x4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+                0x000036ec                OSCfg_StkSizeMin
+ .rodata.OSCfg_TickRate_Hz
+                0x000036f0        0x4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+                0x000036f0                OSCfg_TickRate_Hz
+ .rodata.OSCfg_TickTaskPrio
+                0x000036f4        0x1 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+                0x000036f4                OSCfg_TickTaskPrio
+ *fill*         0x000036f5        0x3 
+ .rodata.OSCfg_TickTaskStkBasePtr
+                0x000036f8        0x4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+                0x000036f8                OSCfg_TickTaskStkBasePtr
+ .rodata.OSCfg_TickTaskStkLimit
+                0x000036fc        0x4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+                0x000036fc                OSCfg_TickTaskStkLimit
+ .rodata.OSCfg_TickTaskStkSize
+                0x00003700        0x4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+                0x00003700                OSCfg_TickTaskStkSize
+ .rodata.OSCfg_TickTaskStkSizeRAM
+                0x00003704        0x4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+                0x00003704                OSCfg_TickTaskStkSizeRAM
+ .rodata.OSCfg_TickWheelSize
+                0x00003708        0x2 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+                0x00003708                OSCfg_TickWheelSize
+ *fill*         0x0000370a        0x2 
+ .rodata.OSCfg_TickWheelSizeRAM
+                0x0000370c        0x4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+                0x0000370c                OSCfg_TickWheelSizeRAM
+ .rodata.OSCfg_DataSizeRAM
+                0x00003710        0x4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+                0x00003710                OSCfg_DataSizeRAM
+ .rodata        0x00003714       0x14 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_core.o
+ .rodata        0x00003728        0x6 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_task.o
+ *fill*         0x0000372e        0x2 
+ .rodata        0x00003730       0x14 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_tick.o
+ .rodata._global_impure_ptr
+                0x00003744        0x4 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-impure.o)
+                0x00003744                _global_impure_ptr
+ *(.eh_frame*)
+
+.glue_7         0x00003748        0x0
+ .glue_7        0x00003748        0x0 linker stubs
+
+.glue_7t        0x00003748        0x0
+ .glue_7t       0x00003748        0x0 linker stubs
+
+.vfp11_veneer   0x00003748        0x0
+ .vfp11_veneer  0x00003748        0x0 linker stubs
+
+.v4_bx          0x00003748        0x0
+ .v4_bx         0x00003748        0x0 linker stubs
+
+.iplt           0x00003748        0x0
+ .iplt          0x00003748        0x0 ./src/project/ucos_iii/src/gw1ns4c_it.o
+
+.rel.dyn        0x00003748        0x0
+ .rel.iplt      0x00003748        0x0 ./src/project/ucos_iii/src/gw1ns4c_it.o
+
+.ARM.extab
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+                0x00003748                __exidx_start = .
+
+.ARM.exidx
+ *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+                0x00003748                __exidx_end = .
+                0x00003748                __etext = .
+
+.data           0x20000000      0x43c load address 0x00003748
+                0x20000000                __data_start__ = .
+ *(vtable)
+ *(.data*)
+ .data.SystemCoreClock
+                0x20000000        0x4 ./src/library/libraries/cmsis/cm3/device_support/system_gw1ns4c.o
+                0x20000000                SystemCoreClock
+ .data.PCLK1    0x20000004        0x4 ./src/library/libraries/cmsis/cm3/device_support/system_gw1ns4c.o
+                0x20000004                PCLK1
+ .data.PCLK2    0x20000008        0x4 ./src/library/libraries/cmsis/cm3/device_support/system_gw1ns4c.o
+                0x20000008                PCLK2
+ .data.HCLK     0x2000000c        0x4 ./src/library/libraries/cmsis/cm3/device_support/system_gw1ns4c.o
+                0x2000000c                HCLK
+ .data.impure_data
+                0x20000010      0x428 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-impure.o)
+ .data.__atexit_recursive_mutex
+                0x20000438        0x4 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-__call_atexit.o)
+                0x20000438                __atexit_recursive_mutex
+                0x2000043c                . = ALIGN (0x4)
+                0x2000043c                PROVIDE (__preinit_array_start = .)
+ *(.preinit_array)
+                0x2000043c                PROVIDE (__preinit_array_end = .)
+                0x2000043c                . = ALIGN (0x4)
+                0x2000043c                PROVIDE (__init_array_start = .)
+ *(SORT_BY_NAME(.init_array.*))
+ *(.init_array)
+                0x2000043c                PROVIDE (__init_array_end = .)
+                0x2000043c                . = ALIGN (0x4)
+                0x2000043c                PROVIDE (__fini_array_start = .)
+ *(SORT_BY_NAME(.fini_array.*))
+ *(.fini_array)
+                0x2000043c                PROVIDE (__fini_array_end = .)
+                0x2000043c                . = ALIGN (0x4)
+                0x2000043c                __data_end__ = .
+
+.igot.plt       0x2000043c        0x0 load address 0x00003b84
+ .igot.plt      0x2000043c        0x0 ./src/project/ucos_iii/src/gw1ns4c_it.o
+
+.bss            0x2000043c      0x7c0 load address 0x00003b84
+                0x2000043c                . = ALIGN (0x4)
+                0x2000043c                __bss_start__ = .
+ *(.bss*)
+ *(COMMON)
+ COMMON         0x2000043c      0x3b8 ./src/project/ucos_iii/src/task_app.o
+                0x2000043c                APP_TASK_STK
+                0x200005bc                STARTUP_TASK_STK
+                0x2000073c                startup_task_tcb
+                0x20000798                app_task_tcb
+ COMMON         0x200007f4      0x288 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+                0x200007f4                OSCfg_TickWheel
+                0x2000087c                OSCfg_ISRStk
+                0x2000097c                OSCfg_TickTaskStk
+                0x200009fc                OSCfg_IdleTaskStk
+ COMMON         0x20000a7c        0x4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_prio.o
+                0x20000a7c                OSPrioTbl
+ COMMON         0x20000a80      0x140 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_var.o
+                0x20000a80                OSSchedLockNestingCtr
+                0x20000a81                OSRunning
+                0x20000a84                OSRdyList
+                0x20000ae4                OSPrioHighRdy
+                0x20000ae5                OSPrioCur
+                0x20000ae8                OSTickTaskTCB
+                0x20000b44                OSTCBCurPtr
+                0x20000b48                OSPrioSaved
+                0x20000b4c                OSTCBHighRdyPtr
+                0x20000b50                OSTaskCtxSwCtr
+                0x20000b54                OSIntNestingCtr
+                0x20000b56                OSTaskQty
+                0x20000b58                OSIdleTaskTCB
+                0x20000bb4                OSTickCtr
+                0x20000bb8                OSIdleTaskCtr
+                0x20000bbc                OSTickTaskTimeMax
+ COMMON         0x20000bc0        0x4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Ports/cm3/Generic/GMD/os_cpu_c.o
+                0x20000bc0                OS_CPU_ExceptStkBase
+ COMMON         0x20000bc4       0x14 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cpu_core.o
+                0x20000bc4                CPU_TS_TmrFreq_Hz
+                0x20000bc8                CPU_Name
+ COMMON         0x20000bd8       0x21 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-lock.o)
+                0x20000bd8                __lock___atexit_recursive_mutex
+                0x20000bdc                __lock___arc4random_mutex
+                0x20000be0                __lock___env_recursive_mutex
+                0x20000be4                __lock___sinit_recursive_mutex
+                0x20000be8                __lock___malloc_recursive_mutex
+                0x20000bec                __lock___at_quick_exit_mutex
+                0x20000bf0                __lock___dd_hash_mutex
+                0x20000bf4                __lock___tz_mutex
+                0x20000bf8                __lock___sfp_recursive_mutex
+                0x20000bfc                . = ALIGN (0x4)
+ *fill*         0x20000bf9        0x3 
+                0x20000bfc                __bss_end__ = .
+
+.heap           0x20000c00      0x200
+                0x20000c00                __end__ = .
+                0x20000c00                end = __end__
+ *(.heap*)
+ .heap          0x20000c00      0x200 ./src/library/libraries/cmsis/cm3/device_support/startup/gmd/startup_gw1ns4c.o
+                0x20000c00                __HeapBase
+                0x20000e00                __HeapLimit = .
+
+.stack_dummy    0x20000c00      0x400
+ *(.stack*)
+ .stack         0x20000c00      0x400 ./src/library/libraries/cmsis/cm3/device_support/startup/gmd/startup_gw1ns4c.o
+                0x20004000                __StackTop = (ORIGIN (RAM) + LENGTH (RAM))
+                0x20003c00                __StackLimit = (__StackTop - SIZEOF (.stack_dummy))
+                0x20004000                PROVIDE (__stack = __StackTop)
+                0x00000001                ASSERT ((__StackLimit >= __HeapLimit), region RAM overflowed with stack)
+OUTPUT(cm3_ucos_iii.elf elf32-littlearm)
+
+.ARM.attributes
+                0x00000000       0x29
+ .ARM.attributes
+                0x00000000       0x1d d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp/crti.o
+ .ARM.attributes
+                0x0000001d       0x2d ./src/project/ucos_iii/src/gw1ns4c_it.o
+ .ARM.attributes
+                0x0000004a       0x2d ./src/project/ucos_iii/src/led.o
+ .ARM.attributes
+                0x00000077       0x2d ./src/project/ucos_iii/src/main.o
+ .ARM.attributes
+                0x000000a4       0x2d ./src/project/ucos_iii/src/printf.o
+ .ARM.attributes
+                0x000000d1       0x2d ./src/project/ucos_iii/src/task_app.o
+ .ARM.attributes
+                0x000000fe       0x2d ./src/library/middlewares/uart/uart.o
+ .ARM.attributes
+                0x0000012b       0x2d ./src/library/middlewares/gpio/gpio.o
+ .ARM.attributes
+                0x00000158       0x2d ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+ .ARM.attributes
+                0x00000185       0x2d ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_core.o
+ .ARM.attributes
+                0x000001b2       0x2d ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_prio.o
+ .ARM.attributes
+                0x000001df       0x2d ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_task.o
+ .ARM.attributes
+                0x0000020c       0x2d ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_tick.o
+ .ARM.attributes
+                0x00000239       0x2d ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_time.o
+ .ARM.attributes
+                0x00000266       0x33 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_var.o
+ .ARM.attributes
+                0x00000299       0x1b ./src/library/middlewares/3rd_party/ucos_iii/OS/Ports/cm3/Generic/GMD/os_cpu_a.o
+ .ARM.attributes
+                0x000002b4       0x2d ./src/library/middlewares/3rd_party/ucos_iii/OS/Ports/cm3/Generic/GMD/os_cpu_c.o
+ .ARM.attributes
+                0x000002e1       0x2d ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_mem.o
+ .ARM.attributes
+                0x0000030e       0x1b ./src/library/middlewares/3rd_party/ucos_iii/CPU/cm3/GMD/cpu_a.o
+ .ARM.attributes
+                0x00000329       0x2d ./src/library/middlewares/3rd_party/ucos_iii/CPU/cpu_core.o
+ .ARM.attributes
+                0x00000356       0x2d ./src/library/middlewares/3rd_party/ucos_iii/BSP/bsp.o
+ .ARM.attributes
+                0x00000383       0x2d ./src/library/libraries/drivers/src/gw1ns4c_gpio.o
+ .ARM.attributes
+                0x000003b0       0x2d ./src/library/libraries/drivers/src/gw1ns4c_misc.o
+ .ARM.attributes
+                0x000003dd       0x2d ./src/library/libraries/drivers/src/gw1ns4c_uart.o
+ .ARM.attributes
+                0x0000040a       0x1b ./src/library/libraries/cmsis/cm3/device_support/startup/gmd/startup_gw1ns4c.o
+ .ARM.attributes
+                0x00000425       0x2d ./src/library/libraries/cmsis/cm3/device_support/system_gw1ns4c.o
+ .ARM.attributes
+                0x00000452       0x2d d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-exit.o)
+ .ARM.attributes
+                0x0000047f       0x2d d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-impure.o)
+ .ARM.attributes
+                0x000004ac       0x2d d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-__call_atexit.o)
+ .ARM.attributes
+                0x000004d9       0x2d d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-lock.o)
+ .ARM.attributes
+                0x00000506       0x2d d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libnosys.a(_exit.o)
+
+.comment        0x00000000       0x76
+ .comment       0x00000000       0x76 ./src/project/ucos_iii/src/gw1ns4c_it.o
+                                 0x77 (size before relaxing)
+ .comment       0x00000076       0x77 ./src/project/ucos_iii/src/led.o
+ .comment       0x00000076       0x77 ./src/project/ucos_iii/src/main.o
+ .comment       0x00000076       0x77 ./src/project/ucos_iii/src/printf.o
+ .comment       0x00000076       0x77 ./src/project/ucos_iii/src/task_app.o
+ .comment       0x00000076       0x77 ./src/library/middlewares/uart/uart.o
+ .comment       0x00000076       0x77 ./src/library/middlewares/gpio/gpio.o
+ .comment       0x00000076       0x77 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+ .comment       0x00000076       0x77 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_core.o
+ .comment       0x00000076       0x77 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_prio.o
+ .comment       0x00000076       0x77 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_task.o
+ .comment       0x00000076       0x77 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_tick.o
+ .comment       0x00000076       0x77 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_time.o
+ .comment       0x00000076       0x77 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_var.o
+ .comment       0x00000076       0x77 ./src/library/middlewares/3rd_party/ucos_iii/OS/Ports/cm3/Generic/GMD/os_cpu_c.o
+ .comment       0x00000076       0x77 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_mem.o
+ .comment       0x00000076       0x77 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cpu_core.o
+ .comment       0x00000076       0x77 ./src/library/middlewares/3rd_party/ucos_iii/BSP/bsp.o
+ .comment       0x00000076       0x77 ./src/library/libraries/drivers/src/gw1ns4c_gpio.o
+ .comment       0x00000076       0x77 ./src/library/libraries/drivers/src/gw1ns4c_misc.o
+ .comment       0x00000076       0x77 ./src/library/libraries/drivers/src/gw1ns4c_uart.o
+ .comment       0x00000076       0x77 ./src/library/libraries/cmsis/cm3/device_support/system_gw1ns4c.o
+
+.debug_info     0x00000000     0xd79e
+ .debug_info    0x00000000      0x34c ./src/project/ucos_iii/src/gw1ns4c_it.o
+ .debug_info    0x0000034c      0x2c1 ./src/project/ucos_iii/src/led.o
+ .debug_info    0x0000060d       0x43 ./src/project/ucos_iii/src/main.o
+ .debug_info    0x00000650      0x9ea ./src/project/ucos_iii/src/printf.o
+ .debug_info    0x0000103a     0x1958 ./src/project/ucos_iii/src/task_app.o
+ .debug_info    0x00002992      0x31f ./src/library/middlewares/uart/uart.o
+ .debug_info    0x00002cb1      0x2db ./src/library/middlewares/gpio/gpio.o
+ .debug_info    0x00002f8c      0xbdd ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+ .debug_info    0x00003b69     0x1702 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_core.o
+ .debug_info    0x0000526b      0xa43 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_prio.o
+ .debug_info    0x00005cae     0x113e ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_task.o
+ .debug_info    0x00006dec     0x105b ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_tick.o
+ .debug_info    0x00007e47      0xf84 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_time.o
+ .debug_info    0x00008dcb      0x98a ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_var.o
+ .debug_info    0x00009755       0x26 ./src/library/middlewares/3rd_party/ucos_iii/OS/Ports/cm3/Generic/GMD/os_cpu_a.o
+ .debug_info    0x0000977b      0xb29 ./src/library/middlewares/3rd_party/ucos_iii/OS/Ports/cm3/Generic/GMD/os_cpu_c.o
+ .debug_info    0x0000a2a4      0xe20 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_mem.o
+ .debug_info    0x0000b0c4       0x26 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cm3/GMD/cpu_a.o
+ .debug_info    0x0000b0ea      0x582 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cpu_core.o
+ .debug_info    0x0000b66c      0xa9a ./src/library/middlewares/3rd_party/ucos_iii/BSP/bsp.o
+ .debug_info    0x0000c106      0x728 ./src/library/libraries/drivers/src/gw1ns4c_gpio.o
+ .debug_info    0x0000c82e      0x7be ./src/library/libraries/drivers/src/gw1ns4c_misc.o
+ .debug_info    0x0000cfec      0x66a ./src/library/libraries/drivers/src/gw1ns4c_uart.o
+ .debug_info    0x0000d656       0x26 ./src/library/libraries/cmsis/cm3/device_support/startup/gmd/startup_gw1ns4c.o
+ .debug_info    0x0000d67c      0x122 ./src/library/libraries/cmsis/cm3/device_support/system_gw1ns4c.o
+
+.debug_abbrev   0x00000000     0x2370
+ .debug_abbrev  0x00000000       0x9a ./src/project/ucos_iii/src/gw1ns4c_it.o
+ .debug_abbrev  0x0000009a      0x12f ./src/project/ucos_iii/src/led.o
+ .debug_abbrev  0x000001c9       0x3b ./src/project/ucos_iii/src/main.o
+ .debug_abbrev  0x00000204      0x20d ./src/project/ucos_iii/src/printf.o
+ .debug_abbrev  0x00000411      0x2c0 ./src/project/ucos_iii/src/task_app.o
+ .debug_abbrev  0x000006d1      0x128 ./src/library/middlewares/uart/uart.o
+ .debug_abbrev  0x000007f9      0x12d ./src/library/middlewares/gpio/gpio.o
+ .debug_abbrev  0x00000926      0x13c ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+ .debug_abbrev  0x00000a62      0x206 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_core.o
+ .debug_abbrev  0x00000c68      0x17e ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_prio.o
+ .debug_abbrev  0x00000de6      0x1d4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_task.o
+ .debug_abbrev  0x00000fba      0x210 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_tick.o
+ .debug_abbrev  0x000011ca      0x1e5 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_time.o
+ .debug_abbrev  0x000013af       0xf7 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_var.o
+ .debug_abbrev  0x000014a6       0x14 ./src/library/middlewares/3rd_party/ucos_iii/OS/Ports/cm3/Generic/GMD/os_cpu_a.o
+ .debug_abbrev  0x000014ba      0x20e ./src/library/middlewares/3rd_party/ucos_iii/OS/Ports/cm3/Generic/GMD/os_cpu_c.o
+ .debug_abbrev  0x000016c8      0x209 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_mem.o
+ .debug_abbrev  0x000018d1       0x14 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cm3/GMD/cpu_a.o
+ .debug_abbrev  0x000018e5      0x1d3 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cpu_core.o
+ .debug_abbrev  0x00001ab8      0x252 ./src/library/middlewares/3rd_party/ucos_iii/BSP/bsp.o
+ .debug_abbrev  0x00001d0a      0x1c3 ./src/library/libraries/drivers/src/gw1ns4c_gpio.o
+ .debug_abbrev  0x00001ecd      0x239 ./src/library/libraries/drivers/src/gw1ns4c_misc.o
+ .debug_abbrev  0x00002106      0x1c7 ./src/library/libraries/drivers/src/gw1ns4c_uart.o
+ .debug_abbrev  0x000022cd       0x14 ./src/library/libraries/cmsis/cm3/device_support/startup/gmd/startup_gw1ns4c.o
+ .debug_abbrev  0x000022e1       0x8f ./src/library/libraries/cmsis/cm3/device_support/system_gw1ns4c.o
+
+.debug_aranges  0x00000000      0x998
+ .debug_aranges
+                0x00000000      0x130 ./src/project/ucos_iii/src/gw1ns4c_it.o
+ .debug_aranges
+                0x00000130       0x38 ./src/project/ucos_iii/src/led.o
+ .debug_aranges
+                0x00000168       0x20 ./src/project/ucos_iii/src/main.o
+ .debug_aranges
+                0x00000188       0xa0 ./src/project/ucos_iii/src/printf.o
+ .debug_aranges
+                0x00000228       0x50 ./src/project/ucos_iii/src/task_app.o
+ .debug_aranges
+                0x00000278       0x28 ./src/library/middlewares/uart/uart.o
+ .debug_aranges
+                0x000002a0       0x20 ./src/library/middlewares/gpio/gpio.o
+ .debug_aranges
+                0x000002c0       0x20 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+ .debug_aranges
+                0x000002e0      0x118 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_core.o
+ .debug_aranges
+                0x000003f8       0x38 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_prio.o
+ .debug_aranges
+                0x00000430       0x58 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_task.o
+ .debug_aranges
+                0x00000488       0x50 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_tick.o
+ .debug_aranges
+                0x000004d8       0x40 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_time.o
+ .debug_aranges
+                0x00000518       0x18 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_var.o
+ .debug_aranges
+                0x00000530       0x20 ./src/library/middlewares/3rd_party/ucos_iii/OS/Ports/cm3/Generic/GMD/os_cpu_a.o
+ .debug_aranges
+                0x00000550       0x70 ./src/library/middlewares/3rd_party/ucos_iii/OS/Ports/cm3/Generic/GMD/os_cpu_c.o
+ .debug_aranges
+                0x000005c0       0xa0 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_mem.o
+ .debug_aranges
+                0x00000660       0x20 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cm3/GMD/cpu_a.o
+ .debug_aranges
+                0x00000680       0xb0 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cpu_core.o
+ .debug_aranges
+                0x00000730       0x38 ./src/library/middlewares/3rd_party/ucos_iii/BSP/bsp.o
+ .debug_aranges
+                0x00000768       0xb8 ./src/library/libraries/drivers/src/gw1ns4c_gpio.o
+ .debug_aranges
+                0x00000820       0x70 ./src/library/libraries/drivers/src/gw1ns4c_misc.o
+ .debug_aranges
+                0x00000890       0xc0 ./src/library/libraries/drivers/src/gw1ns4c_uart.o
+ .debug_aranges
+                0x00000950       0x20 ./src/library/libraries/cmsis/cm3/device_support/startup/gmd/startup_gw1ns4c.o
+ .debug_aranges
+                0x00000970       0x28 ./src/library/libraries/cmsis/cm3/device_support/system_gw1ns4c.o
+
+.debug_ranges   0x00000000      0x7d0
+ .debug_ranges  0x00000000      0x120 ./src/project/ucos_iii/src/gw1ns4c_it.o
+ .debug_ranges  0x00000120       0x28 ./src/project/ucos_iii/src/led.o
+ .debug_ranges  0x00000148       0x10 ./src/project/ucos_iii/src/main.o
+ .debug_ranges  0x00000158       0x90 ./src/project/ucos_iii/src/printf.o
+ .debug_ranges  0x000001e8       0x40 ./src/project/ucos_iii/src/task_app.o
+ .debug_ranges  0x00000228       0x18 ./src/library/middlewares/uart/uart.o
+ .debug_ranges  0x00000240       0x10 ./src/library/middlewares/gpio/gpio.o
+ .debug_ranges  0x00000250       0x10 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+ .debug_ranges  0x00000260      0x108 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_core.o
+ .debug_ranges  0x00000368       0x28 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_prio.o
+ .debug_ranges  0x00000390       0x48 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_task.o
+ .debug_ranges  0x000003d8       0x40 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_tick.o
+ .debug_ranges  0x00000418       0x30 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_time.o
+ .debug_ranges  0x00000448       0x60 ./src/library/middlewares/3rd_party/ucos_iii/OS/Ports/cm3/Generic/GMD/os_cpu_c.o
+ .debug_ranges  0x000004a8       0x90 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_mem.o
+ .debug_ranges  0x00000538       0xa0 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cpu_core.o
+ .debug_ranges  0x000005d8       0x28 ./src/library/middlewares/3rd_party/ucos_iii/BSP/bsp.o
+ .debug_ranges  0x00000600       0xa8 ./src/library/libraries/drivers/src/gw1ns4c_gpio.o
+ .debug_ranges  0x000006a8       0x60 ./src/library/libraries/drivers/src/gw1ns4c_misc.o
+ .debug_ranges  0x00000708       0xb0 ./src/library/libraries/drivers/src/gw1ns4c_uart.o
+ .debug_ranges  0x000007b8       0x18 ./src/library/libraries/cmsis/cm3/device_support/system_gw1ns4c.o
+
+.debug_line     0x00000000     0x6139
+ .debug_line    0x00000000      0x472 ./src/project/ucos_iii/src/gw1ns4c_it.o
+ .debug_line    0x00000472      0x28e ./src/project/ucos_iii/src/led.o
+ .debug_line    0x00000700       0x5e ./src/project/ucos_iii/src/main.o
+ .debug_line    0x0000075e      0x897 ./src/project/ucos_iii/src/printf.o
+ .debug_line    0x00000ff5      0x5e5 ./src/project/ucos_iii/src/task_app.o
+ .debug_line    0x000015da      0x28c ./src/library/middlewares/uart/uart.o
+ .debug_line    0x00001866      0x25b ./src/library/middlewares/gpio/gpio.o
+ .debug_line    0x00001ac1      0x26e ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+ .debug_line    0x00001d2f      0xa30 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_core.o
+ .debug_line    0x0000275f      0x2f2 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_prio.o
+ .debug_line    0x00002a51      0x4d1 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_task.o
+ .debug_line    0x00002f22      0x544 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_tick.o
+ .debug_line    0x00003466      0x399 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_time.o
+ .debug_line    0x000037ff      0x1f8 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_var.o
+ .debug_line    0x000039f7       0xb8 ./src/library/middlewares/3rd_party/ucos_iii/OS/Ports/cm3/Generic/GMD/os_cpu_a.o
+ .debug_line    0x00003aaf      0x3b4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Ports/cm3/Generic/GMD/os_cpu_c.o
+ .debug_line    0x00003e63      0x9ab ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_mem.o
+ .debug_line    0x0000480e       0x91 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cm3/GMD/cpu_a.o
+ .debug_line    0x0000489f      0x446 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cpu_core.o
+ .debug_line    0x00004ce5      0x335 ./src/library/middlewares/3rd_party/ucos_iii/BSP/bsp.o
+ .debug_line    0x0000501a      0x4ef ./src/library/libraries/drivers/src/gw1ns4c_gpio.o
+ .debug_line    0x00005509      0x47b ./src/library/libraries/drivers/src/gw1ns4c_misc.o
+ .debug_line    0x00005984      0x52e ./src/library/libraries/drivers/src/gw1ns4c_uart.o
+ .debug_line    0x00005eb2       0xcb ./src/library/libraries/cmsis/cm3/device_support/startup/gmd/startup_gw1ns4c.o
+ .debug_line    0x00005f7d      0x1bc ./src/library/libraries/cmsis/cm3/device_support/system_gw1ns4c.o
+
+.debug_str      0x00000000     0x3ec4
+ .debug_str     0x00000000      0x3ed ./src/project/ucos_iii/src/gw1ns4c_it.o
+                                0x42a (size before relaxing)
+ .debug_str     0x000003ed      0x108 ./src/project/ucos_iii/src/led.o
+                                0x2e6 (size before relaxing)
+ .debug_str     0x000004f5       0x23 ./src/project/ucos_iii/src/main.o
+                                0x12e (size before relaxing)
+ .debug_str     0x00000518      0x16c ./src/project/ucos_iii/src/printf.o
+                                0x34a (size before relaxing)
+ .debug_str     0x00000684     0x18fb ./src/project/ucos_iii/src/task_app.o
+                               0x1b87 (size before relaxing)
+ .debug_str     0x00001f7f      0x154 ./src/library/middlewares/uart/uart.o
+                                0x36d (size before relaxing)
+ .debug_str     0x000020d3      0x118 ./src/library/middlewares/gpio/gpio.o
+                                0x3a2 (size before relaxing)
+ .debug_str     0x000021eb       0x7f ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+                                0x9f7 (size before relaxing)
+ .debug_str     0x0000226a      0x2fd ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_core.o
+                               0x18ef (size before relaxing)
+ .debug_str     0x00002567       0x8a ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_prio.o
+                                0xa07 (size before relaxing)
+ .debug_str     0x000025f1       0xfa ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_task.o
+                               0x1711 (size before relaxing)
+ .debug_str     0x000026eb      0x10f ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_tick.o
+                               0x172c (size before relaxing)
+ .debug_str     0x000027fa       0xae ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_time.o
+                               0x1690 (size before relaxing)
+ .debug_str     0x000028a8       0x41 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_var.o
+                                0x9b9 (size before relaxing)
+ .debug_str     0x000028e9       0x60 ./src/library/middlewares/3rd_party/ucos_iii/OS/Ports/cm3/Generic/GMD/os_cpu_a.o
+                                 0x97 (size before relaxing)
+ .debug_str     0x00002949       0xf8 ./src/library/middlewares/3rd_party/ucos_iii/OS/Ports/cm3/Generic/GMD/os_cpu_c.o
+                                0xacb (size before relaxing)
+ .debug_str     0x00002a41      0x7ad ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_mem.o
+                                0x9e5 (size before relaxing)
+ .debug_str     0x000031ee       0x42 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cm3/GMD/cpu_a.o
+                                 0x87 (size before relaxing)
+ .debug_str     0x00003230      0x22d ./src/library/middlewares/3rd_party/ucos_iii/CPU/cpu_core.o
+                                0x444 (size before relaxing)
+ .debug_str     0x0000345d       0xa4 ./src/library/middlewares/3rd_party/ucos_iii/BSP/bsp.o
+                                0x6ba (size before relaxing)
+ .debug_str     0x00003501      0x19c ./src/library/libraries/drivers/src/gw1ns4c_gpio.o
+                                0x50a (size before relaxing)
+ .debug_str     0x0000369d      0x53b ./src/library/libraries/drivers/src/gw1ns4c_misc.o
+                                0x76f (size before relaxing)
+ .debug_str     0x00003bd8      0x238 ./src/library/libraries/drivers/src/gw1ns4c_uart.o
+                                0x530 (size before relaxing)
+ .debug_str     0x00003e10       0x50 ./src/library/libraries/cmsis/cm3/device_support/startup/gmd/startup_gw1ns4c.o
+                                 0x95 (size before relaxing)
+ .debug_str     0x00003e60       0x64 ./src/library/libraries/cmsis/cm3/device_support/system_gw1ns4c.o
+                                0x230 (size before relaxing)
+
+.debug_frame    0x00000000     0x2398
+ .debug_frame   0x00000000      0x450 ./src/project/ucos_iii/src/gw1ns4c_it.o
+ .debug_frame   0x00000450       0x98 ./src/project/ucos_iii/src/led.o
+ .debug_frame   0x000004e8       0x2c ./src/project/ucos_iii/src/main.o
+ .debug_frame   0x00000514      0x2e8 ./src/project/ucos_iii/src/printf.o
+ .debug_frame   0x000007fc       0xf0 ./src/project/ucos_iii/src/task_app.o
+ .debug_frame   0x000008ec       0x58 ./src/library/middlewares/uart/uart.o
+ .debug_frame   0x00000944       0x34 ./src/library/middlewares/gpio/gpio.o
+ .debug_frame   0x00000978       0x38 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_cfg_app.o
+ .debug_frame   0x000009b0      0x4c0 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_core.o
+ .debug_frame   0x00000e70       0xac ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_prio.o
+ .debug_frame   0x00000f1c      0x13c ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_task.o
+ .debug_frame   0x00001058      0x11c ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_tick.o
+ .debug_frame   0x00001174       0xc4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Source/os_time.o
+ .debug_frame   0x00001238      0x1a4 ./src/library/middlewares/3rd_party/ucos_iii/OS/Ports/cm3/Generic/GMD/os_cpu_c.o
+ .debug_frame   0x000013dc      0x290 ./src/library/middlewares/3rd_party/ucos_iii/LIB/lib_mem.o
+ .debug_frame   0x0000166c      0x2a8 ./src/library/middlewares/3rd_party/ucos_iii/CPU/cpu_core.o
+ .debug_frame   0x00001914       0xa4 ./src/library/middlewares/3rd_party/ucos_iii/BSP/bsp.o
+ .debug_frame   0x000019b8      0x330 ./src/library/libraries/drivers/src/gw1ns4c_gpio.o
+ .debug_frame   0x00001ce8      0x1b8 ./src/library/libraries/drivers/src/gw1ns4c_misc.o
+ .debug_frame   0x00001ea0      0x354 ./src/library/libraries/drivers/src/gw1ns4c_uart.o
+ .debug_frame   0x000021f4       0x50 ./src/library/libraries/cmsis/cm3/device_support/system_gw1ns4c.o
+ .debug_frame   0x00002244       0x28 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-exit.o)
+ .debug_frame   0x0000226c       0x5c d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-__call_atexit.o)
+ .debug_frame   0x000022c8       0xb0 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-lock.o)
+ .debug_frame   0x00002378       0x20 d:/gmd/toolchain/arm_toolchain/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libnosys.a(_exit.o)

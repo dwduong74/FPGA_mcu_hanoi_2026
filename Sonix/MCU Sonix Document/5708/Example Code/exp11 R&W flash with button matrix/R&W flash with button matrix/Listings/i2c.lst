@@ -1,0 +1,185 @@
+C51 COMPILER V9.56.0.0   I2C                                                               03/18/2024 14:50:35 PAGE 1   
+
+
+C51 COMPILER V9.56.0.0, COMPILATION OF MODULE I2C
+OBJECT MODULE PLACED IN .\Objects\i2c.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE Source\i2c.c OPTIMIZE(8,SPEED) BROWSE INCDIR(.\Source;.\Source;.\Source\
+                    -Buzzer;.\Source\CHRG;.\Source\KEY;.\Source\Timer;.\Source\IIC;.\Source\USER;.\Source\SYS;.\Source\UART;.\Source\LCD;.\So
+                    -urce\LED;.\Source\INC;.\Source\InfraRed;.\Source\ISP;.\Source\WS2811;.\Source\RF;.\Hardware\SN8F5702_Hardware\inc;.\Sour
+                    -ce\AHT10) DEBUG OBJECTEXTEND PRINT(.\Listings\i2c.lst) TABS(2) OBJECT(.\Objects\i2c.obj)
+
+line level    source
+
+   1          #include "i2c.h"
+   2          #define ERROR 0xff                                    //error data
+   3          /*********************************************************************************************************
+             -*****
+   4          * Name :    I2C_Init  
+   5          * Function: 初始化I2C
+   6          **********************************************************************************************************
+             -****/
+   7          void I2C_Init(void)
+   8          {
+   9   1        P1M &= 0x30;                      
+  10   1        I2CCON |= 0x40;                   
+  11   1      }
+  12          /*********************************************************************************************************
+             -*****
+  13          * Name :    I2C_Start 
+  14          * Function: 发送start信号
+  15          **********************************************************************************************************
+             -****/
+  16          void I2C_Start(void)
+  17          {
+  18   1        I2CCON |= 0x20;   
+  19   1        I2CCON &= 0xF7;   
+  20   1        while((I2CCON&0x08)!=0x08);           
+  21   1        I2CCON &= 0xDF;                       
+  22   1      }
+  23          /*********************************************************************************************************
+             -*****
+  24          * Name :    I2C_Stop  
+  25          * Function: 发送stop信号
+  26          **********************************************************************************************************
+             -****/
+  27          void I2C_Stop(void)
+  28          {
+  29   1        I2CCON |= 0x10;                       
+  30   1        I2CCON &= 0xF7; 
+  31   1      }
+  32          /*********************************************************************************************************
+             -*****
+  33          * Name :    I2C_TxData  
+  34          * Function: 发送单字节数据
+  35          × Input：    需要发送的数据
+  36          **********************************************************************************************************
+             -****/
+  37          void I2C_TxData(uint8_t Data)
+  38          {
+  39   1        if(I2CSTA == 0x08 || I2CSTA == 0x10 || I2CSTA == 0x18 || I2CSTA == 0x28)                  
+  40   1        {
+  41   2          I2CDAT = Data;
+  42   2          I2CCON &= 0xF7;                    
+  43   2          while((I2CCON&0x08)!=0x08);       
+  44   2        }
+C51 COMPILER V9.56.0.0   I2C                                                               03/18/2024 14:50:35 PAGE 2   
+
+  45   1      }
+  46          /*********************************************************************************************************
+             -*****
+  47          * Name :    I2C_RdData  
+  48          * Function: 读取数据
+  49          × Input：    Chk：应答信号
+  50          × Output:   读取到的数据
+  51          **********************************************************************************************************
+             -****/
+  52          uint8_t I2C_RdData(bit  Chk)
+  53          {
+  54   1        if(I2CSTA == 0x40 || I2CSTA == 0x50)                
+  55   1        {
+  56   2          if(Chk == 1)  I2CCON |= 0x04;                     //判断是否需要继续接收，回应ack或nack         
+  57   2          else  I2CCON &= 0xfb;   
+  58   2          
+  59   2          I2CCON &= 0xF7;                                 
+  60   2          while((I2CCON&0x08)!=0x08);                       //接收数据
+  61   2          return I2CDAT;                                    
+  62   2        }
+  63   1        return  ERROR;
+  64   1      } 
+  65          /*********************************************************************************************************
+             -*****
+  66          * Name :    EP_MultiRead  
+  67          * Function: 多字节读取eeprom
+  68          * Input:    DevSel器件地址，ByteAddr通信地址，RxData存储数组，Datalength数据长度
+  69          **********************************************************************************************************
+             -****/
+  70          void  EP_MultiRead(uint8_t  DevSel,uint8_t ByteAddr,uint8_t *RxData,uint8_t Datalength)
+  71          {
+  72   1        uint8_t i;
+  73   1        
+  74   1        I2C_Start();
+  75   1        I2C_TxData(DevSel);
+  76   1        I2C_TxData(ByteAddr);                                                       //写地址  
+  77   1                                                                              
+  78   1        I2C_Start();
+  79   1        I2C_TxData(DevSel|0x01);                                                    //读命令
+  80   1        for(i = 0;i < Datalength - 1;i ++)
+  81   1        {
+  82   2          *(RxData + i) = I2C_RdData(ACK);                                          
+  83   2        }
+  84   1        (*(RxData + Datalength - 1)) = I2C_RdData(NACK);                            //接收数据，返回ack信号 
+  85   1        I2C_Stop();
+  86   1      }
+  87          /*********************************************************************************************************
+             -*****
+  88          * Name :    EP_MultiWrite 
+  89          * Function: 多字节写入
+  90          * Input:    DevSel器件地址，ByteAddr通信地址，TxData写入数组，Datalength数据长度
+  91          **********************************************************************************************************
+             -****/
+  92          void  EP_MultiWrite(uint8_t DevSel,uint8_t ByteAddr,uint8_t *TxData,uint8_t Datalength)
+  93          {
+  94   1        uint8_t i = 0;
+  95   1        
+  96   1        I2C_Start();
+  97   1        I2C_TxData(DevSel);
+  98   1        I2C_TxData(ByteAddr);                                                         //写地址  
+  99   1        for(i = 0;i < Datalength;i ++)
+ 100   1        {
+C51 COMPILER V9.56.0.0   I2C                                                               03/18/2024 14:50:35 PAGE 3   
+
+ 101   2          I2C_TxData(*(TxData+i));                                                    //写数据
+ 102   2        }
+ 103   1        I2C_Stop();
+ 104   1      }
+ 105          /*********************************************************************************************************
+             -*****
+ 106          * Name :    EP_WriteByte  
+ 107          * Function: 单字节写入
+ 108          * Input:    DevSel器件地址，ByteAddr通信地址，DataIn数据
+ 109          **********************************************************************************************************
+             -****/
+ 110          void EP_WriteByte(uint8_t DevSel,uint8_t ByteAddr,uint8_t DataIn)
+ 111          {
+ 112   1        I2C_Start();
+ 113   1        I2C_TxData(DevSel);                                                           //写地址
+ 114   1        I2C_TxData(ByteAddr); 
+ 115   1        I2C_TxData(DataIn);                                                           //写数据  
+ 116   1        I2C_Stop();
+ 117   1      }
+ 118          /*********************************************************************************************************
+             -*****
+ 119          * Name :    EP_RdRead 
+ 120          * Function: 单字节写入
+ 121          * Input:    DevSel器件地址，ByteAddr通信地址
+ 122          * Output:   对应地址的数据
+ 123          **********************************************************************************************************
+             -****/
+ 124          uint8_t EP_RdRead(uint8_t DevSel,uint8_t  ByteAddr)
+ 125          {
+ 126   1        uint8_t temp = 0;
+ 127   1        
+ 128   1        I2C_Start();
+ 129   1        I2C_TxData(DevSel);
+ 130   1        I2C_TxData(ByteAddr);
+ 131   1      
+ 132   1        I2C_Start();
+ 133   1        I2C_TxData(DevSel|0x01);
+ 134   1        temp = I2C_RdData(NACK);
+ 135   1        I2C_Stop();
+ 136   1        return  temp;
+ 137   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    286    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      12
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----       1
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

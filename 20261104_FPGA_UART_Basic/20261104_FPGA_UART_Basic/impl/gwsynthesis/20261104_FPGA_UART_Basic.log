@@ -1,0 +1,35 @@
+GowinSynthesis start
+Running parser ...
+Analyzing Verilog file 'D:\PTIT\HocKy2_Nam2025\NCKHSV-FPGA\KiWi-1P5\20261104_FPGA_UART_Basic\src\bram_bank_simple.v'
+Analyzing Verilog file 'D:\PTIT\HocKy2_Nam2025\NCKHSV-FPGA\KiWi-1P5\20261104_FPGA_UART_Basic\src\top_phase1.v'
+Analyzing Verilog file 'D:\PTIT\HocKy2_Nam2025\NCKHSV-FPGA\KiWi-1P5\20261104_FPGA_UART_Basic\src\traffic_emul_2m.v'
+Analyzing Verilog file 'D:\PTIT\HocKy2_Nam2025\NCKHSV-FPGA\KiWi-1P5\20261104_FPGA_UART_Basic\src\uart_reporter.v'
+Analyzing Verilog file 'D:\PTIT\HocKy2_Nam2025\NCKHSV-FPGA\KiWi-1P5\20261104_FPGA_UART_Basic\src\uart_tx.v'
+Compiling module 'top_phase1'("D:\PTIT\HocKy2_Nam2025\NCKHSV-FPGA\KiWi-1P5\20261104_FPGA_UART_Basic\src\top_phase1.v":1)
+Compiling module 'traffic_emul_2m'("D:\PTIT\HocKy2_Nam2025\NCKHSV-FPGA\KiWi-1P5\20261104_FPGA_UART_Basic\src\traffic_emul_2m.v":1)
+Compiling module 'bram_bank_simple'("D:\PTIT\HocKy2_Nam2025\NCKHSV-FPGA\KiWi-1P5\20261104_FPGA_UART_Basic\src\bram_bank_simple.v":1)
+Extracting RAM for identifier 'mem'("D:\PTIT\HocKy2_Nam2025\NCKHSV-FPGA\KiWi-1P5\20261104_FPGA_UART_Basic\src\bram_bank_simple.v":12)
+Compiling module 'uart_reporter'("D:\PTIT\HocKy2_Nam2025\NCKHSV-FPGA\KiWi-1P5\20261104_FPGA_UART_Basic\src\uart_reporter.v":1)
+Compiling module 'uart_tx'("D:\PTIT\HocKy2_Nam2025\NCKHSV-FPGA\KiWi-1P5\20261104_FPGA_UART_Basic\src\uart_tx.v":1)
+NOTE  (EX0101) : Current top module is "top_phase1"
+[5%] Running netlist conversion ...
+Running device independent optimization ...
+[10%] Optimizing Phase 0 completed
+[15%] Optimizing Phase 1 completed
+[25%] Optimizing Phase 2 completed
+Running inference ...
+[30%] Inferring Phase 0 completed
+[40%] Inferring Phase 1 completed
+[50%] Inferring Phase 2 completed
+[55%] Inferring Phase 3 completed
+Running technical mapping ...
+[60%] Tech-Mapping Phase 0 completed
+[65%] Tech-Mapping Phase 1 completed
+[75%] Tech-Mapping Phase 2 completed
+[80%] Tech-Mapping Phase 3 completed
+[90%] Tech-Mapping Phase 4 completed
+WARN  (NL0002) : The module "bram_bank_simple" instantiated to "u_bank0" is swept in optimizing("D:\PTIT\HocKy2_Nam2025\NCKHSV-FPGA\KiWi-1P5\20261104_FPGA_UART_Basic\src\top_phase1.v":78)
+WARN  (NL0002) : The module "bram_bank_simple" instantiated to "u_bank1" is swept in optimizing("D:\PTIT\HocKy2_Nam2025\NCKHSV-FPGA\KiWi-1P5\20261104_FPGA_UART_Basic\src\top_phase1.v":89)
+[95%] Generate netlist file "D:\PTIT\HocKy2_Nam2025\NCKHSV-FPGA\KiWi-1P5\20261104_FPGA_UART_Basic\impl\gwsynthesis\20261104_FPGA_UART_Basic.vg" completed
+[100%] Generate report file "D:\PTIT\HocKy2_Nam2025\NCKHSV-FPGA\KiWi-1P5\20261104_FPGA_UART_Basic\impl\gwsynthesis\20261104_FPGA_UART_Basic_syn.rpt.html" completed
+GowinSynthesis finish

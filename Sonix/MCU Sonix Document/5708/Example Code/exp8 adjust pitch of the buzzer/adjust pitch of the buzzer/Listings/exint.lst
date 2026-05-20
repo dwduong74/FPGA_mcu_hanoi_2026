@@ -1,0 +1,148 @@
+C51 COMPILER V9.56.0.0   EXINT                                                             03/27/2024 14:38:11 PAGE 1   
+
+
+C51 COMPILER V9.56.0.0, COMPILATION OF MODULE EXINT
+OBJECT MODULE PLACED IN .\Objects\exint.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE Source\exint.c OPTIMIZE(8,SPEED) BROWSE INCDIR(.\Source;.\Source;.\Sourc
+                    -e\Buzzer;.\Source\CHRG;.\Source\KEY;.\Source\Timer;.\Source\IIC;.\Source\USER;.\Source\SYS;.\Source\UART;.\Source\LCD;.\
+                    -Source\LED;.\Source\INC;.\Source\InfraRed;.\Source\ISP;.\Source\WS2811;.\Source\RF;.\Hardware\SN8F5702_Hardware\inc;.\So
+                    -urce\AHT10) DEBUG OBJECTEXTEND PRINT(.\Listings\exint.lst) TABS(2) OBJECT(.\Objects\exint.obj)
+
+line level    source
+
+   1          #include "exint.h"
+   2          #include "pwm.h"
+   3          
+   4          #define keyout0   P44                                           //按键接口引脚定义
+   5          #define keyout1   P45
+   6          #define keyout2   P46
+   7          #define keyout3   P47
+   8          
+   9          #define keyin0    P24
+  10          #define keyin1    P25
+  11          #define keyin2    P26
+  12          #define keyin3    P27
+  13          
+  14          uint8_t keyinbuf1,keyinbuf2;      
+  15          /***********************************************************
+  16          **Function name   :int0_config()
+  17          **
+  18          **Input parameter : 
+  19          **
+  20          **Input parameter :
+  21          **
+  22          **Description     :INT0 is configured to trigger the falling edge
+  23          ***********************************************************/
+  24          void int0_config()
+  25          {
+  26   1        P4  &= 0X0F;
+  27   1        P4M |= 0XF0;
+  28   1        
+  29   1        PEDGE = 0X02;
+  30   1        EX0 = 1;
+  31   1        EAL = 1;
+  32   1      }
+  33          /***********************************************************
+  34          **Function name   :
+  35          **
+  36          **Input parameter : 
+  37          **
+  38          **Input parameter :
+  39          **
+  40          **Description     :
+  41          ***********************************************************/
+  42          void int0_isr(void) interrupt ISRInt0
+  43          {
+  44   1        
+  45   1       uint8_t key_value;
+  46   1       uint8_t pitch;
+  47   1        uint8_t i;
+  48   1        PEDGE = 0;
+  49   1        P44 = 0;
+  50   1        P4 |= 0XEF; 
+  51   1        for(i = 0;i<8;i++);
+  52   1        if(keyin0 == 0)
+C51 COMPILER V9.56.0.0   EXINT                                                             03/27/2024 14:38:11 PAGE 2   
+
+  53   1          key_value = 13;
+  54   1        if(keyin1 == 0)
+  55   1          key_value = 9;
+  56   1        if(keyin2 == 0)
+  57   1          key_value = 5;
+  58   1        if(keyin3 == 0)
+  59   1          key_value = 1;  
+  60   1      
+  61   1        
+  62   1        P4 |= 0XDF; 
+  63   1        P45 = 0;
+  64   1        for(i = 0;i<8;i++);
+  65   1        if(keyin0 == 0)
+  66   1          key_value = 14;
+  67   1        if(keyin1 == 0)
+  68   1          key_value = 10;
+  69   1        if(keyin2 == 0)
+  70   1          key_value = 6;
+  71   1        if(keyin3 == 0)
+  72   1          key_value = 2;  
+  73   1        
+  74   1        P4 |= 0XbF; 
+  75   1        P46 = 0;
+  76   1        for(i = 0;i<8;i++);
+  77   1        if(keyin0 == 0)
+  78   1          key_value = 15;
+  79   1        if(keyin1 == 0)
+  80   1          key_value = 11;
+  81   1        if(keyin2 == 0)
+  82   1          key_value = 7;
+  83   1        if(keyin3 == 0)
+  84   1          key_value = 3;  
+  85   1      
+  86   1        P4 |= 0X7F; 
+  87   1        P47 = 0;
+  88   1        for(i = 0;i<8;i++);
+  89   1        if(keyin0 == 0)
+  90   1          key_value = 16;
+  91   1        if(keyin1 == 0)
+  92   1          key_value = 12;
+  93   1        if(keyin2 == 0)
+  94   1          key_value = 8;
+  95   1        if(keyin3 == 0)
+  96   1          key_value = 4;    
+  97   1        
+  98   1        P4 &= 0X0F;
+  99   1        
+ 100   1        pitch = 10;
+ 101   1        switch(key_value)
+ 102   1        {
+ 103   2          case  2:pitch =0; break;
+ 104   2          case 5:pitch =1; break;
+ 105   2          case 6:pitch =2; break;   
+ 106   2          case 7:pitch =3; break;
+ 107   2          case 9:pitch =4; break;
+ 108   2          case 10:pitch =5; break;
+ 109   2          case 11:pitch =6; break;
+ 110   2          case 13:pitch =7; break;   
+ 111   2          case 14:pitch =8; break;
+ 112   2          case 15:pitch =9; break;    
+ 113   2        }
+ 114   1        if(pitch < 10)
+C51 COMPILER V9.56.0.0   EXINT                                                             03/27/2024 14:38:11 PAGE 3   
+
+ 115   1          buzzer_fre_set(pitch);
+ 116   1        PEDGE = 0X02;
+ 117   1      
+ 118   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    307    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2       1
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

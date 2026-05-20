@@ -1,0 +1,74 @@
+C51 COMPILER V9.56.0.0   UART                                                              03/25/2024 17:02:48 PAGE 1   
+
+
+C51 COMPILER V9.56.0.0, COMPILATION OF MODULE UART
+OBJECT MODULE PLACED IN .\Objects\uart.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE Source\uart.c OPTIMIZE(8,SPEED) BROWSE INCDIR(.\Source;.\Source;.\Source
+                    -\Buzzer;.\Source\CHRG;.\Source\KEY;.\Source\Timer;.\Source\IIC;.\Source\USER;.\Source\SYS;.\Source\UART;.\Source\LCD;.\S
+                    -ource\LED;.\Source\INC;.\Source\InfraRed;.\Source\ISP;.\Source\WS2811;.\Source\RF;.\Hardware\SN8F5702_Hardware\inc;.\Sou
+                    -rce\AHT10) DEBUG OBJECTEXTEND PRINT(.\Listings\uart.lst) TABS(2) OBJECT(.\Objects\uart.obj)
+
+line level    source
+
+   1          #include "mcu.h"
+   2          #include "string.h"
+   3          #include "uart.h"
+   4          
+   5          /***********************************************************
+   6          **Function name   :uart0_config
+   7          **
+   8          **Input parameter : 
+   9          **
+  10          **Input parameter :
+  11          **
+  12          **Description     :Configure UART0 MODE 1 9600 baud rate and io
+  13          ***********************************************************/
+  14          void uart0_config(void)
+  15          { 
+  16   1      
+  17   1        P05 = 1;
+  18   1        P0M |= 0x20;                                  
+  19   1        P0M &= 0xbf;          //            
+  20   1        S0CON = 0X40 | 0X10; //enabel uart and Configure mode 1
+  21   1      
+  22   1        PCON &= 0x7f;                                 
+  23   1        S0CON2 |= 0X80;    //
+  24   1        S0RELH = 0x03;
+  25   1        S0RELL = 0xF3;     // 9600
+  26   1                                                      
+  27   1        ES0 = 1;          //enable uart interrupt
+  28   1        EAL = 1;          //enable  General interrupt
+  29   1      }
+  30          /***********************************************************
+  31          **Function name   :
+  32          **
+  33          **Input parameter : 
+  34          **
+  35          **Input parameter :
+  36          **
+  37          **Description     :
+  38          ***********************************************************/
+  39          void UART0rxISR(void) interrupt ISRUart
+  40          {
+  41   1        if((S0CON&0x01) == 1)
+  42   1        {
+  43   2          S0CON &= 0xfe; 
+  44   2          S0BUF = S0BUF;    // Send the data received by RX through TX
+  45   2        }
+  46   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     44    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+C51 COMPILER V9.56.0.0   UART                                                              03/25/2024 17:02:48 PAGE 2   
+
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

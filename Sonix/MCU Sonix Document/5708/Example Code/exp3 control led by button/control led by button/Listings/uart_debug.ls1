@@ -1,0 +1,1144 @@
+A51 MACRO ASSEMBLER  UART_DEBUG                                                           03/14/2024 15:27:54 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\uart_debug.OBJ
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE .\Objects\uart_debug.src PR(.\Listings\uart_debug.ls1) EP DEBUG
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ; .\Objects\uart_debug.SRC generated from: Source\uart_debug.c
+
+                       2     ; COMPILER INVOKED BY:
+
+                       3     ;        C:\Keil_v5\C51\BIN\C51.EXE Source\uart_debug.c OPTIMIZE(8,SPEED) BROWSE INCDIR(.\S
+                             ource;.\Source;.\Source\Buzzer;.\Source\CHRG;.\Source\KEY;.\Source\Timer;.\Source\IIC;.\Sou
+                             rce\USER;.\Source\SYS;.\Source\UART;.\Source\LCD;.\Source\LED;.\Source\INC;.\Source\InfraRe
+                             d;.\Source\ISP;.\Source\WS2811;.\Source\RF;.\Hardware\SN8F5702_Hardware\inc;.\Source\AHT10)
+                              DEBUG OBJECTEXTEND PRINT(.\Listings\uart_debug.lst) TABS(2) SRC(.\Objects\uart_debug.SRC)
+
+                       4     
+
+                       5     $nomod51 
+
+                       6     
+
+                       7     NAME    UART_DEBUG
+
+                       8     
+
+  00AC                 9     PW1YL   DATA    0ACH
+
+  009B                10     TB80    BIT     098H.3
+
+  00C8                11     T2I0    BIT     0C8H.0
+
+  00C3                12     CCH1    DATA    0C3H
+
+  00A2                13     PW2YL   DATA    0A2H
+
+  0080                14     P0      DATA    080H
+
+  00C9                15     T2I1    BIT     0C8H.1
+
+  00C5                16     CCH2    DATA    0C5H
+
+  00B2                17     PW3YL   DATA    0B2H
+
+  0090                18     P1      DATA    090H
+
+  00C7                19     CCH3    DATA    0C7H
+
+  00A0                20     P2      DATA    0A0H
+
+  00B0                21     P3      DATA    0B0H
+
+  009D                22     SM20    BIT     098H.5
+
+  00E8                23     P4      DATA    0E8H
+
+  00D6                24     AC      BIT     0D0H.6
+
+  00C2                25     CCL1    DATA    0C2H
+
+  00B8                26     EI2C    BIT     0B8H.0
+
+  00F8                27     P5      DATA    0F8H
+
+  00E2                28     SPCON   DATA    0E2H
+
+  00C4                29     CCL2    DATA    0C4H
+
+  0095                30     PEROM   DATA    095H
+
+  00DF                31     BD      BIT     0D8H.7
+
+  00C6                32     CCL3    DATA    0C6H
+
+  00CB                33     T2R0    BIT     0C8H.3
+
+  00CC                34     T2R1    BIT     0C8H.4
+
+  00E1                35     SPSTA   DATA    0E1H
+
+  00A8                36     IEN0    DATA    0A8H
+
+  00B8                37     IEN1    DATA    0B8H
+
+  0085                38     DPH1    DATA    085H
+
+  009A                39     IEN2    DATA    09AH
+
+  00D1                40     IEN4    DATA    0D1H
+
+  0084                41     DPL1    DATA    084H
+
+  00E4                42     P1OC    DATA    0E4H
+
+  00CE                43     I3FR    BIT     0C8H.6
+
+  009C                44     REN0    BIT     098H.4
+
+  00DB                45     I2CADR  DATA    0DBH
+
+  00D8                46     S0CON2  DATA    0D8H
+
+  00CA                47     T2CM    BIT     0C8H.2
+
+  00DA                48     I2CDAT  DATA    0DAH
+
+  00C1                49     CCEN    DATA    0C1H
+
+  00BD                50     PW1A    DATA    0BDH
+
+  00BE                51     PW2A    DATA    0BEH
+
+  00AE                52     PW1B    DATA    0AEH
+
+  00D7                53     CY      BIT     0D0H.7
+
+  00CF                54     PW3A    DATA    0CFH
+
+A51 MACRO ASSEMBLER  UART_DEBUG                                                           03/14/2024 15:27:54 PAGE     2
+
+  00A4                55     PW2B    DATA    0A4H
+
+  00BB                56     PW1D    DATA    0BBH
+
+  00B4                57     PW3B    DATA    0B4H
+
+  00A6                58     PW2D    DATA    0A6H
+
+  00B6                59     PW3D    DATA    0B6H
+
+  00DC                60     I2CCON  DATA    0DCH
+
+  00CB                61     CRCH    DATA    0CBH
+
+  0081                62     SP      DATA    081H
+
+  00D2                63     OV      BIT     0D0H.2
+
+  00CA                64     CRCL    DATA    0CAH
+
+  00AB                65     PW1M    DATA    0ABH
+
+  00A1                66     PW2M    DATA    0A1H
+
+  00F1                67     P0UR    DATA    0F1H
+
+  00DD                68     I2CSTA  DATA    0DDH
+
+  00B1                69     PW3M    DATA    0B1H
+
+  00F2                70     P1UR    DATA    0F2H
+
+  00F3                71     P2UR    DATA    0F3H
+
+  00CF                72     T2PS    BIT     0C8H.7
+
+  00F4                73     P3UR    DATA    0F4H
+
+  00F5                74     P4UR    DATA    0F5H
+
+  00F6                75     P5UR    DATA    0F6H
+
+  00BF                76     IRCON2  DATA    0BFH
+
+  00E6                77     CLKCMD  DATA    0E6H
+
+  00BA                78     S0RELH  DATA    0BAH
+
+  0080                79     P00     BIT     080H.0
+
+  0090                80     P10     BIT     090H.0
+
+  0087                81     PCON    DATA    087H
+
+  0081                82     P01     BIT     080H.1
+
+  00B9                83     ESPI    BIT     0B8H.1
+
+  00AC                84     PW1Y    DATA    0ACH
+
+  00A0                85     P20     BIT     0A0H.0
+
+  0091                86     P11     BIT     090H.1
+
+  0082                87     P02     BIT     080H.2
+
+  00B0                88     P30     BIT     0B0H.0
+
+  00A2                89     PW2Y    DATA    0A2H
+
+  00A1                90     P21     BIT     0A0H.1
+
+  0092                91     P12     BIT     090H.2
+
+  0083                92     P03     BIT     080H.3
+
+  00E8                93     P40     BIT     0E8H.0
+
+  00B2                94     PW3Y    DATA    0B2H
+
+  00B1                95     P31     BIT     0B0H.1
+
+  00AA                96     S0RELL  DATA    0AAH
+
+  00A2                97     P22     BIT     0A0H.2
+
+  0093                98     P13     BIT     090H.3
+
+  0084                99     P04     BIT     080H.4
+
+  00F8               100     P50     BIT     0F8H.0
+
+  00E9               101     P41     BIT     0E8H.1
+
+  00CE               102     CMPT    DATA    0CEH
+
+  00B2               103     P32     BIT     0B0H.2
+
+  00A3               104     P23     BIT     0A0H.3
+
+  0094               105     P14     BIT     090H.4
+
+  0089               106     TMOD    DATA    089H
+
+  0088               107     TCON    DATA    088H
+
+  0085               108     P05     BIT     080H.5
+
+  00F9               109     P51     BIT     0F8H.1
+
+  00EA               110     P42     BIT     0E8H.2
+
+  00B3               111     P33     BIT     0B0H.3
+
+  00A4               112     P24     BIT     0A0H.4
+
+  0095               113     P15     BIT     090H.5
+
+  0086               114     P06     BIT     080H.6
+
+  00FA               115     P52     BIT     0F8H.2
+
+  00EB               116     P43     BIT     0E8H.3
+
+  00B4               117     P34     BIT     0B0H.4
+
+  00A5               118     P25     BIT     0A0H.5
+
+  0096               119     P16     BIT     090H.6
+
+  0087               120     P07     BIT     080H.7
+
+A51 MACRO ASSEMBLER  UART_DEBUG                                                           03/14/2024 15:27:54 PAGE     3
+
+  00FB               121     P53     BIT     0F8H.3
+
+  00EC               122     P44     BIT     0E8H.4
+
+  00B5               123     P35     BIT     0B0H.5
+
+  00A6               124     P26     BIT     0A0H.6
+
+  0097               125     P17     BIT     090H.7
+
+  00FC               126     P54     BIT     0F8H.4
+
+  00ED               127     P45     BIT     0E8H.5
+
+  00B6               128     P36     BIT     0B0H.6
+
+  00A7               129     P27     BIT     0A0H.7
+
+  00FD               130     P55     BIT     0F8H.5
+
+  00EE               131     P46     BIT     0E8H.6
+
+  00B7               132     P37     BIT     0B0H.7
+
+  00EF               133     P47     BIT     0E8H.7
+
+  00CD               134     GF1     BIT     0C8H.5
+
+  0089               135     IE0     BIT     088H.1
+
+  00BA               136     ET2C0   BIT     0B8H.2
+
+  008B               137     IE1     BIT     088H.3
+
+  00E5               138     CLKSEL  DATA    0E5H
+
+  00C2               139     TF2C0   BIT     0C0H.2
+
+  00BB               140     ET2C1   BIT     0B8H.3
+
+  00F0               141     B       DATA    0F0H
+
+  00E9               142     MD0     DATA    0E9H
+
+  00C3               143     TF2C1   BIT     0C0H.3
+
+  00BC               144     ET2C2   BIT     0B8H.4
+
+  00EA               145     MD1     DATA    0EAH
+
+  00C4               146     TF2C2   BIT     0C0H.4
+
+  00BD               147     ET2C3   BIT     0B8H.5
+
+  0086               148     WDTR    DATA    086H
+
+  00EB               149     MD2     DATA    0EBH
+
+  00C5               150     TF2C3   BIT     0C0H.5
+
+  00EC               151     MD3     DATA    0ECH
+
+  00ED               152     MD4     DATA    0EDH
+
+  00EE               153     MD5     DATA    0EEH
+
+  00E0               154     ACC     DATA    0E0H
+
+  00D3               155     ADB     DATA    0D3H
+
+  00DE               156     SMBSEL  DATA    0DEH
+
+  00AC               157     ES0     BIT     0A8H.4
+
+  00A9               158     IP0     DATA    0A9H
+
+  00A9               159     ET0     BIT     0A8H.1
+
+  00B9               160     IP1     DATA    0B9H
+
+  00AB               161     ET1     BIT     0A8H.3
+
+  008D               162     TF0     BIT     088H.5
+
+  00AD               163     ET2     BIT     0A8H.5
+
+  0098               164     RI0     BIT     098H.0
+
+  008F               165     TF1     BIT     088H.7
+
+  00C6               166     TF2     BIT     0C0H.6
+
+  008C               167     TH0     DATA    08CH
+
+  00F9               168     P0M     DATA    0F9H
+
+  00F7               169     SRST    DATA    0F7H
+
+  00A8               170     EX0     BIT     0A8H.0
+
+  0099               171     TI0     BIT     098H.1
+
+  0096               172     PEROMH  DATA    096H
+
+  008D               173     TH1     DATA    08DH
+
+  00FA               174     P1M     DATA    0FAH
+
+  00CD               175     TH2     DATA    0CDH
+
+  00AA               176     EX1     BIT     0A8H.2
+
+  00FB               177     P2M     DATA    0FBH
+
+  00DF               178     SMBDST  DATA    0DFH
+
+  00D0               179     P       BIT     0D0H.0
+
+  00FC               180     P3M     DATA    0FCH
+
+  009F               181     SM0     BIT     098H.7
+
+  008A               182     TL0     DATA    08AH
+
+  00FD               183     P4M     DATA    0FDH
+
+  009E               184     SM1     BIT     098H.6
+
+  0095               185     PEROML  DATA    095H
+
+  008B               186     TL1     DATA    08BH
+
+A51 MACRO ASSEMBLER  UART_DEBUG                                                           03/14/2024 15:27:54 PAGE     4
+
+  00FE               187     P5M     DATA    0FEH
+
+  00D2               188     ADM     DATA    0D2H
+
+  00CC               189     TL2     DATA    0CCH
+
+  00AF               190     EAL     BIT     0A8H.7
+
+  00D3               191     RS0     BIT     0D0H.3
+
+  00D4               192     RS1     BIT     0D0H.4
+
+  008C               193     TR0     BIT     088H.4
+
+  00D4               194     ADR     DATA    0D4H
+
+  0093               195     DPC     DATA    093H
+
+  008E               196     TR1     BIT     088H.6
+
+  0091               197     P1W     DATA    091H
+
+  00D9               198     ADT     DATA    0D9H
+
+  0083               199     DPH     DATA    083H
+
+  009C               200     CMP0M   DATA    09CH
+
+  009D               201     CMP1M   DATA    09DH
+
+  0082               202     DPL     DATA    082H
+
+  0099               203     S0BUF   DATA    099H
+
+  00AF               204     PW1BH   DATA    0AFH
+
+  009E               205     P2CON   DATA    09EH
+
+  00A5               206     PW2BH   DATA    0A5H
+
+  009F               207     P3CON   DATA    09FH
+
+  0098               208     S0CON   DATA    098H
+
+  00E7               209     TCON0   DATA    0E7H
+
+  00D6               210     P4CON   DATA    0D6H
+
+  00BC               211     PW1DH   DATA    0BCH
+
+  00B5               212     PW3BH   DATA    0B5H
+
+  00D7               213     P5CON   DATA    0D7H
+
+  00A7               214     PW2DH   DATA    0A7H
+
+  008F               215     PEDGE   DATA    08FH
+
+  00C8               216     T2CON   DATA    0C8H
+
+  00B7               217     PW3DH   DATA    0B7H
+
+  00AE               218     PW1BL   DATA    0AEH
+
+  0092               219     DPS     DATA    092H
+
+  00A4               220     PW2BL   DATA    0A4H
+
+  00BB               221     PW1DL   DATA    0BBH
+
+  00B4               222     PW3BL   DATA    0B4H
+
+  00BF               223     ET2RL   BIT     0B8H.7
+
+  00A6               224     PW2DL   DATA    0A6H
+
+  0094               225     PECMD   DATA    094H
+
+  00FF               226     PFLAG   DATA    0FFH
+
+  00C7               227     TF2RL   BIT     0C0H.7
+
+  00B6               228     PW3DL   DATA    0B6H
+
+  009B               229     OPM     DATA    09BH
+
+  008E               230     CKCON   DATA    08EH
+
+  00EF               231     ARCON   DATA    0EFH
+
+  00D5               232     F0      BIT     0D0H.5
+
+  00D1               233     F1      BIT     0D0H.1
+
+  0097               234     PERAM   DATA    097H
+
+  00D0               235     PSW     DATA    0D0H
+
+  00AD               236     PW1YH   DATA    0ADH
+
+  00A3               237     PW2YH   DATA    0A3H
+
+  00D5               238     VREFH   DATA    0D5H
+
+  00C0               239     IRCON   DATA    0C0H
+
+  00B3               240     PW3YH   DATA    0B3H
+
+  009A               241     RB80    BIT     098H.2
+
+  00E3               242     SPDAT   DATA    0E3H
+
+                     243     ?PR?debug_config?UART_DEBUG              SEGMENT CODE 
+
+                     244     ?PR?_putchar?UART_DEBUG                  SEGMENT CODE 
+
+                     245     ?DT?_putchar?UART_DEBUG                  SEGMENT DATA OVERLAYABLE 
+
+                     246     ?BI?UART_DEBUG       SEGMENT BIT 
+
+                     247     ?DT?UART_DEBUG       SEGMENT DATA 
+
+                     248             PUBLIC  delay_cnt
+
+                     249             PUBLIC  EAL_BIT
+
+                     250             PUBLIC  _putchar
+
+                     251             PUBLIC  debug_config
+
+                     252     
+
+A51 MACRO ASSEMBLER  UART_DEBUG                                                           03/14/2024 15:27:54 PAGE     5
+
+----                 253             RSEG  ?DT?_putchar?UART_DEBUG
+
+0000                 254     ?_putchar?BYTE:
+
+0000                 255              ch?140:   DS   1
+
+                     256     
+
+----                 257             RSEG  ?BI?UART_DEBUG
+
+0000                 258             EAL_BIT:   DBIT   1
+
+                     259     
+
+----                 260             RSEG  ?DT?UART_DEBUG
+
+0000                 261           delay_cnt:   DS   1
+
+                     262     ; /***********************************************************
+
+                     263     ; **∫Ø √˚     :uart_debug.c
+
+                     264     ; **π¶ƒ‹√Ë ˆ   :
+
+                     265     ; **
+
+                     266     ; ** ‰»Î≤Œ    : 
+
+                     267     ; **
+
+                     268     ; **∑µªÿ≤Œ    :
+
+                     269     ; **
+
+                     270     ; ** π”√Àµ√˜   : π”√mcu“ª∏ˆioø⁄,ƒ£ƒ‚uart °£≤®Ãÿ¬ 115200  π”√C51±Í◊ºprintf∫Ø ¥Ú”°µ˜ ‘–≈œ¢,’º
+                             ”√romø’º‰1kb
+
+                     271     ;   char a = 1;
+
+                     272     ;   int b  = 12365;
+
+                     273     ;   long c = 0x7FFFFFFF;
+
+                     274     ; 
+
+                     275     ;   unsigned char x = 'A';
+
+                     276     ;   unsigned int y  = 54321;
+
+                     277     ;   unsigned long z = 0x4A6F6E00;
+
+                     278     ; 
+
+                     279     ;   float f = 10.0;
+
+                     280     ;   float g = 22.95;
+
+                     281     ; 
+
+                     282     ;   char buf [] = "Test String";
+
+                     283     ;   char *p = buf;
+
+                     284     ; 
+
+                     285     ;   printf ("char %bd int %d long %ld\n",a,b,c);
+
+                     286     ;   printf ("Uchar %bu Uint %u Ulong %lu\n",x,y,z);
+
+                     287     ;   printf ("xchar %bx xint %x xlong %lx\n",x,y,z);
+
+                     288     ;   printf ("String %s is at address %p\n",buf,p);
+
+                     289     ;   printf ("%f != %g\n", f, g);
+
+                     290     ;   printf ("%*f != %*g\n", (int)8, f, (int)8, g);
+
+                     291     ; ***********************************************************/
+
+                     292     ; 
+
+                     293     ; #include "uart_debug.h"
+
+                     294     ; #include "mcu.h"
+
+                     295     ; #define   DEBUG_TX             P01
+
+                     296     ; #define   DEBUG_TX_CONFIG      { DEBUG_TX = 1; P0M |= 0X02;}
+
+                     297     ; //#define   DELAYCNT             0  //1000000
+
+                     298     ; //#define   DELAYCNT             5  //256000
+
+                     299     ; #define   DELAYCNT             15 //115200
+
+                     300     ; 
+
+                     301     ; #define     BARD_RATE           115200
+
+                     302     ; 
+
+                     303     ; #define   i2c_delay()          {for(delay_cnt = DELAYCNT ; delay_cnt > 0; delay_cnt--);}
+
+                     304     ; volatile  bit               EAL_BIT;
+
+                     305     ; volatile  unsigned char     delay_cnt;
+
+                     306     ; /***********************************************************
+
+                     307     ; **∫Ø √˚     :debug_config()
+
+                     308     ; **π¶ƒ‹√Ë ˆ   :
+
+                     309     ; **
+
+                     310     ; ** ‰»Î≤Œ    : 
+
+                     311     ; **
+
+                     312     ; **∑µªÿ≤Œ    :
+
+                     313     ; **
+
+                     314     ; ** π”√Àµ√˜   :≈‰÷√µ˜ ‘uart 
+
+                     315     ; ***********************************************************/
+
+                     316     ; void debug_config()
+
+                     317     
+
+A51 MACRO ASSEMBLER  UART_DEBUG                                                           03/14/2024 15:27:54 PAGE     6
+
+----                 318             RSEG  ?PR?debug_config?UART_DEBUG
+
+0000                 319     debug_config:
+
+                     320                             ; SOURCE LINE # 55
+
+                     321     ; {
+
+                     322                             ; SOURCE LINE # 56
+
+                     323     ;   DEBUG_TX_CONFIG
+
+                     324                             ; SOURCE LINE # 57
+
+0000 D281            325             SETB    P01
+
+0002 43F902          326             ORL     P0M,#02H
+
+                     327     ; }
+
+                     328                             ; SOURCE LINE # 58
+
+0005 22              329             RET     
+
+                     330     ; END OF debug_config
+
+                     331     
+
+                     332     ; /***********************************************************
+
+                     333     ; **∫Ø √˚     :char putchar(char ch)
+
+                     334     ; **π¶ƒ‹√Ë ˆ   :»Ìº˛ µœ÷UART TXπ¶ƒ‹  FCPU = 8M  FROM = 8M ≤®Ãÿ¬  115200   TX = DEBUG_TX    
+                             #define  DEBUG_TX  ∂®“Â
+
+                     335     ; **
+
+                     336     ; ** ‰»Î≤Œ    : ª„±‡ µœ÷   ”√”⁄≤ªÕ¨±‡“Î∆˜  FCPU = 8M  FROM = 8M ∆‰À˚≤Œ –Ë“™÷ÿ–¬…Ë÷√—” ± ±º‰
+                             DELAYCNT
+
+                     337     ; **
+
+                     338     ; **∑µªÿ≤Œ    :printf  ‰≥ˆ÷ÿ∂®œÚµΩuart  DEBUG ±ø…”√printf
+
+                     339     ; **
+
+                     340     ; ** π”√Àµ√˜   :
+
+                     341     ; ***********************************************************/
+
+                     342     ; 
+
+                     343     ; char putchar(char ch)
+
+                     344     
+
+----                 345             RSEG  ?PR?_putchar?UART_DEBUG
+
+0000                 346     _putchar:
+
+                     347             USING   0
+
+                     348                             ; SOURCE LINE # 70
+
+0000 8F00     F      349             MOV     ch?140,R7
+
+                     350     ; { 
+
+                     351                             ; SOURCE LINE # 71
+
+                     352     ;   #pragma asm
+
+                     353     ;   MOV   C,EAL
+
+0002 A2AF            354               MOV   C,EAL
+
+                     355     ;   MOV   EAL_BIT,C
+
+0004 9200     F      356               MOV   EAL_BIT,C
+
+                     357     ;   CLR   EAL
+
+0006 C2AF            358               CLR   EAL
+
+                     359     ; start:
+
+0008                 360               start:
+
+                     361     ;   CLR   DEBUG_TX
+
+0008 C281            362               CLR   P01
+
+                     363     ;   NOP
+
+000A 00              364               NOP
+
+                     365     ;   #if DELAYCNT
+
+                     366               
+
+                     367     ;   MOV   delay_cnt,#(DELAYCNT)
+
+000B 75000F   F      368               MOV   delay_cnt,#(15)
+
+                     369     ;   DJNZ  delay_cnt,$
+
+000E D500FD   F      370               DJNZ  delay_cnt,$
+
+                     371     ;   #endif
+
+                     372               
+
+                     373     ;   MOV   A,#8
+
+0011 7408            374               MOV   A,#8
+
+                     375     ;   MOV   R4,A
+
+0013 FC              376               MOV   R4,A
+
+                     377     ; send_byte:
+
+0014                 378               send_byte:
+
+                     379     ;   MOV   A,R7
+
+0014 EF              380               MOV   A,R7
+
+                     381     ;   RRC   A
+
+A51 MACRO ASSEMBLER  UART_DEBUG                                                           03/14/2024 15:27:54 PAGE     7
+
+0015 13              382               RRC   A
+
+                     383     ;   MOV   DEBUG_TX,C
+
+0016 9281            384               MOV   P01,C
+
+                     385     ;   MOV   R7,A
+
+0018 FF              386               MOV   R7,A
+
+                     387     ;   #if DELAYCNT
+
+                     388               
+
+                     389     ;   MOV   delay_cnt,#(DELAYCNT)
+
+0019 75000F   F      390               MOV   delay_cnt,#(15)
+
+                     391     ;   DJNZ  delay_cnt,$
+
+001C D500FD   F      392               DJNZ  delay_cnt,$
+
+                     393     ;   #endif
+
+                     394               
+
+                     395     ;   DJNZ  R4,send_byte
+
+001F DCF3            396               DJNZ  R4,send_byte
+
+                     397     ; stop:  
+
+0021                 398               stop:  
+
+                     399     ;   NOP
+
+0021 00              400               NOP
+
+                     401     ;   NOP
+
+0022 00              402               NOP
+
+                     403     ;   SETB  DEBUG_TX
+
+0023 D281            404               SETB  P01
+
+                     405     ;   MOV   delay_cnt,#(DELAYCNT)
+
+0025 75000F   F      406               MOV   delay_cnt,#(15)
+
+                     407     ;   DJNZ  delay_cnt,$  
+
+0028 D500FD   F      408               DJNZ  delay_cnt,$  
+
+                     409     ;   MOV   C,EAL_BIT
+
+002B A200     F      410               MOV   C,EAL_BIT
+
+                     411     ;   MOV   EAL,C
+
+002D 92AF            412               MOV   EAL,C
+
+                     413     ;   #pragma endasm 
+
+                     414     ;   
+
+                     415     ;   return ch;    
+
+                     416                             ; SOURCE LINE # 105
+
+002F AF00     F      417             MOV     R7,ch?140
+
+                     418     ; }                     ; SOURCE LINE # 106
+
+0031                 419     ?C0002:
+
+0031 22              420             RET     
+
+                     421     ; END OF _putchar
+
+                     422     
+
+                     423             END
+
+A51 MACRO ASSEMBLER  UART_DEBUG                                                           03/14/2024 15:27:54 PAGE     8
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E                      T Y P E  V A L U E   ATTRIBUTES
+
+?BI?UART_DEBUG. . . . . . .  B SEG    0001H       REL=UNIT
+?C0002. . . . . . . . . . .  C ADDR   0031H   R   SEG=?PR?_PUTCHAR?UART_DEBUG
+?DT?UART_DEBUG. . . . . . .  D SEG    0001H       REL=UNIT
+?DT?_PUTCHAR?UART_DEBUG . .  D SEG    0001H       REL=UNIT
+?PR?DEBUG_CONFIG?UART_DEBUG  C SEG    0006H       REL=UNIT
+?PR?_PUTCHAR?UART_DEBUG . .  C SEG    0032H       REL=UNIT
+?_PUTCHAR?BYTE. . . . . . .  D ADDR   0000H   R   SEG=?DT?_PUTCHAR?UART_DEBUG
+AC. . . . . . . . . . . . .  B ADDR   00D0H.6 A   
+ACC . . . . . . . . . . . .  D ADDR   00E0H   A   
+ADB . . . . . . . . . . . .  D ADDR   00D3H   A   
+ADM . . . . . . . . . . . .  D ADDR   00D2H   A   
+ADR . . . . . . . . . . . .  D ADDR   00D4H   A   
+ADT . . . . . . . . . . . .  D ADDR   00D9H   A   
+ARCON . . . . . . . . . . .  D ADDR   00EFH   A   
+B . . . . . . . . . . . . .  D ADDR   00F0H   A   
+BD. . . . . . . . . . . . .  B ADDR   00D8H.7 A   
+CCEN. . . . . . . . . . . .  D ADDR   00C1H   A   
+CCH1. . . . . . . . . . . .  D ADDR   00C3H   A   
+CCH2. . . . . . . . . . . .  D ADDR   00C5H   A   
+CCH3. . . . . . . . . . . .  D ADDR   00C7H   A   
+CCL1. . . . . . . . . . . .  D ADDR   00C2H   A   
+CCL2. . . . . . . . . . . .  D ADDR   00C4H   A   
+CCL3. . . . . . . . . . . .  D ADDR   00C6H   A   
+CH?140. . . . . . . . . . .  D ADDR   0000H   R   SEG=?DT?_PUTCHAR?UART_DEBUG
+CKCON . . . . . . . . . . .  D ADDR   008EH   A   
+CLKCMD. . . . . . . . . . .  D ADDR   00E6H   A   
+CLKSEL. . . . . . . . . . .  D ADDR   00E5H   A   
+CMP0M . . . . . . . . . . .  D ADDR   009CH   A   
+CMP1M . . . . . . . . . . .  D ADDR   009DH   A   
+CMPT. . . . . . . . . . . .  D ADDR   00CEH   A   
+CRCH. . . . . . . . . . . .  D ADDR   00CBH   A   
+CRCL. . . . . . . . . . . .  D ADDR   00CAH   A   
+CY. . . . . . . . . . . . .  B ADDR   00D0H.7 A   
+DEBUG_CONFIG. . . . . . . .  C ADDR   0000H   R   SEG=?PR?DEBUG_CONFIG?UART_DEBUG
+DELAY_CNT . . . . . . . . .  D ADDR   0000H   R   SEG=?DT?UART_DEBUG
+DPC . . . . . . . . . . . .  D ADDR   0093H   A   
+DPH . . . . . . . . . . . .  D ADDR   0083H   A   
+DPH1. . . . . . . . . . . .  D ADDR   0085H   A   
+DPL . . . . . . . . . . . .  D ADDR   0082H   A   
+DPL1. . . . . . . . . . . .  D ADDR   0084H   A   
+DPS . . . . . . . . . . . .  D ADDR   0092H   A   
+EAL . . . . . . . . . . . .  B ADDR   00A8H.7 A   
+EAL_BIT . . . . . . . . . .  B ADDR   0000H.0 R   SEG=?BI?UART_DEBUG
+EI2C. . . . . . . . . . . .  B ADDR   00B8H.0 A   
+ES0 . . . . . . . . . . . .  B ADDR   00A8H.4 A   
+ESPI. . . . . . . . . . . .  B ADDR   00B8H.1 A   
+ET0 . . . . . . . . . . . .  B ADDR   00A8H.1 A   
+ET1 . . . . . . . . . . . .  B ADDR   00A8H.3 A   
+ET2 . . . . . . . . . . . .  B ADDR   00A8H.5 A   
+ET2C0 . . . . . . . . . . .  B ADDR   00B8H.2 A   
+ET2C1 . . . . . . . . . . .  B ADDR   00B8H.3 A   
+ET2C2 . . . . . . . . . . .  B ADDR   00B8H.4 A   
+ET2C3 . . . . . . . . . . .  B ADDR   00B8H.5 A   
+ET2RL . . . . . . . . . . .  B ADDR   00B8H.7 A   
+EX0 . . . . . . . . . . . .  B ADDR   00A8H.0 A   
+EX1 . . . . . . . . . . . .  B ADDR   00A8H.2 A   
+F0. . . . . . . . . . . . .  B ADDR   00D0H.5 A   
+F1. . . . . . . . . . . . .  B ADDR   00D0H.1 A   
+GF1 . . . . . . . . . . . .  B ADDR   00C8H.5 A   
+I2CADR. . . . . . . . . . .  D ADDR   00DBH   A   
+A51 MACRO ASSEMBLER  UART_DEBUG                                                           03/14/2024 15:27:54 PAGE     9
+
+I2CCON. . . . . . . . . . .  D ADDR   00DCH   A   
+I2CDAT. . . . . . . . . . .  D ADDR   00DAH   A   
+I2CSTA. . . . . . . . . . .  D ADDR   00DDH   A   
+I3FR. . . . . . . . . . . .  B ADDR   00C8H.6 A   
+IE0 . . . . . . . . . . . .  B ADDR   0088H.1 A   
+IE1 . . . . . . . . . . . .  B ADDR   0088H.3 A   
+IEN0. . . . . . . . . . . .  D ADDR   00A8H   A   
+IEN1. . . . . . . . . . . .  D ADDR   00B8H   A   
+IEN2. . . . . . . . . . . .  D ADDR   009AH   A   
+IEN4. . . . . . . . . . . .  D ADDR   00D1H   A   
+IP0 . . . . . . . . . . . .  D ADDR   00A9H   A   
+IP1 . . . . . . . . . . . .  D ADDR   00B9H   A   
+IRCON . . . . . . . . . . .  D ADDR   00C0H   A   
+IRCON2. . . . . . . . . . .  D ADDR   00BFH   A   
+MD0 . . . . . . . . . . . .  D ADDR   00E9H   A   
+MD1 . . . . . . . . . . . .  D ADDR   00EAH   A   
+MD2 . . . . . . . . . . . .  D ADDR   00EBH   A   
+MD3 . . . . . . . . . . . .  D ADDR   00ECH   A   
+MD4 . . . . . . . . . . . .  D ADDR   00EDH   A   
+MD5 . . . . . . . . . . . .  D ADDR   00EEH   A   
+OPM . . . . . . . . . . . .  D ADDR   009BH   A   
+OV. . . . . . . . . . . . .  B ADDR   00D0H.2 A   
+P . . . . . . . . . . . . .  B ADDR   00D0H.0 A   
+P0. . . . . . . . . . . . .  D ADDR   0080H   A   
+P00 . . . . . . . . . . . .  B ADDR   0080H.0 A   
+P01 . . . . . . . . . . . .  B ADDR   0080H.1 A   
+P02 . . . . . . . . . . . .  B ADDR   0080H.2 A   
+P03 . . . . . . . . . . . .  B ADDR   0080H.3 A   
+P04 . . . . . . . . . . . .  B ADDR   0080H.4 A   
+P05 . . . . . . . . . . . .  B ADDR   0080H.5 A   
+P06 . . . . . . . . . . . .  B ADDR   0080H.6 A   
+P07 . . . . . . . . . . . .  B ADDR   0080H.7 A   
+P0M . . . . . . . . . . . .  D ADDR   00F9H   A   
+P0UR. . . . . . . . . . . .  D ADDR   00F1H   A   
+P1. . . . . . . . . . . . .  D ADDR   0090H   A   
+P10 . . . . . . . . . . . .  B ADDR   0090H.0 A   
+P11 . . . . . . . . . . . .  B ADDR   0090H.1 A   
+P12 . . . . . . . . . . . .  B ADDR   0090H.2 A   
+P13 . . . . . . . . . . . .  B ADDR   0090H.3 A   
+P14 . . . . . . . . . . . .  B ADDR   0090H.4 A   
+P15 . . . . . . . . . . . .  B ADDR   0090H.5 A   
+P16 . . . . . . . . . . . .  B ADDR   0090H.6 A   
+P17 . . . . . . . . . . . .  B ADDR   0090H.7 A   
+P1M . . . . . . . . . . . .  D ADDR   00FAH   A   
+P1OC. . . . . . . . . . . .  D ADDR   00E4H   A   
+P1UR. . . . . . . . . . . .  D ADDR   00F2H   A   
+P1W . . . . . . . . . . . .  D ADDR   0091H   A   
+P2. . . . . . . . . . . . .  D ADDR   00A0H   A   
+P20 . . . . . . . . . . . .  B ADDR   00A0H.0 A   
+P21 . . . . . . . . . . . .  B ADDR   00A0H.1 A   
+P22 . . . . . . . . . . . .  B ADDR   00A0H.2 A   
+P23 . . . . . . . . . . . .  B ADDR   00A0H.3 A   
+P24 . . . . . . . . . . . .  B ADDR   00A0H.4 A   
+P25 . . . . . . . . . . . .  B ADDR   00A0H.5 A   
+P26 . . . . . . . . . . . .  B ADDR   00A0H.6 A   
+P27 . . . . . . . . . . . .  B ADDR   00A0H.7 A   
+P2CON . . . . . . . . . . .  D ADDR   009EH   A   
+P2M . . . . . . . . . . . .  D ADDR   00FBH   A   
+P2UR. . . . . . . . . . . .  D ADDR   00F3H   A   
+P3. . . . . . . . . . . . .  D ADDR   00B0H   A   
+P30 . . . . . . . . . . . .  B ADDR   00B0H.0 A   
+P31 . . . . . . . . . . . .  B ADDR   00B0H.1 A   
+P32 . . . . . . . . . . . .  B ADDR   00B0H.2 A   
+P33 . . . . . . . . . . . .  B ADDR   00B0H.3 A   
+P34 . . . . . . . . . . . .  B ADDR   00B0H.4 A   
+P35 . . . . . . . . . . . .  B ADDR   00B0H.5 A   
+A51 MACRO ASSEMBLER  UART_DEBUG                                                           03/14/2024 15:27:54 PAGE    10
+
+P36 . . . . . . . . . . . .  B ADDR   00B0H.6 A   
+P37 . . . . . . . . . . . .  B ADDR   00B0H.7 A   
+P3CON . . . . . . . . . . .  D ADDR   009FH   A   
+P3M . . . . . . . . . . . .  D ADDR   00FCH   A   
+P3UR. . . . . . . . . . . .  D ADDR   00F4H   A   
+P4. . . . . . . . . . . . .  D ADDR   00E8H   A   
+P40 . . . . . . . . . . . .  B ADDR   00E8H.0 A   
+P41 . . . . . . . . . . . .  B ADDR   00E8H.1 A   
+P42 . . . . . . . . . . . .  B ADDR   00E8H.2 A   
+P43 . . . . . . . . . . . .  B ADDR   00E8H.3 A   
+P44 . . . . . . . . . . . .  B ADDR   00E8H.4 A   
+P45 . . . . . . . . . . . .  B ADDR   00E8H.5 A   
+P46 . . . . . . . . . . . .  B ADDR   00E8H.6 A   
+P47 . . . . . . . . . . . .  B ADDR   00E8H.7 A   
+P4CON . . . . . . . . . . .  D ADDR   00D6H   A   
+P4M . . . . . . . . . . . .  D ADDR   00FDH   A   
+P4UR. . . . . . . . . . . .  D ADDR   00F5H   A   
+P5. . . . . . . . . . . . .  D ADDR   00F8H   A   
+P50 . . . . . . . . . . . .  B ADDR   00F8H.0 A   
+P51 . . . . . . . . . . . .  B ADDR   00F8H.1 A   
+P52 . . . . . . . . . . . .  B ADDR   00F8H.2 A   
+P53 . . . . . . . . . . . .  B ADDR   00F8H.3 A   
+P54 . . . . . . . . . . . .  B ADDR   00F8H.4 A   
+P55 . . . . . . . . . . . .  B ADDR   00F8H.5 A   
+P5CON . . . . . . . . . . .  D ADDR   00D7H   A   
+P5M . . . . . . . . . . . .  D ADDR   00FEH   A   
+P5UR. . . . . . . . . . . .  D ADDR   00F6H   A   
+PCON. . . . . . . . . . . .  D ADDR   0087H   A   
+PECMD . . . . . . . . . . .  D ADDR   0094H   A   
+PEDGE . . . . . . . . . . .  D ADDR   008FH   A   
+PERAM . . . . . . . . . . .  D ADDR   0097H   A   
+PEROM . . . . . . . . . . .  D ADDR   0095H   A   
+PEROMH. . . . . . . . . . .  D ADDR   0096H   A   
+PEROML. . . . . . . . . . .  D ADDR   0095H   A   
+PFLAG . . . . . . . . . . .  D ADDR   00FFH   A   
+PSW . . . . . . . . . . . .  D ADDR   00D0H   A   
+PW1A. . . . . . . . . . . .  D ADDR   00BDH   A   
+PW1B. . . . . . . . . . . .  D ADDR   00AEH   A   
+PW1BH . . . . . . . . . . .  D ADDR   00AFH   A   
+PW1BL . . . . . . . . . . .  D ADDR   00AEH   A   
+PW1D. . . . . . . . . . . .  D ADDR   00BBH   A   
+PW1DH . . . . . . . . . . .  D ADDR   00BCH   A   
+PW1DL . . . . . . . . . . .  D ADDR   00BBH   A   
+PW1M. . . . . . . . . . . .  D ADDR   00ABH   A   
+PW1Y. . . . . . . . . . . .  D ADDR   00ACH   A   
+PW1YH . . . . . . . . . . .  D ADDR   00ADH   A   
+PW1YL . . . . . . . . . . .  D ADDR   00ACH   A   
+PW2A. . . . . . . . . . . .  D ADDR   00BEH   A   
+PW2B. . . . . . . . . . . .  D ADDR   00A4H   A   
+PW2BH . . . . . . . . . . .  D ADDR   00A5H   A   
+PW2BL . . . . . . . . . . .  D ADDR   00A4H   A   
+PW2D. . . . . . . . . . . .  D ADDR   00A6H   A   
+PW2DH . . . . . . . . . . .  D ADDR   00A7H   A   
+PW2DL . . . . . . . . . . .  D ADDR   00A6H   A   
+PW2M. . . . . . . . . . . .  D ADDR   00A1H   A   
+PW2Y. . . . . . . . . . . .  D ADDR   00A2H   A   
+PW2YH . . . . . . . . . . .  D ADDR   00A3H   A   
+PW2YL . . . . . . . . . . .  D ADDR   00A2H   A   
+PW3A. . . . . . . . . . . .  D ADDR   00CFH   A   
+PW3B. . . . . . . . . . . .  D ADDR   00B4H   A   
+PW3BH . . . . . . . . . . .  D ADDR   00B5H   A   
+PW3BL . . . . . . . . . . .  D ADDR   00B4H   A   
+PW3D. . . . . . . . . . . .  D ADDR   00B6H   A   
+PW3DH . . . . . . . . . . .  D ADDR   00B7H   A   
+PW3DL . . . . . . . . . . .  D ADDR   00B6H   A   
+PW3M. . . . . . . . . . . .  D ADDR   00B1H   A   
+A51 MACRO ASSEMBLER  UART_DEBUG                                                           03/14/2024 15:27:54 PAGE    11
+
+PW3Y. . . . . . . . . . . .  D ADDR   00B2H   A   
+PW3YH . . . . . . . . . . .  D ADDR   00B3H   A   
+PW3YL . . . . . . . . . . .  D ADDR   00B2H   A   
+RB80. . . . . . . . . . . .  B ADDR   0098H.2 A   
+REN0. . . . . . . . . . . .  B ADDR   0098H.4 A   
+RI0 . . . . . . . . . . . .  B ADDR   0098H.0 A   
+RS0 . . . . . . . . . . . .  B ADDR   00D0H.3 A   
+RS1 . . . . . . . . . . . .  B ADDR   00D0H.4 A   
+S0BUF . . . . . . . . . . .  D ADDR   0099H   A   
+S0CON . . . . . . . . . . .  D ADDR   0098H   A   
+S0CON2. . . . . . . . . . .  D ADDR   00D8H   A   
+S0RELH. . . . . . . . . . .  D ADDR   00BAH   A   
+S0RELL. . . . . . . . . . .  D ADDR   00AAH   A   
+SEND_BYTE . . . . . . . . .  C ADDR   0014H   R   SEG=?PR?_PUTCHAR?UART_DEBUG
+SM0 . . . . . . . . . . . .  B ADDR   0098H.7 A   
+SM1 . . . . . . . . . . . .  B ADDR   0098H.6 A   
+SM20. . . . . . . . . . . .  B ADDR   0098H.5 A   
+SMBDST. . . . . . . . . . .  D ADDR   00DFH   A   
+SMBSEL. . . . . . . . . . .  D ADDR   00DEH   A   
+SP. . . . . . . . . . . . .  D ADDR   0081H   A   
+SPCON . . . . . . . . . . .  D ADDR   00E2H   A   
+SPDAT . . . . . . . . . . .  D ADDR   00E3H   A   
+SPSTA . . . . . . . . . . .  D ADDR   00E1H   A   
+SRST. . . . . . . . . . . .  D ADDR   00F7H   A   
+START . . . . . . . . . . .  C ADDR   0008H   R   SEG=?PR?_PUTCHAR?UART_DEBUG
+STOP. . . . . . . . . . . .  C ADDR   0021H   R   SEG=?PR?_PUTCHAR?UART_DEBUG
+T2CM. . . . . . . . . . . .  B ADDR   00C8H.2 A   
+T2CON . . . . . . . . . . .  D ADDR   00C8H   A   
+T2I0. . . . . . . . . . . .  B ADDR   00C8H.0 A   
+T2I1. . . . . . . . . . . .  B ADDR   00C8H.1 A   
+T2PS. . . . . . . . . . . .  B ADDR   00C8H.7 A   
+T2R0. . . . . . . . . . . .  B ADDR   00C8H.3 A   
+T2R1. . . . . . . . . . . .  B ADDR   00C8H.4 A   
+TB80. . . . . . . . . . . .  B ADDR   0098H.3 A   
+TCON. . . . . . . . . . . .  D ADDR   0088H   A   
+TCON0 . . . . . . . . . . .  D ADDR   00E7H   A   
+TF0 . . . . . . . . . . . .  B ADDR   0088H.5 A   
+TF1 . . . . . . . . . . . .  B ADDR   0088H.7 A   
+TF2 . . . . . . . . . . . .  B ADDR   00C0H.6 A   
+TF2C0 . . . . . . . . . . .  B ADDR   00C0H.2 A   
+TF2C1 . . . . . . . . . . .  B ADDR   00C0H.3 A   
+TF2C2 . . . . . . . . . . .  B ADDR   00C0H.4 A   
+TF2C3 . . . . . . . . . . .  B ADDR   00C0H.5 A   
+TF2RL . . . . . . . . . . .  B ADDR   00C0H.7 A   
+TH0 . . . . . . . . . . . .  D ADDR   008CH   A   
+TH1 . . . . . . . . . . . .  D ADDR   008DH   A   
+TH2 . . . . . . . . . . . .  D ADDR   00CDH   A   
+TI0 . . . . . . . . . . . .  B ADDR   0098H.1 A   
+TL0 . . . . . . . . . . . .  D ADDR   008AH   A   
+TL1 . . . . . . . . . . . .  D ADDR   008BH   A   
+TL2 . . . . . . . . . . . .  D ADDR   00CCH   A   
+TMOD. . . . . . . . . . . .  D ADDR   0089H   A   
+TR0 . . . . . . . . . . . .  B ADDR   0088H.4 A   
+TR1 . . . . . . . . . . . .  B ADDR   0088H.6 A   
+UART_DEBUG. . . . . . . . .  N NUMB   -----       
+VREFH . . . . . . . . . . .  D ADDR   00D5H   A   
+WDTR. . . . . . . . . . . .  D ADDR   0086H   A   
+_PUTCHAR. . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?_PUTCHAR?UART_DEBUG
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

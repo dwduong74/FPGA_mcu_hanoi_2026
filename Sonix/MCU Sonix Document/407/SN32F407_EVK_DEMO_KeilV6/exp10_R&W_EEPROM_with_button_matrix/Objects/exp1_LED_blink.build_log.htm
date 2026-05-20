@@ -1,0 +1,83 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.43.1.0
+Copyright (C) 2025 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: dang duong, ptit, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.43.0.0
+Toolchain Path:  C:\Users\MC HOME\AppData\Local\Keil_v5\ARM\ARMCLANG\bin\
+C Compiler:      ArmClang.exe V20.0.0git
+Assembler:       Armasm.exe V6.24.0.20
+Linker/Locator:  ArmLink.exe V6.24.0.21
+Library Manager: ArmAr.exe V6.24.0.21
+Hex Converter:   FromElf.exe V6.24.0.21
+CPU DLL:         SARMCM3.DLL V5.43.0.0
+Dialog DLL:      DARMCM1.DLL V1.19.6.0
+Target DLL:      UL2CM3.DLL V1.164.16.0
+Dialog DLL:      TARMCM1.DLL V1.14.6.0
+ 
+<h2>Project:</h2>
+C:\Sonix\MCU Sonix Document\407\SN32F407_EVK_DEMO_KeilV6\exp10_R&W_EEPROM_with_button_matrix\R&W_EEPROM_with_button_matrix.uvprojx
+Project File Date:  04/26/2026
+
+<h2>Output:</h2>
+*** Using Compiler '', folder: 'C:\Users\MC HOME\AppData\Local\Keil_v5\ARM\ARMCLANG\bin\'
+Build target 'Target 1'
+compiling main.c...
+*** Error: CreateProcess failed, Command: '"C:\Users\MC HOME\AppData\Local\Keil_v5\ARM\ARMCLANG\bin\\ArmCC" --via ".\objects\main.__i"'
+compiling WDT.c...
+*** Error: CreateProcess failed, Command: '"C:\Users\MC HOME\AppData\Local\Keil_v5\ARM\ARMCLANG\bin\\ArmCC" --via ".\objects\wdt.__i"'
+compiling GPIO.c...
+*** Error: CreateProcess failed, Command: '"C:\Users\MC HOME\AppData\Local\Keil_v5\ARM\ARMCLANG\bin\\ArmCC" --via ".\objects\gpio.__i"'
+compiling PFPA.c...
+*** Error: CreateProcess failed, Command: '"C:\Users\MC HOME\AppData\Local\Keil_v5\ARM\ARMCLANG\bin\\ArmCC" --via ".\objects\pfpa.__i"'
+compiling Utility.c...
+*** Error: CreateProcess failed, Command: '"C:\Users\MC HOME\AppData\Local\Keil_v5\ARM\ARMCLANG\bin\\ArmCC" --via ".\objects\utility.__i"'
+compiling CT16B1.c...
+*** Error: CreateProcess failed, Command: '"C:\Users\MC HOME\AppData\Local\Keil_v5\ARM\ARMCLANG\bin\\ArmCC" --via ".\objects\ct16b1.__i"'
+compiling I2C0.c...
+*** Error: CreateProcess failed, Command: '"C:\Users\MC HOME\AppData\Local\Keil_v5\ARM\ARMCLANG\bin\\ArmCC" --via ".\objects\i2c0.__i"'
+compiling KeyScan.c...
+*** Error: CreateProcess failed, Command: '"C:\Users\MC HOME\AppData\Local\Keil_v5\ARM\ARMCLANG\bin\\ArmCC" --via ".\objects\keyscan.__i"'
+linking...
+.\Objects\exp1_LED_blink.axf: error: L6002U: Could not open file .\objects\main.o: No such file or directory
+Not enough information to list image symbols.
+Not enough information to list load addresses in the image map.
+Finished: 2 information, 0 warning, 0 error and 1 fatal error messages.
+".\Objects\exp1_LED_blink.axf" - 1 Error(s), 0 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                https://www.keil.com/pack/ARM.CMSIS.6.3.0.pack
+                ARM::CMSIS@6.3.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 6.2.0
+
+Package Vendor: SONiX
+                https://liveupdate.sonix.com.tw/sonix/develop_tool/MCU/DFP/SONiX.SN32F4_DFP.1.1.1.pack
+                SONiX::SN32F4_DFP@1.1.1
+                SONiX SN32F4 Series Device Support and Examples
+   * Component: Startup Version: 1.0.1
+
+<h2>Collection of Component include folders:</h2>
+  ./RTE/_Target_1
+  C:/Users/MC HOME/AppData/Local/Arm/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include
+  C:/Users/MC HOME/AppData/Local/Arm/Packs/SONiX/SN32F4_DFP/1.1.1/Device/Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE@6.2.0
+
+   * Component: SONiX::Device:Startup@1.0.1
+      Source file:   Device/Source/ARM/startup_SN32F400.s
+      Source file:   Device/Source/system_SN32F400.c
+Target not created.
+Build Time Elapsed:  00:00:00
+</pre>
+</body>
+</html>

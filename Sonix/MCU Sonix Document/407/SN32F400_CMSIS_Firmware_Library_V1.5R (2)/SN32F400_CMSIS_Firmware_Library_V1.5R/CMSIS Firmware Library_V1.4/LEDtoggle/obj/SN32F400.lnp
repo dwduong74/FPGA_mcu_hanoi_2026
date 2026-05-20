@@ -1,0 +1,12 @@
+--cpu Cortex-M0
+".\obj\main.o"
+".\obj\pfpa.o"
+".\obj\systick.o"
+".\obj\ct16b0.o"
+".\obj\wdt.o"
+".\obj\startup_sn32f400.o"
+".\obj\system_sn32f400.o"
+--library_type=microlib --strict --scatter ".\obj\SN32F400.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\SN32F400.map" -o .\obj\SN32F400.axf

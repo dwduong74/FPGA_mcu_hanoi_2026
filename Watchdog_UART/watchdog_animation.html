@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Watchdog UART — Luồng hoạt động</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #0d1117;
+    color: #c9d1d9;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 13px;
+    overflow-x: hidden;
+  }
+
+  /* ── Header ── */
+  .header {
+    background: linear-gradient(135deg, #161b22, #1f2937);
+    border-bottom: 2px solid #30363d;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .header h1 { font-size: 18px; color: #58a6ff; font-weight: 700; }
+  .header .sub { color: #8b949e; font-size: 12px; }
+  .badge {
+    background: #21262d;
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    padding: 3px 10px;
+    font-size: 11px;
+    color: #3fb950;
+  }
+
+  /* ── Layout ── */
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    grid-template-rows: auto 1fr;
+    gap: 0;
+    height: calc(100vh - 56px);
+  }
+
+  /* ── Control bar ── */
+  .controls {
+    grid-column: 1 / -1;
+    background: #161b22;
+    border-bottom: 1px solid #30363d;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .btn {
+    padding: 6px 16px;
+    border-radius: 6px;
+    border: 1px solid #30363d;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 12px;
+    transition: all 0.2s;
+  }
+  .btn-primary { background: #238636; border-color: #2ea043; color: #fff; }
+  .btn-primary:hover { background: #2ea043; }
+  .btn-danger  { background: #b91c1c; border-color: #dc2626; color: #fff; }
+  .btn-danger:hover  { background: #dc2626; }
+  .btn-info    { background: #1e40af; border-color: #3b82f6; color: #fff; }
+  .btn-info:hover    { background: #2563eb; }
+  .btn-warn    { background: #92400e; border-color: #d97706; color: #fff; }
+  .btn-warn:hover    { background: #d97706; }
+  .btn-gray    { background: #21262d; border-color: #30363d; color: #8b949e; }
+  .btn-gray:hover    { background: #30363d; color: #c9d1d9; }
+  .speed-label { color: #8b949e; font-size: 12px; margin-left: 8px; }
+  .speed-select {
+    background: #21262d; border: 1px solid #30363d; color: #c9d1d9;
+    padding: 5px 8px; border-radius: 6px; font-family: inherit; font-size: 12px;
+  }
+  .scenario-label { color: #8b949e; font-size: 12px; margin-left: 12px; }
+  .divider { width: 1px; height: 28px; background: #30363d; margin: 0 4px; }
+
+  /* ── Main canvas area ── */
+  .canvas-area {
+    padding: 20px;
+    overflow: auto;
+    position: relative;
+  }
+
+  /* ── System diagram ── */
+  .diagram {
+    position: relative;
+    width: 780px;
+    min-height: 520px;
+  }
+
+  .block {
+    position: absolute;
+    border-radius: 8px;
+    border: 2px solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: box-shadow 0.3s, border-color 0.3s;
+    cursor: default;
+    user-select: none;
+  }
+  .block .title {
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+  }
+  .block .sub {
+    font-size: 10px;
+    margin-top: 2px;
+    opacity: 0.7;
+  }
+  .block.active {
+    box-shadow: 0 0 18px 4px var(--glow);
+    border-color: var(--glow) !important;
+  }
+  .block.pulse { animation: pulse 0.5s ease-out; }
+  @keyframes pulse {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.06); }
+    100% { transform: scale(1); }
+  }
+
+  /* Block styles */
+  .blk-pc    { background:#1c2333; border-color:#4493f8; --glow:#4493f8; width:90px; height:60px; left:0; top:200px; }
+  .blk-uartrx{ background:#1a2535; border-color:#3b82f6; --glow:#60a5fa; width:90px; height:50px; left:130px; top:170px; }
+  .blk-uarttx{ background:#1a2535; border-color:#3b82f6; --glow:#60a5fa; width:90px; height:50px; left:130px; top:240px; }
+  .blk-cfg   { background:#1a2535; border-color:#8b5cf6; --glow:#a78bfa; width:110px; height:80px; left:260px; top:170px; }
+  .blk-core  { background:#14281a; border-color:#3fb950; --glow:#3fb950; width:120px; height:90px; left:430px; top:185px; }
+  .blk-s1    { background:#2d1b00; border-color:#d97706; --glow:#fbbf24; width:80px; height:45px; left:130px; top:350px; }
+  .blk-s2    { background:#2d1b00; border-color:#d97706; --glow:#fbbf24; width:80px; height:45px; left:260px; top:350px; }
+  .blk-db1   { background:#1f2a1f; border-color:#4ade80; --glow:#4ade80; width:90px; height:45px; left:260px; top:410px; }
+  .blk-db2   { background:#1f2a1f; border-color:#4ade80; --glow:#4ade80; width:90px; height:45px; left:380px; top:410px; }
+  .blk-por   { background:#1c2a2a; border-color:#22d3ee; --glow:#22d3ee; width:80px; height:40px; left:0; top:60px; }
+  .blk-led3  { background:#2d1010; border-color:#f87171; --glow:#f87171; width:70px; height:40px; left:610px; top:185px; }
+  .blk-led4  { background:#102d10; border-color:#4ade80; --glow:#4ade80; width:70px; height:40px; left:610px; top:250px; }
+  .blk-uwdi  { background:#21262d; border-color:#6366f1; --glow:#818cf8; width:100px; height:40px; left:390px; top:350px; }
+
+  /* LED visual */
+  .led-dot {
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    margin-top: 4px;
+    transition: background 0.3s, box-shadow 0.3s;
+  }
+  .led-red-off  { background:#4b1c1c; }
+  .led-red-on   { background:#f87171; box-shadow: 0 0 10px 4px #f87171; }
+  .led-grn-off  { background:#1c4b1c; }
+  .led-grn-on   { background:#4ade80; box-shadow: 0 0 10px 4px #4ade80; }
+
+  /* ── SVG arrows ── */
+  #arrows { position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; }
+
+  /* Animated packet */
+  .packet {
+    position: absolute;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    pointer-events: none;
+    transition: none;
+    z-index: 10;
+    display: none;
+  }
+
+  /* ── FSM panel ── */
+  .fsm-panel {
+    background: #161b22;
+    border-left: 1px solid #30363d;
+    padding: 16px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .fsm-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #58a6ff;
+    border-bottom: 1px solid #30363d;
+    padding-bottom: 8px;
+    margin-bottom: 4px;
+  }
+
+  /* FSM states */
+  .fsm-states {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .fsm-state {
+    border-radius: 8px;
+    border: 2px solid #30363d;
+    padding: 8px;
+    text-align: center;
+    transition: all 0.3s;
+  }
+  .fsm-state .sname { font-weight: 700; font-size: 13px; }
+  .fsm-state .sdesc { font-size: 10px; color: #8b949e; margin-top: 2px; }
+  .fsm-state.current {
+    border-color: var(--sc);
+    background: var(--sbg);
+    box-shadow: 0 0 12px 2px var(--sc);
+  }
+  .s-idle   { --sc: #8b949e; --sbg: #21262d; }
+  .s-arming { --sc: #f59e0b; --sbg: #2d2000; }
+  .s-monitor{ --sc: #3fb950; --sbg: #0d2a14; }
+  .s-fault  { --sc: #f87171; --sbg: #2d0f0f; }
+
+  /* Counter bar */
+  .counter-section { }
+  .counter-label { font-size: 11px; color: #8b949e; margin-bottom: 4px; }
+  .counter-bar-wrap {
+    background: #21262d;
+    border-radius: 4px;
+    height: 16px;
+    overflow: hidden;
+    margin-bottom: 4px;
+    border: 1px solid #30363d;
+  }
+  .counter-bar {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.1s linear, background 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 4px;
+    font-size: 9px;
+    min-width: 2px;
+  }
+  .bar-arm     { background: linear-gradient(90deg, #78350f, #f59e0b); }
+  .bar-twd     { background: linear-gradient(90deg, #14532d, #22c55e); }
+  .bar-trst    { background: linear-gradient(90deg, #7f1d1d, #ef4444); }
+
+  /* Signal indicators */
+  .signals { display: flex; flex-direction: column; gap: 6px; }
+  .sig-row { display: flex; align-items: center; gap: 8px; }
+  .sig-name { width: 90px; font-size: 11px; color: #8b949e; }
+  .sig-val {
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    min-width: 36px;
+    text-align: center;
+    transition: all 0.2s;
+  }
+  .sig-hi { background: #0d2a14; color: #3fb950; border: 1px solid #238636; }
+  .sig-lo { background: #2d0f0f; color: #f87171; border: 1px solid #b91c1c; }
+  .sig-mid{ background: #21262d; color: #8b949e; border: 1px solid #30363d; }
+
+  /* UART frame visualizer */
+  .frame-vis {
+    background: #21262d;
+    border-radius: 6px;
+    padding: 8px;
+    border: 1px solid #30363d;
+  }
+  .frame-row {
+    display: flex;
+    gap: 3px;
+    flex-wrap: wrap;
+    margin-top: 6px;
+    min-height: 28px;
+    align-items: center;
+  }
+  .frame-byte {
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    border: 1px solid;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 0.3s, transform 0.3s;
+  }
+  .frame-byte.show { opacity: 1; transform: translateY(0); }
+  .fb-hdr  { background:#1e3a5f; border-color:#3b82f6; color:#93c5fd; }
+  .fb-cmd  { background:#3b1f5e; border-color:#7c3aed; color:#c4b5fd; }
+  .fb-addr { background:#1e3a20; border-color:#16a34a; color:#86efac; }
+  .fb-len  { background:#3b2a00; border-color:#ca8a04; color:#fde68a; }
+  .fb-data { background:#1e2a3b; border-color:#0ea5e9; color:#7dd3fc; }
+  .fb-chk  { background:#2d1b00; border-color:#ea580c; color:#fdba74; }
+  .fb-ack  { background:#0d2a14; border-color:#16a34a; color:#4ade80; }
+  .fb-nack { background:#2d0f0f; border-color:#dc2626; color:#f87171; }
+
+  /* Log panel */
+  .log-panel {
+    background: #0d1117;
+    border: 1px solid #21262d;
+    border-radius: 6px;
+    height: 160px;
+    overflow-y: auto;
+    padding: 6px 8px;
+    font-size: 11px;
+    line-height: 1.6;
+  }
+  .log-panel::-webkit-scrollbar { width: 4px; }
+  .log-panel::-webkit-scrollbar-track { background: #21262d; }
+  .log-panel::-webkit-scrollbar-thumb { background: #30363d; border-radius: 2px; }
+  .log-entry { display: flex; gap: 6px; }
+  .log-time { color: #6e7681; min-width: 52px; }
+  .log-ok   { color: #3fb950; }
+  .log-err  { color: #f87171; }
+  .log-info { color: #58a6ff; }
+  .log-warn { color: #d97706; }
+
+  /* Time display */
+  .time-display {
+    font-size: 11px;
+    color: #8b949e;
+    margin-left: auto;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  .time-val { color: #c9d1d9; font-weight: 700; }
+
+  /* waveform */
+  .wave-section { }
+  .wave-canvas {
+    width: 100%;
+    height: 80px;
+    border-radius: 4px;
+    background: #0d1117;
+    border: 1px solid #21262d;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>⚙ Watchdog UART</h1>
+  <div class="sub">Sunflower — PTIT · Kiwi 1P5 · Gowin GW1N-UV1P5</div>
+  <span class="badge">27 MHz · 9600 bps</span>
+</div>
+
+<div class="layout">
+
+  <!-- Controls -->
+  <div class="controls">
+    <button class="btn btn-primary" onclick="scenario('normal')">▶ Normal Kick</button>
+    <button class="btn btn-danger"  onclick="scenario('timeout')">⚠ Timeout</button>
+    <button class="btn btn-info"    onclick="scenario('uart_kick')">📡 UART Kick</button>
+    <button class="btn btn-info"    onclick="scenario('read_reg')">📖 Read Reg</button>
+    <button class="btn btn-warn"    onclick="scenario('arm_delay')">⏱ Arm Delay</button>
+    <button class="btn btn-gray"    onclick="scenario('disable')">⏹ Disable</button>
+    <button class="btn btn-gray"    onclick="scenario('clr_fault')">🔧 Clr Fault</button>
+    <div class="divider"></div>
+    <span class="speed-label">Tốc độ:</span>
+    <select class="speed-select" id="speedSel" onchange="setSpeed(this.value)">
+      <option value="0.5">0.5×</option>
+      <option value="1" selected>1×</option>
+      <option value="2">2×</option>
+      <option value="3">3×</option>
+    </select>
+    <button class="btn btn-gray" onclick="resetAll()" style="margin-left:4px">↺ Reset</button>
+    <div class="time-display">
+      Sim time: <span class="time-val" id="simTime">0.00 ms</span>
+      Tick: <span class="time-val" id="tickCount">0</span>
+    </div>
+  </div>
+
+  <!-- Main diagram -->
+  <div class="canvas-area">
+    <div class="diagram" id="diagram">
+      <svg id="arrows"></svg>
+
+      <!-- PC -->
+      <div class="block blk-pc" id="blk-pc">
+        <div class="title">💻 PC</div>
+        <div class="sub">Python Serial</div>
+      </div>
+      <!-- POR -->
+      <div class="block blk-por" id="blk-por">
+        <div class="title">POR</div>
+        <div class="sub">65536 cy</div>
+      </div>
+      <!-- UART RX -->
+      <div class="block blk-uartrx" id="blk-uartrx">
+        <div class="title">uart_rx</div>
+        <div class="sub">IDLE→DATA</div>
+      </div>
+      <!-- UART TX -->
+      <div class="block blk-uarttx" id="blk-uarttx">
+        <div class="title">uart_tx</div>
+        <div class="sub">IDLE→STOP</div>
+      </div>
+      <!-- Config reg -->
+      <div class="block blk-cfg" id="blk-cfg">
+        <div class="title">config_reg</div>
+        <div class="sub">Parser + Regs<br>CMD 01/02/03/04</div>
+      </div>
+      <!-- Watchdog core -->
+      <div class="block blk-core" id="blk-core">
+        <div class="title">watchdog_core</div>
+        <div class="sub" id="core-state-label">IDLE</div>
+        <div class="sub" id="core-counter-label" style="color:#d97706">cnt: 0</div>
+      </div>
+      <!-- S1 -->
+      <div class="block blk-s1" id="blk-s1">
+        <div class="title">🔘 S1</div>
+        <div class="sub">WDI Kick</div>
+      </div>
+      <!-- S2 -->
+      <div class="block blk-s2" id="blk-s2">
+        <div class="title">🔘 S2</div>
+        <div class="sub">Enable</div>
+      </div>
+      <!-- Debounce 1 -->
+      <div class="block blk-db1" id="blk-db1">
+        <div class="title">debounce</div>
+        <div class="sub">20ms</div>
+      </div>
+      <!-- Debounce 2 -->
+      <div class="block blk-db2" id="blk-db2">
+        <div class="title">debounce</div>
+        <div class="sub">20ms</div>
+      </div>
+      <!-- u_wdi gen -->
+      <div class="block blk-uwdi" id="blk-uwdi">
+        <div class="title">u_wdi gen</div>
+        <div class="sub">20 cy pulse</div>
+      </div>
+      <!-- LED D3 -->
+      <div class="block blk-led3" id="blk-led3">
+        <div class="title">LED D3</div>
+        <div class="led-dot led-red-off" id="led-d3"></div>
+      </div>
+      <!-- LED D4 -->
+      <div class="block blk-led4" id="blk-led4">
+        <div class="title">LED D4</div>
+        <div class="led-dot led-grn-off" id="led-d4"></div>
+      </div>
+
+      <!-- Animated packets -->
+      <div class="packet" id="pkt1" style="background:#60a5fa"></div>
+      <div class="packet" id="pkt2" style="background:#a78bfa"></div>
+      <div class="packet" id="pkt3" style="background:#4ade80"></div>
+      <div class="packet" id="pkt4" style="background:#fbbf24"></div>
+      <div class="packet" id="pkt5" style="background:#f87171"></div>
+    </div>
+
+    <!-- UART Frame visualizer -->
+    <div style="margin-top:24px;">
+      <div class="fsm-title">📦 UART Frame</div>
+      <div class="frame-vis">
+        <div style="font-size:10px;color:#6e7681;">Frame: [Header][CMD][ADDR][LEN][DATA...][CHK]</div>
+        <div class="frame-row" id="frame-row"></div>
+        <div style="margin-top:4px;font-size:10px;color:#6e7681;">Response:</div>
+        <div class="frame-row" id="resp-row"></div>
+      </div>
+    </div>
+
+    <!-- Waveform -->
+    <div style="margin-top:16px;">
+      <div class="fsm-title">〜 Dạng sóng tín hiệu</div>
+      <canvas class="wave-canvas" id="waveCanvas"></canvas>
+    </div>
+
+    <!-- Log -->
+    <div style="margin-top:16px;">
+      <div class="fsm-title">📋 Nhật ký hoạt động</div>
+      <div class="log-panel" id="logPanel"></div>
+    </div>
+  </div>
+
+  <!-- FSM panel -->
+  <div class="fsm-panel">
+    <div>
+      <div class="fsm-title">🔄 FSM watchdog_core</div>
+      <div class="fsm-states">
+        <div class="fsm-state s-idle current" id="fs-idle">
+          <div class="sname">IDLE</div>
+          <div class="sdesc">Chờ EN↑</div>
+        </div>
+        <div class="fsm-state s-arming" id="fs-arming">
+          <div class="sname">ARMING</div>
+          <div class="sdesc">Đếm arm_delay<br>Bỏ qua WDI</div>
+        </div>
+        <div class="fsm-state s-monitor" id="fs-monitor">
+          <div class="sname">MONITOR</div>
+          <div class="sdesc">Giám sát kick<br>Đếm tWD</div>
+        </div>
+        <div class="fsm-state s-fault" id="fs-fault">
+          <div class="sname">FAULT</div>
+          <div class="sdesc">WDO=0<br>Đếm tRST</div>
+        </div>
+      </div>
+
+      <!-- Transition arrows -->
+      <div style="margin-top:10px;font-size:10px;color:#6e7681;line-height:1.8;">
+        <div>IDLE → ARMING &nbsp;&nbsp;<span style="color:#f59e0b">EN=1</span></div>
+        <div>ARMING → MONITOR <span style="color:#3fb950">arm_delay xong</span></div>
+        <div>MONITOR → FAULT &nbsp;<span style="color:#f87171">timeout tWD</span></div>
+        <div>FAULT → MONITOR &nbsp;<span style="color:#60a5fa">tRST / clr_fault</span></div>
+        <div>* → IDLE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#8b949e">EN=0</span></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="fsm-title">📊 Bộ đếm</div>
+      <div class="counter-section">
+        <div class="counter-label">arm_delay (150 µs)</div>
+        <div class="counter-bar-wrap">
+          <div class="counter-bar bar-arm" id="bar-arm" style="width:0%"></div>
+        </div>
+        <div class="counter-label">tWD (1600 ms)</div>
+        <div class="counter-bar-wrap">
+          <div class="counter-bar bar-twd" id="bar-twd" style="width:0%"></div>
+        </div>
+        <div class="counter-label">tRST (200 ms)</div>
+        <div class="counter-bar-wrap">
+          <div class="counter-bar bar-trst" id="bar-trst" style="width:0%"></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="fsm-title">🔌 Tín hiệu</div>
+      <div class="signals">
+        <div class="sig-row">
+          <span class="sig-name">rst_n</span>
+          <span class="sig-val sig-lo" id="sig-rst">LOW</span>
+        </div>
+        <div class="sig-row">
+          <span class="sig-name">en (tổng hợp)</span>
+          <span class="sig-val sig-lo" id="sig-en">LOW</span>
+        </div>
+        <div class="sig-row">
+          <span class="sig-name">wdi</span>
+          <span class="sig-val sig-hi" id="sig-wdi">HIGH</span>
+        </div>
+        <div class="sig-row">
+          <span class="sig-name">wdi_fall</span>
+          <span class="sig-val sig-mid" id="sig-fall">—</span>
+        </div>
+        <div class="sig-row">
+          <span class="sig-name">wdo</span>
+          <span class="sig-val sig-hi" id="sig-wdo">HIGH</span>
+        </div>
+        <div class="sig-row">
+          <span class="sig-name">enout</span>
+          <span class="sig-val sig-lo" id="sig-enout">LOW</span>
+        </div>
+        <div class="sig-row">
+          <span class="sig-name">fault_active</span>
+          <span class="sig-val sig-lo" id="sig-fault">LOW</span>
+        </div>
+        <div class="sig-row">
+          <span class="sig-name">uart_kick</span>
+          <span class="sig-val sig-mid" id="sig-ukick">—</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="fsm-title">📡 UART Parser</div>
+      <div class="signals">
+        <div class="sig-row">
+          <span class="sig-name">parser state</span>
+          <span class="sig-val sig-mid" id="sig-parser" style="min-width:60px;font-size:10px;">PS_HDR</span>
+        </div>
+        <div class="sig-row">
+          <span class="sig-name">CMD</span>
+          <span class="sig-val sig-mid" id="sig-cmd">—</span>
+        </div>
+        <div class="sig-row">
+          <span class="sig-name">ADDR</span>
+          <span class="sig-val sig-mid" id="sig-addr">—</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="fsm-title">📝 Thanh ghi</div>
+      <div class="signals">
+        <div class="sig-row">
+          <span class="sig-name">CTRL</span>
+          <span class="sig-val sig-mid" id="reg-ctrl">0x00</span>
+        </div>
+        <div class="sig-row">
+          <span class="sig-name">tWD_ms</span>
+          <span class="sig-val sig-mid" id="reg-twd">1600</span>
+        </div>
+        <div class="sig-row">
+          <span class="sig-name">tRST_ms</span>
+          <span class="sig-val sig-mid" id="reg-trst">200</span>
+        </div>
+        <div class="sig-row">
+          <span class="sig-name">arm_us</span>
+          <span class="sig-val sig-mid" id="reg-arm">150</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// ============================================================
+// State machine
+// ============================================================
+const S = { IDLE:0, ARMING:1, MONITOR:2, FAULT:3 };
+const sNames = ['IDLE','ARMING','MONITOR','FAULT'];
+const PS = { HDR:0, CMD:1, ADDR:2, LEN:3, DATA:4, CHK:5 };
+const psNames = ['PS_HDR','PS_CMD','PS_ADDR','PS_LEN','PS_DATA','PS_CHK'];
+
+let state = {
+  rst: false,
+  fsmState: S.IDLE,
+  counter: 0,
+  en: false,
+  wdi: true,
+  wdiFall: false,
+  wdo: true,
+  enout: false,
+  fault: false,
+  uartKick: false,
+  parserState: PS.HDR,
+  cmd: null, addr: null,
+  twd_ms: 1600, trst_ms: 200, arm_us: 150,
+  ctrl: 0,
+  simTimeMs: 0,
+  tick: 0,
+  running: false,
+};
+
+let speed = 1;
+let animQueue = [];
+let currentScenario = null;
+
+// ============================================================
+// Arrow / wire drawing
+// ============================================================
+function getBCenter(id) {
+  const el = document.getElementById(id);
+  if (!el) return {x:0,y:0};
+  const p = el.parentElement.getBoundingClientRect();
+  const r = el.getBoundingClientRect();
+  return {
+    x: r.left - p.left + r.width/2,
+    y: r.top  - p.top  + r.height/2,
+    w: r.width, h: r.height,
+    l: r.left - p.left,
+    t: r.top  - p.top,
+    r: r.left - p.left + r.width,
+    b: r.top  - p.top  + r.height,
+  };
+}
+
+function drawArrows() {
+  const svg = document.getElementById('arrows');
+  svg.innerHTML = '';
+
+  const wires = [
+    // PC → uart_rx
+    { from:'blk-pc', to:'blk-uartrx', color:'#3b82f6', label:'RX' },
+    // uart_tx → PC
+    { from:'blk-uarttx', to:'blk-pc', color:'#3b82f6', label:'TX' },
+    // uart_rx → config_reg
+    { from:'blk-uartrx', to:'blk-cfg', color:'#8b5cf6', label:'rx_data' },
+    // config_reg → uart_tx
+    { from:'blk-cfg', to:'blk-uarttx', color:'#8b5cf6', label:'tx_data' },
+    // config_reg → watchdog_core
+    { from:'blk-cfg', to:'blk-core', color:'#a78bfa', label:'twd/trst/arm' },
+    // u_wdi gen → watchdog_core
+    { from:'blk-uwdi', to:'blk-core', color:'#6366f1', label:'u_wdi' },
+    // config_reg → u_wdi gen
+    { from:'blk-cfg', to:'blk-uwdi', color:'#6366f1', label:'uart_kick' },
+    // S1 → db1
+    { from:'blk-s1', to:'blk-db1', color:'#d97706', label:'btn_n' },
+    // db1 → watchdog_core (wdi)
+    { from:'blk-db1', to:'blk-core', color:'#fbbf24', label:'wdi_db' },
+    // S2 → db2
+    { from:'blk-s2', to:'blk-db2', color:'#d97706', label:'btn_n' },
+    // db2 → watchdog_core (en)
+    { from:'blk-db2', to:'blk-core', color:'#fbbf24', label:'en' },
+    // POR → rst_n (to core)
+    { from:'blk-por', to:'blk-core', color:'#22d3ee', label:'rst_n', dashed:true },
+    // core → LED D3
+    { from:'blk-core', to:'blk-led3', color:'#f87171', label:'wdo' },
+    // core → LED D4
+    { from:'blk-core', to:'blk-led4', color:'#4ade80', label:'enout' },
+  ];
+
+  wires.forEach(w => {
+    const a = getBCenter('blk-' + w.from.replace('blk-',''));
+    const b = getBCenter('blk-' + w.to.replace('blk-',''));
+    if (!a || !b) return;
+
+    // Simple polyline with midpoint
+    const x1 = a.x, y1 = a.y, x2 = b.x, y2 = b.y;
+    const mx = (x1+x2)/2, my = (y1+y2)/2;
+
+    const path = document.createElementNS('http://www.w3.org/2000/svg','path');
+    const d = `M${x1},${y1} C${mx},${y1} ${mx},${y2} ${x2},${y2}`;
+    path.setAttribute('d', d);
+    path.setAttribute('stroke', w.color);
+    path.setAttribute('stroke-width', '1.5');
+    path.setAttribute('fill', 'none');
+    path.setAttribute('opacity', '0.5');
+    if (w.dashed) path.setAttribute('stroke-dasharray', '4,3');
+
+    // Arrowhead
+    const arrow = document.createElementNS('http://www.w3.org/2000/svg','polygon');
+    const angle = Math.atan2(y2 - my, x2 - mx);
+    const ax = x2, ay = y2;
+    const a1x = ax - 8*Math.cos(angle-0.4), a1y = ay - 8*Math.sin(angle-0.4);
+    const a2x = ax - 8*Math.cos(angle+0.4), a2y = ay - 8*Math.sin(angle+0.4);
+    arrow.setAttribute('points', `${ax},${ay} ${a1x},${a1y} ${a2x},${a2y}`);
+    arrow.setAttribute('fill', w.color);
+    arrow.setAttribute('opacity', '0.7');
+
+    // Label
+    const text = document.createElementNS('http://www.w3.org/2000/svg','text');
+    text.setAttribute('x', mx);
+    text.setAttribute('y', my - 3);
+    text.setAttribute('fill', w.color);
+    text.setAttribute('font-size', '9');
+    text.setAttribute('text-anchor', 'middle');
+    text.setAttribute('opacity', '0.7');
+    text.textContent = w.label;
+
+    svg.appendChild(path);
+    svg.appendChild(arrow);
+    svg.appendChild(text);
+  });
+}
+
+// ============================================================
+// Packet animation
+// ============================================================
+let pktIdx = 0;
+function animPacket(fromId, toId, color, onDone) {
+  const a = getBCenter(fromId);
+  const b = getBCenter(toId);
+  const id = 'pkt' + ((pktIdx++ % 5) + 1);
+  const el = document.getElementById(id);
+  el.style.background = color;
+  el.style.display = 'block';
+  el.style.left = (a.x - 5) + 'px';
+  el.style.top  = (a.y - 5) + 'px';
+  el.style.transition = `left ${400/speed}ms ease, top ${400/speed}ms ease`;
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      el.style.left = (b.x - 5) + 'px';
+      el.style.top  = (b.y - 5) + 'px';
+    });
+  });
+  setTimeout(() => {
+    el.style.display = 'none';
+    if (onDone) onDone();
+  }, 420/speed);
+}
+
+// ============================================================
+// UI Update
+// ============================================================
+function updateFSM(s) {
+  ['idle','arming','monitor','fault'].forEach(n => {
+    document.getElementById('fs-'+n).classList.remove('current');
+  });
+  const map = {0:'idle',1:'arming',2:'monitor',3:'fault'};
+  document.getElementById('fs-'+map[s]).classList.add('current');
+
+  document.getElementById('core-state-label').textContent = sNames[s];
+  const colors = {0:'#8b949e',1:'#f59e0b',2:'#3fb950',3:'#f87171'};
+  document.getElementById('core-state-label').style.color = colors[s];
+}
+
+function updateSignal(id, val, isHigh) {
+  const el = document.getElementById(id);
+  el.textContent = val;
+  el.className = 'sig-val ' + (isHigh===true?'sig-hi': isHigh===false?'sig-lo':'sig-mid');
+}
+
+function updateBars(st, cnt, twd_ms, trst_ms, arm_us) {
+  const arm_cy = arm_us * 27;
+  const twd_cy = twd_ms * 27000;
+  const trst_cy = trst_ms * 27000;
+  let armPct=0, twdPct=0, trstPct=0;
+  if (st === S.ARMING)  armPct  = Math.min(100, cnt/arm_cy*100);
+  if (st === S.MONITOR) twdPct  = Math.min(100, cnt/twd_cy*100);
+  if (st === S.FAULT)   trstPct = Math.min(100, cnt/trst_cy*100);
+  document.getElementById('bar-arm').style.width  = armPct+'%';
+  document.getElementById('bar-twd').style.width  = twdPct+'%';
+  document.getElementById('bar-trst').style.width = trstPct+'%';
+}
+
+function setLED(id, on) {
+  const el = document.getElementById(id);
+  if (id === 'led-d3') {
+    el.className = 'led-dot ' + (on ? 'led-red-on' : 'led-red-off');
+  } else {
+    el.className = 'led-dot ' + (on ? 'led-grn-on' : 'led-grn-off');
+  }
+}
+
+function flashBlock(id) {
+  const el = document.getElementById(id);
+  el.classList.add('pulse');
+  setTimeout(() => el.classList.remove('pulse'), 500);
+}
+
+function highlightBlock(id, on) {
+  const el = document.getElementById(id);
+  if (on) el.classList.add('active');
+  else el.classList.remove('active');
+}
+
+// ============================================================
+// UART Frame display
+// ============================================================
+function showFrame(bytes) {
+  const row = document.getElementById('frame-row');
+  row.innerHTML = '';
+  bytes.forEach((b, i) => {
+    const el = document.createElement('div');
+    el.className = 'frame-byte ' + b.cls;
+    el.textContent = b.label;
+    row.appendChild(el);
+    setTimeout(() => el.classList.add('show'), 80 * i / speed);
+  });
+}
+function showResp(bytes) {
+  const row = document.getElementById('resp-row');
+  row.innerHTML = '';
+  bytes.forEach((b, i) => {
+    const el = document.createElement('div');
+    el.className = 'frame-byte ' + b.cls;
+    el.textContent = b.label;
+    row.appendChild(el);
+    setTimeout(() => el.classList.add('show'), 80 * i / speed);
+  });
+}
+
+// ============================================================
+// Log
+// ============================================================
+let simMs = 0;
+function log(msg, type='info') {
+  const panel = document.getElementById('logPanel');
+  const entry = document.createElement('div');
+  entry.className = 'log-entry';
+  const t = document.createElement('span');
+  t.className = 'log-time';
+  t.textContent = simMs.toFixed(1)+'ms';
+  const m = document.createElement('span');
+  m.className = 'log-'+type;
+  m.textContent = msg;
+  entry.appendChild(t);
+  entry.appendChild(m);
+  panel.appendChild(entry);
+  panel.scrollTop = panel.scrollHeight;
+}
+
+// ============================================================
+// Waveform
+// ============================================================
+const waveData = { wdo:[], enout:[], wdi:[], en:[] };
+const maxWavePts = 200;
+let waveCtx = null;
+
+function initWave() {
+  const c = document.getElementById('waveCanvas');
+  waveCtx = c.getContext('2d');
+  c.width = c.offsetWidth;
+  c.height = 80;
+}
+function pushWave(key, val) {
+  waveData[key].push(val);
+  if (waveData[key].length > maxWavePts) waveData[key].shift();
+}
+function drawWave() {
+  if (!waveCtx) return;
+  const c = document.getElementById('waveCanvas');
+  const w = c.width, h = c.height;
+  waveCtx.clearRect(0,0,w,h);
+  const channels = [
+    {key:'en',    color:'#f59e0b', label:'en',    y0:8,  y1:22},
+    {key:'wdi',   color:'#60a5fa', label:'wdi',   y0:28, y1:42},
+    {key:'enout', color:'#4ade80', label:'enout', y0:48, y1:62},
+    {key:'wdo',   color:'#f87171', label:'wdo',   y0:66, y1:78},
+  ];
+  channels.forEach(ch => {
+    const data = waveData[ch.key];
+    if (!data.length) return;
+    waveCtx.strokeStyle = ch.color;
+    waveCtx.lineWidth = 1.5;
+    waveCtx.beginPath();
+    const step = w / maxWavePts;
+    let px = 0, py = data[0] ? ch.y0 : ch.y1;
+    waveCtx.moveTo(px, py);
+    for (let i=1; i<data.length; i++) {
+      const nx = i * step;
+      const ny = data[i] ? ch.y0 : ch.y1;
+      if (ny !== py) { waveCtx.lineTo(nx, py); waveCtx.lineTo(nx, ny); }
+      py = ny; px = nx;
+    }
+    waveCtx.lineTo(w, py);
+    waveCtx.stroke();
+    // label
+    waveCtx.fillStyle = ch.color;
+    waveCtx.font = '9px Consolas';
+    waveCtx.fillText(ch.label, 2, ch.y0 - 1);
+  });
+}
+
+// ============================================================
+// Simulation core
+// ============================================================
+function setSpeed(v) { speed = parseFloat(v); }
+
+function applyState() {
+  const st = state;
+  updateFSM(st.fsmState);
+  updateSignal('sig-rst',   st.rst   ? 'HIGH':'LOW',  st.rst);
+  updateSignal('sig-en',    st.en    ? 'HIGH':'LOW',  st.en);
+  updateSignal('sig-wdi',   st.wdi   ? 'HIGH':'LOW',  st.wdi);
+  updateSignal('sig-fall',  st.wdiFall ? 'FALL':'—',   st.wdiFall ? null : null);
+  updateSignal('sig-wdo',   st.wdo   ? 'HIGH':'LOW',  st.wdo);
+  updateSignal('sig-enout', st.enout ? 'HIGH':'LOW',  st.enout);
+  updateSignal('sig-fault', st.fault ? 'HIGH':'LOW',  st.fault ? false : null);
+  updateSignal('sig-ukick', st.uartKick ? 'PULSE':'—', st.uartKick ? null : null);
+  updateSignal('sig-parser', psNames[st.parserState], null);
+  updateSignal('sig-cmd',  st.cmd  != null ? '0x'+st.cmd.toString(16).toUpperCase().padStart(2,'0'):'—', null);
+  updateSignal('sig-addr', st.addr != null ? '0x'+st.addr.toString(16).toUpperCase().padStart(2,'0'):'—', null);
+  document.getElementById('reg-ctrl').textContent  = '0x'+st.ctrl.toString(16).toUpperCase().padStart(2,'0');
+  document.getElementById('reg-twd').textContent   = st.twd_ms;
+  document.getElementById('reg-trst').textContent  = st.trst_ms;
+  document.getElementById('reg-arm').textContent   = st.arm_us;
+  updateBars(st.fsmState, st.counter, st.twd_ms, st.trst_ms, st.arm_us);
+  setLED('led-d3', !st.wdo);
+  setLED('led-d4', st.enout);
+  document.getElementById('core-counter-label').textContent = 'cnt: '+st.counter;
+  document.getElementById('simTime').textContent = st.simTimeMs.toFixed(2)+' ms';
+  document.getElementById('tickCount').textContent = st.tick;
+  pushWave('en',    st.en    ? 1 : 0);
+  pushWave('wdi',   st.wdi   ? 1 : 0);
+  pushWave('enout', st.enout ? 1 : 0);
+  pushWave('wdo',   st.wdo   ? 1 : 0);
+  drawWave();
+}
+
+// ============================================================
+// Scenario runner — step-based animation
+// ============================================================
+function delay(ms) {
+  return new Promise(r => setTimeout(r, ms / speed));
+}
+
+function transitionFSM(newState, reason) {
+  const old = sNames[state.fsmState];
+  state.fsmState = newState;
+  state.counter = 0;
+  log(`FSM: ${old} → ${sNames[newState]}  (${reason})`, newState===S.FAULT?'err': newState===S.IDLE?'warn':'ok');
+  applyState();
+  flashBlock('blk-core');
+}
+
+async function animUARTFrame(frameBytes, respBytes, cmdName) {
+  // Highlight PC and uart_rx
+  highlightBlock('blk-pc', true);
+  log(`PC gửi lệnh: ${cmdName}`, 'info');
+  await delay(300);
+
+  // Animate each byte PC → uart_rx
+  showFrame(frameBytes);
+  highlightBlock('blk-uartrx', true);
+  animPacket('blk-pc', 'blk-uartrx', '#60a5fa');
+  updateSignal('sig-parser', 'PS_HDR', null);
+  state.parserState = PS.HDR;
+  applyState();
+  await delay(400);
+
+  // Parser goes through states
+  const parserSteps = [
+    {ps: PS.CMD,  label:'PS_CMD',  delay:250},
+    {ps: PS.ADDR, label:'PS_ADDR', delay:200},
+    {ps: PS.LEN,  label:'PS_LEN',  delay:200},
+    {ps: PS.DATA, label:'PS_DATA', delay:300},
+    {ps: PS.CHK,  label:'PS_CHK',  delay:300},
+  ];
+  for (const step of parserSteps) {
+    state.parserState = step.ps;
+    updateSignal('sig-parser', step.label, null);
+    await delay(step.delay);
+  }
+
+  // config_reg processes
+  highlightBlock('blk-cfg', true);
+  animPacket('blk-uartrx', 'blk-cfg', '#a78bfa');
+  await delay(400);
+
+  // Response
+  if (respBytes) {
+    showResp(respBytes);
+    animPacket('blk-cfg', 'blk-uarttx', '#a78bfa');
+    highlightBlock('blk-uarttx', true);
+    await delay(400);
+    animPacket('blk-uarttx', 'blk-pc', '#60a5fa');
+    await delay(400);
+    log(`Response gửi về PC: ${respBytes.map(b=>b.label).join(' ')}`, 'ok');
+  }
+
+  await delay(200);
+  highlightBlock('blk-pc', false);
+  highlightBlock('blk-uartrx', false);
+  highlightBlock('blk-cfg', false);
+  highlightBlock('blk-uarttx', false);
+  state.parserState = PS.HDR;
+  applyState();
+}
+
+async function animPOR() {
+  log('Power-On Reset bắt đầu...', 'warn');
+  highlightBlock('blk-por', true);
+  state.rst = false;
+  applyState();
+  // Count up por
+  for (let i=0; i<=100; i+=10) {
+    await delay(60);
+    document.getElementById('blk-por').querySelector('.sub').textContent =
+      Math.floor(i*655) + ' / 65535';
+    state.simTimeMs += 0.24;
+    applyState();
+  }
+  state.rst = true;
+  document.getElementById('blk-por').querySelector('.sub').textContent = '✓ Done';
+  log('rst_n = HIGH — hệ thống sẵn sàng', 'ok');
+  animPacket('blk-por', 'blk-core', '#22d3ee');
+  highlightBlock('blk-por', false);
+  applyState();
+  await delay(300);
+}
+
+async function animDebounce(btnId, dbId, label) {
+  highlightBlock(btnId, true);
+  flashBlock(btnId);
+  log(`Nút ${label} nhấn (active-low)`, 'info');
+  await delay(200);
+  highlightBlock(dbId, true);
+  flashBlock(dbId);
+  log(`sync_debounce: đếm 20ms (540000 cy)...`, 'info');
+  // Quick visual progress
+  for (let i=0; i<5; i++) {
+    await delay(100);
+    state.simTimeMs += 4;
+    document.getElementById('tickCount').textContent = state.tick;
+  }
+  log(`Debounce xong — đầu ra ổn định`, 'ok');
+  highlightBlock(dbId, false);
+}
+
+// ============================================================
+// SCENARIOS
+// ============================================================
+async function scenario(name) {
+  resetAll(false);
+  await delay(100);
+  await animPOR();
+
+  if (name === 'normal') await sc_normalKick();
+  else if (name === 'timeout') await sc_timeout();
+  else if (name === 'uart_kick') await sc_uartKick();
+  else if (name === 'read_reg') await sc_readReg();
+  else if (name === 'arm_delay') await sc_armDelay();
+  else if (name === 'disable') await sc_disable();
+  else if (name === 'clr_fault') await sc_clrFault();
+}
+
+async function sc_normalKick() {
+  log('─── TC1: Normal Kick ───', 'info');
+
+  // Enable via S2
+  await animDebounce('blk-s2', 'blk-db2', 'S2 (Enable)');
+  state.en = true;
+  animPacket('blk-db2', 'blk-core', '#fbbf24');
+  log('en=1 → FSM chuyển IDLE→ARMING', 'ok');
+  transitionFSM(S.ARMING, 'EN=1');
+  await delay(300);
+
+  // Arm delay progress
+  log('ARMING: đếm arm_delay=150µs (WDI bị bỏ qua)...', 'warn');
+  highlightBlock('blk-core', true);
+  for (let i=0; i<=100; i+=20) {
+    state.counter = Math.floor(i/100 * 150*27);
+    state.simTimeMs += 0.03;
+    updateBars(S.ARMING, state.counter, state.twd_ms, state.trst_ms, state.arm_us);
+    document.getElementById('core-counter-label').textContent = 'cnt: '+state.counter;
+    document.getElementById('simTime').textContent = state.simTimeMs.toFixed(2)+' ms';
+    await delay(150);
+  }
+  transitionFSM(S.MONITOR, 'arm_delay xong');
+  state.enout = true;
+  log('enout=1 → LED D4 SÁNG', 'ok');
+  setLED('led-d4', true);
+  await delay(300);
+
+  // 3 kicks
+  for (let k=1; k<=3; k++) {
+    log(`Kick #${k}: Nhấn S1 (WDI pulse)`, 'info');
+    await animDebounce('blk-s1', 'blk-db1', 'S1 (WDI)');
+
+    // wdi goes low
+    state.wdi = false;
+    state.wdiFall = true;
+    animPacket('blk-db1', 'blk-core', '#fbbf24');
+    log('wdi_fall=1 → Reset bộ đếm tWD', 'ok');
+    applyState();
+    await delay(200);
+    state.wdi = true;
+    state.wdiFall = false;
+    state.counter = 0;
+    // tWD progress (partial)
+    const pct = 0.55 + k*0.05;
+    for (let i=0; i<=Math.floor(pct*100); i+=15) {
+      state.counter = Math.floor(i/100 * state.twd_ms*27000);
+      state.simTimeMs += state.twd_ms * pct / 6;
+      updateBars(S.MONITOR, state.counter, state.twd_ms, state.trst_ms, state.arm_us);
+      document.getElementById('core-counter-label').textContent = 'cnt: '+state.counter;
+      document.getElementById('simTime').textContent = state.simTimeMs.toFixed(2)+' ms';
+      await delay(120);
+    }
+    highlightBlock('blk-s1', false);
+    highlightBlock('blk-db1', false);
+  }
+
+  highlightBlock('blk-core', false);
+  log('WDO giữ HIGH ✓ — Hệ thống hoạt động bình thường', 'ok');
+}
+
+async function sc_timeout() {
+  log('─── TC2: Timeout ───', 'info');
+  state.en = true;
+  transitionFSM(S.ARMING, 'EN=1');
+  state.simTimeMs += 0.15;
+  transitionFSM(S.MONITOR, 'arm_delay xong');
+  state.enout = true;
+  setLED('led-d4', true);
+  applyState();
+  log('Watchdog đang chạy (MONITOR), không có kick...', 'warn');
+
+  // tWD countdown
+  highlightBlock('blk-core', true);
+  for (let i=0; i<=100; i+=5) {
+    state.counter = Math.floor(i/100 * state.twd_ms*27000);
+    state.simTimeMs += state.twd_ms / 20;
+    updateBars(S.MONITOR, state.counter, state.twd_ms, state.trst_ms, state.arm_us);
+    document.getElementById('core-counter-label').textContent = 'cnt: '+state.counter;
+    document.getElementById('simTime').textContent = state.simTimeMs.toFixed(2)+' ms';
+    await delay(100);
+  }
+
+  // FAULT
+  state.wdo = false;
+  state.fault = true;
+  transitionFSM(S.FAULT, 'counter ≥ tWD');
+  setLED('led-d3', true);
+  log('WDO = LOW → LED D3 SÁNG (FAULT)', 'err');
+  await delay(300);
+
+  // tRST countdown
+  log(`Đếm tRST=${state.trst_ms}ms...`, 'warn');
+  for (let i=0; i<=100; i+=5) {
+    state.counter = Math.floor(i/100 * state.trst_ms*27000);
+    state.simTimeMs += state.trst_ms / 20;
+    updateBars(S.FAULT, state.counter, state.twd_ms, state.trst_ms, state.arm_us);
+    document.getElementById('core-counter-label').textContent = 'cnt: '+state.counter;
+    document.getElementById('simTime').textContent = state.simTimeMs.toFixed(2)+' ms';
+    await delay(100);
+  }
+
+  // Auto recover
+  state.wdo = true;
+  state.fault = false;
+  transitionFSM(S.MONITOR, 'tRST xong → tự phục hồi');
+  setLED('led-d3', false);
+  log('WDO = HIGH → Phục hồi tự động ✓', 'ok');
+  highlightBlock('blk-core', false);
+}
+
+async function sc_uartKick() {
+  log('─── UART Kick (CMD 0x03) ───', 'info');
+  state.en = true;
+  transitionFSM(S.ARMING, 'EN=1 (via UART)');
+  state.simTimeMs += 0.15;
+  transitionFSM(S.MONITOR, 'arm_delay xong');
+  state.enout = true;
+  setLED('led-d4', true);
+  applyState();
+
+  const frame = [
+    {cls:'fb-hdr',label:'55'},
+    {cls:'fb-cmd',label:'03'},
+    {cls:'fb-addr',label:'00'},
+    {cls:'fb-len',label:'00'},
+    {cls:'fb-chk',label:'03'},
+  ];
+  const resp = [
+    {cls:'fb-ack',label:'AA'},
+    {cls:'fb-ack',label:'03'},
+    {cls:'fb-ack',label:'00'},
+    {cls:'fb-ack',label:'03'},
+  ];
+  await animUARTFrame(frame, resp, 'KICK (0x03)');
+
+  // uart_kick pulse
+  state.uartKick = true;
+  state.cmd = 0x03;
+  highlightBlock('blk-cfg', true);
+  animPacket('blk-cfg', 'blk-uwdi', '#6366f1');
+  log('uart_kick=1 → u_wdi gen tạo xung 20 cy', 'info');
+  applyState();
+  await delay(300);
+
+  // u_wdi pulse
+  highlightBlock('blk-uwdi', true);
+  state.wdi = false;
+  animPacket('blk-uwdi', 'blk-core', '#818cf8');
+  log('u_wdi kéo xuống 0 trong 20 cy (≈0.74µs)', 'info');
+  state.wdiFall = true;
+  state.counter = 0;
+  applyState();
+  await delay(300);
+  state.wdi = true;
+  state.wdiFall = false;
+  state.uartKick = false;
+  highlightBlock('blk-uwdi', false);
+  highlightBlock('blk-cfg', false);
+  log('wdi_fall → Reset bộ đếm tWD ✓', 'ok');
+  applyState();
+}
+
+async function sc_readReg() {
+  log('─── READ_REG (CMD 0x02) — Đọc tWD_ms ───', 'info');
+
+  const frame = [
+    {cls:'fb-hdr', label:'55'},
+    {cls:'fb-cmd', label:'02'},
+    {cls:'fb-addr',label:'04'},
+    {cls:'fb-len', label:'00'},
+    {cls:'fb-chk', label:'06'},
+  ];
+  // twd_ms = 1600 = 0x00000640
+  const resp = [
+    {cls:'fb-ack', label:'AA'},
+    {cls:'fb-ack', label:'02'},
+    {cls:'fb-ack', label:'00'},
+    {cls:'fb-data',label:'40'},
+    {cls:'fb-data',label:'06'},
+    {cls:'fb-data',label:'00'},
+    {cls:'fb-data',label:'00'},
+    {cls:'fb-chk', label:'CHK'},
+  ];
+  state.cmd = 0x02; state.addr = 0x04;
+  await animUARTFrame(frame, resp, 'READ_REG tWD (0x02)');
+  log(`tWD_ms = ${state.twd_ms} (0x${state.twd_ms.toString(16).toUpperCase()}) = 0x00000640`, 'ok');
+}
+
+async function sc_armDelay() {
+  log('─── TC4: Arm Delay ───', 'info');
+  state.en = true;
+  transitionFSM(S.ARMING, 'EN=1');
+  applyState();
+  log(`ARMING: arm_delay=${state.arm_us}µs — mọi kick bị bỏ qua`, 'warn');
+
+  // Kick trong arm_delay
+  await delay(200);
+  log('Nhấn S1 trong arm_delay...', 'warn');
+  highlightBlock('blk-s1', true);
+  flashBlock('blk-s1');
+  await delay(200);
+  log('→ WDI bị BỎ QUA (ARMING không check wdi_fall)', 'warn');
+  highlightBlock('blk-s1', false);
+
+  // Complete arm
+  highlightBlock('blk-core', true);
+  for (let i=0; i<=100; i+=20) {
+    state.counter = Math.floor(i/100 * state.arm_us*27);
+    state.simTimeMs += state.arm_us/5/1000;
+    updateBars(S.ARMING, state.counter, state.twd_ms, state.trst_ms, state.arm_us);
+    document.getElementById('core-counter-label').textContent = 'cnt: '+state.counter;
+    await delay(180);
+  }
+  transitionFSM(S.MONITOR, 'arm_delay xong');
+  state.enout = true;
+  setLED('led-d4', true);
+  highlightBlock('blk-core', false);
+  log('ENOUT=1 → arm_delay hoàn thành, bắt đầu giám sát ✓', 'ok');
+}
+
+async function sc_disable() {
+  log('─── TC3: Disable Watchdog ───', 'info');
+  state.en = true;
+  transitionFSM(S.ARMING, 'EN=1');
+  await delay(200);
+  transitionFSM(S.MONITOR, 'arm_delay xong');
+  state.enout = true; setLED('led-d4', true);
+  applyState();
+  await delay(300);
+
+  log('Nhả nút S2 → EN=0', 'warn');
+  highlightBlock('blk-s2', true);
+  await delay(300);
+  state.en = false;
+  transitionFSM(S.IDLE, 'EN=0');
+  state.enout = false; state.wdo = true; state.fault = false;
+  setLED('led-d4', false); setLED('led-d3', false);
+  highlightBlock('blk-s2', false);
+  log('Watchdog tắt: ENOUT=0, WDO giải phóng ✓', 'ok');
+  applyState();
+}
+
+async function sc_clrFault() {
+  log('─── Xóa FAULT bằng UART ───', 'info');
+  state.en = true;
+  transitionFSM(S.ARMING, 'EN=1');
+  await delay(150);
+  transitionFSM(S.MONITOR, 'arm_delay xong');
+  state.enout = true; setLED('led-d4', true);
+
+  // Force timeout
+  state.wdo = false; state.fault = true;
+  transitionFSM(S.FAULT, 'Timeout (giả lập)');
+  setLED('led-d3', true);
+  await delay(400);
+
+  // Send CTRL write with bit2=1 (CLR_FAULT)
+  log('PC gửi WRITE_REG CTRL[2]=1 để xóa fault...', 'info');
+  const frame = [
+    {cls:'fb-hdr', label:'55'},
+    {cls:'fb-cmd', label:'01'},
+    {cls:'fb-addr',label:'00'},
+    {cls:'fb-len', label:'04'},
+    {cls:'fb-data',label:'05'},
+    {cls:'fb-data',label:'00'},
+    {cls:'fb-data',label:'00'},
+    {cls:'fb-data',label:'00'},
+    {cls:'fb-chk', label:'CHK'},
+  ];
+  const resp = [
+    {cls:'fb-ack',label:'AA'},
+    {cls:'fb-ack',label:'01'},
+    {cls:'fb-ack',label:'00'},
+    {cls:'fb-ack',label:'01'},
+  ];
+  state.cmd = 0x01; state.addr = 0x00;
+  await animUARTFrame(frame, resp, 'WRITE CTRL[2]=1 (CLR_FAULT)');
+
+  state.wdo = true; state.fault = false;
+  state.ctrl = 0x01;
+  transitionFSM(S.MONITOR, 'clr_fault=1 → phục hồi ngay');
+  setLED('led-d3', false);
+  log('Fault xóa ngay lập tức, không chờ tRST ✓', 'ok');
+  applyState();
+}
+
+// ============================================================
+// Reset
+// ============================================================
+function resetAll(doLog=true) {
+  state = {
+    rst: false, fsmState: S.IDLE, counter: 0,
+    en: false, wdi: true, wdiFall: false,
+    wdo: true, enout: false, fault: false, uartKick: false,
+    parserState: PS.HDR, cmd: null, addr: null,
+    twd_ms: 1600, trst_ms: 200, arm_us: 150, ctrl: 0,
+    simTimeMs: 0, tick: 0, running: false,
+  };
+  simMs = 0;
+  ['idle','arming','monitor','fault'].forEach(n =>
+    document.getElementById('fs-'+n).classList.remove('current'));
+  document.getElementById('fs-idle').classList.add('current');
+  ['blk-pc','blk-uartrx','blk-uarttx','blk-cfg','blk-core',
+   'blk-s1','blk-s2','blk-db1','blk-db2','blk-por','blk-uwdi',
+   'blk-led3','blk-led4'].forEach(id => highlightBlock(id, false));
+  document.getElementById('frame-row').innerHTML = '';
+  document.getElementById('resp-row').innerHTML = '';
+  if (doLog) {
+    document.getElementById('logPanel').innerHTML = '';
+    log('Hệ thống reset — sẵn sàng', 'info');
+  }
+  Object.keys(waveData).forEach(k => waveData[k] = []);
+  applyState();
+}
+
+// ============================================================
+// Init
+// ============================================================
+window.addEventListener('load', () => {
+  initWave();
+  drawArrows();
+  resetAll();
+  window.addEventListener('resize', drawArrows);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+[
+ {
+  "InstFile" : "D:/PTIT/HocKy2_Nam2025/NCKHSV-FPGA/KiWi-1P5/20261104_FPGA_UART_Basic/src/top_phase1.v",
+  "InstLine" : 1,
+  "InstName" : "top_phase1",
+  "ModuleFile" : "D:/PTIT/HocKy2_Nam2025/NCKHSV-FPGA/KiWi-1P5/20261104_FPGA_UART_Basic/src/top_phase1.v",
+  "ModuleLine" : 1,
+  "ModuleName" : "top_phase1",
+  "SubInsts" : [
+   {
+    "InstFile" : "D:/PTIT/HocKy2_Nam2025/NCKHSV-FPGA/KiWi-1P5/20261104_FPGA_UART_Basic/src/top_phase1.v",
+    "InstLine" : 43,
+    "InstName" : "u_emul",
+    "ModuleFile" : "D:/PTIT/HocKy2_Nam2025/NCKHSV-FPGA/KiWi-1P5/20261104_FPGA_UART_Basic/src/traffic_emul_2m.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "traffic_emul_2m"
+   },
+   {
+    "InstFile" : "D:/PTIT/HocKy2_Nam2025/NCKHSV-FPGA/KiWi-1P5/20261104_FPGA_UART_Basic/src/top_phase1.v",
+    "InstLine" : 71,
+    "InstName" : "u_bank0",
+    "ModuleFile" : "D:/PTIT/HocKy2_Nam2025/NCKHSV-FPGA/KiWi-1P5/20261104_FPGA_UART_Basic/src/bram_bank_simple.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "bram_bank_simple"
+   },
+   {
+    "InstFile" : "D:/PTIT/HocKy2_Nam2025/NCKHSV-FPGA/KiWi-1P5/20261104_FPGA_UART_Basic/src/top_phase1.v",
+    "InstLine" : 82,
+    "InstName" : "u_bank1",
+    "ModuleFile" : "D:/PTIT/HocKy2_Nam2025/NCKHSV-FPGA/KiWi-1P5/20261104_FPGA_UART_Basic/src/bram_bank_simple.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "bram_bank_simple"
+   },
+   {
+    "InstFile" : "D:/PTIT/HocKy2_Nam2025/NCKHSV-FPGA/KiWi-1P5/20261104_FPGA_UART_Basic/src/top_phase1.v",
+    "InstLine" : 94,
+    "InstName" : "u_report",
+    "ModuleFile" : "D:/PTIT/HocKy2_Nam2025/NCKHSV-FPGA/KiWi-1P5/20261104_FPGA_UART_Basic/src/uart_reporter.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "uart_reporter",
+    "SubInsts" : [
+     {
+      "InstFile" : "D:/PTIT/HocKy2_Nam2025/NCKHSV-FPGA/KiWi-1P5/20261104_FPGA_UART_Basic/src/uart_reporter.v",
+      "InstLine" : 132,
+      "InstName" : "u_tx",
+      "ModuleFile" : "D:/PTIT/HocKy2_Nam2025/NCKHSV-FPGA/KiWi-1P5/20261104_FPGA_UART_Basic/src/uart_tx.v",
+      "ModuleLine" : 1,
+      "ModuleName" : "uart_tx"
+     }
+    ]
+   }
+  ]
+ }
+]

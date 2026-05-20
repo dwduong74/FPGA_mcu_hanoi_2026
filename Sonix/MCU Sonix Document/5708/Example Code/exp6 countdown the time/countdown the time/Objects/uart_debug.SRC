@@ -1,0 +1,423 @@
+; .\Objects\uart_debug.SRC generated from: Source\uart_debug.c
+; COMPILER INVOKED BY:
+;        C:\Keil_v5\C51\BIN\C51.EXE Source\uart_debug.c OPTIMIZE(8,SPEED) BROWSE INCDIR(.\Source;.\Source;.\Source\Buzzer;.\Source\CHRG;.\Source\KEY;.\Source\Timer;.\Source\IIC;.\Source\USER;.\Source\SYS;.\Source\UART;.\Source\LCD;.\Source\LED;.\Source\INC;.\Source\InfraRed;.\Source\ISP;.\Source\WS2811;.\Source\RF;.\Hardware\SN8F5702_Hardware\inc;.\Source\AHT10) DEBUG OBJECTEXTEND PRINT(.\Listings\uart_debug.lst) TABS(2) SRC(.\Objects\uart_debug.SRC)
+
+$NOMOD51
+
+NAME	UART_DEBUG
+
+PW1YL	DATA	0ACH
+TB80	BIT	098H.3
+T2I0	BIT	0C8H.0
+CCH1	DATA	0C3H
+PW2YL	DATA	0A2H
+P0	DATA	080H
+T2I1	BIT	0C8H.1
+CCH2	DATA	0C5H
+PW3YL	DATA	0B2H
+P1	DATA	090H
+CCH3	DATA	0C7H
+P2	DATA	0A0H
+P3	DATA	0B0H
+SM20	BIT	098H.5
+P4	DATA	0E8H
+AC	BIT	0D0H.6
+CCL1	DATA	0C2H
+EI2C	BIT	0B8H.0
+P5	DATA	0F8H
+SPCON	DATA	0E2H
+CCL2	DATA	0C4H
+PEROM	DATA	095H
+BD	BIT	0D8H.7
+CCL3	DATA	0C6H
+T2R0	BIT	0C8H.3
+T2R1	BIT	0C8H.4
+SPSTA	DATA	0E1H
+IEN0	DATA	0A8H
+IEN1	DATA	0B8H
+DPH1	DATA	085H
+IEN2	DATA	09AH
+IEN4	DATA	0D1H
+DPL1	DATA	084H
+P1OC	DATA	0E4H
+I3FR	BIT	0C8H.6
+REN0	BIT	098H.4
+I2CADR	DATA	0DBH
+S0CON2	DATA	0D8H
+T2CM	BIT	0C8H.2
+I2CDAT	DATA	0DAH
+CCEN	DATA	0C1H
+PW1A	DATA	0BDH
+PW2A	DATA	0BEH
+PW1B	DATA	0AEH
+CY	BIT	0D0H.7
+PW3A	DATA	0CFH
+PW2B	DATA	0A4H
+PW1D	DATA	0BBH
+PW3B	DATA	0B4H
+PW2D	DATA	0A6H
+PW3D	DATA	0B6H
+I2CCON	DATA	0DCH
+CRCH	DATA	0CBH
+SP	DATA	081H
+OV	BIT	0D0H.2
+CRCL	DATA	0CAH
+PW1M	DATA	0ABH
+PW2M	DATA	0A1H
+P0UR	DATA	0F1H
+I2CSTA	DATA	0DDH
+PW3M	DATA	0B1H
+P1UR	DATA	0F2H
+P2UR	DATA	0F3H
+T2PS	BIT	0C8H.7
+P3UR	DATA	0F4H
+P4UR	DATA	0F5H
+P5UR	DATA	0F6H
+IRCON2	DATA	0BFH
+CLKCMD	DATA	0E6H
+S0RELH	DATA	0BAH
+P00	BIT	080H.0
+P10	BIT	090H.0
+PCON	DATA	087H
+P01	BIT	080H.1
+ESPI	BIT	0B8H.1
+PW1Y	DATA	0ACH
+P20	BIT	0A0H.0
+P11	BIT	090H.1
+P02	BIT	080H.2
+P30	BIT	0B0H.0
+PW2Y	DATA	0A2H
+P21	BIT	0A0H.1
+P12	BIT	090H.2
+P03	BIT	080H.3
+P40	BIT	0E8H.0
+PW3Y	DATA	0B2H
+P31	BIT	0B0H.1
+S0RELL	DATA	0AAH
+P22	BIT	0A0H.2
+P13	BIT	090H.3
+P04	BIT	080H.4
+P50	BIT	0F8H.0
+P41	BIT	0E8H.1
+CMPT	DATA	0CEH
+P32	BIT	0B0H.2
+P23	BIT	0A0H.3
+P14	BIT	090H.4
+TMOD	DATA	089H
+TCON	DATA	088H
+P05	BIT	080H.5
+P51	BIT	0F8H.1
+P42	BIT	0E8H.2
+P33	BIT	0B0H.3
+P24	BIT	0A0H.4
+P15	BIT	090H.5
+P06	BIT	080H.6
+P52	BIT	0F8H.2
+P43	BIT	0E8H.3
+P34	BIT	0B0H.4
+P25	BIT	0A0H.5
+P16	BIT	090H.6
+P07	BIT	080H.7
+P53	BIT	0F8H.3
+P44	BIT	0E8H.4
+P35	BIT	0B0H.5
+P26	BIT	0A0H.6
+P17	BIT	090H.7
+P54	BIT	0F8H.4
+P45	BIT	0E8H.5
+P36	BIT	0B0H.6
+P27	BIT	0A0H.7
+P55	BIT	0F8H.5
+P46	BIT	0E8H.6
+P37	BIT	0B0H.7
+P47	BIT	0E8H.7
+GF1	BIT	0C8H.5
+IE0	BIT	088H.1
+ET2C0	BIT	0B8H.2
+IE1	BIT	088H.3
+CLKSEL	DATA	0E5H
+TF2C0	BIT	0C0H.2
+ET2C1	BIT	0B8H.3
+B	DATA	0F0H
+MD0	DATA	0E9H
+TF2C1	BIT	0C0H.3
+ET2C2	BIT	0B8H.4
+MD1	DATA	0EAH
+TF2C2	BIT	0C0H.4
+ET2C3	BIT	0B8H.5
+WDTR	DATA	086H
+MD2	DATA	0EBH
+TF2C3	BIT	0C0H.5
+MD3	DATA	0ECH
+MD4	DATA	0EDH
+MD5	DATA	0EEH
+ACC	DATA	0E0H
+ADB	DATA	0D3H
+SMBSEL	DATA	0DEH
+ES0	BIT	0A8H.4
+IP0	DATA	0A9H
+ET0	BIT	0A8H.1
+IP1	DATA	0B9H
+ET1	BIT	0A8H.3
+TF0	BIT	088H.5
+ET2	BIT	0A8H.5
+RI0	BIT	098H.0
+TF1	BIT	088H.7
+TF2	BIT	0C0H.6
+TH0	DATA	08CH
+P0M	DATA	0F9H
+SRST	DATA	0F7H
+EX0	BIT	0A8H.0
+TI0	BIT	098H.1
+PEROMH	DATA	096H
+TH1	DATA	08DH
+P1M	DATA	0FAH
+TH2	DATA	0CDH
+EX1	BIT	0A8H.2
+P2M	DATA	0FBH
+SMBDST	DATA	0DFH
+P	BIT	0D0H.0
+P3M	DATA	0FCH
+SM0	BIT	098H.7
+TL0	DATA	08AH
+P4M	DATA	0FDH
+SM1	BIT	098H.6
+PEROML	DATA	095H
+TL1	DATA	08BH
+P5M	DATA	0FEH
+ADM	DATA	0D2H
+TL2	DATA	0CCH
+EAL	BIT	0A8H.7
+RS0	BIT	0D0H.3
+RS1	BIT	0D0H.4
+TR0	BIT	088H.4
+ADR	DATA	0D4H
+DPC	DATA	093H
+TR1	BIT	088H.6
+P1W	DATA	091H
+ADT	DATA	0D9H
+DPH	DATA	083H
+CMP0M	DATA	09CH
+CMP1M	DATA	09DH
+DPL	DATA	082H
+S0BUF	DATA	099H
+PW1BH	DATA	0AFH
+P2CON	DATA	09EH
+PW2BH	DATA	0A5H
+P3CON	DATA	09FH
+S0CON	DATA	098H
+TCON0	DATA	0E7H
+P4CON	DATA	0D6H
+PW1DH	DATA	0BCH
+PW3BH	DATA	0B5H
+P5CON	DATA	0D7H
+PW2DH	DATA	0A7H
+PEDGE	DATA	08FH
+T2CON	DATA	0C8H
+PW3DH	DATA	0B7H
+PW1BL	DATA	0AEH
+DPS	DATA	092H
+PW2BL	DATA	0A4H
+PW1DL	DATA	0BBH
+PW3BL	DATA	0B4H
+ET2RL	BIT	0B8H.7
+PW2DL	DATA	0A6H
+PECMD	DATA	094H
+PFLAG	DATA	0FFH
+TF2RL	BIT	0C0H.7
+PW3DL	DATA	0B6H
+OPM	DATA	09BH
+CKCON	DATA	08EH
+ARCON	DATA	0EFH
+F0	BIT	0D0H.5
+F1	BIT	0D0H.1
+PERAM	DATA	097H
+PSW	DATA	0D0H
+PW1YH	DATA	0ADH
+PW2YH	DATA	0A3H
+VREFH	DATA	0D5H
+IRCON	DATA	0C0H
+PW3YH	DATA	0B3H
+RB80	BIT	098H.2
+SPDAT	DATA	0E3H
+?PR?debug_config?UART_DEBUG              SEGMENT CODE 
+?PR?_putchar?UART_DEBUG                  SEGMENT CODE 
+?DT?_putchar?UART_DEBUG                  SEGMENT DATA OVERLAYABLE 
+?BI?UART_DEBUG       SEGMENT BIT 
+?DT?UART_DEBUG       SEGMENT DATA 
+	PUBLIC	delay_cnt
+	PUBLIC	EAL_BIT
+	PUBLIC	_putchar
+	PUBLIC	debug_config
+
+	RSEG  ?DT?_putchar?UART_DEBUG
+?_putchar?BYTE:
+         ch?140:   DS   1
+
+	RSEG  ?BI?UART_DEBUG
+        EAL_BIT:   DBIT   1
+
+	RSEG  ?DT?UART_DEBUG
+      delay_cnt:   DS   1
+; /***********************************************************
+; **函数名     :uart_debug.c
+; **功能描述   :
+; **
+; **输入参数   : 
+; **
+; **返回参数   :
+; **
+; **使用说明   :使用mcu一个io口,模拟uart 。波特率115200 使用C51标准printf函数打印调试信息,占用rom空间1kb
+;   char a = 1;
+;   int b  = 12365;
+;   long c = 0x7FFFFFFF;
+; 
+;   unsigned char x = 'A';
+;   unsigned int y  = 54321;
+;   unsigned long z = 0x4A6F6E00;
+; 
+;   float f = 10.0;
+;   float g = 22.95;
+; 
+;   char buf [] = "Test String";
+;   char *p = buf;
+; 
+;   printf ("char %bd int %d long %ld\n",a,b,c);
+;   printf ("Uchar %bu Uint %u Ulong %lu\n",x,y,z);
+;   printf ("xchar %bx xint %x xlong %lx\n",x,y,z);
+;   printf ("String %s is at address %p\n",buf,p);
+;   printf ("%f != %g\n", f, g);
+;   printf ("%*f != %*g\n", (int)8, f, (int)8, g);
+; ***********************************************************/
+; 
+; #include "uart_debug.h"
+; #include "mcu.h"
+; #define   DEBUG_TX             P01
+; #define   DEBUG_TX_CONFIG      { DEBUG_TX = 1; P0M |= 0X02;}
+; //#define   DELAYCNT             0  //1000000
+; //#define   DELAYCNT             5  //256000
+; #define   DELAYCNT             15 //115200
+; 
+; #define     BARD_RATE           115200
+; 
+; #define   i2c_delay()          {for(delay_cnt = DELAYCNT ; delay_cnt > 0; delay_cnt--);}
+; volatile  bit               EAL_BIT;
+; volatile  unsigned char     delay_cnt;
+; /***********************************************************
+; **函数名     :debug_config()
+; **功能描述   :
+; **
+; **输入参数   : 
+; **
+; **返回参数   :
+; **
+; **使用说明   :配置调试uart 
+; ***********************************************************/
+; void debug_config()
+
+	RSEG  ?PR?debug_config?UART_DEBUG
+debug_config:
+			; SOURCE LINE # 55
+; {
+			; SOURCE LINE # 56
+;   DEBUG_TX_CONFIG
+			; SOURCE LINE # 57
+	SETB 	P01
+	ORL  	P0M,#02H
+; }
+			; SOURCE LINE # 58
+	RET  	
+; END OF debug_config
+
+; /***********************************************************
+; **函数名     :char putchar(char ch)
+; **功能描述   :软件实现UART TX功能  FCPU = 8M  FROM = 8M 波特率 115200   TX = DEBUG_TX    #define  DEBUG_TX  定义
+; **
+; **输入参数   : 汇编实现 适用于不同编译器  FCPU = 8M  FROM = 8M 其他参数需要重新设置延时时间DELAYCNT
+; **
+; **返回参数   :printf 输出重定向到uart  DEBUG时可用printf
+; **
+; **使用说明   :
+; ***********************************************************/
+; 
+; char putchar(char ch)
+
+	RSEG  ?PR?_putchar?UART_DEBUG
+_putchar:
+	USING	0
+			; SOURCE LINE # 70
+	MOV  	ch?140,R7
+; { 
+			; SOURCE LINE # 71
+;   #pragma asm
+;   MOV   C,EAL
+	  MOV   C,EAL
+;   MOV   EAL_BIT,C
+	  MOV   EAL_BIT,C
+;   CLR   EAL
+	  CLR   EAL
+; start:
+	  start:
+;   CLR   DEBUG_TX
+	  CLR   P01
+;   NOP
+	  NOP
+;   #if DELAYCNT
+	  
+;   MOV   delay_cnt,#(DELAYCNT)
+	  MOV   delay_cnt,#(15)
+;   DJNZ  delay_cnt,$
+	  DJNZ  delay_cnt,$
+;   #endif
+	  
+;   MOV   A,#8
+	  MOV   A,#8
+;   MOV   R4,A
+	  MOV   R4,A
+; send_byte:
+	  send_byte:
+;   MOV   A,R7
+	  MOV   A,R7
+;   RRC   A
+	  RRC   A
+;   MOV   DEBUG_TX,C
+	  MOV   P01,C
+;   MOV   R7,A
+	  MOV   R7,A
+;   #if DELAYCNT
+	  
+;   MOV   delay_cnt,#(DELAYCNT)
+	  MOV   delay_cnt,#(15)
+;   DJNZ  delay_cnt,$
+	  DJNZ  delay_cnt,$
+;   #endif
+	  
+;   DJNZ  R4,send_byte
+	  DJNZ  R4,send_byte
+; stop:  
+	  stop:  
+;   NOP
+	  NOP
+;   NOP
+	  NOP
+;   SETB  DEBUG_TX
+	  SETB  P01
+;   MOV   delay_cnt,#(DELAYCNT)
+	  MOV   delay_cnt,#(15)
+;   DJNZ  delay_cnt,$  
+	  DJNZ  delay_cnt,$  
+;   MOV   C,EAL_BIT
+	  MOV   C,EAL_BIT
+;   MOV   EAL,C
+	  MOV   EAL,C
+;   #pragma endasm 
+;   
+;   return ch;    
+			; SOURCE LINE # 105
+	MOV  	R7,ch?140
+; }			; SOURCE LINE # 106
+?C0002:
+	RET  	
+; END OF _putchar
+
+	END

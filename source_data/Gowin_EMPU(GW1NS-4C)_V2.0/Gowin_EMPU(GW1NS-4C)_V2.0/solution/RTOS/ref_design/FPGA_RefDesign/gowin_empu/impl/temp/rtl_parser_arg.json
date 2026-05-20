@@ -1,0 +1,25 @@
+{
+ "Device" : "GW1NSR-4C",
+ "Files" : [
+  {
+   "Path" : "F:/EMB_pub/embedded/cortex_m3 (GW1NS-4C)/solution/2.0/RTOS/ref_design/FPGA_RefDesign/gowin_empu/src/gowin_empu/gowin_empu.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "F:/EMB_pub/embedded/cortex_m3 (GW1NS-4C)/solution/2.0/RTOS/ref_design/FPGA_RefDesign/gowin_empu/src/gowin_empu_demo.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "F:/EMB_pub/embedded/cortex_m3 (GW1NS-4C)/solution/2.0/RTOS/ref_design/FPGA_RefDesign/gowin_empu/src/gowin_pllvr/gowin_pllvr.v",
+   "Type" : "verilog"
+  }
+ ],
+ "IncludePath" : [
+
+ ],
+ "LoopLimit" : 2000,
+ "ResultFile" : "F:/EMB_pub/embedded/cortex_m3 (GW1NS-4C)/solution/2.0/RTOS/ref_design/FPGA_RefDesign/gowin_empu/impl/temp/rtl_parser.result",
+ "Top" : "gowin_empu_demo",
+ "VerilogStd" : "sysv",
+ "VhdlStd" : "vhdl_93"
+}

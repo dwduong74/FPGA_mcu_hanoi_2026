@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls /c/Gowin/Watchdog_UART/impl/pnr/*.fs)",
+      "Bash(grep -E \"\\\\.\\(fs|binx|log\\)$\")"
+    ]
+  }
+}

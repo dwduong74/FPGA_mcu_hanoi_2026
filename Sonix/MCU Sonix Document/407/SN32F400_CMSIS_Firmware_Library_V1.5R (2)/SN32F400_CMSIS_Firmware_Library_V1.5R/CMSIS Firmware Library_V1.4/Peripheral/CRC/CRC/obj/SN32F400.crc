@@ -1,0 +1,8 @@
+[CRC]
+Chipname=SN32F400
+CRCType=CRC16
+CalculationRange=Avoid the last 1 page
+CRCChecksum=0xDB16
+CRCChecksumStartAddress=0x7FF4
+StartAddress=0x0
+EndAddress=0x7DFF
